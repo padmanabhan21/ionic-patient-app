@@ -9,11 +9,10 @@
  
 <ion-content class="screen-bg" padding>
   <form (submit)="doLogin()">
-    <ion-list inset style="margin-top: 155px;">
-        <!-- <ion-item>
-            <ion-label>Username</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item> -->
+    <div class="position-center margin-top-100 weight-700 global-font">
+      <b class="text-white  font-16 ">Plese Enter your mobile number</b>
+    </div>
+    <ion-list inset class="margin-top-150">
           <ion-item >
               <!-- <ion-label>country</ion-label> -->
               <ion-select >
@@ -30,7 +29,7 @@
               </ion-select>
             </ion-item>
             <!-- <ion-row> -->
-              <ion-item  style="width:500px; margin-left: 14px;">
+              <ion-item class="full-width" style=" margin-left: 14px;">
                 <ion-input required type="number"  placeholder="MobileNum"></ion-input>
               </ion-item>
             <!-- </ion-row> -->
