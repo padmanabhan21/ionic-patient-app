@@ -1,13 +1,12 @@
-<ion-header>
+<ion-header >
 
-  <ion-navbar>
-    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
-
+  <ion-navbar color="main">
+    <ion-title>Ractro</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
+        <button ion-button icon-only>
+          <ion-icon name="locate"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,21 +14,15 @@
 <ion-content>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems">
-      <button ion-item (click)="openItem(item)">
+    <ion-item no-lines *ngFor="let item of currentItems">
+      <button ion-item>
         <ion-avatar item-start>
-          <img [src]="item.profilePic" />
+          <img [src]="item.avatar" />
         </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.about}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+        <h2>{{item.title}}</h2>
+        <p>{{item.description}}</p>
+        <ion-icon item-end name="share-alt"></ion-icon>
       </button>
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+    </ion-item>
   </ion-list>
 </ion-content>

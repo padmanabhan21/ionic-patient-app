@@ -1,14 +1,5 @@
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
-  </ion-navbar>
-
-</ion-header> -->
-
- 
 <ion-content class="screen-bg" padding>
-  <form (submit)="doLogin()">
+  <form>
     <div class="position-center margin-top-100 weight-700 global-font">
       <b class="text-white  font-16 ">Plese Enter your mobile number</b>
     </div>
@@ -53,7 +44,7 @@
       </ion-item> -->
 
       <div padding>
-        <button ion-button class="full-width" color="light" outline>Continue</button>
+        <button ion-button class="full-width" color="light" (click)="navigatetofeedback()" outline>Continue</button>
       </div>
 
     </ion-list>

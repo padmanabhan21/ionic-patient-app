@@ -3,13 +3,15 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers';
-import { MainPage } from '../';
-
+// import { MainPage } from '../';
+// import { ListMasterPage } from '../list-master/list-master';
+import { TabsPage } from '../tabs/tabs';
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
+
 export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
@@ -32,19 +34,22 @@ export class LoginPage {
     })
   }
 
-  // Attempt to login in through our User service
-  doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
-    }, (err) => {
-      this.navCtrl.push(MainPage);
-      // Unable to log in
-      let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
-    });
+  navigatetofeedback(){
+    this.navCtrl.push('TabsPage');
   }
+  // Attempt to login in through our User service
+  // doLogin() {
+  //   this.user.login(this.account).subscribe((resp) => {
+  //     this.navCtrl.push(MainPage);
+  //   }, (err) => {
+  //     this.navCtrl.push(MainPage);
+  //   // Unable to log in
+  //     let toast = this.toastCtrl.create({
+  //       message: this.loginErrorString,
+  //       duration: 3000,
+  //       position: 'top'
+  //     });
+  //   toast.present();
+  //   });
+  // }
 }
