@@ -1,2 +1,33 @@
 page-login {
+
+
+    .splash-bg {
+        position: relative;
+        //  background: url('../assets/img/signinpage.jpg') no-repeat transparent;
+        background-color: #03A9F4;
+        background-size: cover;
+        height: 100%;
+        z-index: 1;
+        // background-repeat: repeat-x;
+        // animation: animatedBackground 40s linear infinite;
+      }
+      .list-ios[inset] .item {
+        border-bottom: 1px solid #181819;
+      }
+      .list{
+
+       margin-top: 10px;
+
+      }
+      .item-md{
+          background-color: transparent !important;
+      }
+      ion-select,select-md{
+        min-width: 100% !important;
+      }
+      select-text{
+          min-width: 95% !important;
+      }
 }
+
+

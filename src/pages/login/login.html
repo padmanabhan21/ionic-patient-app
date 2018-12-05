@@ -1,20 +1,39 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
-
-<ion-content>
+ 
+<ion-content class="splash-bg" padding>
   <form (submit)="doLogin()">
-    <ion-list>
+    <ion-list inset style="margin-top: 155px;">
+        <!-- <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item> -->
+          <ion-item >
+              <!-- <ion-label>country</ion-label> -->
+              <ion-select >
+                <ion-option value="+91" selected="true">India</ion-option>
+                <ion-option value="+65">singapur</ion-option>
+                <ion-option value="xcheese">Extra Cheese</ion-option>
+                <ion-option value="peppers">Green Peppers</ion-option>
+                <ion-option value="mushrooms">Mushrooms</ion-option>
+                <ion-option value="onions">Onions</ion-option>
+                <ion-option value="pepperoni">Pepperoni</ion-option>
+                <ion-option value="pineapple">Pineapple</ion-option>
+                <ion-option value="sausage">Sausage</ion-option>
+                <ion-option value="Spinach">Spinach</ion-option>
+              </ion-select>
+            </ion-item>
 
-      <ion-item>
+      <!-- <ion-item>
         <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <!--
       Want to use a Username instead of an Email? Here you go:
@@ -25,13 +44,13 @@
       </ion-item>
       -->
 
-      <ion-item>
+      <!-- <ion-item>
         <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+        <button ion-button color="primary" block>Continue</button>
       </div>
 
     </ion-list>
