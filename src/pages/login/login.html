@@ -7,7 +7,7 @@
 </ion-header> -->
 
  
-<ion-content class="splash-bg" padding>
+<ion-content class="screen-bg" padding>
   <form (submit)="doLogin()">
     <ion-list inset style="margin-top: 155px;">
         <!-- <ion-item>
@@ -29,7 +29,11 @@
                 <ion-option value="Spinach">Spinach</ion-option>
               </ion-select>
             </ion-item>
-
+            <!-- <ion-row> -->
+              <ion-item>
+                <ion-input required type="number" placeholder="MobileNum"></ion-input>
+              </ion-item>
+            <!-- </ion-row> -->
       <!-- <ion-item>
         <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
@@ -50,7 +54,7 @@
       </ion-item> -->
 
       <div padding>
-        <button ion-button color="primary" block>Continue</button>
+        <button ion-button class="full-width" color="light" outline>Continue</button>
       </div>
 
     </ion-list>
