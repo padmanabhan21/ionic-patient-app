@@ -18,15 +18,15 @@ export class ListMasterPage {
    */
   ionViewDidLoad() {
     this.currentItems = [
-      {id:"1",avatar:'../assets/img/splashbg.png',title:"Search doctors, book appointments",description:"Find doctors, clinics, hospitals and more"},
-      {id:"2",avatar:'../assets/img/splashbg.png',title:"Chat with a top doctor",description:"Get a response in 5 minutes & free 3 day follow up"},
-      {id:"3",avatar:'../assets/img/splashbg.png',title:"Order medicines",description:"Medicines delivered to your doorstep"},
-      {id:"4",avatar:'../assets/img/splashbg.png',title:"Book tests, checkups and scans",description:"Get health checkups & tests done at home."},
+      {id:"1",avatar:'../assets/img/searchdoctor.png',title:"Search doctors, book appointments",description:"Find doctors, clinics, hospitals and more"},
+      {id:"2",avatar:'../assets/img/searchdoctor.png',title:"Chat with a top doctor",description:"Get a response in 5 minutes & free 3 day follow up"},
+      {id:"3",avatar:'../assets/img/searchdoctor.png',title:"Order medicines",description:"Medicines delivered to your doorstep"},
+      {id:"4",avatar:'../assets/img/searchdoctor.png',title:"Book tests, checkups and scans",description:"Get health checkups & tests done at home."},
     ]    
   }
   navigatesearch(item){
     if(item.id == "1"){
-      alert("moving to search screen");
+      // alert("moving to search screen");
       this.navCtrl.push('SearchdoctorPage');
     }
 

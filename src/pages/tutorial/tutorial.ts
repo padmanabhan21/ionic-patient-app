@@ -15,7 +15,7 @@ export interface Slide {
   templateUrl: 'tutorial.html'
 })
 export class TutorialPage {
-  slides: Slide[];
+  public slides:any[];
   showSkip = true;
   dir: string = 'ltr';
 
@@ -25,19 +25,26 @@ export class TutorialPage {
     public platform: Platform) {
 
     this.dir = platform.dir();
-    translate.get(["TUTORIAL_SLIDE1_TITLE",
-      "TUTORIAL_SLIDE1_DESCRIPTION",
-      "TUTORIAL_SLIDE2_TITLE",
-      "TUTORIAL_SLIDE2_DESCRIPTION",
-      "TUTORIAL_SLIDE3_TITLE",
-      "TUTORIAL_SLIDE3_DESCRIPTION",
-    ]).subscribe(
-      (values) => {
-        console.log('Loaded values', values);
-      
-      });
   }
-
+  ionViewDidLoad() {
+    this.slides = [
+      {
+        // title: values.TUTORIAL_SLIDE1_TITLE,
+        description: "Book an appointment with the right doctor.",
+        image: 'assets/img/bookappointment.png',
+      },
+      {
+        // title: values.TUTORIAL_SLIDE2_TITLE,
+        description: "Too busy to see a doctor?chat online instead.",
+        image: 'assets/img/doctorchat.png',
+      },
+      {
+        // title: values.TUTORIAL_SLIDE3_TITLE,
+        description: "Get medicines delivered to your doorstep.",
+        image: 'assets/img/getmedicine.png',
+      }
+    ];   
+  }
   startApp() {
     this.navCtrl.setRoot('WelcomePage', {}, {
       animate: true,

@@ -16,9 +16,9 @@
   <ion-list>
     <ion-item *ngFor="let item of currentItems" (click)="navigatesearch(item)">
       <button no-lines ion-item>
-        <ion-avatar item-start>
-          <img [src]="item.avatar"/>
-        </ion-avatar>
+        <ion-img item-start [src]="item.avatar" height="40" width="40">
+          <!-- <img /> -->
+        </ion-img>
         <h2>{{item.title}}</h2>
         <p>{{item.description}}</p>
         <ion-icon item-end name="share-alt"></ion-icon>
