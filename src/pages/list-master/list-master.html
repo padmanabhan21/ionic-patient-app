@@ -14,10 +14,10 @@
 <ion-content>
 
   <ion-list>
-    <ion-item no-lines *ngFor="let item of currentItems">
-      <button ion-item>
+    <ion-item *ngFor="let item of currentItems" (click)="navigatesearch(item)">
+      <button no-lines ion-item>
         <ion-avatar item-start>
-          <img [src]="item.avatar" />
+          <img [src]="item.avatar"/>
         </ion-avatar>
         <h2>{{item.title}}</h2>
         <p>{{item.description}}</p>
