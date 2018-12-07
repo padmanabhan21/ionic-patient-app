@@ -6,21 +6,26 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar>  
     <ion-title>searchdoctor</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content>
   <ion-row>
-    <ion-col col-6 >
+    <ion-col col-6 *ngFor="let item of specialist">
+      
       <ion-item no-lines text-wrap class="padding-left" >
-        <button no-lines ion-item style="background-color: #f6f6f6">
+        <button no-lines ion-item style="background-color: #f6f6f6;height: 75px;" (click)="spacialist()">
+   <ion-avatar item-start>
+      <img [src]="item.icon">
 
-          <ion-img item-start src='../assets/img/womenshealth.png' height="30" width="30">
+   
+   </ion-avatar>
+          <!-- <ion-img item-start src="../assets/img/women's-health.png" height="30" width="30"> -->
             <!-- <img /> -->
-          </ion-img>
-          <h2>Women's Health</h2>
+          <!-- </ion-img> -->
+          <h2>{{item.name}}</h2>
           <!-- <p>{{item.description}}</p> -->
           <!-- <ion-icon item-end name="share-alt"></ion-icon> -->
         </button>
