@@ -22,4 +22,7 @@ export class ListofdoctorsPage {
     console.log('ionViewDidLoad ListofdoctorsPage');
   }
 
+  closeModal(){
+    this.navCtrl.pop();
+  }
 }
