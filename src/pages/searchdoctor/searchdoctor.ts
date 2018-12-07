@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 /**
  * Generated class for the SearchdoctorPage page.
  *
@@ -28,16 +28,17 @@ export class SearchdoctorPage {
     {name:"Eye specialist",icon:"../assets/img/women's-health.png"},
     {name:"Digestive Issues",icon:"../assets/img/women's-health.png"},
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalctrl:ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchdoctorPage');
   }
-  spacialist(){
+  navspecialist(){
     alert("woking")
     console.log("clicked")
-    
+    let navtodoc = this.modalctrl.create(ListofdoctorsPage,undefined,{cssClass:"modal-fullscreen"});
+    navtodoc.present();
     // this.navCtrl.push("DoctorspacialistPage");
   }
 
