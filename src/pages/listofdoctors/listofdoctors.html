@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-buttons item-start>
       <button ion-button (click)="closeModal()">
-        <ion-icon name="close"></ion-icon>
+        <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
     <!-- <ion-title>listofdoctors</ion-title> -->
@@ -18,6 +18,34 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding style="background-color: lightgray">
+  <ion-row >
+    <ion-slides class="slide-size" pager>
+        <ion-slide  style="background-color: white">
+         
+            <!-- <ion-list> -->
+              <!-- <ion-item> -->
+                <ion-row class="margin-top-10">
+                  <ion-col col-4 >
+                    <img  src="../assets/img/women's-health.png">
+                  </ion-col>
+                </ion-row>
+              <!-- </ion-item> -->
+            <!-- </ion-list> -->
+          
+          
+              
+          
+        </ion-slide>
+      
+        <ion-slide style="background-color: white">
+          <h2>Slide 2</h2>
+        </ion-slide>
+      
+        <ion-slide style="background-color: white">
+          <h2>Slide 3</h2>
+        </ion-slide>
+      
+      </ion-slides>
+    </ion-row>
 </ion-content>
