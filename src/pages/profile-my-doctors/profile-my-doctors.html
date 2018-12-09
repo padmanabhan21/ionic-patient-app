@@ -10,8 +10,7 @@
         <ion-buttons item-start>
           <button ion-button (click)="closeModal()">
             <ion-icon name="arrow-back"></ion-icon>
-            <p class="margin-left-10">My Doctors</p>
-    
+            <p class="margin-left-10 small-case">My Doctors</p>
           </button>
         </ion-buttons>
     
@@ -23,7 +22,9 @@
 <ion-content padding>
 <ion-item no-lines *ngIf="showdefault">
     <img class="margin-top-50" src="../assets/img/profile-default.png"/>
-    <b>You have no bookmarked doctors</b>
-    <p>Favourite a doctor for having an easy access to them whenever in need</p>
+    <!-- <b>You have no bookmarked doctors</b> -->
+    <h3 text-center><b>You have no bookmarked doctors</b></h3>
+
+    <p text-wrap text-center>Favourite a doctor for having an easy access to them whenever in need</p>
 </ion-item>
 </ion-content>

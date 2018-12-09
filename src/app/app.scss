@@ -14,6 +14,15 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.border-round{
+    border-radius: 50%;
+}
+.background-transparent{
+    background-color: transparent !important;
+}
+.small-case{
+    text-transform: none;
+}
 .full-width{
     width:100% !important;
 }
@@ -21,11 +30,14 @@
 .screen-bg{
     background-color: #303F9F;
 }
+.margin-auto{
+    margin: auto;
+}
 .margin-top-10{
     margin-top:-108px  !important;
 }
 .margin-left-10{
-    margin: 10px;
+    margin-left: 10px;
 }
 .text-white {
     color:white !important;
@@ -38,6 +50,9 @@
 }
 .margin-top-50{
     margin-top:50px !important;
+}
+.align-center{
+    align-items: center;
 }
 .position-center{
     position: relative;
@@ -99,4 +114,7 @@
 .align-bottom{
     position: absolute;
     bottom:0 !important;
+}
+.text-center{
+    text-align: center !important;
 }
