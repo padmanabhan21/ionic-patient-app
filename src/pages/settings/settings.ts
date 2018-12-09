@@ -1,9 +1,22 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { Settings } from '../../providers';
+
+//profile-options
+import { ProfileMyDoctorsPage } from '../profile-my-doctors/profile-my-doctors';
+import { ProfileAppointmentsPage } from '../profile-appointments/profile-appointments';
+import { ProfileOnlineConsultationPage } from '../profile-online-consultation/profile-online-consultation';
+import { ProfileMedicalRecordsPage } from '../profile-medical-records/profile-medical-records';
+import { ProfileOrdersPage } from '../profile-orders/profile-orders';
+import { ProfileRemindersPage } from '../profile-reminders/profile-reminders';
+import { ProfileBookmarkedArticlesPage } from '../profile-bookmarked-articles/profile-bookmarked-articles';
+import { ProfileHealthInterestPage } from '../profile-health-interest/profile-health-interest';
+import { ProfileMyPaymentPage } from '../profile-my-payment/profile-my-payment';
+import { ProfileOffersPage } from '../profile-offers/profile-offers';
+
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -22,7 +35,18 @@ export class SettingsPage {
   settingsReady = false;
 
   form: FormGroup;
-
+  public profileOptions:any=[
+    {id:"1",name:"My doctors"},
+    {id:"2",name:"Appointments"},
+    {id:"3",name:"Online consultations"},
+    {id:"4",name:"Medical records"},
+    {id:"5",name:"Orders"},
+    {id:"6",name:"Reminders"},
+    {id:"7",name:"Bookmarked articles"},
+    {id:"8",name:"Health interests"},
+    {id:"9",name:"My payments"},
+    {id:"10",name:"Offers"},
+  ]
   profileSettings = {
     page: 'profile',
     pageTitleKey: 'SETTINGS_PAGE_PROFILE'
@@ -38,7 +62,51 @@ export class SettingsPage {
     public settings: Settings,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    public modalCtrl: ModalController) {
+  }
+
+  navprofileoptions(item){
+    if(item.id == "1"){
+      let doctor = this.modalCtrl.create(ProfileMyDoctorsPage);
+      doctor.present();
+    }
+    if(item.id == "2"){
+      let appointment = this.modalCtrl.create(ProfileAppointmentsPage);
+      appointment.present();
+    }
+    if(item.id == "3"){
+      let online = this.modalCtrl.create(ProfileOnlineConsultationPage);
+      online.present();
+    }
+    if(item.id == "4"){
+      let medicalrecord = this.modalCtrl.create(ProfileMedicalRecordsPage);
+      medicalrecord.present();
+    }
+    if(item.id == "5"){
+      let orders = this.modalCtrl.create(ProfileOrdersPage);
+      orders.present();
+    }
+    if(item.id == "6"){
+      let reminder = this.modalCtrl.create(ProfileRemindersPage);
+      reminder.present();
+    }
+    if(item.id == "7"){
+      let bookmark = this.modalCtrl.create(ProfileBookmarkedArticlesPage);
+      bookmark.present();
+    }
+    if(item.id == "8"){
+      let health = this.modalCtrl.create(ProfileHealthInterestPage);
+      health.present();
+    }
+    if(item.id == "9"){
+      let payment = this.modalCtrl.create(ProfileMyPaymentPage);
+      payment.present();
+    }
+    if(item.id == "10"){
+      let offers = this.modalCtrl.create(ProfileOffersPage);
+      offers.present();
+    }
   }
 
   _buildForm() {
