@@ -14,6 +14,19 @@ import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { ListofdoctorsPage } from '../pages/listofdoctors/listofdoctors';
 
+//profile-options
+import { ProfileMyDoctorsPage } from '../pages/profile-my-doctors/profile-my-doctors';
+import { ProfileAppointmentsPage } from '../pages/profile-appointments/profile-appointments';
+import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation';
+import { ProfileMedicalRecordsPage } from '../pages/profile-medical-records/profile-medical-records';
+import { ProfileOrdersPage } from '../pages/profile-orders/profile-orders';
+import { ProfileRemindersPage } from '../pages/profile-reminders/profile-reminders';
+import { ProfileBookmarkedArticlesPage } from '../pages/profile-bookmarked-articles/profile-bookmarked-articles';
+import { ProfileHealthInterestPage } from '../pages/profile-health-interest/profile-health-interest';
+import { ProfileMyPaymentPage } from '../pages/profile-my-payment/profile-my-payment';
+import { ProfileOffersPage } from '../pages/profile-offers/profile-offers';
+// import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -38,7 +51,17 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
-    ListofdoctorsPage
+    ListofdoctorsPage,
+    ProfileMyDoctorsPage,
+    ProfileAppointmentsPage,
+    ProfileOnlineConsultationPage,
+    ProfileMedicalRecordsPage,
+    ProfileOrdersPage,
+    ProfileRemindersPage,
+    ProfileBookmarkedArticlesPage,
+    ProfileHealthInterestPage,
+    ProfileMyPaymentPage,
+    ProfileOffersPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +79,17 @@ export function provideSettings(storage: Storage) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ListofdoctorsPage
+    ListofdoctorsPage,
+    ProfileMyDoctorsPage,
+    ProfileAppointmentsPage,
+    ProfileOnlineConsultationPage,
+    ProfileMedicalRecordsPage,
+    ProfileOrdersPage,
+    ProfileRemindersPage,
+    ProfileBookmarkedArticlesPage,
+    ProfileHealthInterestPage,
+    ProfileMyPaymentPage,
+    ProfileOffersPage
   ],
   providers: [
     Api,
