@@ -1,36 +1,55 @@
-<!--
-  Generated template for the ProfileCompleteSliderPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-  <ion-navbar>
-    
-  </ion-navbar>
-</ion-header> -->
-
-
-<ion-content color="main">
-    <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
+<ion-content class="screen-bg">
+  <ion-row>
+    <ion-col>
+      <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
         <ion-row>
           <ion-col col-1>
-            <ion-icon name="close"></ion-icon>
+            <ion-icon class="text-white" name="close"></ion-icon>
           </ion-col>
-          <ion-col col-7>
-            <h5>Personal</h5>
-            <p>11 questions left</p>
+          <ion-col col-5>
+            <h5 class="text-white">Personal</h5>
+            <p class="text-white">11 questions left</p>
           </ion-col>
-          <ion-col col-2>
-            <button ion-button (click)="closeModal()" clear>
-              Back
-            </button>
+          <ion-col col-3>
+            <button type="submit" float-left ion-button clear class="btnPrev text-white" (click)="prev()">Prev</button>
+
           </ion-col>
-          <ion-col col-2>
-            <button ion-button (click)="closeModal()" clear>
-              Next
-            </button>
+          <ion-col col-3>
+            <button type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
+
           </ion-col>
         </ion-row>
       </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-slides #slides >
+        <ion-slide>
+          <h3 class="text-white margin-top">What is your name?</h3>
+          
+
+          <ion-item class="background-transparent"> 
+            <!-- <ion-label floating class="text-white">Username</ion-label> -->
+            <ion-input class="text-white"placeholder="Username" type="text"></ion-input>
+          </ion-item>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-slide>
+                <h3 class="text-white margin-top">What is your name?</h3>
+                
+      
+                <ion-item class="background-transparent"> 
+                  <!-- <ion-label floating class="text-white">Username</ion-label> -->
+                  <ion-input class="text-white"placeholder="Username" type="text"></ion-input>
+                </ion-item>
+              </ion-slide>
+
+        </ion-slide>
+
+
+      </ion-slides>
+    </ion-col>
+  </ion-row>
 </ion-content>
