@@ -17,7 +17,7 @@ import { ProfileHealthInterestPage } from '../profile-health-interest/profile-he
 import { ProfileMyPaymentPage } from '../profile-my-payment/profile-my-payment';
 import { ProfileOffersPage } from '../profile-offers/profile-offers';
 
-
+import { ProfileCompleteSliderPage } from '../profile-complete-slider/profile-complete-slider';
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
@@ -38,14 +38,14 @@ export class SettingsPage {
   public profileOptions:any=[
     {id:"1",name:"My doctors"},
     {id:"2",name:"Appointments"},
-    {id:"3",name:"Online consultations"},
+    // {id:"3",name:"Online consultations"},
     {id:"4",name:"Medical records"},
-    {id:"5",name:"Orders"},
-    {id:"6",name:"Reminders"},
-    {id:"7",name:"Bookmarked articles"},
-    {id:"8",name:"Health interests"},
+    // {id:"5",name:"Orders"},
+    // {id:"6",name:"Reminders"},
+    // {id:"7",name:"Bookmarked articles"},
+    // {id:"8",name:"Health interests"},
     {id:"9",name:"My payments"},
-    {id:"10",name:"Offers"},
+    // {id:"10",name:"Offers"},
   ]
   profileSettings = {
     page: 'profile',
@@ -75,38 +75,43 @@ export class SettingsPage {
       let appointment = this.modalCtrl.create(ProfileAppointmentsPage);
       appointment.present();
     }
-    if(item.id == "3"){
-      let online = this.modalCtrl.create(ProfileOnlineConsultationPage);
-      online.present();
-    }
+    // if(item.id == "3"){
+    //   let online = this.modalCtrl.create(ProfileOnlineConsultationPage);
+    //   online.present();
+    // }
     if(item.id == "4"){
       let medicalrecord = this.modalCtrl.create(ProfileMedicalRecordsPage);
       medicalrecord.present();
     }
-    if(item.id == "5"){
-      let orders = this.modalCtrl.create(ProfileOrdersPage);
-      orders.present();
-    }
-    if(item.id == "6"){
-      let reminder = this.modalCtrl.create(ProfileRemindersPage);
-      reminder.present();
-    }
-    if(item.id == "7"){
-      let bookmark = this.modalCtrl.create(ProfileBookmarkedArticlesPage);
-      bookmark.present();
-    }
-    if(item.id == "8"){
-      let health = this.modalCtrl.create(ProfileHealthInterestPage);
-      health.present();
-    }
+    // if(item.id == "5"){
+    //   let orders = this.modalCtrl.create(ProfileOrdersPage);
+    //   orders.present();
+    // }
+    // if(item.id == "6"){
+    //   let reminder = this.modalCtrl.create(ProfileRemindersPage);
+    //   reminder.present();
+    // }
+    // if(item.id == "7"){
+    //   let bookmark = this.modalCtrl.create(ProfileBookmarkedArticlesPage);
+    //   bookmark.present();
+    // }
+    // if(item.id == "8"){
+    //   let health = this.modalCtrl.create(ProfileHealthInterestPage);
+    //   health.present();
+    // }
     if(item.id == "9"){
       let payment = this.modalCtrl.create(ProfileMyPaymentPage);
       payment.present();
     }
-    if(item.id == "10"){
-      let offers = this.modalCtrl.create(ProfileOffersPage);
-      offers.present();
-    }
+    // if(item.id == "10"){
+    //   let offers = this.modalCtrl.create(ProfileOffersPage);
+    //   offers.present();
+    // }
+  }
+
+  navprofilecomplete(){
+    let completeprofile = this.modalCtrl.create(ProfileCompleteSliderPage);
+    completeprofile.present();
   }
 
   _buildForm() {

@@ -17,6 +17,9 @@
 .border-round{
     border-radius: 50%;
 }
+.height-56{
+    height: 56px !important;
+}
 .background-transparent{
     background-color: transparent !important;
 }
@@ -33,14 +36,26 @@
 .margin-auto{
     margin: auto;
 }
+.margin-top-5{
+    margin-top: 5px !important;
+}
 .margin-top-10{
     margin-top:-28px  !important;
 }
 .margin-left-10{
     margin-left: 10px;
 }
-.text-white {
-    color:white !important;
+.margin-left-20{
+    margin-left: 20px;
+}
+.margin-left-30{
+    margin-left:30px !important;
+}
+.margin-5{
+    margin:5px !important;
+}
+.margin-top-15{
+    margin-top: 15px !important;
 }
 .margin-top-100{
     margin-top:100px !important;
@@ -117,4 +132,19 @@
 }
 .text-center{
     text-align: center !important;
+}
+.col-140{
+    height:140px !important;
+}
+.text-color-gold{
+    color:goldenrod !important;
+}
+.text-color-purple{
+    color:#ab00ab !important;
+}
+.text-white {
+    color:white !important;
+}
+.border-50{
+border-radius:50% !important;
 }

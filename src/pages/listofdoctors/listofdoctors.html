@@ -18,55 +18,332 @@
 </ion-header>
 
 
-<ion-content padding style="background-color: lightgray">
-  <ion-row >
-    <ion-slides class="slide-size" pager>
-        <ion-slide  style="background-color: white">
-         
-            <!-- <ion-list> -->
-              <!-- <ion-item> -->
-                <ion-row class="margin-top-10">
-                  <ion-col col-3 >
-                    <img  src="../assets/img/appolohospitals.png">
-                  </ion-col>
-                  <ion-col col-9>
-                    <ion-item no-lines>
-                        <b>AppolloHospitals</b>
-                      <ion-row> <p item-start>  1 Doctor</p></ion-row>
-                      <p>&#x20b9; 200 onwards</p>
-                    <ion-row style="height:40px; width:40px;margin-top: 8px;">
-                      <div>
-                      <img  src="../assets/img/appollohospital.png">
-                    </div>
-                   
-                    
-                  </ion-row>
-                </ion-item>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                <ion-item>
-                  
-                </ion-item>
+<ion-content style="background-color: lightgray">
+  <!-- Horizontal Scroll for list of Clinics and Hospitals -->
+  <ion-scroll scrollX="true" style="white-space:nowrap;height:210px;">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-row>
+            <ion-col col-3>
+              <ion-avatar height="30" weight="30">
+                <img src="../assets/img/bala.jpg" />
+              </ion-avatar>
+              <button ion-button small full color="secondary">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <p class="text-white">&nbsp;&nbsp;99%</p>
+              </button>
+              <p text-center class="font-12">475 votes</p>
+              <p class="margin-top-15">Perungudi</p>
+              <p class="text-color-gold">SPONSORED</p>
+            </ion-col>
+            <ion-col col-9>
+              <h2>
+                <b>Better Half Clinic</b>
+              </h2>
+              <div class="card-subtitle">1 Doctor</div>
+              <ion-row>
+                <ion-col>
+                  <div class="card-subtitle">&#x20b9; 500 onwards</div>
+                </ion-col>
+                <ion-col>
+                  <div class="card-subtitle">210 Feedback</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col col-4>
 
-                </ion-row>
-                
-              <!-- </ion-item> -->
-            <!-- </ion-list> -->
-          
-          
-              
-          
-        </ion-slide>
-      
-        <ion-slide style="background-color: white">
-          <h2>Slide 2</h2>
-        </ion-slide>
-      
-        <ion-slide style="background-color: white">
-          <h2>Slide 3</h2>
-        </ion-slide>
-      
-      </ion-slides>
+                </ion-col>
+              </ion-row>
+              <ion-row class="margin-top-15">
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-8>
+                  <button ion-button class="small-case global-font">Book Appointment</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+            <ion-col col-7>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+        <!-- 2nd Card -->
+        <ion-card>
+          <ion-row>
+            <ion-col col-3>
+              <ion-avatar height="30" weight="30">
+                <img src="../assets/img/bala.jpg" />
+              </ion-avatar>
+              <button ion-button small full color="secondary">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <p class="text-white">&nbsp;&nbsp;99%</p>
+              </button>
+              <p text-center class="font-12">475 votes</p>
+              <p class="margin-top-15">Perungudi</p>
+              <p>SPONSORED</p>
+            </ion-col>
+            <ion-col col-9>
+              <h2>
+                <b>Better Half Clinic</b>
+              </h2>
+              <div class="card-subtitle">1 Doctor</div>
+              <ion-row>
+                <ion-col>
+                  <div class="card-subtitle">&#x20b9; 500 onwards</div>
+                </ion-col>
+                <ion-col>
+                  <div class="card-subtitle">210 Feedback</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col col-4>
+
+                </ion-col>
+              </ion-row>
+              <ion-row class="margin-top-15">
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-8>
+                  <button ion-button>Book Appointment</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+            <ion-col col-7>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+        <!-- 3rd Card -->
+        <ion-card>
+          <ion-row>
+            <ion-col col-3>
+              <ion-avatar height="30" weight="30">
+                <img src="../assets/img/bala.jpg" />
+              </ion-avatar>
+              <button ion-button small full color="secondary">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <p class="text-white">&nbsp;&nbsp;99%</p>
+              </button>
+              <p text-center class="font-12">475 votes</p>
+              <p class="margin-top-15">Perungudi</p>
+              <p>SPONSORED</p>
+            </ion-col>
+            <ion-col col-9>
+              <h2>
+                <b>Better Half Clinic</b>
+              </h2>
+              <div class="card-subtitle">1 Doctor</div>
+              <ion-row>
+                <ion-col>
+                  <div class="card-subtitle">&#x20b9; 500 onwards</div>
+                </ion-col>
+                <ion-col>
+                  <div class="card-subtitle">210 Feedback</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                </ion-col>
+                <ion-col col-4>
+
+                </ion-col>
+              </ion-row>
+              <ion-row class="margin-top-15">
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-8>
+                  <button ion-button>Book Appointment</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+            <ion-col col-7>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
     </ion-row>
+  </ion-scroll>
+  <!-- Benefits for the Prime User for our App -->
+  <ion-row>
+    <ion-col col-10>
+      <h6 class="margin-left-20"> Results offering
+        <span class="text-color-purple">Prime</span> benefits</h6>
+    </ion-col>
+    <ion-col col-2 class="custom-icon-align">
+      <ion-icon name="information-circle"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <!-- Vertical Scroll for the list of Doctors -->
+  <!-- Doctor 1 -->
+  <ion-row>
+    <ion-col class="doctor-list-padding">
+      <ion-card class="doctor-list-card">
+        <ion-row>
+          <ion-col>
+            <!-- 1st row -->
+            <ion-row class="doctor-list-row">
+                <ion-col col-3>
+                  <ion-avatar class="margin-top-5" height="30" weight="30">
+                    <img class="border-50" src="../assets/img/bala.jpg" />
+                  </ion-avatar>
+                  <button ion-button small full color="secondary" class="doctor-card-percen">
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <p class="text-white">&nbsp;&nbsp;99%</p>
+                  </button>
+                  <p text-center class="font-12">475 votes</p>
+                </ion-col>
+                <ion-col col-9>
+                  <h2 class="margin-top-5">
+                    <b>Dr. Padmanabhan</b>
+                  </h2>
+                  <div class="card-subtitle margin-top-5">MBBS,DGO</div>
+                  <div class="card-subtitle margin-top-5">Orthopedist</div>
+                  <div class="card-subtitle margin-top-5">10 years of experience</div>
+                  <div class="card-subtitle margin-top-5">742 Feedback</div>
+                  <div class="card-subtitle margin-top-5">&#x20b9; 500</div>
+                  <div class="card-subtitle margin-top-5 font-12">Available on Fri, 14 Dec <b>at Nungabakkam</b></div>
+                  <div class="card-subtitle margin-top-5"><b>Boston Hospital</b></div>
+                </ion-col>
+              </ion-row>
+            <!-- 2nd row -->
+              <ion-row class="text-center">
+                  <p class="text-color-purple margin-left-30"> Prime <ion-icon name="ribbon"></ion-icon>&#8226; Max 30 mins wait + verified details</p>
+                </ion-row>
+                <!-- 3rd row -->
+                <ion-row>
+                    <ion-col col-6>
+                        <button ion-button outline color="primary" class="small-case full-width">View Profile</button>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button ion-button color="primary" class="small-case full-width">Book Appointment</button>
+                    </ion-col>
+                  </ion-row>
+          </ion-col>
+        </ion-row>
+          
+            
+       
+        <!-- <hr> -->
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <!-- Doctor 2 -->
+  <ion-row>
+    <ion-col class="doctor-list-padding">
+      <ion-card class="doctor-list-card">
+        <ion-row>
+          <ion-col col-3>
+            <ion-avatar height="30" weight="30">
+              <img class="border-50" src="../assets/img/bala.jpg" />
+            </ion-avatar>
+            <button ion-button small full color="secondary">
+              <ion-icon name="thumbs-up"></ion-icon>
+              <p class="text-white">&nbsp;&nbsp;99%</p>
+            </button>
+            <p text-center class="font-12">475 votes</p>
+            <p class="margin-top-15">Perungudi</p>
+            <p class="text-color-gold">SPONSORED</p>
+          </ion-col>
+          <ion-col col-9>
+            <h2>
+              <b>Better Half Clinic</b>
+            </h2>
+            <div class="card-subtitle">1 Doctor</div>
+            <ion-row>
+              <ion-col>
+                <div class="card-subtitle">&#x20b9; 500 onwards</div>
+              </ion-col>
+              <ion-col>
+                <div class="card-subtitle">210 Feedback</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <img class="img-50hw" src="../assets/img/bala.jpg" />
+              </ion-col>
+              <ion-col>
+                <img class="img-50hw" src="../assets/img/bala.jpg" />
+              </ion-col>
+              <ion-col>
+                <img class="img-50hw" src="../assets/img/bala.jpg" />
+              </ion-col>
+              <ion-col col-4>
+
+              </ion-col>
+            </ion-row>
+            <ion-row class="margin-top-15">
+              <ion-col col-2>
+              </ion-col>
+              <ion-col col-8>
+                <button ion-button class="small-case global-font">Book Appointment</button>
+              </ion-col>
+              <ion-col col-2>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>
+
+          </ion-col>
+          <ion-col col-2>
+          </ion-col>
+          <ion-col col-7>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>

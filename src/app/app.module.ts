@@ -27,6 +27,7 @@ import { ProfileMyPaymentPage } from '../pages/profile-my-payment/profile-my-pay
 import { ProfileOffersPage } from '../pages/profile-offers/profile-offers';
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
 
+import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/profile-complete-slider';
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -61,7 +62,8 @@ export function provideSettings(storage: Storage) {
     ProfileBookmarkedArticlesPage,
     ProfileHealthInterestPage,
     ProfileMyPaymentPage,
-    ProfileOffersPage
+    ProfileOffersPage,
+    ProfileCompleteSliderPage
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ export function provideSettings(storage: Storage) {
     ProfileBookmarkedArticlesPage,
     ProfileHealthInterestPage,
     ProfileMyPaymentPage,
-    ProfileOffersPage
+    ProfileOffersPage,
+    ProfileCompleteSliderPage
   ],
   providers: [
     Api,
