@@ -91,6 +91,13 @@
 .global-font{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.ion-app.md {
+    font-family: "Roboto", "Helvetica Neue", sans-serif !important;
+    font-size: 1.2rem !important;
+}
+.weight-100{
+    font-weight: 100;
+}
 .weight-500{
     font-weight: 500;
 }
@@ -142,4 +149,7 @@
 }
 .border-50{
 border-radius:50% !important;
+}
+.margin-left{
+    margin-left: -9px !important;
 }
