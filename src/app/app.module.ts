@@ -25,9 +25,10 @@ import { ProfileBookmarkedArticlesPage } from '../pages/profile-bookmarked-artic
 import { ProfileHealthInterestPage } from '../pages/profile-health-interest/profile-health-interest';
 import { ProfileMyPaymentPage } from '../pages/profile-my-payment/profile-my-payment';
 import { ProfileOffersPage } from '../pages/profile-offers/profile-offers';
-// import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
+import { SearchdoctorPage } from '../pages/searchdoctor/searchdoctor';
 
 import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/profile-complete-slider';
+import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-detail';
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -53,6 +54,7 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     ListofdoctorsPage,
+    SearchdoctorPage,
     ProfileMyDoctorsPage,
     ProfileAppointmentsPage,
     ProfileOnlineConsultationPage,
@@ -63,7 +65,8 @@ export function provideSettings(storage: Storage) {
     ProfileHealthInterestPage,
     ProfileMyPaymentPage,
     ProfileOffersPage,
-    ProfileCompleteSliderPage
+    ProfileCompleteSliderPage,
+    SpecialistDetailPage,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     ListofdoctorsPage,
+    SearchdoctorPage,
     ProfileMyDoctorsPage,
     ProfileAppointmentsPage,
     ProfileOnlineConsultationPage,
@@ -92,7 +96,8 @@ export function provideSettings(storage: Storage) {
     ProfileHealthInterestPage,
     ProfileMyPaymentPage,
     ProfileOffersPage,
-    ProfileCompleteSliderPage
+    ProfileCompleteSliderPage,
+    SpecialistDetailPage
   ],
   providers: [
     Api,

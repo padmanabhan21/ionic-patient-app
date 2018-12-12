@@ -16,14 +16,12 @@
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content style="background-color: lightgray">
   <!-- Horizontal Scroll for list of Clinics and Hospitals -->
   <ion-scroll scrollX="true" style="white-space:nowrap;height:210px;">
     <ion-row>
       <ion-col>
-        <ion-card *ngFor="let clinic of clinics">
+        <ion-card *ngFor="let clinic of clinics" (click)="navtodetail()">
           <ion-row>
             <ion-col col-3>
               <ion-avatar height="30" weight="30">
@@ -102,7 +100,7 @@
   <!-- Doctor 1 -->
   <ion-row>
     <ion-col class="doctor-list-padding">
-      <ion-card class="doctor-list-card" *ngFor="let doctor of doctors">
+      <ion-card class="doctor-list-card" *ngFor="let doctor of doctors" (click)="navtodetail()">
         <ion-row>
           <ion-col>
             <!-- 1st row -->

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { SpecialistDetailPage } from '../specialist-detail/specialist-detail';
 /**
  * Generated class for the ListofdoctorsPage page.
  *
@@ -34,7 +35,9 @@ export class ListofdoctorsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListofdoctorsPage');
   }
-
+  navtodetail(){
+    this.navCtrl.push(SpecialistDetailPage);
+  }
   closeModal(){
     this.navCtrl.pop();
   }

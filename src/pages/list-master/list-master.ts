@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
 // import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
 
 @IonicPage()
@@ -26,8 +27,10 @@ export class ListMasterPage {
   }
   navigatesearch(item){
     if(item.id == "1"){
+      let searchdoctor = this.modalCtrl.create(SearchdoctorPage);
+      searchdoctor.present();
       // alert("moving to search screen");
-      this.navCtrl.push('SearchdoctorPage');
+      // this.navCtrl.push('SearchdoctorPage');
     }
 
   }
