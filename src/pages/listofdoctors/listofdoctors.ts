@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import{DoctorsdetailsPage}from'../doctorsdetails/doctorsdetails';
 
 /**
  * Generated class for the ListofdoctorsPage page.
@@ -15,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListofdoctorsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController) {
   }
 
   ionViewDidLoad() {
@@ -24,5 +25,10 @@ export class ListofdoctorsPage {
 
   closeModal(){
     this.navCtrl.pop();
+  }
+
+  navdoctorsdetails(){
+    let doctorsdetails = this.modalCtrl.create(DoctorsdetailsPage);
+    doctorsdetails.present();
   }
 }

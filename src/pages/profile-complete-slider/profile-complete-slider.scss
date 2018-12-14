@@ -1,9 +1,25 @@
 page-profile-complete-slider {
-    .margin-top{
-        margin-top: 197px !important;
-    }
-    .placeholder-text{
-            color:color($colors,white);
-        }
+    // .margin-top{
+    //     margin-top: 197px !important;
+    // }
+
+
+        
+            .btn {
+                display:block;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                border: 1px ;
+              }
+
+       
 
 }
+
+ion-slides {
+    height: 100%;
+    justify-content: center;
+    align-items: center !important;
+}
+

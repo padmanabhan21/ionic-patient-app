@@ -1,0 +1,100 @@
+<!--
+  Generated template for the MedicalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>medical</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content (click)="navmedicalslide()">
+  <ion-list *ngFor="let medi of medical">
+    <!-- Allergies -->
+  <ion-item>
+    <ion-row>
+      <ion-col col-8>
+        <ion-row>
+          Allergies
+        </ion-row>
+      </ion-col>
+      <ion-col col-4>
+        <p placeholder="add allergies">{{medi.Allergies}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!-- Current Medications -->
+  <ion-item>
+    <ion-row>
+      <ion-col col-8>
+        <ion-row>
+          Current Medications
+        </ion-row>
+      </ion-col>
+      <ion-col col-4>
+        <p placeholder="add Medications">{{medi.Current_Medications}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!-- Past Medications -->
+  <ion-item>
+    <ion-row>
+      <ion-col col-8>
+        <ion-row>
+          Past Medications
+        </ion-row>
+      </ion-col>
+      <ion-col col-4>
+        <p placeholder="Past Medications">{{medi.Past_Medications}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!-- Chronic Diseases -->
+  <ion-item>
+    <ion-row>
+      <ion-col col-8>
+        <ion-row>
+          Chronic Diseases
+        </ion-row>
+      </ion-col>
+      <ion-col col-4>
+        <p placeholder="add disease">{{medi.Chronic_Diseases}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!-- Injuries -->
+  <ion-item>
+    <ion-row>
+      <ion-col col-8>
+        <ion-row>
+          Injuries
+        </ion-row>
+      </ion-col>
+      <ion-col col-4>
+        <p placeholder="add incident">{{medi.injuries}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!-- Surgeries -->
+  <ion-item>
+      <ion-row>
+        <ion-col col-8>
+          <ion-row>
+         Surgeries
+          </ion-row>
+        </ion-col>
+        <ion-col col-4>
+          <p placeholder="add addsurgeries">{{medi.Surgiries}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+    <button ion-button block> Complete profile </button>
+  </ion-footer>

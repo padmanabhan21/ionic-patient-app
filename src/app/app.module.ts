@@ -25,6 +25,16 @@ import { ProfileBookmarkedArticlesPage } from '../pages/profile-bookmarked-artic
 import { ProfileHealthInterestPage } from '../pages/profile-health-interest/profile-health-interest';
 import { ProfileMyPaymentPage } from '../pages/profile-my-payment/profile-my-payment';
 import { ProfileOffersPage } from '../pages/profile-offers/profile-offers';
+//profile-dashboard
+import{ProfileDashboardPage}from'../pages/profile-dashboard/profile-dashboard';
+import{PersonalPage}from '../pages/personal/personal';
+import{MedicalPage}from'../pages/medical/medical';
+import{LifestylePage}from'../pages/lifestyle/lifestyle';
+import{MedicalslidePage}from'../pages/medicalslide/medicalslide';
+import{LifestyleslidePage} from'../pages/lifestyleslide/lifestyleslide';
+//doctorsdetails
+import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
+
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
 
 import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/profile-complete-slider';
@@ -63,7 +73,16 @@ export function provideSettings(storage: Storage) {
     ProfileHealthInterestPage,
     ProfileMyPaymentPage,
     ProfileOffersPage,
-    ProfileCompleteSliderPage
+    ProfileCompleteSliderPage,
+    ProfileDashboardPage,
+    PersonalPage,
+    MedicalPage,
+    LifestylePage,
+    MedicalslidePage,
+    LifestyleslidePage,
+    DoctorsdetailsPage
+    
+
   ],
   imports: [
     BrowserModule,
@@ -92,7 +111,14 @@ export function provideSettings(storage: Storage) {
     ProfileHealthInterestPage,
     ProfileMyPaymentPage,
     ProfileOffersPage,
-    ProfileCompleteSliderPage
+    ProfileCompleteSliderPage,
+    ProfileDashboardPage,
+    PersonalPage,
+    MedicalPage,
+    LifestylePage,
+    MedicalslidePage,
+    LifestyleslidePage,
+    DoctorsdetailsPage
   ],
   providers: [
     Api,

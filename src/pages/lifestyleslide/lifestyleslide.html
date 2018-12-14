@@ -1,0 +1,182 @@
+<!--
+  Generated template for the LifestyleslidePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="screen-bg">
+  <ion-row>
+    <ion-col>
+      <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
+        <ion-row>
+          <ion-col col-1>
+            <!-- <ion-icon class="text-white" name="close"></ion-icon> -->
+            <!-- <button ion-button name="ios-close-outline" (click)="closeModal()" > -->
+            <ion-icon class="text-white" item-right name="ios-close-outline" (click)="closeModal()"></ion-icon>
+            <!-- </button> -->
+          </ion-col>
+          <ion-col col-5>
+            <h5 class="text-white">Life style</h5>
+            <p class="text-white">5 questions left</p>
+          </ion-col>
+          <ion-col col-3>
+            <button type="submit" float-left ion-button clear class="btnPrev text-white" (click)="prev()">Prev</button>
+
+          </ion-col>
+          <ion-col col-3>
+            <button type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
+
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-slides #slides>
+        <ion-slide>
+          <h3 class="text-white">How many cigarettes do you smmoke per day?</h3>
+          <ion-row>
+
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>I don't smoke</button>
+            </ion-col>
+            <ion-col col-8>
+              <button class="text-white" ion-button outline>I used to,but i've quit</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>1-2/day</button>
+            </ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>3-5/day</button>
+            </ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>5-10/day</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4></ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>>10/day</button>
+            </ion-col>
+          </ion-row>
+        </ion-slide>
+        <ion-slide>
+          <h3 class="text-white">How frequently do you consume alcohol?</h3>
+          <ion-row>
+            
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>Non-drinker</button>
+            </ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>Rare</button>
+            </ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>Social</button>
+            </ion-col>
+          </ion-row>
+          <ion-col col-4>
+            <button class="text-white" ion-button outline>Regular </button>
+          </ion-col>
+          <ion-col col-4>
+            <button class="text-white" ion-button outline>Heavy </button>
+          </ion-col>
+
+
+        </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white">How active is your lifestyle?</h3>
+          <ion-row>
+            <ion-col col-3></ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>Sedentary(low)</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-6>
+              <button class="text-white" ion-button outline>Moderately active(normal)</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-4>
+                  <button class="text-white" ion-button outline>Active(high)</button>
+                </ion-col>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              <ion-col col-6>
+                  <button class="text-white" ion-button outline>Athletic (very high)</button>
+                </ion-col>
+          </ion-row>
+
+
+        </ion-slide>
+
+
+        <ion-slide>
+          <h3 class="text-white margin-top">What does your diet mainly consist of?</h3>
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-4>
+              <button class="text-white" ion-button outline>vegitarion</button>
+            </ion-col>
+            <ion-col col-6>
+              <button class="text-white" ion-button outline>Non-vegitarion</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-1></ion-col>
+              <ion-col col-4>
+                  <button class="text-white" ion-button outline>Eggetarien</button>
+                </ion-col>
+                <ion-col col-4>
+                  <button class="text-white" ion-button outline>vegan</button>
+                </ion-col>
+          </ion-row>
+        </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white margin-top">What is your profission?</h3>
+          <ion-row>
+            <ion-col col-5>
+              <button class="text-white" ion-button outline>IT Professional</button>
+            </ion-col>
+           
+            <ion-col col-7>
+              <button class="text-white" ion-button outline>Medical Professional</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            
+              <ion-col col-6>
+                <button class="text-white" ion-button outline>Banking Professional</button>
+              </ion-col>
+              <ion-col col-6>
+                <button class="text-white" ion-button outline>Education</button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+            
+                <ion-col col-4>
+                  <button class="text-white" ion-button outline>Student</button>
+                </ion-col>
+                <ion-col col-4>
+                  <button class="text-white" ion-button outline>Home-maker</button>
+                </ion-col>
+                <ion-col col-4>
+                    <button class="text-white" ion-button outline>Other</button>
+                  </ion-col>
+              </ion-row>
+        </ion-slide>
+       
+
+
+
+
+
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+</ion-content>

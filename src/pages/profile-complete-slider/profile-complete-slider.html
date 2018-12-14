@@ -4,7 +4,10 @@
       <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
         <ion-row>
           <ion-col col-1>
-            <ion-icon class="text-white" name="close"></ion-icon>
+            <!-- <ion-icon class="text-white" name="close"></ion-icon> -->
+            <!-- <button ion-button name="ios-close-outline" (click)="closeModal()" > -->
+                <ion-icon class="text-white" item-right name="ios-close-outline"(click)="closeModal()" ></ion-icon>
+            <!-- </button> -->
           </ion-col>
           <ion-col col-5>
             <h5 class="text-white">Personal</h5>
@@ -22,31 +25,172 @@
       </ion-item>
     </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row  >
     <ion-col>
-      <ion-slides #slides >
-        <ion-slide>
-          <h3 class="text-white margin-top">What is your name?</h3>
-          
+      <ion-slides #slides>
+        <ion-slide >
+          <h3 class="text-white">What is your name?</h3>
 
-          <ion-item class="background-transparent"> 
+
+          <ion-item class="background-transparent">
             <!-- <ion-label floating class="text-white">Username</ion-label> -->
-            <ion-input class="text-white"placeholder="Username" type="text"></ion-input>
+            <ion-input class="text-white" placeholder="Username" type="text"></ion-input>
+          </ion-item>
+        </ion-slide>
+        <ion-slide >
+            <h3 class="text-white">What is your Mobilenumber?</h3>
+  
+  
+            <ion-item class="background-transparent">
+                <ion-label class="text-white">MobileNumber</ion-label>
+                <ion-input required type="number"  ></ion-input>
+            </ion-item>
+          </ion-slide>
+
+          <ion-slide >
+              <h3 class="text-white">Which genger do you identity with?</h3>
+              <ion-row >
+                  <ion-col col-4 >
+                      <button class="text-white" ion-button outline>Male</button>
+                  </ion-col>
+                  <ion-col col-4>
+                    <button class="text-white" ion-button outline>Female</button>
+                </ion-col>
+                <ion-col col-4>
+                    <button class="text-white" ion-button outline>Others</button>
+                </ion-col>
+                </ion-row>
+    
+              
+            </ion-slide>
+
+        <ion-slide>
+          <ion-slide>
+            <h3 class="text-white margin-top">What is your email id?</h3>
+            <ion-item class="background-transparent">
+              <!-- <ion-label floating class="text-white">Username</ion-label> -->
+              <ion-input class="text-white" placeholder="Ente Email id" type="text"></ion-input>
+            </ion-item>
+          </ion-slide>
+
+        </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white margin-top">What is your birthday?</h3>
+          <ion-item class="background-transparent">
+            <ion-label class="text-white">Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" class="text-white"></ion-datetime>
           </ion-item>
         </ion-slide>
 
-        <ion-slide>
-            <ion-slide>
-                <h3 class="text-white margin-top">What is your name?</h3>
-                
-      
-                <ion-item class="background-transparent"> 
-                  <!-- <ion-label floating class="text-white">Username</ion-label> -->
-                  <ion-input class="text-white"placeholder="Username" type="text"></ion-input>
-                </ion-item>
-              </ion-slide>
 
+        <ion-slide>
+          <h3 class="text-white margin-top">What is your blood group?</h3>
+          <ion-col>
+            <ion-row>
+              <ion-col col-1></ion-col>
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">A+</button>
+              </ion-col>
+
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">A-</button>
+              </ion-col>
+
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">B+</button>
+              </ion-col>
+
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">B-</button>
+              </ion-col>
+
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">O+</button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-3></ion-col>
+
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">O-</button>
+              </ion-col>
+
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">A+</button>
+              </ion-col>
+              &nbsp;&nbsp;
+              <ion-col col-2>
+                <button class="btn" ion-button color="light">A-</button>
+              </ion-col>
+              <ion-col col-2></ion-col>
+            </ion-row>
+          </ion-col>
         </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white margin-top">Are you married?</h3>
+        <ion-col>
+          <ion-row>
+          <ion-col col-6>
+              <button ion-button color="light">Single</button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button color="light">Married</button>
+        </ion-col>
+        </ion-row>
+      </ion-col>
+          
+        </ion-slide>
+        <ion-slide>
+          <h3 class="text-white margin-top">What is your height?</h3>
+         <ion-row>
+          <ion-item class="background-transparent">
+              <!-- <ion-label floating class="text-white">Username</ion-label> -->
+              <ion-input class="text-white" placeholder="feet" type="number"></ion-input>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+              <ion-item class="background-transparent">
+                  <!-- <ion-label floating class="text-white">Username</ion-label> -->
+                  <ion-input class="text-white" placeholder="inches" type="number"></ion-input>
+                </ion-item>
+              </ion-row>
+        </ion-slide>
+         <ion-slide>
+            <h3 class="text-white margin-top">how much do you weight?</h3>
+            <h3 float-center class="text-white">(in Kgs)</h3>
+            <ion-item class="background-transparent">
+              <!-- <ion-label floating class="text-white">Username</ion-label> -->
+              <ion-input class="text-white" placeholder="Kg" type="number"></ion-input>
+            </ion-item>
+          </ion-slide>
+          <ion-slide>
+              <h3 class="text-white margin-top ">Who is your emergency contact?</h3>
+              
+              <ion-list inset class="margin-top-150 background-transparent text-white">
+                  <ion-item class="background-transparent">
+                      <!-- <ion-label>country</ion-label> -->
+                      <ion-select class="full-width" style="margin:0px !important">
+                        <ion-option value="+91" selected="true">India</ion-option>
+                        <ion-option value="+65">singapur</ion-option>
+                        <ion-option value="xcheese">Extra Cheese</ion-option>
+                        <ion-option value="peppers">Green Peppers</ion-option>
+                        <ion-option value="mushrooms">Mushrooms</ion-option>
+                        <ion-option value="onions">Onions</ion-option>
+                        <ion-option value="pepperoni">Pepperoni</ion-option>
+                        <ion-option value="pineapple">Pineapple</ion-option>
+                        <ion-option value="sausage">Sausage</ion-option>
+                        <ion-option value="Spinach">Spinach</ion-option>
+                      </ion-select>
+                    </ion-item>
+                    <!-- <ion-row> -->
+                      <ion-item class="full-width background-transparent" style=" margin-left: 14px;">
+                          <ion-label class="text-white">MobileNumber</ion-label>
+                        <ion-input required type="number"  ></ion-input>
+                      </ion-item>
+            </ion-list>
+            </ion-slide>
 
 
       </ion-slides>

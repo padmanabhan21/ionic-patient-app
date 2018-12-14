@@ -18,6 +18,7 @@ import { ProfileMyPaymentPage } from '../profile-my-payment/profile-my-payment';
 import { ProfileOffersPage } from '../profile-offers/profile-offers';
 
 import { ProfileCompleteSliderPage } from '../profile-complete-slider/profile-complete-slider';
+import{ProfileDashboardPage}from'../profile-dashboard/profile-dashboard';
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
@@ -164,5 +165,10 @@ export class SettingsPage {
 
   ngOnChanges() {
     console.log('Ng All Changes');
+  }
+  bala(){
+    let nav = this.modalCtrl.create(ProfileDashboardPage);
+    nav.present();
+    // this.navCtrl.push(ProfileDashboardPage);
   }
 }
