@@ -14,6 +14,11 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+//invisible scroll
+* ::-webkit-scrollbar{
+    display: none;
+}
 .border-round{
     border-radius: 50%;
 }
@@ -32,7 +37,6 @@
 .full-width{
     width:100% !important;
 }
-
 .screen-bg{
     background-color: #303F9F;
 }
@@ -117,25 +121,33 @@
 .weight-900{
     font-weight: 900;
 }
-.font-30{
-    font-size:30px;
-} 
+.font-8{
+    font-size: 8px;
+}
+.font-10{
+    font-size: 10px;
+}
 .font-12{
     font-size: 12px;
 }
-
 .font-14{
     font-size: 14px;
 }
-
 .font-16{
     font-size: 16px;
 }
-
 .font-18{
     font-size: 18px;
 }
-
+.font-24{
+    font-size: 24px;
+}
+.font-28{
+    font-size: 28px;
+}
+.font-30{
+    font-size:30px;
+} 
 .align-bottom{
     position: absolute;
     bottom:0 !important;
@@ -163,4 +175,10 @@ border-radius:50% !important;
 }
 .margin-left{
     margin-left: -9px !important;
+}
+.padding-10{
+    padding:10px !important;
+}
+.navbar-height{
+    height:56px;
 }

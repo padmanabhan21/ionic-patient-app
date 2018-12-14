@@ -4,11 +4,25 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header class="screen-bg">
 
-  <ion-navbar color="main">  
-    <ion-title back>searchdoctor</ion-title>
-  </ion-navbar>
+  <!-- <ion-navbar color="main">   -->
+    <ion-row>
+      <ion-icon name="arrow-back" class="text-white padding-10 font-24" (click)="closeModal()"></ion-icon>
+      <h6 class="text-white" class="margin-left-10 text-white">Find & Book</h6>
+      <!-- <ion-col width-20 style="align-items: flex-end navbar-height"> -->
+        <!-- <ion-row>
+          <p class="font-10">Location</p>
+        </ion-row>
+        <ion-row>
+          <p>Chennai &#x25BC;</p>
+        </ion-row> -->
+      <!-- </ion-col> -->
+    </ion-row>
+    <ion-row>
+        <ion-searchbar></ion-searchbar>
+    </ion-row>
+  <!-- </ion-navbar> -->
 
 </ion-header>
 <ion-content>

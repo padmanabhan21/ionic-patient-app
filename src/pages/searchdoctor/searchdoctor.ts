@@ -41,5 +41,8 @@ export class SearchdoctorPage {
     navtodoc.present();
     // this.navCtrl.push("DoctorspacialistPage");
   }
+  closeModal(){
+    this.navCtrl.pop();
+  }
 
 }
