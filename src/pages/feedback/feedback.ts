@@ -21,5 +21,7 @@ export class FeedbackPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedbackPage');
   }
-
+  closeModal(){
+    this.navCtrl.pop();
+  }
 }
