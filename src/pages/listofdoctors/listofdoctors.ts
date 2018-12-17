@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController, Typography } from 'ionic-angular';
 import{DoctorsdetailsPage}from'../doctorsdetails/doctorsdetails';
+import { ProfileDashboardPageModule } from '../profile-dashboard/profile-dashboard.module';
 
-import { SpecialistDetailPage } from '../specialist-detail/specialist-detail';
+// import { SpecialistDetailPage } from '../specialist-detail/specialist-detail';
 /**
  * Generated class for the ListofdoctorsPage page.
  *
@@ -30,15 +31,15 @@ export class ListofdoctorsPage {
 
   ]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListofdoctorsPage');
   }
-  navtodetail(){
-    this.navCtrl.push(SpecialistDetailPage);
-  }
+  // navtodetail(){
+  //   this.navCtrl.push(SpecialistDetailPage);
+  // }
   closeModal(){
     this.navCtrl.pop();
   }
