@@ -1,3 +1,15 @@
 page-feedback {
-
+    .item-md .radio-md[item-left], .item-md .radio-md[item-start] .checkbox-md {
+        margin: 11px 20px 10px 4px;
+    }
+    .item-md{
+        font-size: 14px !important;
+    }
+    .note-hint{
+        background-color: #0a24ff;
+        color: white;
+    }
+    .item.item-md .checkbox-md {
+        margin: 9px 20px 9px 4px !important;
+    }
 }
