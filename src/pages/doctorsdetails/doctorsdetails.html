@@ -6,8 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>doctorsdetails</ion-title>
+  <ion-navbar color="main">
+    <ion-buttons item-start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!-- <ion-title>listofdoctors</ion-title> -->
   </ion-navbar>
 
 </ion-header>
@@ -15,21 +20,19 @@
 
 <ion-content >
     
-  <ion-slides pager class="height-37">
+  <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()">
 
-    <ion-slide style="background-color: green">
-      <h2>Slide 1</h2>
+    <ion-slide *ngFor="let images of clenicimages">
+      <img [src]="images.img">
     </ion-slide>
-  
-    <ion-slide style="background-color: blue">
-      <h2>Slide 2</h2>
-    </ion-slide>
-  
-    <ion-slide style="background-color: red">
-      <h2>Slide 3</h2>
-    </ion-slide>
-  
   </ion-slides>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+ 
+      </ion-item>
+    </ion-col>
+  </ion-row>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
