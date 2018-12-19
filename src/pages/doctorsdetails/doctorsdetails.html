@@ -20,15 +20,20 @@
 
 <ion-content>
 
-  <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
+  <!-- <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
 
     <ion-slide *ngFor="let images of clinic_images">
       <img [src]="images.img">
     </ion-slide>
-  </ion-slides>
-  <ion-row>
-
+  </ion-slides> -->
+  <ion-row class="height-225 doctorimage">
+    <ion-col col-3>
+        <ion-avatar item-left class="z-index-1">
+            <img src="../assets/img/bala.jpg">
+          </ion-avatar>  
+    </ion-col>
   </ion-row>
+  
    <!-- timing starts -->
   <ion-row>
     <ion-col col-2 class="text-center">

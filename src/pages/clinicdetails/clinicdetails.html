@@ -1,0 +1,184 @@
+<!--
+  Generated template for the DoctorsdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="main">
+      <ion-buttons item-start>
+        <button ion-button (click)="closeModal()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <!-- <ion-title>listofdoctors</ion-title> -->
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  
+    <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
+  
+      <ion-slide *ngFor="let images of clinic_images">
+        <img [src]="images.img">
+      </ion-slide>
+    </ion-slides>
+    <ion-row>
+  
+    </ion-row>
+     <!-- timing starts -->
+    <ion-row>
+      <ion-col col-2 class="text-center">
+        <ion-icon name="time" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <ion-badge class="font-10">OPEN TODAY</ion-badge>
+        <p class="margin-auto">9:00 AM - 09:00 PM</p>
+        <button ion-button clear class="small-case margin-auto padding-0" (click)="alltimings()">All Timings</button>
+        <!-- <button >ALL TIMINGS</button> -->
+        <ion-item-divider class="minheight-0 "></ion-item-divider>
+      </ion-col>
+      
+  
+    </ion-row>
+    <!-- timing ends -->
+    <ion-row>
+      <ion-col col-2 class="text-center">
+        <ion-icon ios="ios-pin-outline" md="md-pin" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <p class=" margin-auto">87,4th Cross Street,Tirumalai Nagar</p>
+        <ion-item class="padding-left-0">
+          <img src="../assets/img/logo.png">
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <!-- Doctor List Starts -->
+    <ion-row>
+      <!-- 1st Doctor -->
+      <ion-item class="padding-left-0">
+        <ion-row>
+          <ion-col col-2 class="text-center">
+            <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
+            <!-- <i class="fal fa-stethoscope"></i> -->
+            <img src="../assets/img/doctorsteth.png" class="height-25">
+          </ion-col>
+          <ion-col col-2>
+            <ion-avatar item-left>
+              <img src="../assets/img/bala.jpg">
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-5>
+            <ion-row>
+              <b>Dr.Padmanabhan</b>
+            </ion-row>
+            <ion-row>
+              <p>Sex specialist</p>
+            </ion-row>
+            <ion-row>
+              <p>&#x20b9; 300</p>
+            </ion-row>
+          </ion-col>
+          <ion-col col-3>
+            <ion-row>
+              <ion-col col-4>
+                <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
+              </ion-col>
+              <ion-col col-8>
+                <p class="font-10">96%</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <button ion-button outline primary class="small-case">Book</button>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+  
+      <!-- 2nd Doctor -->
+      <ion-item class="padding-left-0">
+        <ion-row>
+          <ion-col col-2 class="text-center">
+            <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
+            <!-- <i class="fal fa-stethoscope"></i> -->
+            <img src="../assets/img/doctorsteth.png" class="height-25">
+          </ion-col>
+          <ion-col col-2>
+            <ion-avatar item-left>
+              <img src="../assets/img/bala.jpg">
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-5>
+            <ion-row>
+              <b>Dr.Padmanabhan</b>
+            </ion-row>
+            <ion-row>
+              <p>Sex specialist</p>
+            </ion-row>
+            <ion-row>
+              <p>&#x20b9; 300</p>
+            </ion-row>
+          </ion-col>
+          <ion-col col-3>
+            <ion-row>
+              <ion-col col-4>
+                <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
+              </ion-col>
+              <ion-col col-8>
+                <p class="font-10">96%</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <button ion-button outline primary class="small-case">Book</button>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <!-- <button ion-button clear class="small-case margin-auto padding-0 text-center"> All Doctor</button> -->
+      </ion-item>
+     
+  
+    </ion-row>
+    <!-- Doctor List Ends -->
+       <!-- Services start -->
+      
+      <ion-item>
+        <ion-row>
+          <ion-col col-2>
+            <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
+            <ion-icon name="medkit" class="font-26"></ion-icon>
+          </ion-col>
+          <ion-col col-4>
+            <b>Services</b>
+  
+            <p>pre and post Delivery Care </p>
+  
+            <p>High-Risk Pregnancy Care </p>
+  
+            <p>Diseases in Pregnancy </p>
+  
+            <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
+          </ion-col>
+        </ion-row>
+        
+        
+      </ion-item>
+   <!-- service-end -->
+    <!-- </ion-col> -->
+    
+  
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button outline class="small-case" (click)="navtofeedback()">Give Feedback</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button block class="small-case">Book</button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>

@@ -31,6 +31,7 @@
 .height-56{
     height: 56px !important;
 }
+
 .background-transparent{
     background-color: transparent !important;
 }
@@ -88,10 +89,10 @@
     text-align: center;
 }
 .z-index-1{
-    z-index: 1;
+    z-index: 1 !important;
 }
 .z-index-2{
-    z-index: 2;
+    z-index: 2 !important;
 }
 // .splash-info {
 //     position: relative;

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, Typography } from 'ionic-angular';
 import{DoctorsdetailsPage}from'../doctorsdetails/doctorsdetails';
 import { ProfileDashboardPageModule } from '../profile-dashboard/profile-dashboard.module';
+import{ClinicdetailsPage}from'../clinicdetails/clinicdetails';
 
 // import { SpecialistDetailPage } from '../specialist-detail/specialist-detail';
 /**
@@ -47,5 +48,9 @@ export class ListofdoctorsPage {
   navdoctorsdetails(){
     let doctorsdetails = this.modalCtrl.create(DoctorsdetailsPage);
     doctorsdetails.present();
+  }
+  clinicdetails(){
+    let clinicdetails = this.modalCtrl.create(ClinicdetailsPage);
+    clinicdetails.present();
   }
 }
