@@ -42,6 +42,7 @@ import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/prof
 import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-detail';
 
 import { FeedbackPage } from '../pages/feedback/feedback';
+import{AlltimingsPage}from'../pages/alltimings/alltimings';
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -87,7 +88,8 @@ export function provideSettings(storage: Storage) {
     LifestyleslidePage,
     DoctorsdetailsPage,
   // SpecialistDetailPage,
-    FeedbackPage
+    FeedbackPage,
+    AlltimingsPage
   ],
   imports: [
     BrowserModule,
@@ -126,6 +128,7 @@ export function provideSettings(storage: Storage) {
     LifestyleslidePage,
     DoctorsdetailsPage,
     FeedbackPage,
+    AlltimingsPage
     // SpecialistDetailPage
   ],
   providers: [

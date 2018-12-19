@@ -22,20 +22,29 @@
 
   <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
 
-    <ion-slide *ngFor="let images of clenicimages">
+    <ion-slide *ngFor="let images of clinic_images">
       <img [src]="images.img">
     </ion-slide>
   </ion-slides>
+  <ion-row>
 
+  </ion-row>
+   <!-- timing starts -->
   <ion-row>
     <ion-col col-2 class="text-center">
       <ion-icon name="time" class="font-26"></ion-icon>
     </ion-col>
     <ion-col col-10>
       <ion-badge class="font-10">OPEN TODAY</ion-badge>
+      <p class="margin-auto">9:00 AM - 09:00 PM</p>
+      <button ion-button clear class="small-case margin-auto padding-0" (click)="alltimings()">All Timings</button>
+      <!-- <button >ALL TIMINGS</button> -->
+      <ion-item-divider class="minheight-0 "></ion-item-divider>
     </ion-col>
+    
+
   </ion-row>
-  
+  <!-- timing ends -->
   <ion-row>
     <ion-col col-2 class="text-center">
       <ion-icon ios="ios-pin-outline" md="md-pin" class="font-26"></ion-icon>
@@ -127,10 +136,14 @@
           </ion-row>
         </ion-col>
       </ion-row>
+      <!-- <button ion-button clear class="small-case margin-auto padding-0 text-center"> All Doctor</button> -->
     </ion-item>
+   
+
   </ion-row>
   <!-- Doctor List Ends -->
-
+     <!-- Services start -->
+    
     <ion-item>
       <ion-row>
         <ion-col col-2>
@@ -145,14 +158,16 @@
           <p>High-Risk Pregnancy Care </p>
 
           <p>Diseases in Pregnancy </p>
+
+          <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
         </ion-col>
       </ion-row>
-      <ion-row>
-
-      </ion-row>
+      
+      
     </ion-item>
-
+ <!-- service-end -->
   <!-- </ion-col> -->
+  
 
 </ion-content>
 <ion-footer>

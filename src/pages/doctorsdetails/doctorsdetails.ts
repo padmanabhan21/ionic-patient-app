@@ -3,6 +3,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
+import { AlltimingsPage } from '../alltimings/alltimings';
 // import { StarRatingModule } from 'ionic3-star-rating';
 // import { Events } from 'ionic-angular';
 
@@ -17,47 +18,120 @@ import { FeedbackPage } from '../feedback/feedback';
 @Component({
   selector: 'page-doctorsdetails',
   templateUrl: 'doctorsdetails.html',
-  
+
 })
 export class DoctorsdetailsPage {
   public totalclinic = 2;
-    public clenicimages:any []
-    public slides:any[]
+  public clinic_details: any[];
+  public clinic_images:any[];
+  public clinic_timings:any[];
+  public slides: any[]
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public actionsheetCtrl: ActionSheetController,
-  public modalCtrl: ModalController) {
+    public actionsheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController) {
     // events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
-    
+
   }
   @ViewChild('mySlider') slider: Slides;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorsdetailsPage');
-    this.clenicimages=[
-      {img:"../assets/img/app1.jpg"},
-      {img:"../assets/img/app1.jpg"},
-      {img:"../assets/img/app1.jpg"},
-      {img:"../assets/img/app4.jpg"},
-      {img:"../assets/img/app5.jpg"}
-    ];
+    // this.clenicimages=[
+    //   {img:"../assets/img/app1.jpg"},
+    //   {img:"../assets/img/app1.jpg"},
+    //   {img:"../assets/img/app1.jpg"},
+    //   {img:"../assets/img/app4.jpg"},
+    //   {img:"../assets/img/app5.jpg"}
+    // ];
+    this.clinic_details =
+      [
+        {
+          clinic_name: "appollo",
+          clinic_location: "Chromepet",
+          clinic_images:
+            [
+              { img: "../assets/img/bala.jpg" },
+              { img: "../assets/img/bala.jpg" },
+              { img: "../assets/img/bala.jpg" },
+              { img: "../assets/img/bala.jpg" },
+              { img: "../assets/img/bala.jpg" }
+            ],
+          clinic_timings:
+            [
+              { day: "Mon", time: "09:00 AM - 09:00 PM" },
+              { day: "Tue", time: "09:00 AM - 09:00 PM" },
+              { day: "Wed", time: "09:00 AM - 09:00 PM" },
+              { day: "Thu", time: "09:00 AM - 09:00 PM" },
+              { day: "Fri", time: "09:00 AM - 09:00 PM" },
+              { day: "Sat", time: "09:00 AM - 09:00 PM" },
+              { day: "Sun", time: "Closed" }
+            ],
+          clinic_address: "25/11, New Colony, 1st cross st, Chromepet.",
+          clinic_latlng: "12.9532|80.1416",
+          clinic_doctor_list:
+            [
+              {
+                doc_img: "../assets/img/bala.jpg",
+                doc_name: "Bala",
+                doc_specialist: "Dental",
+                doc_fees: "300",
+                doc_like: "40%"
+              },
+              {
+                doc_img: "../assets/img/bala.jpg",
+                doc_name: "Venkat",
+                doc_specialist: "Ortho",
+                doc_fees: "400",
+                doc_like: "80%"
+              },
+              {
+                doc_img: "../assets/img/bala.jpg",
+                doc_name: "Raja",
+                doc_specialist: "General",
+                doc_fees: "100",
+                doc_like: "20%"
+              }
+            ],
+          clinic_services:
+            [
+              { service: "pre and post delivery care" },
+              { service: "High-risk pregnancy care" },
+              { service: "Disease in pregnancy" }
+            ],
+          clinic_open: "Open Today"
+        }
+      ]
+    this.clinic_images = this.clinic_details[0].clinic_images;
+    this.clinic_timings = this.clinic_details[0].clinic_timings;
+    console.log("ARRAAYYYY",this.clinic_timings);
+    }
+  alltimings() {
+    let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_details[0].clinic_name});
+    timelines.present();
   }
+
+  // alltimings(){
+  //   console.log("hello darling")
+  //   let timelines = this.modalCtrl.create(AlltimingsPage);
+  //   timelines.present;
+  // }
   getRandomIndex(): number {
     // uses your list.length to get a random value within the range
     return Math.floor(Math.random() * this.slides.length)
   }
-  navtofeedback(){
-    if(this.totalclinic >= 2){
-    this.feedbackforclinic();
+  navtofeedback() {
+    if (this.totalclinic >= 2) {
+      this.feedbackforclinic();
     }
   }
   newSlide() {
-    this.slider.slideTo(this.getRandomIndex(),500)
+    this.slider.slideTo(this.getRandomIndex(), 500)
   }
-  closeModal(){
+  closeModal() {
     this.navCtrl.pop();
   }
-   
-  feedbackforclinic(){
+
+  feedbackforclinic() {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Which clinic did you visit?',
       cssClass: 'action-sheets-basic-page, small-case',
