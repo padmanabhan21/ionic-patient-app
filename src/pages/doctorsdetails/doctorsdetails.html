@@ -28,27 +28,44 @@
   </ion-slides> -->
   <ion-row class="height-225 doctorimage">
     <ion-col col-3>
-        <ion-avatar item-left class="z-index-1">
-            <img src="../assets/img/bala.jpg">
-          </ion-avatar>  
-    </ion-col>
-  </ion-row>
-  
-   <!-- timing starts -->
-  <ion-row>
-    <ion-col col-2 class="text-center">
-      <ion-icon name="time" class="font-26"></ion-icon>
-    </ion-col>
-    <ion-col col-10>
-      <ion-badge class="font-10">OPEN TODAY</ion-badge>
-      <p class="margin-auto">9:00 AM - 09:00 PM</p>
-      <button ion-button clear class="small-case margin-auto padding-0" (click)="alltimings()">All Timings</button>
-      <!-- <button >ALL TIMINGS</button> -->
-      <ion-item-divider class="minheight-0 "></ion-item-divider>
-    </ion-col>
-    
+      <ion-avatar item-right class="z-index-1 image-bottem">
+        <img src="../assets/img/bala.jpg">
+      </ion-avatar>
 
+    </ion-col>
+    <ion-col col-7 class="image-bottem">
+      <b class="text-white font-10">Dr.venkat </b>
+      <p class="text-white font-10">MBBS,MDS</p>
+      <p class="text-white font-10">Artho</p>
+    </ion-col>
   </ion-row>
+  <ion-item>
+    <ion-row>
+      <ion-col col-1>
+        <b class="small-case text-color-purple">Prime </b>
+      </ion-col>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ion-col col-1>
+        <ion-icon name="checkmark-circle-outline" class="text-color-purple"></ion-icon>
+      </ion-col>
+      <ion-col col-8>
+        <p class="small-case text-color-purple">. Max 60 mins wait + verified details</p>
+      </ion-col>
+
+    </ion-row>
+  </ion-item>
+
+  <!-- timing starts -->
+  <ion-item class="padding-0">
+    <ion-row>
+      <ion-col col-2 class="text-center">
+        <ion-icon name="medkit" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-5>
+        <p class="margin-auto">30 yrs experience...</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
   <!-- timing ends -->
   <ion-row>
     <ion-col col-2 class="text-center">
@@ -58,121 +75,62 @@
       <p class=" margin-auto">87,4th Cross Street,Tirumalai Nagar</p>
       <ion-item class="padding-left-0">
         <img src="../assets/img/logo.png">
+        <button ion-button clear class="small-case font-16" float-left>Select a different clinic</button>
       </ion-item>
     </ion-col>
   </ion-row>
   <!-- Doctor List Starts -->
-  <ion-row>
-    <!-- 1st Doctor -->
-    <ion-item class="padding-left-0">
-      <ion-row>
-        <ion-col col-2 class="text-center">
-          <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
-          <!-- <i class="fal fa-stethoscope"></i> -->
-          <img src="../assets/img/doctorsteth.png" class="height-25">
-        </ion-col>
-        <ion-col col-2>
-          <ion-avatar item-left>
-            <img src="../assets/img/bala.jpg">
-          </ion-avatar>
-        </ion-col>
-        <ion-col col-5>
-          <ion-row>
-            <b>Dr.Padmanabhan</b>
-          </ion-row>
-          <ion-row>
-            <p>Sex specialist</p>
-          </ion-row>
-          <ion-row>
-            <p>&#x20b9; 300</p>
-          </ion-row>
-        </ion-col>
-        <ion-col col-3>
-          <ion-row>
-            <ion-col col-4>
-              <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
-            </ion-col>
-            <ion-col col-8>
-              <p class="font-10">96%</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <button ion-button outline primary class="small-case">Book</button>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-item>
-
-    <!-- 2nd Doctor -->
-    <ion-item class="padding-left-0">
-      <ion-row>
-        <ion-col col-2 class="text-center">
-          <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
-          <!-- <i class="fal fa-stethoscope"></i> -->
-          <img src="../assets/img/doctorsteth.png" class="height-25">
-        </ion-col>
-        <ion-col col-2>
-          <ion-avatar item-left>
-            <img src="../assets/img/bala.jpg">
-          </ion-avatar>
-        </ion-col>
-        <ion-col col-5>
-          <ion-row>
-            <b>Dr.Padmanabhan</b>
-          </ion-row>
-          <ion-row>
-            <p>Sex specialist</p>
-          </ion-row>
-          <ion-row>
-            <p>&#x20b9; 300</p>
-          </ion-row>
-        </ion-col>
-        <ion-col col-3>
-          <ion-row>
-            <ion-col col-4>
-              <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
-            </ion-col>
-            <ion-col col-8>
-              <p class="font-10">96%</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <button ion-button outline primary class="small-case">Book</button>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-      <!-- <button ion-button clear class="small-case margin-auto padding-0 text-center"> All Doctor</button> -->
-    </ion-item>
-   
-
-  </ion-row>
-  <!-- Doctor List Ends -->
-     <!-- Services start -->
-    
-    <ion-item>
-      <ion-row>
-        <ion-col col-2>
-          <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
-          <ion-icon name="medkit" class="font-26"></ion-icon>
-        </ion-col>
-        <ion-col col-4>
-          <b>Services</b>
-
-          <p>pre and post Delivery Care </p>
-
-          <p>High-Risk Pregnancy Care </p>
-
-          <p>Diseases in Pregnancy </p>
-
-          <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
-        </ion-col>
-      </ion-row>
-      
-      
-    </ion-item>
- <!-- service-end -->
-  <!-- </ion-col> -->
   
+  <!-- Doctor List Ends -->
+  <!-- Services start -->
+
+  <ion-item>
+    <ion-row>
+      <ion-col col-2>
+        <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
+        <ion-icon name="medkit" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-4>
+        <b>Services</b>
+
+        <p>pre and post Delivery Care </p>
+
+        <p>High-Risk Pregnancy Care </p>
+
+        <p>Diseases in Pregnancy </p>
+
+        <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-item>
+  <!-- spescialization -->
+  <ion-item>
+    <ion-row>
+      <ion-col col-2>
+        <ion-icon name="paper" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <b class="font-14 small-case">Specialization</b>
+        <p> Artho</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
+  <ion-row>
+    <ion-col col-2>
+      <ion-icon name="checkmark-circle" class="font-26" color="secondary"></ion-icon>
+    </ion-col>
+    <ion-col col-10>
+      <b class="font-14 small-case">Verification done for</b>
+      <p>- Medical Licence</p>
+    </ion-col>
+  </ion-row>
+  </ion-item>
+  <!-- service-end -->
+  <!-- </ion-col> -->
+
 
 </ion-content>
 <ion-footer>
