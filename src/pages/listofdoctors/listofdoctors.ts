@@ -19,6 +19,7 @@ import{ClinicdetailsPage}from'../clinicdetails/clinicdetails';
 })
 export class ListofdoctorsPage {
 
+  public listofdoctors:any=[];
   public clinics:any=[
     {cli_img:"../assets/img/bala.jpg",cli_like:"99%",cli_votes:"475",cli_location:"Chromepet",cli_sponser:"SPONSERED",cli_name:"Better Half Clinic",cli_doc_count:"1",cli_fees:"500",cli_feedback:"210",cli_subimages1:"../assets/img/bala.jpg",cli_subimages2:"../assets/img/bala.jpg",cli_subimages3:"../assets/img/bala.jpg"},
     {cli_img:"../assets/img/marty-avatar.png",cli_like:"88%",cli_votes:"175",cli_location:"Nungabakkam",cli_sponser:"SPONSERED",cli_name:"Best Hospital",cli_doc_count:"2",cli_fees:"300",cli_feedback:"100",cli_subimages1:"../assets/img/sarah.jpeg",cli_subimages2:"../assets/img/bala.jpg",cli_subimages3:"../assets/img/marty-avatar.png"},
@@ -33,6 +34,11 @@ export class ListofdoctorsPage {
   ]
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController) {
+  this.listofdoctors = this.navParams.get("listofdoctors");
+  // this.clinics = this.listofdoctors[0].clinics;
+
+  // this.doctors = this.listofdoctors[0].Doctors;
+  // console.log(JSON.stringify(this.clinics));
   }
 
   ionViewDidLoad() {
