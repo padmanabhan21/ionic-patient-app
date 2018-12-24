@@ -29,14 +29,14 @@
   <ion-row class="height-225 doctorimage">
     <ion-col col-3>
       <ion-avatar item-right class="z-index-1 image-bottem">
-        <img src="../assets/img/bala.jpg">
+        <img [src]="doctor_img">
       </ion-avatar>
 
     </ion-col>
     <ion-col col-7 class="image-bottem">
-      <b class="text-white font-10">Dr.venkat </b>
-      <p class="text-white font-10">MBBS,MDS</p>
-      <p class="text-white font-10">Artho</p>
+      <b class="text-white font-10">{{doctor_name}}</b>
+      <p class="text-white font-10">{{doctor_qualification}}</p>
+      <p class="text-white font-10">{{doctor_specialist}}</p>
     </ion-col>
   </ion-row>
   <ion-item>
@@ -62,7 +62,7 @@
         <ion-icon name="medkit" class="font-26"></ion-icon>
       </ion-col>
       <ion-col col-5>
-        <p class="margin-auto">30 yrs experience...</p>
+        <p class="margin-auto">{{doctor_experience}} experience...</p>
       </ion-col>
     </ion-row>
   </ion-item>
@@ -72,7 +72,7 @@
       <ion-icon ios="ios-pin-outline" md="md-pin" class="font-26"></ion-icon>
     </ion-col>
     <ion-col col-10>
-      <p class=" margin-auto">87,4th Cross Street,Tirumalai Nagar</p>
+      <p class=" margin-auto">{{doctor_clinic_address}}</p>
       <ion-item class="padding-left-0">
         <img src="../assets/img/logo.png">
         <button ion-button clear class="small-case font-16" float-left>Select a different clinic</button>
@@ -93,11 +93,7 @@
       <ion-col col-4>
         <b>Services</b>
 
-        <p>pre and post Delivery Care </p>
-
-        <p>High-Risk Pregnancy Care </p>
-
-        <p>Diseases in Pregnancy </p>
+        <p *ngFor="let service of doctor_service">{{service.service}}</p>
 
         <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
       </ion-col>
@@ -113,7 +109,7 @@
       </ion-col>
       <ion-col col-10>
         <b class="font-14 small-case">Specialization</b>
-        <p> Artho</p>
+        <p *ngFor="let specialization of doctor_specialization">{{specialization.specialization}}</p>
       </ion-col>
     </ion-row>
   </ion-item>

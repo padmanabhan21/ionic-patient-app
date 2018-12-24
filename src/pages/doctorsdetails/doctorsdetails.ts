@@ -21,94 +21,54 @@ import { AlltimingsPage } from '../alltimings/alltimings';
 
 })
 export class DoctorsdetailsPage {
-  public totalclinic = 2;
-  public clinic_details: any[];
-  public clinic_images:any[];
-  public clinic_timings:any[];
-  public slides: any[]
+  public totalclinic=2;
+  public slides=[];
+  public doctor:any=[];
+  public doctor_details: any[];
+  public doctor_name;
+  public doctor_img;
+  public doctor_specialist;
+  public doctor_experience;
+  public doctor_like;
+  public doctor_votes;
+  public doctor_fees;
+  public doctor_clinic_latlng;
+  public doctor_clinic_address;
+  public doctor_clinic:any=[];
+  public doctor_service:any=[];
+  public doctor_specialization:any=[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
     public modalCtrl: ModalController) {
     // events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
-
+      this.doctor = this.navParams.get("doctordetails");
+      this.doctor_details = this.doctor.doctor_deails;
+      console.log("DOCTOR DETAILS**************",JSON.stringify(this.doctor_details));
+      this.doctor_name = this.doctor_details[0].doctor_name;
+      this.doctor_img = this.doctor_details[0].doctor_img;
+      this.doctor_specialist = this.doctor_details[0].doctor_specialist;
+      this.doctor_experience = this.doctor_details[0].doctor_experience;
+      this.doctor_like = this.doctor_details[0].doctor_like;
+      this.doctor_votes = this.doctor_details[0].doctor_votes;
+      this.doctor_fees = this.doctor_details[0].doctor_fees;
+      this.doctor_clinic = this.doctor_details[0].doctor_clinic;
+      this.doctor_clinic_latlng = this.doctor_details[0].doctor_clinic[0].clinic_latlng;
+      this.doctor_clinic_address = this.doctor_details[0].doctor_clinic[0].clinic_address;
+      this.doctor_service = this.doctor_details[0].doctor_services;
+      this.doctor_specialization = this.doctor_details[0].doctor_specialization;
+      this.totalclinic = this.doctor_clinic.length;
   }
   @ViewChild('mySlider') slider: Slides;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorsdetailsPage');
-    // this.clenicimages=[
-    //   {img:"../assets/img/app1.jpg"},
-    //   {img:"../assets/img/app1.jpg"},
-    //   {img:"../assets/img/app1.jpg"},
-    //   {img:"../assets/img/app4.jpg"},
-    //   {img:"../assets/img/app5.jpg"}
-    // ];
-    this.clinic_details =
-      [
-        {
-          clinic_name: "appollo",
-          clinic_location: "Chromepet",
-          clinic_images:
-            [
-              { img: "../assets/img/bala.jpg" },
-              { img: "../assets/img/bala.jpg" },
-              { img: "../assets/img/bala.jpg" },
-              { img: "../assets/img/bala.jpg" },
-              { img: "../assets/img/bala.jpg" }
-            ],
-          clinic_timings:
-            [
-              { day: "Mon", time: "09:00 AM - 09:00 PM" },
-              { day: "Tue", time: "09:00 AM - 09:00 PM" },
-              { day: "Wed", time: "09:00 AM - 09:00 PM" },
-              { day: "Thu", time: "09:00 AM - 09:00 PM" },
-              { day: "Fri", time: "09:00 AM - 09:00 PM" },
-              { day: "Sat", time: "09:00 AM - 09:00 PM" },
-              { day: "Sun", time: "Closed" }
-            ],
-          clinic_address: "25/11, New Colony, 1st cross st, Chromepet.",
-          clinic_latlng: "12.9532|80.1416",
-          clinic_doctor_list:
-            [
-              {
-                doc_img: "../assets/img/bala.jpg",
-                doc_name: "Bala",
-                doc_specialist: "Dental",
-                doc_fees: "300",
-                doc_like: "40%"
-              },
-              {
-                doc_img: "../assets/img/bala.jpg",
-                doc_name: "Venkat",
-                doc_specialist: "Ortho",
-                doc_fees: "400",
-                doc_like: "80%"
-              },
-              {
-                doc_img: "../assets/img/bala.jpg",
-                doc_name: "Raja",
-                doc_specialist: "General",
-                doc_fees: "100",
-                doc_like: "20%"
-              }
-            ],
-          clinic_services:
-            [
-              { service: "pre and post delivery care" },
-              { service: "High-risk pregnancy care" },
-              { service: "Disease in pregnancy" }
-            ],
-          clinic_open: "Open Today"
-        }
-      ]
-    this.clinic_images = this.clinic_details[0].clinic_images;
-    this.clinic_timings = this.clinic_details[0].clinic_timings;
-    console.log("ARRAAYYYY",this.clinic_timings);
     }
-  alltimings() {
-    let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_details[0].clinic_name});
-    timelines.present();
-  }
+
+  // alltimings() {
+  //   let timelines = this.modalCtrl.create(AlltimingsPage);
+  //   timelines.present();
+  // }
 
   // alltimings(){
   //   console.log("hello darling")
@@ -120,7 +80,7 @@ export class DoctorsdetailsPage {
     return Math.floor(Math.random() * this.slides.length)
   }
   navtofeedback() {
-    if (this.totalclinic >= 2) {
+    if (this.totalclinic >= 1) {
       this.feedbackforclinic();
     }
   }

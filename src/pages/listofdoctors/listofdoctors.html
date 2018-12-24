@@ -22,7 +22,7 @@
     <ion-row>
       <ion-col>
         <!-- <ion-card (click)="navdoctorsdetails()"> -->
-        <ion-card *ngFor="let clinic of clinics" (click)="clinicdetails()">
+        <ion-card *ngFor="let clinic of clinics" (click)="clinicdetails(clinic)">
           <ion-row>
             <ion-col col-3>
               <ion-avatar height="30" weight="30">
@@ -101,7 +101,7 @@
   <!-- Doctor 1 -->
   <ion-row>
     <ion-col class="doctor-list-padding">
-      <ion-card class="doctor-list-card" *ngFor="let doctor of doctors" (click)="navdoctorsdetails()">
+      <ion-card class="doctor-list-card" *ngFor="let doctor of doctors" (click)="navdoctorsdetails(doctor)">
         <ion-row>
           <ion-col>
             <!-- 1st row -->

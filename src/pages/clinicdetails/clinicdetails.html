@@ -8,10 +8,11 @@
 
     <ion-navbar color="main">
       <ion-buttons item-start>
-        <button ion-button (click)="closeModal()">
-          <ion-icon name="arrow-back"></ion-icon>
+        <button ion-button (click)="closeModal()" >
+          <ion-icon name="arrow-back"></ion-icon><p class="margin-left-10"> {{clinic_name}}</p>
         </button>
       </ion-buttons>
+     
       <!-- <ion-title>listofdoctors</ion-title> -->
     </ion-navbar>
   
@@ -35,7 +36,7 @@
         <ion-icon name="time" class="font-26"></ion-icon>
       </ion-col>
       <ion-col col-10>
-        <ion-badge class="font-10">OPEN TODAY</ion-badge>
+        <ion-badge class="font-10" >{{clinic_open}}</ion-badge>
         <p class="margin-auto">9:00 AM - 09:00 PM</p>
         <button ion-button clear class="small-case margin-auto padding-0" (click)="alltimings()">All Timings</button>
         <!-- <button >ALL TIMINGS</button> -->
@@ -50,7 +51,7 @@
         <ion-icon ios="ios-pin-outline" md="md-pin" class="font-26"></ion-icon>
       </ion-col>
       <ion-col col-10>
-        <p class=" margin-auto">87,4th Cross Street,Tirumalai Nagar</p>
+        <p class=" margin-auto">{{clinic_address}}</p>
         <ion-item class="padding-left-0">
           <img src="../assets/img/logo.png">
         </ion-item>
@@ -59,7 +60,7 @@
     <!-- Doctor List Starts -->
     <ion-row>
       <!-- 1st Doctor -->
-      <ion-item class="padding-left-0">
+      <ion-item class="padding-left-0" *ngFor="let doctor of clinic_doctor_list">
         <ion-row>
           <ion-col col-2 class="text-center">
             <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
@@ -68,18 +69,18 @@
           </ion-col>
           <ion-col col-2>
             <ion-avatar item-left>
-              <img src="../assets/img/bala.jpg">
+              <img [src]="doctor.doc_img">
             </ion-avatar>
           </ion-col>
           <ion-col col-5>
             <ion-row>
-              <b>Dr.Padmanabhan</b>
+              <b>{{doctor.doc_name}}</b>
             </ion-row>
             <ion-row>
-              <p>Sex specialist</p>
+              <p>{{doctor.doc_specialist}}</p>
             </ion-row>
             <ion-row>
-              <p>&#x20b9; 300</p>
+              <p>&#x20b9; {{doctor.doc_fees}}</p>
             </ion-row>
           </ion-col>
           <ion-col col-3>
@@ -88,7 +89,7 @@
                 <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
               </ion-col>
               <ion-col col-8>
-                <p class="font-10">96%</p>
+                <p class="font-10">{{doctor.doc_like}}</p>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -99,11 +100,10 @@
       </ion-item>
   
       <!-- 2nd Doctor -->
-      <ion-item class="padding-left-0">
+      <!-- <ion-item class="padding-left-0">
         <ion-row>
           <ion-col col-2 class="text-center">
-            <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
-            <!-- <i class="fal fa-stethoscope"></i> -->
+           
             <img src="../assets/img/doctorsteth.png" class="height-25">
           </ion-col>
           <ion-col col-2>
@@ -136,8 +136,8 @@
             </ion-row>
           </ion-col>
         </ion-row>
-        <!-- <button ion-button clear class="small-case margin-auto padding-0 text-center"> All Doctor</button> -->
-      </ion-item>
+      
+      </ion-item> -->
      
   
     </ion-row>
@@ -151,13 +151,13 @@
             <ion-icon name="medkit" class="font-26"></ion-icon>
           </ion-col>
           <ion-col col-4>
-            <b>Services</b>
+            <b >Services</b>
   
-            <p>pre and post Delivery Care </p>
+            <p *ngFor="let service of clinic_services">{{service.service}} </p>
   
-            <p>High-Risk Pregnancy Care </p>
+            <!-- <p>High-Risk Pregnancy Care </p>
   
-            <p>Diseases in Pregnancy </p>
+            <p>Diseases in Pregnancy </p> -->
   
             <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
           </ion-col>
