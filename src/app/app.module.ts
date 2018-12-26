@@ -34,6 +34,7 @@ import{MedicalslidePage}from'../pages/medicalslide/medicalslide';
 import{LifestyleslidePage} from'../pages/lifestyleslide/lifestyleslide';
 //doctorsdetails
 import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
+import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
 // clinicdetals
 
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
@@ -92,6 +93,7 @@ export function provideSettings(storage: Storage) {
     ClinicdetailsPage,
   // SpecialistDetailPage,
     FeedbackPage,
+    DoctortimigsPage,
     AlltimingsPage
   ],
   imports: [
@@ -132,6 +134,7 @@ export function provideSettings(storage: Storage) {
     DoctorsdetailsPage,
     ClinicdetailsPage,
     FeedbackPage,
+    DoctortimigsPage,
     AlltimingsPage
     // SpecialistDetailPage
   ],

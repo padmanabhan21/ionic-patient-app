@@ -4,6 +4,7 @@ import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 import { AlltimingsPage } from '../alltimings/alltimings';
+import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
 // import { StarRatingModule } from 'ionic3-star-rating';
 // import { Events } from 'ionic-angular';
 
@@ -63,6 +64,11 @@ export class DoctorsdetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorsdetailsPage');
+    }
+    navdoctortimings(){
+      console.log("clicked bro")
+      let doctortimings =this.modalCtrl.create(DoctortimigsPage);
+      doctortimings.present();
     }
 
   // alltimings() {
