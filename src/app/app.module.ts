@@ -35,7 +35,8 @@ import{LifestyleslidePage} from'../pages/lifestyleslide/lifestyleslide';
 //doctorsdetails
 import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
 import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
-// clinicdetals
+import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
+import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
 
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
@@ -91,6 +92,8 @@ export function provideSettings(storage: Storage) {
     LifestyleslidePage,
     DoctorsdetailsPage,
     ClinicdetailsPage,
+    ClinicordoctorservicePage,
+    SelectdifferentclinicPage,
   // SpecialistDetailPage,
     FeedbackPage,
     DoctortimigsPage,
@@ -135,7 +138,9 @@ export function provideSettings(storage: Storage) {
     ClinicdetailsPage,
     FeedbackPage,
     DoctortimigsPage,
-    AlltimingsPage
+    AlltimingsPage,
+    ClinicordoctorservicePage,
+    SelectdifferentclinicPage
     // SpecialistDetailPage
   ],
   providers: [
