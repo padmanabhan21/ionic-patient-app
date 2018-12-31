@@ -4,6 +4,9 @@ import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 import { AlltimingsPage } from '../alltimings/alltimings';
+import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
+import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
+import{GeneratetokenPage}from'../generatetoken/generatetoken';
 // import { StarRatingModule } from 'ionic3-star-rating';
 // import { Events } from 'ionic-angular';
 
@@ -37,6 +40,7 @@ export class DoctorsdetailsPage {
   public doctor_clinic:any=[];
   public doctor_service:any=[];
   public doctor_specialization:any=[];
+  // public doctor
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
@@ -64,6 +68,21 @@ export class DoctorsdetailsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorsdetailsPage');
     }
+    navdoctortimings(){
+      console.log("clicked bro")
+      let doctortimings =this.modalCtrl.create(DoctortimigsPage);
+      doctortimings.present();
+    }
+    selectdifferentclinic(){
+      let differentclinic = this.modalCtrl.create(SelectdifferentclinicPage,{"doctor_clinic":this.doctor_clinic});
+      differentclinic.present();
+    }
+      //generete token page navigation
+  GeneratetokenPage(){
+    console.log("generatetoken*********************")
+    let generatetoken =this.modalCtrl.create(GeneratetokenPage)
+    generatetoken.present();
+  }
 
   // alltimings() {
   //   let timelines = this.modalCtrl.create(AlltimingsPage);

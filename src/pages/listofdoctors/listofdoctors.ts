@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ModalController, Typography } from 
 import{DoctorsdetailsPage}from'../doctorsdetails/doctorsdetails';
 import { ProfileDashboardPageModule } from '../profile-dashboard/profile-dashboard.module';
 import{ClinicdetailsPage}from'../clinicdetails/clinicdetails';
+import{GeneratetokenPage}from'../generatetoken/generatetoken';
 
 // import { SpecialistDetailPage } from '../specialist-detail/specialist-detail';
 /**
@@ -64,4 +65,5 @@ export class ListofdoctorsPage {
     let clinicdetails = this.modalCtrl.create(ClinicdetailsPage,{"clinicdetails":param});
     clinicdetails.present();
   }
+
 }

@@ -1,18 +1,14 @@
 <!--
-  Generated template for the AlltimingsPage page.
+  Generated template for the DoctortimigsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <!-- <ion-header> -->
-
-<!-- <ion-navbar color="main"> -->
-
 <ion-row>
   <h6 class="text-white" class="margin-left-10 text-white small-case">Clinic Hours</h6>
 </ion-row>
-<!-- <ion-title>listofdoctors</ion-title> -->
-<!-- </ion-navbar> -->
+
 <!-- </ion-header> -->
 
 
@@ -26,27 +22,19 @@
         <p class="small-case margin-auto">Clinic Hours</p>
       </ion-row>
       <ion-row>
-       
-        <p class="font-14 small-case margin-auto padding-0">{{clinic_name}}</p>
-      
+
+        <p class="font-14 small-case margin-auto padding-0">Dr.venkatesh</p>
       </ion-row>
     </ion-col>
-    <ion-col col-8>
-
-    </ion-col>
-    <!-- <button ion-button ></button> -->
-    <!-- <ion-buttons item-start>
-        <button ion-button (click)="closeModal()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </button>
-      </ion-buttons> -->
   </ion-row>
-  <ion-row padding *ngFor="let timing of clinic_timings" class="height">
-    <ion-col col-2>
+    <ion-row padding class="height "  *ngFor="let timing of doctorstimings">
+    <ion-col col-2 class="padding-0">
       <b>{{timing.day}}</b>
     </ion-col>
-    <ion-col col-6>
-      <b>{{timing.time}}</b>
+    <ion-col col-6 class="padding-0">
+      <p>{{timing.morning}}</p>
+      <p>{{timing.evening}}</p>
+     
     </ion-col>
-  </ion-row>
+    </ion-row>
 </ion-content>

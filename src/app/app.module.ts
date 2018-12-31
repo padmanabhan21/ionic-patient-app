@@ -34,7 +34,12 @@ import{MedicalslidePage}from'../pages/medicalslide/medicalslide';
 import{LifestyleslidePage} from'../pages/lifestyleslide/lifestyleslide';
 //doctorsdetails
 import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
-// clinicdetals
+import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
+import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
+import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
+//genaretoken
+
+import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
 
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
@@ -95,8 +100,12 @@ export function provideSettings(storage: Storage) {
     LifestyleslidePage,
     DoctorsdetailsPage,
     ClinicdetailsPage,
+    ClinicordoctorservicePage,
+    SelectdifferentclinicPage,
   // SpecialistDetailPage,
     FeedbackPage,
+    DoctortimigsPage,
+    GeneratetokenPage,
     AlltimingsPage
   ],
   imports: [
@@ -137,7 +146,11 @@ export function provideSettings(storage: Storage) {
     DoctorsdetailsPage,
     ClinicdetailsPage,
     FeedbackPage,
-    AlltimingsPage
+    DoctortimigsPage,
+    AlltimingsPage,
+    ClinicordoctorservicePage,
+    GeneratetokenPage,
+    SelectdifferentclinicPage
     // SpecialistDetailPage
   ],
   providers: [

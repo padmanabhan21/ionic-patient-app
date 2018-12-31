@@ -4,6 +4,8 @@ import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
 import { AlltimingsPage } from '../alltimings/alltimings';
+import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
+import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
 
 /**
  * Generated class for the ClinicdetailsPage page.
@@ -121,12 +123,22 @@ export class ClinicdetailsPage {
     let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_details[0].clinic_name});
     timelines.present();
   }
+   
+   
 
   // alltimings(){
   //   console.log("hello darling")
   //   let timelines = this.modalCtrl.create(AlltimingsPage);
   //   timelines.present;
   // }
+
+  
+  clinicordoctordetails(){
+    let clinicservices = this.modalCtrl.create(ClinicordoctorservicePage);
+    clinicservices.present();
+
+  }
+  
   getRandomIndex(): number {
     // uses your list.length to get a random value within the range
     return Math.floor(Math.random() * this.slides.length)
