@@ -37,6 +37,9 @@ import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
 import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
 import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
 import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
+//genaretoken
+
+import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
 
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
@@ -97,6 +100,7 @@ export function provideSettings(storage: Storage) {
   // SpecialistDetailPage,
     FeedbackPage,
     DoctortimigsPage,
+    GeneratetokenPage,
     AlltimingsPage
   ],
   imports: [
@@ -140,6 +144,7 @@ export function provideSettings(storage: Storage) {
     DoctortimigsPage,
     AlltimingsPage,
     ClinicordoctorservicePage,
+    GeneratetokenPage,
     SelectdifferentclinicPage
     // SpecialistDetailPage
   ],
