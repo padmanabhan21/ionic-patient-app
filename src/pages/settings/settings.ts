@@ -15,7 +15,7 @@ import { ProfileRemindersPage } from '../profile-reminders/profile-reminders';
 import { ProfileBookmarkedArticlesPage } from '../profile-bookmarked-articles/profile-bookmarked-articles';
 import { ProfileHealthInterestPage } from '../profile-health-interest/profile-health-interest';
 import { ProfileMyPaymentPage } from '../profile-my-payment/profile-my-payment';
-import { ProfileOffersPage } from '../profile-offers/profile-offers';
+// import { ProfileOffersPage } from '../profile-offers/profile-offers';
 
 import { ProfileCompleteSliderPage } from '../profile-complete-slider/profile-complete-slider';
 import{ProfileDashboardPage}from'../profile-dashboard/profile-dashboard';

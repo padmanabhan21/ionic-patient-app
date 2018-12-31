@@ -45,6 +45,11 @@ import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-deta
 
 import { FeedbackPage } from '../pages/feedback/feedback';
 import{AlltimingsPage}from'../pages/alltimings/alltimings';
+
+
+//Facebook Integration
+import { Facebook } from '@ionic-native/facebook';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -142,6 +147,7 @@ export function provideSettings(storage: Storage) {
     Camera,
     SplashScreen,
     StatusBar,
+    Facebook,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }

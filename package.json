@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/camera": "4.3.3",
     "@ionic-native/core": "~4.17.0",
+    "@ionic-native/facebook": "^4.18.0",
     "@ionic-native/splash-screen": "~4.17.0",
     "@ionic-native/status-bar": "~4.17.0",
     "@ionic/storage": "2.2.0",
@@ -29,6 +30,7 @@
     "@ngx-translate/http-loader": "^2.0.0",
     "cordova-android": "7.1.4",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-facebook4": "4.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^2.3.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -54,7 +56,12 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1223930074429133",
+        "APP_NAME": "ionic-patient-app",
+        "FACEBOOK_ANDROID_SDK_VERSION": "4.38.1"
+      }
     },
     "platforms": [
       "android"

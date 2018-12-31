@@ -83,5 +83,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-facebook4" spec="4.0.0">
+        <variable name="APP_ID" value="1223930074429133" />
+        <variable name="APP_NAME" value="ionic-patient-app" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
+    </plugin>
     <engine name="android" spec="7.1.4" />
 </widget>
