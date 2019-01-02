@@ -6,7 +6,8 @@ import { FeedbackPage } from '../feedback/feedback';
 import { AlltimingsPage } from '../alltimings/alltimings';
 import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
 import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
-import{GeneratetokenPage}from'../generatetoken/generatetoken';
+import{TokenconfirmationPage}from'../tokenconfirmation/tokenconfirmation';
+// import{GeneratetokenPage}from'../generatetoken/generatetoken';
 // import { StarRatingModule } from 'ionic3-star-rating';
 // import { Events } from 'ionic-angular';
 
@@ -77,10 +78,10 @@ export class DoctorsdetailsPage {
       let differentclinic = this.modalCtrl.create(SelectdifferentclinicPage,{"doctor_clinic":this.doctor_clinic});
       differentclinic.present();
     }
-      //generete token page navigation
-  GeneratetokenPage(){
-    console.log("generatetoken*********************")
-    let generatetoken =this.modalCtrl.create(GeneratetokenPage)
+      //TokenconfirmationPage token page navigation
+      TokenconfirmationPage(){
+    console.log("TokenconfirmationPage*********************")
+    let generatetoken =this.modalCtrl.create(TokenconfirmationPage)
     generatetoken.present();
   }
 

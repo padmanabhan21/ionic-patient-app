@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the GeneratetokenPage page.
+ * Generated class for the AppointmentdetailsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-generatetoken',
-  templateUrl: 'generatetoken.html',
+  selector: 'page-appointmentdetails',
+  templateUrl: 'appointmentdetails.html',
 })
-export class GeneratetokenPage {
+export class AppointmentdetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GeneratetokenPage');
+    console.log('ionViewDidLoad AppointmentdetailsPage');
+  }
+
+  closeModal() {
+    this.navCtrl.pop();
   }
 
 }
