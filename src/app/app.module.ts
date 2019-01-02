@@ -39,7 +39,10 @@ import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
 import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
 import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
 //genaretoken
-import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
+
+// import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
+import{TokenconfirmationPage}from'../pages/tokenconfirmation/tokenconfirmation';
+import{AppointmentdetailsPage}from'../pages/appointmentdetails/appointmentdetails';
 
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
@@ -104,10 +107,11 @@ export function provideSettings(storage: Storage) {
     ClinicdetailsPage,
     ClinicordoctorservicePage,
     SelectdifferentclinicPage,
+    AppointmentdetailsPage,
   // SpecialistDetailPage,
     FeedbackPage,
     DoctortimigsPage,
-    GeneratetokenPage,
+    TokenconfirmationPage,
     AlltimingsPage
   ],
   imports: [
@@ -154,7 +158,8 @@ export function provideSettings(storage: Storage) {
     DoctortimigsPage,
     AlltimingsPage,
     ClinicordoctorservicePage,
-    GeneratetokenPage,
+    AppointmentdetailsPage,
+    TokenconfirmationPage,
     SelectdifferentclinicPage
     // SpecialistDetailPage
   ],
