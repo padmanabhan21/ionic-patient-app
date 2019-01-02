@@ -1,5 +1,5 @@
 <ion-content class="screen-bg">
-  <ion-row>
+  <ion-row class="row-height-10">
     <ion-col>
       <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
         <ion-row>
@@ -11,7 +11,7 @@
           </ion-col>
           <ion-col col-5>
             <h5 class="text-white">Personal</h5>
-            <p class="text-white">11 questions left</p>
+            <p class="text-white">{{totalQuestion}} questions left</p>
           </ion-col>
           <ion-col col-3>
             <button type="submit" float-left ion-button clear class="btnPrev text-white" (click)="prev()">Prev</button>
@@ -25,9 +25,9 @@
       </ion-item>
     </ion-col>
   </ion-row>
-  <ion-row  >
+  <ion-row  class="row-height-80">
     <ion-col>
-      <ion-slides #slides>
+      <ion-slides #slides (ionSlideDidChange)="slideChanged()">
         <ion-slide >
           <h3 class="text-white">What is your name?</h3>
 
@@ -195,5 +195,8 @@
 
       </ion-slides>
     </ion-col>
+  </ion-row>
+  <ion-row class="row-height-10">
+    
   </ion-row>
 </ion-content>

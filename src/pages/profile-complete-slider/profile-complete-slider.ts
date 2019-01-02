@@ -17,13 +17,25 @@ import { Slides } from 'ionic-angular';
 })
 export class ProfileCompleteSliderPage {
   @ViewChild('slides') slides: Slides;
-  // swiper:any;
+  public currentIndex=0;
+  public totalQuestion=11;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   closeModal(){
     this.navCtrl.pop();
+  }
+
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    console.log('Current index is', currentIndex);
+    this.currentIndex = currentIndex;
+    if(this.totalQuestion == 1){
+    }
+    else{
+    }
+    console.log('Total Question is',this.totalQuestion);
   }
   
   // ionViewDidLoad() {
@@ -36,10 +48,16 @@ export class ProfileCompleteSliderPage {
   // }
   next() {
     this.slides.slideNext();
+    if(this.currentIndex < 10){
+      this.totalQuestion = this.totalQuestion - 1;
+    }
   }
 
   prev() {
     this.slides.slidePrev();
+    if(this.currentIndex > 0){
+      this.totalQuestion = this.totalQuestion + 1;
+    }
   }
 
 

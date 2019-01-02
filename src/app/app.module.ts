@@ -8,6 +8,7 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
 
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
@@ -38,7 +39,6 @@ import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
 import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
 import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
 //genaretoken
-
 import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
 
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
@@ -46,14 +46,16 @@ import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
 import { SearchdoctorPage } from '../pages/searchdoctor/searchdoctor';
 
 import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/profile-complete-slider';
-import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-detail';
+// import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-detail';
 
 import { FeedbackPage } from '../pages/feedback/feedback';
 import{AlltimingsPage}from'../pages/alltimings/alltimings';
-
+//Service
+import { PatientServiceProvider } from '../providers/patient-service/patient-service';
 
 //Facebook Integration
 import { Facebook } from '@ionic-native/facebook';
+// import { PatientServiceProvider } from '../providers/patient-service/patient-service';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -110,6 +112,7 @@ export function provideSettings(storage: Storage) {
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -118,7 +121,9 @@ export function provideSettings(storage: Storage) {
         deps: [HttpClient]
       }
     }),
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      scrollPadding:false,
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -161,9 +166,10 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Facebook,
+    PatientServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
 export class AppModule { }

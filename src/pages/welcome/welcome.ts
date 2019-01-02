@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -19,7 +20,8 @@ export class WelcomePage {
   constructor(public navCtrl: NavController,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
-    public fb:Facebook) { }
+    public fb:Facebook,
+    public api:PatientServiceProvider) { }
 
   loginFb(){
     this.fb.login(['public_profile', 'user_friends', 'email'])
@@ -34,10 +36,30 @@ export class WelcomePage {
   .catch(e => console.log('Error logging into Facebook', e));
 
   }
-  
+  public login_resp:any;
   login() {
-    this.navCtrl.push('LoginPage');
+    this.api.loginUser()
+    .subscribe((resp:any) =>{
+      this.login_resp = resp.MessageCode;
+      if(this.login_resp == "RIS"){
+        this.navCtrl.push('LoginPage');
+      }
+      else if(this.login_resp == "RIUS"){
+        this.updateprofile();
+      }
+    })
   }
+  public update_resp:any;
+  updateprofile(){
+    this.api.updateLogin()
+    .subscribe((resp:any) =>{
+      this.update_resp = resp.MessageCode;
+      if(this.update_resp == "RUS"){
+        this.navCtrl.push('LoginPage');
+      }
+    });
+  }
+
 
   signup() {
     this.navCtrl.push('SignupPage');
