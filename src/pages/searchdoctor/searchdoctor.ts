@@ -35,9 +35,9 @@ export class SearchdoctorPage {
     console.log('ionViewDidLoad SearchdoctorPage');
   }
   navspecialist(param) {
-    alert("woking")
+    // alert("woking")
     console.log("clicked")
-    let navtodoc = this.modalctrl.create(ListofdoctorsPage, {"listofdoctors":param}, { cssClass: "modal-fullscreen" });
+    let navtodoc = this.modalctrl.create(ListofdoctorsPage, { "listofdoctors": param }, { cssClass: "modal-fullscreen" });
     navtodoc.present();
     // this.navCtrl.push("DoctorspacialistPage");
   }
@@ -582,7 +582,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -1595,7 +1595,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -2608,7 +2608,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -3621,7 +3621,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -4634,7 +4634,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -5647,7 +5647,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -6660,7 +6660,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -7673,7 +7673,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -8686,7 +8686,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -9699,7 +9699,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",
@@ -10712,7 +10712,7 @@ export class SearchdoctorPage {
                   cli_subimages1: "../assets/img/sarah.jpeg",
                   cli_subimages2: "../assets/img/bala.jpg",
                   cli_subimages3: "../assets/img/marty-avatar.png",
-								clinic_details: [
+                  clinic_details: [
                     {
                       clinic_name: "Best Hospital",
                       clinic_location: "Nungabakkam",

@@ -4,27 +4,25 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-row>
+<!-- <ion-row>
   <h6 class="text-white" class="margin-left-10 text-white small-case">Clinic Hours</h6>
-</ion-row>
+</ion-row> -->
+<ion-header>
 
+
+  <ion-navbar color="main">
+    <ion-buttons item-start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+         &nbsp;&nbsp;
+        <b class="small-case">Services</b> 
+      </button>
+    </ion-buttons>
+    <p class="small-case text-white margin-0 padding-25">Selva maternity center</p>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
-
-  <ion-row class="height-56 screen-bg text-white">
-    <ion-col col-1 class="text-center margin-top-5">
-      <ion-icon name="close" (click)="closeModal()"></ion-icon>
-    </ion-col>
-    <ion-col col-6>
-      <ion-row>
-        <p class="small-case margin-0 padding-0 ">Services</p>
-      </ion-row>
-      <ion-row>
-        <p class="font-14 small-case margin-0 padding-0">Selva maternity center</p>
-      </ion-row>
-    </ion-col>
-
-  </ion-row>
   <ion-item *ngFor="let service of services">
     <ion-col col-1>
       {{service.dot}}
@@ -35,5 +33,13 @@
   </ion-item>
 </ion-content>
 <ion-footer>
-  <button ion-button full primary>Book</button>
+  <ion-row>
+    <ion-col col-1>
+    </ion-col>
+    <ion-col col-10>
+        <button ion-button class="screen-bg small-case full-width ">Book</button>
+    </ion-col>
+    <ion-col col-1>
+    </ion-col>
+  </ion-row>
 </ion-footer>

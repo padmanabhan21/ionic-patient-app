@@ -38,16 +38,17 @@ export class WelcomePage {
   }
   public login_resp:any;
   login() {
-    this.api.loginUser()
-    .subscribe((resp:any) =>{
-      this.login_resp = resp.MessageCode;
-      if(this.login_resp == "RIS"){
-        this.navCtrl.push('LoginPage');
-      }
-      else if(this.login_resp == "RIUS"){
-        this.updateprofile();
-      }
-    })
+    this.navCtrl.push('LoginPage');
+    // this.api.loginUser()
+    // .subscribe((resp:any) =>{
+    //   this.login_resp = resp.MessageCode;
+    //   if(this.login_resp == "RIS"){
+    //     this.navCtrl.push('LoginPage');
+    //   }
+    //   else if(this.login_resp == "RIUS"){
+    //     this.updateprofile();
+    //   }
+    // })
   }
   public update_resp:any;
   updateprofile(){
