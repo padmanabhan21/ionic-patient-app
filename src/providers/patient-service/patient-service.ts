@@ -71,18 +71,23 @@ export class PatientServiceProvider {
 
 
  // Feedback Service
- feedback():Observable<object[]>{
+ feedback(param):Observable<object[]>{
+
+  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
   const headers = new Headers();
   headers.append('Content-Type','application/json');
   const options = new RequestOptions({ headers: headers });
 
   let body =
   {
-    "business_id":"6",
-    "doctor_id":"Raje10",
-    "mobile":"9677097721",
-    "reason":"backpain",
-    "message":"calm and 100 percent satisfaction"
+    "doctor_id":param.doctor_id,
+    "business_id":param.business_id,
+    "mobile":param.mobile,
+    "recommend_doctor":param.recommend,
+    "health_problem":param.healthproblem,
+    "wait_time":param.waittime,
+    "satisfy_reason":param.satisfy_reason,
+    "comments":param.comments
   }
 
   return this.http.post('https://doctorappnew.herokuapp.com/Insert_FeedBack ',body,options)

@@ -22,7 +22,7 @@
   <p class="font-18">How was your appointment experience with Dr. Priya Kannan?</p>
   <!-- recommend starts -->
   <b class="font-14">Would you like to recommend the doctor?</b>
-  <ion-list radio-group class="margin-bottom-0">
+  <ion-list radio-group class="margin-bottom-0"  [(ngModel)]="feedbackobj.recommend">
     <ion-item no-lines class="padding-left-0">
       <ion-radio item-left value="Yes"></ion-radio>
       <ion-label>Yes</ion-label>
@@ -35,20 +35,28 @@
   <ion-item-divider class="minheight-0 padding-0"></ion-item-divider>
   <!-- recommend ends -->
   <!-- health problem starts -->
-  <ion-item no-lines class="padding-left-0">
+  <!-- <ion-list radio-group  class="margin-bottom-0" > -->
+  <!-- <ion-item no-lines class="padding-left-0"> -->
     <b class="font-14">For which health problem/treatment did you visit?</b>
     <p class="font-10">e.g. Stomach Ache, body pain</p>
-    <button ion-button icon-end class="small-case font-14" clear>
+    <!-- <ion-row> -->
+      <ion-input type="text" value="treatment"[(ngModel)]="feedbackobj.treatment"></ion-input>
+    <!-- </ion-row> -->
+    <!-- <button ion-button icon-end class="small-case font-14" clear>
       Add Problem
       <ion-icon name="star"></ion-icon>
-    </button>
-  </ion-item>
+    </button> -->
+    <!-- <ion-input type="text" value=""></ion-input> -->
+  <!-- <ion-textarea class="border-2" rows="1">Add your experience</ion-textarea> -->
+
+  <!-- </ion-item> -->
+
   <ion-item-divider class="minheight-0 padding-0"></ion-item-divider>
   <br>
   <!-- health problem ends -->
   <!-- radio button starts -->
   <b class="margin-top-15 font-14">How long did you wait to be seen by the doctor?</b>
-  <ion-list radio-group class="margin-bottom-0">
+  <ion-list radio-group class="margin-bottom-0" [(ngModel)]="feedbackobj.waittime">
     <ion-item no-lines class="padding-left-0">
       <ion-radio item-left value="15m"></ion-radio>
       <ion-label>Less than 15 min</ion-label>
@@ -74,23 +82,23 @@
   <p class="font-10">Select one or more tags.</p>
   <ion-item no-lines class="padding-left-0">
     <ion-label>Doctor friendliness</ion-label>
-    <ion-checkbox color="dark" checked="true"></ion-checkbox>
+    <ion-checkbox  [(ngModel)]="feedbackobj.cb1" ></ion-checkbox>
   </ion-item>
   <ion-item no-lines class="padding-left-0">
     <ion-label>Explanation of the health issue</ion-label>
-    <ion-checkbox ></ion-checkbox>
+    <ion-checkbox [(ngModel)]="feedbackobj.cb2"></ion-checkbox>
   </ion-item>
   <ion-item no-lines class="padding-left-0">
     <ion-label>Treatment satisfaction</ion-label>
-    <ion-checkbox ></ion-checkbox>
+    <ion-checkbox [(ngModel)]="feedbackobj.cb3"></ion-checkbox>
   </ion-item>
   <ion-item no-lines class="padding-left-0">
     <ion-label>Value of money</ion-label>
-    <ion-checkbox ></ion-checkbox>
+    <ion-checkbox [(ngModel)]="feedbackobj.cb4"></ion-checkbox>
   </ion-item>
   <ion-item no-lines class="padding-left-0">
     <ion-label>Wait time</ion-label>
-    <ion-checkbox ></ion-checkbox>
+    <ion-checkbox [(ngModel)]="feedbackobj.cb5"></ion-checkbox>
   </ion-item>
   <ion-item-divider class="minheight-0 padding-0"></ion-item-divider>
   <br>
@@ -98,7 +106,7 @@
   <!-- experience starts -->
   <b>Tell us about your experience with the doctor.</b>
   <p>Tip: eg. Share relevant stories which made you appreciate 'doctor friendliness'. Read more tips</p>
-  <ion-textarea class="border-2" rows="7">Add your experience</ion-textarea>
+  <ion-textarea class="border-2" rows="7"  [(ngModel)]="feedbackobj.experience">Add your experience</ion-textarea>
   <br>
   <!-- experience ends -->
   <ion-row >
@@ -107,11 +115,11 @@
   <br>
   <ion-item no-lines class="padding-left-0">
     <ion-label><b>Keep This feedback publicly anonymous</b></ion-label>
-    <ion-checkbox checked="isChecked" ></ion-checkbox>
+    <ion-checkbox checked="isChecked"  [(ngModel)]="feedbackobj.anonymous"></ion-checkbox>
   </ion-item>
   <p class="font-12 margin-left-40">Note: Your identity will be shared with doctor, if doctor asks for it.</p>
 
-  <button ion-button block class="small-case" primary (click)="submitfeedback()">Submit</button>
+  <button ion-button block class="small-case" primary (click)="submitfeedback(feedbackobj)">Submit</button>
 
   <p class="font-10 text-center">By Submitting feedback I aggree to <a>Terms & Conditions</a></p>
 
