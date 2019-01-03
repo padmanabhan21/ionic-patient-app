@@ -41,8 +41,8 @@ export class PatientServiceProvider {
     const options = new RequestOptions({ headers: headers });
 
     let body ={
-      "mobile":"8220772736",				  
-      "user_name":"Padmanabhan",		
+      "mobile":"9444043033",				  
+      "user_name":"viji",		
       "login_status":"login"
     }
 
@@ -59,30 +59,9 @@ export class PatientServiceProvider {
 
     let body =
     {
-    "mobile":"8220772736",					
-    "user_name":"Padmanabhan",
-    // "email":"infocuit.padmanabhan@gmail.com",
-    // "gender":"male",
-    // "birthday":"21-01-1993",
-    // "blood_group":"O+",
-    // "height":"160",
-    // "weight":"62",
-    // "emergency_contact_name":"Viji",
-    // "married_status":"unmarried",
-    "login_status":"login",
-    // "emergency_contact_mobile":"94440403033",
-    // "city":"Kanchipuram",
-    // "allergies":"penicilin",
-    // "current_medications":"ulgel a susp 100ml",
-    // "past_medications":"trump a syrup 170ml",
-    // "chronic_diseases":"PCOS",
-    // "injuries":"Amputation",
-    // "surgeries":"Lungs",
-    // "smoking_habits":"nil",
-    // "alcohol_consumption":"Rare",
-    // "activity_level":"active",
-    // "food_preference":"veg",
-    // "occupation":"professional"
+      "mobile":"9444043033",					
+      "user_name":"viji",
+      "login_status":"login"
   }
 
     return this.http.post('https://doctorappnew.herokuapp.com/Update_User_Profile',body,options)
@@ -90,6 +69,31 @@ export class PatientServiceProvider {
     .catch(this.handleError);
 }
 
+
+ // Feedback Service
+ feedback(param):Observable<object[]>{
+
+  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
+  const headers = new Headers();
+  headers.append('Content-Type','application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    "doctor_id":param.doctor_id,
+    "business_id":param.business_id,
+    "mobile":param.mobile,
+    "recommend_doctor":param.recommend,
+    "health_problem":param.healthproblem,
+    "wait_time":param.waittime,
+    "satisfy_reason":param.satisfy_reason,
+    "comments":param.comments
+  }
+
+  return this.http.post('https://doctorappnew.herokuapp.com/Insert_FeedBack ',body,options)
+  .map(this.extractData)
+  .catch(this.handleError);
+}
 
   private extractData(res: Response) {
     let body = res.json();

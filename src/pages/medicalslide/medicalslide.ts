@@ -17,6 +17,15 @@ import { Slides } from 'ionic-angular';
 })
 export class MedicalslidePage {
   @ViewChild('slides') slides: Slides;
+  public medical_profile:any =
+  {
+    "allergies":"",
+    "current_medications":"",
+    "past_medications":"",
+    "chronic_diseases":"",
+    "injuries":"",
+    "surgeries":"",
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -35,6 +44,21 @@ export class MedicalslidePage {
 
   prev() {
     this.slides.slidePrev();
+  }
+
+  public currentIndex:any;
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    console.log('Current index is', currentIndex);
+    this.currentIndex = currentIndex;
+  }
+
+  yes(){
+
+  }
+  
+  no(){
+
   }
 
 }

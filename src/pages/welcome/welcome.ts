@@ -36,6 +36,7 @@ export class WelcomePage {
   .catch(e => console.log('Error logging into Facebook', e));
 
   }
+  
   public login_resp:any;
   login() {
     this.navCtrl.push('LoginPage');
@@ -60,7 +61,6 @@ export class WelcomePage {
       }
     });
   }
-
 
   signup() {
     this.navCtrl.push('SignupPage');
