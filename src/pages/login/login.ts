@@ -38,17 +38,17 @@ export class LoginPage {
   public loginobj:any={};
 
   navhomescreen(param){
-    // this.navCtrl.push('TabsPage');
-    this.api.loginUser(param)
-    .subscribe((resp:any) =>{
-      this.login_resp = resp.MessageCode;
-      if(this.login_resp == "RIS"){
-        this.navCtrl.push('TabsPage');
-      }
-      else if(this.login_resp == "RIUS"){
-        this.updateprofile(param);
-      }
-    })
+    this.navCtrl.push('TabsPage');
+    // this.api.loginUser(param)
+    // .subscribe((resp:any) =>{
+    //   this.login_resp = resp.MessageCode;
+    //   if(this.login_resp == "RIS"){
+    //     this.navCtrl.push('TabsPage');
+    //   }
+    //   else if(this.login_resp == "RIUS"){
+    //     this.updateprofile(param);
+    //   }
+    // })
   }
   public login_resp:any;
   login() {
