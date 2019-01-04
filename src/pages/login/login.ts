@@ -6,6 +6,7 @@ import { User } from '../../providers';
 // import { MainPage } from '../';
 // import { ListMasterPage } from '../list-master/list-master';
 import { TabsPage } from '../tabs/tabs';
+import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -27,29 +28,42 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public api:PatientServiceProvider) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
   }
+  public loginobj:any={};
 
-  navigatetofeedback(){
-    this.navCtrl.push('TabsPage');
+  navhomescreen(param){
+    // this.navCtrl.push('TabsPage');
+    this.api.loginUser(param)
+    .subscribe((resp:any) =>{
+      this.login_resp = resp.MessageCode;
+      if(this.login_resp == "RIS"){
+        this.navCtrl.push('TabsPage');
+      }
+      else if(this.login_resp == "RIUS"){
+        this.updateprofile(param);
+      }
+    })
   }
-  // Attempt to login in through our User service
-  // doLogin() {
-  //   this.user.login(this.account).subscribe((resp) => {
-  //     this.navCtrl.push(MainPage);
-  //   }, (err) => {
-  //     this.navCtrl.push(MainPage);
-  //   // Unable to log in
-  //     let toast = this.toastCtrl.create({
-  //       message: this.loginErrorString,
-  //       duration: 3000,
-  //       position: 'top'
-  //     });
-  //   toast.present();
-  //   });
-  // }
+  public login_resp:any;
+  login() {
+    // this.navCtrl.push('LoginPage');
+   
+  }
+
+  public update_resp:any;
+  updateprofile(param){
+    this.api.updateLogin(param)
+    .subscribe((resp:any) =>{
+      this.update_resp = resp.MessageCode;
+      if(this.update_resp == "RUS"){
+        this.navCtrl.push('TabsPage');
+      }
+    });
+  }
 }

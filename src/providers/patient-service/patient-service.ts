@@ -35,14 +35,14 @@ export class PatientServiceProvider {
   }
 
   // Login Service
-  loginUser():Observable<object[]>{
+  loginUser(param):Observable<object[]>{
     const headers = new Headers();
     headers.append('Content-Type','application/json');
     const options = new RequestOptions({ headers: headers });
 
     let body ={
-      "mobile":"9444043033",				  
-      "user_name":"viji",		
+      "mobile":param.mobile,				  
+      "user_name":param.name,		
       "login_status":"login"
     }
 
@@ -52,15 +52,15 @@ export class PatientServiceProvider {
   }
 
   // Update Login Service
-  updateLogin():Observable<object[]>{
+  updateLogin(param):Observable<object[]>{
     const headers = new Headers();
     headers.append('Content-Type','application/json');
     const options = new RequestOptions({ headers: headers });
 
     let body =
     {
-      "mobile":"9444043033",					
-      "user_name":"viji",
+      "mobile":param.mobile,					
+      "user_name":param.name,
       "login_status":"login"
   }
 

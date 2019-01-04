@@ -1,5 +1,5 @@
 <ion-content class="screen-bg" padding>
-  <form>
+  <!-- <form> -->
     <div class="position-center margin-top-100 weight-700 global-font">
       <b class="text-white  font-16 ">Plese Enter your mobile number</b>
     </div>
@@ -22,7 +22,10 @@
             <!-- <ion-row> -->
               <ion-item class="full-width" style=" margin-left: 14px;">
                   <ion-label class="text-white">MobileNumber</ion-label>
-                <ion-input required type="number"  ></ion-input>
+                <ion-input required type="number"  [(ngModel)]="loginobj.mobile"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text"class="text-white" placeholder="Username" [(ngModel)]="loginobj.name"></ion-input>
               </ion-item>
             <!-- </ion-row> -->
       <!-- <ion-item>
@@ -45,9 +48,9 @@
       </ion-item> -->
 
       <div padding>
-        <button ion-button class="full-width" color="light" (click)="navigatetofeedback()" outline>Continue</button>
+        <button ion-button class="full-width" color="light" (click)="navhomescreen(loginobj)" outline>Continue</button>
       </div>
 
     </ion-list>
-  </form>
+  <!-- </form> -->
 </ion-content>

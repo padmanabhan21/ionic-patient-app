@@ -51,16 +51,16 @@ export class WelcomePage {
     //   }
     // })
   }
-  public update_resp:any;
-  updateprofile(){
-    this.api.updateLogin()
-    .subscribe((resp:any) =>{
-      this.update_resp = resp.MessageCode;
-      if(this.update_resp == "RUS"){
-        this.navCtrl.push('LoginPage');
-      }
-    });
-  }
+  // public update_resp:any;
+  // updateprofile(){
+  //   this.api.updateLogin()
+  //   .subscribe((resp:any) =>{
+  //     this.update_resp = resp.MessageCode;
+  //     if(this.update_resp == "RUS"){
+  //       this.navCtrl.push('LoginPage');
+  //     }
+  //   });
+  // }
 
   signup() {
     this.navCtrl.push('SignupPage');
