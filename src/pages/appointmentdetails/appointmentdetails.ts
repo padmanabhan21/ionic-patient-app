@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
+import{ListMasterPage}from '../list-master/list-master';
 
 /**
  * Generated class for the AppointmentdetailsPage page.
@@ -15,11 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AppointmentdetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public modalCtrl:ModalController,
+              public viewCtrl:ViewController,
+              public appCtrl:App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AppointmentdetailsPage');
+  }
+
+  navlistmaster(){
+  // this.viewCtrl.dismiss();
+  // this.appCtrl.getRootNav().setRoot(ListMasterPage);
+  this.navCtrl.setRoot('ListMasterPage');
   }
 
   closeModal() {
