@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
+import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 
 /**
  * Generated class for the MedicalslidePage page.
@@ -31,7 +32,9 @@ export class MedicalslidePage {
     "surgeries":"",
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public api: PatientServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -88,17 +91,25 @@ export class MedicalslidePage {
   } 
 
   save(){
-    
-    alert('hellodarling')
+    let body=
+    {
+      "mobile":"8220772736",	
+      "allergies":this.medicalslide.allergic,
+      "current_medications":this.medicalslide.medicines,
+      "past_medications":this.medicalslide.medications,
+      "chronic_diseases":this.medicalslide.illness,
+      "injuries":this.medicalslide.injuries,
+      "surgeries":this.medicalslide.surgeries,
+    }
+
+    this.api.updateLogin(body)
+    .subscribe((resp:any) =>{
+      if(resp.MessageCode == "RUS"){
+        alert("ur profile updated successfully for lifestyle");
+      }
+    });
+
     console.log("medical status",JSON.stringify(this.medicalslide));
-  }
-
-  yes(){
-
-  }
-  
-  no(){
-
   }
 
 }
