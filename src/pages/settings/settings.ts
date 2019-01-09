@@ -167,8 +167,8 @@ export class SettingsPage {
     console.log('Ng All Changes');
   }
   bala(){
-    let nav = this.modalCtrl.create(ProfileDashboardPage);
-    nav.present();
+    this.navCtrl.push(ProfileDashboardPage);
+    // nav.present();
     // this.navCtrl.push(ProfileDashboardPage);
   }
 }

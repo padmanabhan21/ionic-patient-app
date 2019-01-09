@@ -69,6 +69,18 @@ export class PatientServiceProvider {
     .catch(this.handleError);
 }
 
+  //update personal,medical,lifestyle profiles
+  updateProfile(param):Observable<object[]>{
+    const headers = new Headers();
+    headers.append('Content-Type','application/json');
+    const options = new RequestOptions({ headers: headers });
+
+
+    return this.http.post('https://doctorappnew.herokuapp.com/Update_User_Profile',param,options)
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
 //spicialist service
 
 specialist(param):Observable<object[]>{
