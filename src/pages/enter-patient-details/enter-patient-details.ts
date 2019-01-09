@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import{TokenconfirmationPage}from '../tokenconfirmation/tokenconfirmation';
+import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 
 /**
  * Generated class for the EnterPatientDetailsPage page.
@@ -16,7 +17,10 @@ import{TokenconfirmationPage}from '../tokenconfirmation/tokenconfirmation';
 })
 export class EnterPatientDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public modalCtrl:ModalController,
+              public api:PatientServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -33,8 +37,16 @@ export class EnterPatientDetailsPage {
   //     let tokenconfiramation =this.modalCtrl.create(TokenconfirmationPage);
   //     tokenconfiramation.present();
   //   }
-  tokenconfiramation(){
-    this.navCtrl.push(TokenconfirmationPage)
+  tokenconfirmation(){
+    this.api.tokengeneration('sample')
+    .subscribe((resp:any) =>{
+      if(resp.MessageCode == "TGS"){
+        this.navCtrl.push(TokenconfirmationPage)
+      }
+      else{
+        alert(resp.Message);
+      }
+    });
   }
   
   closeModal() {

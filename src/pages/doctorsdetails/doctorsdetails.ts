@@ -53,7 +53,7 @@ export class DoctorsdetailsPage {
     // events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
       this.doctor = this.navParams.get("doctordetails");
       this.doctor_details = this.doctor.doctor_details;
-      console.log("DOCTOR DETAILS**************",JSON.stringify(this.doctor_details));
+      console.log("DOCTOR DETAILS$$$$$$$$$$$$$$$$$",JSON.stringify(this.doctor_details));
       this.doctors_timings = this.doctor_details[0].doctorstimings;
       this.doctor_name = this.doctor_details[0].doctor_name;
       this.doctor_img = this.doctor_details[0].doc_img;
@@ -88,7 +88,7 @@ export class DoctorsdetailsPage {
 
     //Enter patient details
      enterpatientdatiels(){
-      let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage);
+      let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor_details});
       enterpatient.present();
 
      }

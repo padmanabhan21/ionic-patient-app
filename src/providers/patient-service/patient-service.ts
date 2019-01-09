@@ -115,6 +115,29 @@ specialist(param):Observable<object[]>{
   .catch(this.handleError);
 }
 
+//Token Generation
+tokengeneration(param):Observable<object[]>{
+
+  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
+  const headers = new Headers();
+  headers.append('Content-Type','application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    "doctor_id":"nare83",
+    "business_id":68,
+    "mobile":"8220772736",
+    "business_date":"2019-01-09",
+    "token_status":"Booked"
+}
+
+  return this.http.post('https://doctorappnew.herokuapp.com/InsertAppoinment',body,options)
+  .map(this.extractData)
+  .catch(this.handleError);
+}
+
+
   private extractData(res: Response) {
     let body = res.json();
     console.log(JSON.stringify(body));
