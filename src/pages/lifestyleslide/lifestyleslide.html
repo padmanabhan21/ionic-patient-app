@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-content class="screen-bg">
-  <ion-row>
+  <ion-row class="row-height-10">
     <ion-col>
       <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
         <ion-row>
@@ -31,13 +31,34 @@
       </ion-item>
     </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row class="row-height-80">
     <ion-col>
       <ion-slides #slides>
         <ion-slide>
           <h3 class="text-white">How many cigarettes do you smmoke per day?</h3>
-          <ion-row>
-
+          <ion-list radio-group class="margin-bottom-0">
+            <ion-item no-lines class="padding-left-0">
+              <ion-radio item-left value="I don't smoke"></ion-radio>
+              <ion-label>I don't smoke</ion-label>
+            </ion-item>
+            <ion-item no-lines class="padding-left-0">
+              <ion-radio item-left value="I used to,but i've quit"></ion-radio>
+              <ion-label>I used to,but i've quit</ion-label>
+            </ion-item>
+            <ion-item no-lines class="padding-left-0">
+              <ion-radio item-left value="1-2/day"></ion-radio>
+              <ion-label>1-2/day</ion-label>
+            </ion-item>
+            <ion-item class="padding-left-0">
+              <ion-radio item-left value="3-5/day"></ion-radio>
+              <ion-label>3-5/day</ion-label>
+            </ion-item>
+            <ion-item class="padding-left-0">
+              <ion-radio item-left value="5-10/day"></ion-radio>
+              <ion-label>5-10/day</ion-label>
+            </ion-item>
+          </ion-list>
+          <!-- <ion-row>
             <ion-col col-4>
               <button class="text-white" ion-button outline>I don't smoke</button>
             </ion-col>
@@ -56,13 +77,14 @@
               <button class="text-white" ion-button outline>5-10/day</button>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col col-4></ion-col>
+          <ion-row> -->
+            <!-- <ion-col col-4></ion-col>
             <ion-col col-4>
               <button class="text-white" ion-button outline>>10/day</button>
-            </ion-col>
-          </ion-row>
+            </ion-col> 
+          </ion-row> -->
         </ion-slide>
+
         <ion-slide>
           <h3 class="text-white">How frequently do you consume alcohol?</h3>
           <ion-row>
@@ -113,7 +135,6 @@
 
 
         </ion-slide>
-
 
         <ion-slide>
           <h3 class="text-white margin-top">What does your diet mainly consist of?</h3>
@@ -178,5 +199,7 @@
 
       </ion-slides>
     </ion-col>
+  </ion-row>
+  <ion-row class="row-height-10">
   </ion-row>
 </ion-content>

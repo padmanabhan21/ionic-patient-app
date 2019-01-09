@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-content class="screen-bg">
-    <ion-row>
+    <ion-row class="row-height-10">
       <ion-col>
         <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
           <ion-row>
@@ -31,7 +31,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row  >
+    <ion-row  class="row-height-80">
       <ion-col>
         <ion-slides #slides (ionDidSlideChange)="slideChanged()">
           <ion-slide justify-content-center align-items-center style="height: 100%">
@@ -116,5 +116,8 @@
                 </ion-slide>
         </ion-slides>
       </ion-col>
+    </ion-row>
+    <ion-row class="row-height-10">
+        
     </ion-row>
   </ion-content>
