@@ -38,7 +38,10 @@ import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
 import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
 import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
 import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
-//genaretoken
+//enterpatientddetails
+import{EnterPatientDetailsPage}from'../pages/enter-patient-details/enter-patient-details';
+//doctorservice
+import{DocterservicesPage}from '../pages/docterservices/docterservices';
 
 // import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
 import{TokenconfirmationPage}from'../pages/tokenconfirmation/tokenconfirmation';
@@ -108,9 +111,11 @@ export function provideSettings(storage: Storage) {
     ClinicordoctorservicePage,
     SelectdifferentclinicPage,
     AppointmentdetailsPage,
+    EnterPatientDetailsPage,
   // SpecialistDetailPage,
     FeedbackPage,
     DoctortimigsPage,
+    DocterservicesPage,
     TokenconfirmationPage,
     AlltimingsPage
   ],
@@ -160,7 +165,10 @@ export function provideSettings(storage: Storage) {
     ClinicordoctorservicePage,
     AppointmentdetailsPage,
     TokenconfirmationPage,
+    EnterPatientDetailsPage,
+    DocterservicesPage,
     SelectdifferentclinicPage
+    
     // SpecialistDetailPage
   ],
   providers: [

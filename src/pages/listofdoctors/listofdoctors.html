@@ -26,24 +26,25 @@
           <ion-row>
             <ion-col col-3>
               <ion-avatar height="30" weight="30">
-                <img [src]="clinic.cli_img" />
+                <!-- <img [src]="clinic.cli_img" /> -->
+                <img src="../assets/img/bala.jpg"/>
               </ion-avatar>
               <button ion-button small full color="secondary">
                 <ion-icon name="thumbs-up"></ion-icon>
                 <p class="text-white">&nbsp;&nbsp;{{clinic.cli_like}}</p>
               </button>
               <p text-center class="font-12">{{clinic.cli_votes}} votes</p>
-              <p class="margin-top-15">{{clinic.cli_location}}</p>
+              <p class="margin-top-15">{{clinic.area}}</p>
               <p class="text-color-gold">{{clinic.cli_sponser}}</p>
             </ion-col>
             <ion-col col-9>
               <h2>
-                <b>{{clinic.cli_name}}</b>
+                <b>{{clinic.business_name}}</b>
               </h2>
               <div class="card-subtitle">{{clinic.cli_doc_count}} Doctor</div>
               <ion-row>
                 <ion-col>
-                  <div class="card-subtitle">&#x20b9; {{clinic.cli_fees}} onwards</div>
+                  <div class="card-subtitle">&#x20b9; {{clinic.fees}} onwards</div>
                 </ion-col>
                 <ion-col>
                   <div class="card-subtitle">{{clinic.cli_feedback}} Feedback</div>
@@ -51,13 +52,19 @@
               </ion-row>
               <ion-row>
                 <ion-col>
-                  <img class="img-50hw" [src]="clinic.cli_subimages1" />
+                  <!-- <img class="img-50hw" [src]="clinic.cli_subimages1" /> -->
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+
                 </ion-col>
                 <ion-col>
-                  <img class="img-50hw" [src]="clinic.cli_subimages2" />
+                  <!-- <img class="img-50hw" [src]="clinic.cli_subimages2" /> -->
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+
                 </ion-col>
                 <ion-col>
-                  <img class="img-50hw" [src]="clinic.cli_subimages3" />
+                  <!-- <img class="img-50hw" [src]="clinic.cli_subimages3" /> -->
+                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+
                 </ion-col>
                 <ion-col col-4>
 
@@ -108,23 +115,25 @@
             <ion-row class="doctor-list-row">
                 <ion-col col-3>
                   <ion-avatar class="margin-top-5" height="30" weight="30">
-                    <img class="border-50" [src]="doctor.doc_img" />
+                    <!-- <img class="border-50" [src]="doctor.doc_img" /> -->
+                    <img class="border-50" src="../assets/img/bala.jpg" />
+
                   </ion-avatar>
                   <button ion-button small full color="secondary" class="doctor-card-percen">
                     <ion-icon name="thumbs-up"></ion-icon>
-                    <p class="text-white">&nbsp;&nbsp;{{doctor.doc_like}}</p>
+                    <p class="text-white">&nbsp;&nbsp;{{doctor.doc_likes}}</p>
                   </button>
                   <p text-center class="font-12">{{doctor.doc_votes}} votes</p>
                 </ion-col>
                 <ion-col col-9>
                   <h2 class="margin-top-5">
-                    <b>{{doctor.doc_name}}</b>
+                    <b>{{doctor.doctor_name}}</b>
                   </h2>
-                  <div class="card-subtitle margin-top-5">{{doctor.doc_qualification}}</div>
+                  <div class="card-subtitle margin-top-5">{{doctor.qualification}}</div>
                   <div class="card-subtitle margin-top-5">{{doctor.specialist}}</div>
                   <div class="card-subtitle margin-top-5">{{doctor.experience}} years of experience</div>
                   <div class="card-subtitle margin-top-5">{{doctor.doc_feedback}} Feedback</div>
-                  <div class="card-subtitle margin-top-5">&#x20b9; {{doctor.doc_fees}}</div>
+                  <div class="card-subtitle margin-top-5">&#x20b9; {{doctor.consultationfees}}</div>
                   <div class="card-subtitle margin-top-5 font-12">Available on {{doctor.doc_available_date}} <b>at {{doctor.doc_available_location}}</b></div>
                   <div class="card-subtitle margin-top-5"><b>{{doctor.doc_hospital}}</b></div>
                 </ion-col>

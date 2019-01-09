@@ -69,6 +69,26 @@ export class PatientServiceProvider {
     .catch(this.handleError);
 }
 
+//spicialist service
+
+specialist(param):Observable<object[]>{
+  const headers = new Headers();
+  headers.append('Content-Type','application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    
+      "country":"India",
+      "city":"Chennai"
+   
+}
+
+  return this.http.post('https://doctorappnew.herokuapp.com/Select_BusinessandDoctors',body,options)
+  .map(this.extractData)
+  .catch(this.handleError);
+}
+
 
  // Feedback Service
  feedback(param):Observable<object[]>{

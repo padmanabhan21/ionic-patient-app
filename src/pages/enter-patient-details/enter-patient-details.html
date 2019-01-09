@@ -1,0 +1,113 @@
+<!--
+  Generated template for the EnterPatientDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="main">
+    <!-- <ion-title>enter-patient-details</ion-title> -->
+    <ion-buttons item-start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+        &nbsp;&nbsp;
+        <b class="small-case">enter-patient-details</b>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item>
+    <ion-row>
+      <ion-col col-2 class="padding-0">
+        <ion-avatar item-left>
+          <img src="../assets/img/bala.jpg">
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-4>
+        <b>Dr.Venkatesh</b>
+        <p>Dr.Kamakshi memoriel Hospital,pallikarani</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
+    <p>Date and time</p>
+    <b>Tomorrow , 11:30 AM <p>in 20 hours</p></b>
+  </ion-item>
+  <ion-item>
+    <p>Procedure</p>
+    <b>Follow Up</b>
+  </ion-item>
+  <!-- <ion-item-divider ></ion-item-divider> -->
+  <ion-row>
+    <ion-col col-2>
+      <ion-icon name="person" class="font-30 padding-20"></ion-icon>
+    </ion-col>
+    <ion-col col-10>
+
+      <ion-item>
+        <ion-input type="text" style="width:100%;"></ion-input>
+      </ion-item>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2>
+      <ion-icon name="mail" class="font-30 padding-20"></ion-icon>
+    </ion-col>
+    <ion-col col-10>
+
+      <ion-item>
+        <ion-input type="text" style="width:100%;"></ion-input>
+      </ion-item>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2>
+      <ion-icon name="call" class="font-30 padding-20"></ion-icon>
+    </ion-col>
+    <ion-col col-10>
+
+      <ion-item>
+        <ion-input type="text" style="width:100%;"></ion-input>
+      </ion-item>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-1></ion-col>
+    <p>Have you visited this doctor before?</p>
+  </ion-row>
+  
+
+    <ion-list radio-group>
+      <ion-row>
+      <ion-col col-4 class="padding-0">
+        <ion-item>
+          <ion-label  class="small-case">Yes</ion-label>
+          <ion-radio value="yes" name="text" item-start></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 class="padding-0">
+        <ion-item>
+          <ion-label class="small-case">No</ion-label>
+          <ion-radio value="no" item-start></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    </ion-list>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <p class="margin-0">Booking is free.All fees are payable at clinic </p>
+    </ion-row>
+
+</ion-content>
+<ion-footer>
+  <button ion-button block class="screen-bg small-case" (click)="tokenconfiramation()">Confirm</button>
+</ion-footer>

@@ -21,10 +21,13 @@ export class TokenconfirmationPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TokenconfirmationPage');
   }
-  navappointmentdetails(){
-    console.log("clicked bro")
-      let appointmentdetails =this.modalCtrl.create(AppointmentdetailsPage);
-      appointmentdetails.present();
-    }
+  // navappointmentdetails(){
+  //   console.log("clicked bro")
+  //     let appointmentdetails =this.modalCtrl.create(AppointmentdetailsPage);
+  //     appointmentdetails.present();
+  //   }
 
+  navappointmentdetails(){
+  this.navCtrl.push(AppointmentdetailsPage)
+  }
 }
