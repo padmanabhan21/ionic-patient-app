@@ -40,7 +40,8 @@ import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordo
 import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
 //enterpatientddetails
 import{EnterPatientDetailsPage}from'../pages/enter-patient-details/enter-patient-details';
-
+//doctorservice
+import{DocterservicesPage}from '../pages/docterservices/docterservices';
 
 // import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
 import{TokenconfirmationPage}from'../pages/tokenconfirmation/tokenconfirmation';
@@ -114,6 +115,7 @@ export function provideSettings(storage: Storage) {
   // SpecialistDetailPage,
     FeedbackPage,
     DoctortimigsPage,
+    DocterservicesPage,
     TokenconfirmationPage,
     AlltimingsPage
   ],
@@ -164,6 +166,7 @@ export function provideSettings(storage: Storage) {
     AppointmentdetailsPage,
     TokenconfirmationPage,
     EnterPatientDetailsPage,
+    DocterservicesPage,
     SelectdifferentclinicPage
     
     // SpecialistDetailPage

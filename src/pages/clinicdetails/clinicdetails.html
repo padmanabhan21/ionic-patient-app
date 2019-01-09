@@ -24,7 +24,8 @@
     <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
   
       <ion-slide *ngFor="let images of clinic_images">
-        <img [src]="images.img">
+        <!-- <img [src]="images.img"> -->
+        <img src="../assets/img/bala.jpg"/>
       </ion-slide>
     </ion-slides>
     <ion-row>
@@ -69,18 +70,20 @@
           </ion-col>
           <ion-col col-2>
             <ion-avatar item-left>
-              <img [src]="doctor.doc_img">
+              <!-- <img [src]="doctor.doc_img"> -->
+              <img src="../assets/img/bala.jpg"/>
+
             </ion-avatar>
           </ion-col>
           <ion-col col-5>
             <ion-row>
-              <b>{{doctor.doc_name}}</b>
+              <b>{{doctor.doctor_name}}</b>
             </ion-row>
             <ion-row>
-              <p>{{doctor.doc_specialist}}</p>
+              <p>{{doctor.specialist}}</p>
             </ion-row>
             <ion-row>
-              <p>&#x20b9; {{doctor.doc_fees}}</p>
+              <p>&#x20b9; {{doctor.consultationfees}}</p>
             </ion-row>
           </ion-col>
           <ion-col col-3>
@@ -89,7 +92,7 @@
                 <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
               </ion-col>
               <ion-col col-8>
-                <p class="font-10">{{doctor.doc_like}}</p>
+                <p class="font-10">{{doctor.doc_likes}}</p>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -159,7 +162,7 @@
   
             <p>Diseases in Pregnancy </p> -->
   
-            <button ion-button clear class="small-case margin-auto padding-0" (click)="clinicordoctordetails()"> All Services</button>
+            <button ion-button clear class="small-case margin-auto padding-0" (click)="clinicservices()"> All Services</button>
           </ion-col>
         </ion-row>
         

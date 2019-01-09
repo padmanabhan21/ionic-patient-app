@@ -13,22 +13,21 @@
   <ion-navbar color="main">
     <ion-buttons item-start>
       <button ion-button (click)="closeModal()">
-        <ion-icon name="arrow-back"></ion-icon>
-         &nbsp;&nbsp;
+        <!-- <ion-icon name="arrow-back"></ion-icon> -->
         <b class="small-case">Services</b> 
       </button>
     </ion-buttons>
-    <p class="small-case text-white margin-0 padding-25">{{clinic_name}}</p>
+    <p class="small-case text-white margin-0 padding-25">{{doctorname}}</p>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let service of services">
+  <ion-item *ngFor="let service of doctor_services">
     <ion-col col-1>
       .
     </ion-col>
     <ion-col col-11>
-      {{service.service}}
+      {{service.service_name}}
     </ion-col>
   </ion-item>
 </ion-content>

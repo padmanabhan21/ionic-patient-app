@@ -28,7 +28,8 @@ export class ClinicdetailsPage {
   public clinic_name;
   public clinic_open;
   public clinic_address;
-  public clinic_latlng;
+  public clinic_lat;
+  public clinic_lng;
   public slides: any[]
   public clinic_doctor_list:any[];
   public clinic_services:any[];
@@ -111,13 +112,15 @@ export class ClinicdetailsPage {
     //   ]
       this.clinic_services =this.clinic_details[0].clinic_services;
       this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
-      this.clinic_latlng = this.clinic_details[0].clinic_latlng;
-      this.clinic_address = this.clinic_details[0].clinic_address;
+      this.clinic_lat = this.clinic_details[0].clinic_lat;
+      this.clinic_lng = this.clinic_details[0].clinic_long;
+      this.clinic_address = this.clinic_details[0].address;
       this.clinic_open = this.clinic_details[0].clinic_open;
-    this.clinic_name = this.clinic_details[0].clinic_name;
+    this.clinic_name = this.clinic_details[0].business_name;
     this.clinic_images = this.clinic_details[0].clinic_images;
     this.clinic_timings = this.clinic_details[0].clinic_timings;
     console.log("ARRAAYYYY",this.clinic_timings);
+    // alert(this.clinic_name);
     }
   alltimings() {
     let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_details[0].clinic_name});
@@ -133,8 +136,8 @@ export class ClinicdetailsPage {
   // }
 
   
-  clinicordoctordetails(){
-    let clinicservices = this.modalCtrl.create(ClinicordoctorservicePage);
+  clinicservices(){
+    let clinicservices = this.modalCtrl.create(ClinicordoctorservicePage,{"clinicservices":this.clinic_services,"clinic_name":this.clinic_name});
     clinicservices.present();
 
   }

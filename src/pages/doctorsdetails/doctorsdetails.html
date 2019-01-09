@@ -10,6 +10,7 @@
     <ion-buttons item-start>
       <button ion-button (click)="closeModal()">
         <ion-icon name="arrow-back"></ion-icon>
+        {{doctor_name}}
       </button>
     </ion-buttons>
     <!-- <ion-title>listofdoctors</ion-title> -->
@@ -29,7 +30,8 @@
   <ion-row class="height-225 doctorimage">
     <ion-col col-3>
       <ion-avatar item-right class="z-index-1 image-bottem">
-        <img [src]="doctor_img">
+        <!-- <img [src]="doctor_img"> -->
+        <img src="../assets/img/bala.jpg"/>
       </ion-avatar>
 
     </ion-col>
@@ -107,7 +109,7 @@
 
         <p *ngFor="let service of doctor_service">{{service.service}}</p>
 
-        <button ion-button clear class="small-case margin-auto padding-0"> All Services</button>
+        <button ion-button clear class="small-case margin-auto padding-0" (click)="navdoctorservice()"> All Services</button>
       </ion-col>
     </ion-row>
 
@@ -121,7 +123,7 @@
       </ion-col>
       <ion-col col-10>
         <b class="font-14 small-case">Specialization</b>
-        <p *ngFor="let specialization of doctor_specialization">{{specialization.specialization}}</p>
+        <p *ngFor="let specialization of doctor_specialization">{{specialization.specialization_name}}</p>
       </ion-col>
     </ion-row>
   </ion-item>

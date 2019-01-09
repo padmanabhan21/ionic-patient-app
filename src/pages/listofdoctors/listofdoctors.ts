@@ -43,7 +43,7 @@ export class ListofdoctorsPage {
   
   // this.doctors = this.listofdoctors[0].Doctors;
   // console.log("CLINICS",JSON.stringify(this.clinics));
-  console.log("DOCTORS",JSON.stringify(this.doctors));
+  console.log("doctorrrrrrrrrrrrr",JSON.stringify(this.doctors));
 
   }
 
