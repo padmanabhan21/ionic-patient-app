@@ -17,15 +17,16 @@
             </ion-col>
             <ion-col col-5>
               <h5 class="text-white">Medical</h5>
-              <p class="text-white">6 questions left</p>
+              <!-- <p class="text-white">6 questions left</p> -->
             </ion-col>
             <ion-col col-3>
               <button type="submit" float-left ion-button clear class="btnPrev text-white" (click)="prev()">Prev</button>
   
             </ion-col>
             <ion-col col-3>
-              <button type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
-  
+              <button *ngIf="!showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
+              <button  *ngIf="showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="save()">Save</button>
+       
             </ion-col>
           </ion-row>
         </ion-item>
@@ -33,16 +34,16 @@
     </ion-row>
     <ion-row  class="row-height-80">
       <ion-col>
-        <ion-slides #slides (ionDidSlideChange)="slideChanged()">
+        <ion-slides #slides (ionSlideDidChange)="medslideChanged()">
           <ion-slide justify-content-center align-items-center style="height: 100%">
             <h3 class="text-white">Do you have any chronic illnesses?</h3>
            <ion-row justify-content-center align-items-center>
              <ion-col col-2></ion-col>
               <ion-col col-4 >
-                  <button class="text-white" ion-button outline (click)="yes()">yes</button>
+                  <button class="text-white" ion-button outline (click)="illness('yes')">yes</button>
               </ion-col>
               <ion-col col-4>
-                <button class="text-white" ion-button outline (click)="no()">No</button>
+                <button class="text-white" ion-button outline (click)="illness('No')">No</button>
             </ion-col>
            </ion-row>
           </ion-slide>
@@ -51,10 +52,10 @@
               <ion-row>
                   <ion-col col-2></ion-col>
                    <ion-col col-4 >
-                       <button class="text-white" ion-button outline (click)="yes()">yes</button>
+                       <button class="text-white" ion-button outline (click)="injuries('yes')" >yes</button>
                    </ion-col>
                    <ion-col col-4>
-                     <button class="text-white" ion-button outline (click)="no()">No</button>
+                     <button class="text-white" ion-button outline (click)="injuries('No')">No</button>
                  </ion-col>
                 </ion-row>
             
@@ -66,10 +67,10 @@
                 <ion-row>
                     <ion-col col-2></ion-col>
                      <ion-col col-4 >
-                         <button class="text-white" ion-button outline (click)="yes()">Yes</button>
+                         <button class="text-white" ion-button outline (click)="allergic('yes')">Yes</button>
                      </ion-col>
                      <ion-col col-4>
-                       <button class="text-white" ion-button outline (click)="no()">No</button>
+                       <button class="text-white" ion-button outline (click)="allergic('No')">No</button>
                    </ion-col>
                   </ion-row>
       
@@ -82,10 +83,10 @@
               <ion-row>
                   <ion-col col-2></ion-col>
                    <ion-col col-4 >
-                       <button class="text-white" ion-button outline (click)="yes()">Yes</button>
+                       <button class="text-white" ion-button outline (click)="surgeries('yes')">Yes</button>
                    </ion-col>
                    <ion-col col-4>
-                     <button class="text-white" ion-button outline (click)="no()">No</button>
+                     <button class="text-white" ion-button outline (click)="surgeries('No')">No</button>
                  </ion-col>
                 </ion-row>
             </ion-slide>
@@ -95,10 +96,10 @@
                 <ion-row>
                     <ion-col col-2></ion-col>
                      <ion-col col-4 >
-                         <button class="text-white" ion-button outline (click)="yes()">Yes</button>
+                         <button class="text-white" ion-button outline (click)="medicines('Yes')">Yes</button>
                      </ion-col>
                      <ion-col col-4>
-                       <button class="text-white" ion-button outline (click)="no()">No</button>
+                       <button class="text-white" ion-button outline (click)="medicines('No')">No</button>
                    </ion-col>
                   </ion-row>
               </ion-slide>
@@ -107,10 +108,10 @@
                   <ion-row>
                       <ion-col col-2></ion-col>
                        <ion-col col-4 >
-                           <button class="text-white" ion-button outline (click)="yes()">Yes</button>
+                           <button class="text-white" ion-button outline (click)="medications('Yes')">Yes</button>
                        </ion-col>
                        <ion-col col-4>
-                         <button class="text-white" ion-button outline (click)="no()">No</button>
+                         <button class="text-white" ion-button outline (click)="medications('No')">No</button>
                      </ion-col>
                     </ion-row>
                 </ion-slide>
