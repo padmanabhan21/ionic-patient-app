@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
 import{ListMasterPage}from '../list-master/list-master';
+import {LivefeedPage}from'../livefeed/livefeed';
 
 /**
  * Generated class for the AppointmentdetailsPage page.
@@ -35,6 +36,9 @@ export class AppointmentdetailsPage {
 
   closeModal() {
     this.navCtrl.pop();
+  }
+  navlivefeed(){
+    
   }
 
 }

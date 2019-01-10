@@ -102,7 +102,7 @@ export class MedicalslidePage {
       "surgeries":this.medicalslide.surgeries,
     }
 
-    this.api.updateLogin(body)
+    this.api.updateProfile(body)
     .subscribe((resp:any) =>{
       if(resp.MessageCode == "RUS"){
         alert("ur profile updated successfully for lifestyle");
