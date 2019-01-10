@@ -38,7 +38,7 @@ export class AppointmentdetailsPage {
     this.navCtrl.pop();
   }
   navlivefeed(){
-    
+   this.navCtrl.push(LivefeedPage);
   }
 
 }

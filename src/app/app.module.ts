@@ -50,7 +50,8 @@ import{AppointmentdetailsPage}from'../pages/appointmentdetails/appointmentdetail
 import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
 // import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
 import { SearchdoctorPage } from '../pages/searchdoctor/searchdoctor';
-
+//livefeed
+import{LivefeedPage} from '../pages/livefeed/livefeed';
 import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/profile-complete-slider';
 // import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-detail';
 
@@ -112,6 +113,7 @@ export function provideSettings(storage: Storage) {
     SelectdifferentclinicPage,
     AppointmentdetailsPage,
     EnterPatientDetailsPage,
+    LivefeedPage,
   // SpecialistDetailPage,
     FeedbackPage,
     DoctortimigsPage,
@@ -167,7 +169,8 @@ export function provideSettings(storage: Storage) {
     TokenconfirmationPage,
     EnterPatientDetailsPage,
     DocterservicesPage,
-    SelectdifferentclinicPage
+    SelectdifferentclinicPage,
+    LivefeedPage
     
     // SpecialistDetailPage
   ],
