@@ -7,6 +7,7 @@ import { AlltimingsPage } from '../alltimings/alltimings';
 import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
 import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
 
+
 /**
  * Generated class for the ClinicdetailsPage page.
  *

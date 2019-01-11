@@ -1,5 +1,5 @@
-import { Http, Response, RequestOptions,Headers } from '@angular/http';
-import { Injectable } from '@angular/core'; 
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
@@ -17,175 +17,155 @@ export class PatientServiceProvider {
   }
 
   // Get Template
-  getfunction():Observable<object[]>{
+  getfunction(): Observable<object[]> {
     return this.http.get('')
-    .map(this.extractData)
-    .catch(this.handleError);
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   // Post Template
-  postfunction():Observable<object[]>{
+  postfunction(): Observable<object[]> {
     const headers = new Headers();
-    headers.append('Content-Type','application/json');
+    headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
 
-    return this.http.post('',options)
-    .map(this.extractData)
-    .catch(this.handleError);
+    return this.http.post('', options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   // Login Service
-  loginUser(param):Observable<object[]>{
+  loginUser(param): Observable<object[]> {
     const headers = new Headers();
-    headers.append('Content-Type','application/json');
+    headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
 
-    let body ={
-      "mobile":param.mobile,				  
-      "user_name":param.name,		
-      "login_status":"login"
+    let body = {
+      "mobile": param.mobile,
+      "user_name": param.name,
+      "login_status": "login"
     }
 
-    return this.http.post('https://doctorappnew.herokuapp.com/Insert_User_Profile',body,options)
-    .map(this.extractData)
-    .catch(this.handleError);
+    return this.http.post('https://doctorappnew.herokuapp.com/Insert_User_Profile', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   // Update Login Service
-  updateLogin(param):Observable<object[]>{
+  updateLogin(param): Observable<object[]> {
     const headers = new Headers();
-    headers.append('Content-Type','application/json');
+    headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
 
     let body =
     {
-      "mobile":param.mobile,					
-      "user_name":param.name,
-      "login_status":"login"
+      "mobile": param.mobile,
+      "user_name": param.name,
+      "login_status": "login"
+    }
+
+    return this.http.post('https://doctorappnew.herokuapp.com/Update_User_Profile', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
-    return this.http.post('https://doctorappnew.herokuapp.com/Update_User_Profile',body,options)
-    .map(this.extractData)
-    .catch(this.handleError);
-}
-
   //update personal,medical,lifestyle profiles
-  updateProfile(param):Observable<object[]>{
+  updateProfile(param): Observable<object[]> {
     const headers = new Headers();
-    headers.append('Content-Type','application/json');
+    headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
 
 
-    return this.http.post('https://doctorappnew.herokuapp.com/Update_User_Profile',param,options)
-    .map(this.extractData)
-    .catch(this.handleError);
+    return this.http.post('https://doctorappnew.herokuapp.com/Update_User_Profile', param, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
-//spicialist service
+  //spicialist service
 
-specialist(param):Observable<object[]>{
-  const headers = new Headers();
-  headers.append('Content-Type','application/json');
-  const options = new RequestOptions({ headers: headers });
+  specialist(param): Observable<object[]> {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers });
 
-  let body =
-  {
-    
-      "country":"India",
-      "city":"Chennai"
-   
-}
+    let body =
+    {
 
-  return this.http.post('https://doctorappnew.herokuapp.com/Select_BusinessandDoctors',body,options)
-  .map(this.extractData)
-  .catch(this.handleError);
-}
+      "country": "India",
+      "city": "Chennai"
 
+    }
 
- // Feedback Service
- feedback(param):Observable<object[]>{
-
-  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
-  const headers = new Headers();
-  headers.append('Content-Type','application/json');
-  const options = new RequestOptions({ headers: headers });
-
-  let body =
-  {
-    "doctor_id":param.doctor_id,
-    "business_id":param.business_id,
-    "mobile":param.mobile,
-    "recommend_doctor":param.recommend,
-    "health_problem":param.healthproblem,
-    "wait_time":param.waittime,
-    "satisfy_reason":param.satisfy_reason,
-    "comments":param.comments
+    return this.http.post('https://doctorappnew.herokuapp.com/Select_BusinessandDoctors', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
-  return this.http.post('https://doctorappnew.herokuapp.com/Insert_FeedBack ',body,options)
-  .map(this.extractData)
-  .catch(this.handleError);
-}
 
-//Token Generation
-tokengeneration(param):Observable<object[]>{
+  // Feedback Service
+  feedback(param): Observable<object[]> {
 
-  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
-  const headers = new Headers();
-  headers.append('Content-Type','application/json');
-  const options = new RequestOptions({ headers: headers });
+    // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers });
 
-  let body =
-  {
-    "doctor_id":"nare83",
-    "business_id":68,
-    "mobile":"8220772736",
-    "business_date":"2019-01-11",
-    "token_status":"Booked"
-}
+    let body =
+    {
+      "doctor_id": param.doctor_id,
+      "business_id": param.business_id,
+      "mobile": param.mobile,
+      "recommend_doctor": param.recommend,
+      "health_problem": param.healthproblem,
+      "wait_time": param.waittime,
+      "satisfy_reason": param.satisfy_reason,
+      "comments": param.comments
+    }
 
-  return this.http.post('https://doctorappnew.herokuapp.com/InsertAppoinment',body,options)
-  .map(this.extractData)
-  .catch(this.handleError);
-}
+    return this.http.post('https://doctorappnew.herokuapp.com/Insert_FeedBack ', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
-//live-feed
-livefeed():Observable<object[]>{
+  //Token Generation
+  tokengeneration(param): Observable<object[]> {
 
-  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
-  const headers = new Headers();
-  headers.append('Content-Type','application/json');
-  const options = new RequestOptions({ headers: headers });
+    // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers });
 
-  let body =
-  {
-  "business_id": 68,
-  "doctor_id": "nare83",
-  "business_date":"2019-01-11"
-}
+    let body =
+    {
+      "doctor_id": "nare83",
+      "business_id": 68,
+      "mobile": "8220772736",
+      "business_date": "2019-01-10",
+      "token_status": "Booked"
+    }
 
-  return this.http.post('https://doctorappnew.herokuapp.com/livefeed',body,options)
-  .map(this.extractData)
-  .catch(this.handleError);
-}
+    return this.http.post('https://doctorappnew.herokuapp.com/InsertAppoinment', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
 
   private extractData(res: Response) {
     let body = res.json();
     console.log(JSON.stringify(body));
     return body;
+  }
+
+  private handleError(error: Response | any) {
+    let errMsg: string;
+    if (error instanceof Response) {
+      const err = error || '';
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
     }
-  
-    private handleError (error: Response | any) {
-      let errMsg: string;
-      if (error instanceof Response) {
-        const err = error || '';
-        errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-      } else {
-        errMsg = error.message ? error.message : error.toString();
-      }
-      console.error(errMsg);
-      return Observable.throw(errMsg);
-    }
-  
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
+
 }
