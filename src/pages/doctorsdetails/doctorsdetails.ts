@@ -3,22 +3,10 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
-import { AlltimingsPage } from '../alltimings/alltimings';
 import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
 import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
-import{TokenconfirmationPage}from'../tokenconfirmation/tokenconfirmation';
 import{EnterPatientDetailsPage}from'../enter-patient-details/enter-patient-details';
 import{DocterservicesPage}from'../docterservices/docterservices';
-// import{GeneratetokenPage}from'../generatetoken/generatetoken';
-// import { StarRatingModule } from 'ionic3-star-rating';
-// import { Events } from 'ionic-angular';
-
-/**
- * Generated class for the DoctorsdetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -45,12 +33,10 @@ export class DoctorsdetailsPage {
   public doctor_service:any=[];
   public doctor_specialization:any=[];
   public doctors_timings:any=[];
-  // public doctor
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
     public modalCtrl: ModalController) {
-    // events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
       this.doctor = this.navParams.get("doctordetails");
       this.doctor_details = this.doctor.doctor_details;
       console.log("DOCTOR DETAILS$$$$$$$$$$$$$$$$$",JSON.stringify(this.doctor_details));
@@ -74,60 +60,48 @@ export class DoctorsdetailsPage {
 
   ionViewDidLoad() {
     console.log('specializationnnnn',this.doctor_specialist);
-    // alert(this.doctor_specialist)
     }
+    
+    //Doctor Timing Page
     navdoctortimings(){
       console.log("clicked bro")
       let doctortimings =this.modalCtrl.create(DoctortimigsPage,{"doctor_timings":this.doctors_timings,"doctor_name":this.doctor_name});
       doctortimings.present();
     }
+    //Doctor Clinic Page
     selectdifferentclinic(){
       let differentclinic = this.modalCtrl.create(SelectdifferentclinicPage,{"doctor_clinic":this.doctor_clinic,"doctor_name":this.doctor_name});
       differentclinic.present();
     }
 
-    //Enter patient details
+    //Enter patient details page
      enterpatientdatiels(){
       let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor_details});
       enterpatient.present();
-
      }
+
+     //Doctor Service page
      navdoctorservice(){
        this.navCtrl.push(DocterservicesPage,{"doctor_name":this.doctor_name,"doctor_service":this.doctor_service})
      }
-      //TokenconfirmationPage token page navigation
-  //     TokenconfirmationPage(){
-  //   console.log("TokenconfirmationPage*********************")
-  //   let generatetoken =this.modalCtrl.create(TokenconfirmationPage)
-  //   generatetoken.present();
-  // }
-
-  // alltimings() {
-  //   let timelines = this.modalCtrl.create(AlltimingsPage);
-  //   timelines.present();
-  // }
-
-  // alltimings(){
-  //   console.log("hello darling")
-  //   let timelines = this.modalCtrl.create(AlltimingsPage);
-  //   timelines.present;
-  // }
-  getRandomIndex(): number {
-    // uses your list.length to get a random value within the range
-    return Math.floor(Math.random() * this.slides.length)
-  }
+  
+  //Doctor Feedback for specific clinics
   navtofeedback() {
-    if (this.totalclinic >= 1) {
+    if (this.totalclinic > 1) {
       this.feedbackforclinic();
     }
+    else{
+      let feedback = this.modalCtrl.create(FeedbackPage);
+      feedback.present();
+    }
   }
-  newSlide() {
-    this.slider.slideTo(this.getRandomIndex(), 500)
-  }
+
+  //closing Modal Page
   closeModal() {
     this.navCtrl.pop();
   }
 
+  //Action Sheet for Giving Feedback -->Choose clinic
   feedbackforclinic() {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Which clinic did you visit?',
@@ -137,18 +111,15 @@ export class DoctorsdetailsPage {
           text: 'Jayam Hospital & GFC Fertility',
           role: 'destructive',
           cssClass: 'font-size-12, small-case',
-          // icon: !this.platform.is('ios') ? 'trash' : null,
           handler: () => {
             let feedback = this.modalCtrl.create(FeedbackPage);
             feedback.present();
-            // console.log('Delete clicked');
           }
         },
         {
           text: 'Centrepoint Clinic',
           role: 'destructive',
           cssClass: 'small-case',
-          // icon: !this.platform.is('ios') ? 'share' : null,
           handler: () => {
             console.log('Share clicked');
           }
