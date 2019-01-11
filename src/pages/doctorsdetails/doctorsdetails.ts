@@ -76,7 +76,7 @@ export class DoctorsdetailsPage {
 
     //Enter patient details page
      enterpatientdatiels(){
-      let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor_details});
+      let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor});
       enterpatient.present();
      }
 

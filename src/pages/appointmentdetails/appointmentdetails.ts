@@ -16,15 +16,22 @@ import {LivefeedPage}from'../livefeed/livefeed';
   templateUrl: 'appointmentdetails.html',
 })
 export class AppointmentdetailsPage {
-
+  public token_status:any=[];
+  
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public modalCtrl:ModalController,
               public viewCtrl:ViewController,
               public appCtrl:App) {
+                
+    this.token_status = this.navParams.get("token_status");
+    console.log("token Status*******",JSON.stringify(this.token_status));
+
   }
 
   ionViewDidLoad() {
+    alert(this.token_status.waiting_time);
+    
     console.log('ionViewDidLoad AppointmentdetailsPage');
   }
 

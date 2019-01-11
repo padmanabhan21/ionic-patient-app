@@ -12,7 +12,7 @@
       <button ion-button (click)="closeModal()">
         <ion-icon name="arrow-back"></ion-icon>
         &nbsp;&nbsp;
-        <b class="small-case">enter-patient-details</b>
+        <b class="small-case">Appointment Confirmation</b>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -26,18 +26,19 @@
     <ion-row>
       <ion-col col-2 class="padding-0">
         <ion-avatar item-left>
+          <!-- <img [src]=""> -->
           <img src="../assets/img/bala.jpg">
         </ion-avatar>
       </ion-col>
       <ion-col col-4>
-        <b>Dr.Venkatesh</b>
-        <p>Dr.Kamakshi memoriel Hospital,pallikarani</p>
+        <b>{{appointment_details.doctor_name}}</b>
+        <p>{{appointment_details.doc_hospital}},{{appointment_details.doc_available_location}}</p>
       </ion-col>
     </ion-row>
   </ion-item>
   <ion-item>
     <p>Date and time</p>
-    <b>Tomorrow , 11:30 AM <p>in 20 hours</p></b>
+    <b>Today , 11:30 AM <p>in 20 hours</p></b>
   </ion-item>
   <ion-item>
     <p>Procedure</p>

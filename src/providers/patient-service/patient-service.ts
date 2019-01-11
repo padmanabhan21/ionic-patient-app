@@ -128,7 +128,7 @@ export class PatientServiceProvider {
   }
 
   //Token Generation
-  tokengeneration(param): Observable<object[]> {
+  tokengeneration(param1,param2): Observable<object[]> {
 
     // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
     const headers = new Headers();
@@ -137,8 +137,8 @@ export class PatientServiceProvider {
 
     let body =
     {
-      "doctor_id": "nare83",
-      "business_id": 68,
+      "doctor_id": param1,
+      "business_id": param2,
       "mobile": "8220772736",
       "business_date": "2019-01-11",
       "token_status": "Booked"
