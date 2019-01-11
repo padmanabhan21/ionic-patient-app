@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 /**
  * Generated class for the LivefeedPage page.
  *
@@ -15,10 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LivefeedPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public api:PatientServiceProvider) {
   }
 
   ionViewDidLoad() {
+    this.api.livefeed()
+    .subscribe((resp:any) => {
+      if(resp.MessageCode == "LS"){
+        console.log("live-feed retrieved successfully");
+      }
+    });
     console.log('ionViewDidLoad LivefeedPage');
   }
 
