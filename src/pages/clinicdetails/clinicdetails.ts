@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
-import { FeedbackPage } from '../feedback/feedback';
 import { AlltimingsPage } from '../alltimings/alltimings';
 import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
-import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
-
+import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
 
 /**
  * Generated class for the ClinicdetailsPage page.
@@ -33,6 +31,7 @@ export class ClinicdetailsPage {
   public clinic_lng;
   public slides: any[]
   public clinic_doctor_list:any[];
+  public clinic_doctordetails:any[];
   public clinic_services:any[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
@@ -111,6 +110,7 @@ export class ClinicdetailsPage {
     //       clinic_open: "Open Today"
     //     }
     //   ]
+      
       this.clinic_services =this.clinic_details[0].clinic_services;
       this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
       this.clinic_lat = this.clinic_details[0].clinic_lat;
@@ -120,22 +120,14 @@ export class ClinicdetailsPage {
     this.clinic_name = this.clinic_details[0].business_name;
     this.clinic_images = this.clinic_details[0].clinic_images;
     this.clinic_timings = this.clinic_details[0].clinic_timings;
-    console.log("ARRAAYYYY",this.clinic_timings);
-    // alert(this.clinic_name);
+    
+    // console.log("doctor details", this.clinic_doctor_list)
     }
+
   alltimings() {
     let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_details[0].clinic_name});
     timelines.present();
   }
-   
-   
-
-  // alltimings(){
-  //   console.log("hello darling")
-  //   let timelines = this.modalCtrl.create(AlltimingsPage);
-  //   timelines.present;
-  // }
-
   
   clinicservices(){
     let clinicservices = this.modalCtrl.create(ClinicordoctorservicePage,{"clinicservices":this.clinic_services,"clinic_name":this.clinic_name});
@@ -144,19 +136,22 @@ export class ClinicdetailsPage {
   }
   
   getRandomIndex(): number {
-    // uses your list.length to get a random value within the range
     return Math.floor(Math.random() * this.slides.length)
   }
-  // navtofeedback() {
-  //   if (this.totalclinic >= 2) {
-  //     this.feedbackforclinic();
-  //   }
-  // }
+
   newSlide() {
     this.slider.slideTo(this.getRandomIndex(), 500)
   }
+
   closeModal() {
     this.navCtrl.pop();
+  }
+
+  bookdoctor(param){
+    // this.clinic_doctordetails = param.doctor_details;
+    console.log("Clinic --> Doctor-->Book",JSON.stringify(param));
+    this.navCtrl.push(DoctorsdetailsPage,{"doctordetails":param});
+    
   }
 
   feedbackforclinic() {
@@ -168,18 +163,11 @@ export class ClinicdetailsPage {
           text: 'Jayam Hospital & GFC Fertility',
           role: 'destructive',
           cssClass: 'font-size-12, small-case',
-          // icon: !this.platform.is('ios') ? 'trash' : null,
-          // handler: () => {
-          //   let feedback = this.modalCtrl.create(FeedbackPage);
-          //   feedback.present();
-          //   // console.log('Delete clicked');
-          // }
         },
         {
           text: 'Centrepoint Clinic',
           role: 'destructive',
           cssClass: 'small-case',
-          // icon: !this.platform.is('ios') ? 'share' : null,
           handler: () => {
             console.log('Share clicked');
           }

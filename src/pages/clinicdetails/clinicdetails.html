@@ -9,7 +9,7 @@
     <ion-navbar color="main">
       <ion-buttons item-start>
         <button ion-button (click)="closeModal()" >
-          <ion-icon name="arrow-back"></ion-icon><p class="margin-left-10"> {{clinic_name}}</p>
+          <p class="margin-left-10"> {{clinic_name}}</p>
         </button>
       </ion-buttons>
      
@@ -96,53 +96,11 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <button ion-button outline primary class="small-case">Book</button>
+              <button ion-button outline primary class="small-case" (click)="bookdoctor(doctor)">Book</button>
             </ion-row>
           </ion-col>
         </ion-row>
       </ion-item>
-  
-      <!-- 2nd Doctor -->
-      <!-- <ion-item class="padding-left-0">
-        <ion-row>
-          <ion-col col-2 class="text-center">
-           
-            <img src="../assets/img/doctorsteth.png" class="height-25">
-          </ion-col>
-          <ion-col col-2>
-            <ion-avatar item-left>
-              <img src="../assets/img/bala.jpg">
-            </ion-avatar>
-          </ion-col>
-          <ion-col col-5>
-            <ion-row>
-              <b>Dr.Padmanabhan</b>
-            </ion-row>
-            <ion-row>
-              <p>Sex specialist</p>
-            </ion-row>
-            <ion-row>
-              <p>&#x20b9; 300</p>
-            </ion-row>
-          </ion-col>
-          <ion-col col-3>
-            <ion-row>
-              <ion-col col-4>
-                <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
-              </ion-col>
-              <ion-col col-8>
-                <p class="font-10">96%</p>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <button ion-button outline primary class="small-case">Book</button>
-            </ion-row>
-          </ion-col>
-        </ion-row>
-      
-      </ion-item> -->
-     
-  
     </ion-row>
     <!-- Doctor List Ends -->
        <!-- Services start -->
