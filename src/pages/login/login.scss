@@ -32,6 +32,15 @@ page-login {
       .placeholder{
           color:white;
       }
+
+    //   ion-type{
+    //     input::placeholder {
+    //       color:red!important;
+    //     }
+    //   }
+      ::-webkit-input-placeholder { /* Chrome */
+        color: red;
+      }
 }
 
 
