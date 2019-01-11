@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angul
 // import{TokenconfirmationPage}from '../tokenconfirmation/tokenconfirmation';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 import { AppointmentdetailsPage } from '../appointmentdetails/appointmentdetails';
+import { SessionStorageService } from 'ngx-webstorage';
 /**
  * Generated class for the EnterPatientDetailsPage page.
  *
@@ -22,14 +23,19 @@ export class EnterPatientDetailsPage {
   public business_id;
   public hospital_address;
   public hospital_name;
+  public user_mobile;
+  public user_name;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public modalCtrl:ModalController,
-              public api:PatientServiceProvider) {
+              public api:PatientServiceProvider,
+              public session:SessionStorageService) {
       this.appointment_details = this.navParams.get("doctor_details");
   }
 
   ionViewDidLoad() {
+    this.user_mobile = this.session.retrieve("user_mobile");
+    this.user_name = this.session.retrieve("user_name");
     console.log('Appointment Confirmation Screen',JSON.stringify(this.appointment_details));
   }
 

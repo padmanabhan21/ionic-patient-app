@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { SessionStorageService } from 'ngx-webstorage';
 
 import { User } from '../../providers';
 // import { MainPage } from '../';
 // import { ListMasterPage } from '../list-master/list-master';
-import { TabsPage } from '../tabs/tabs';
+// import { TabsPage } from '../tabs/tabs';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 @IonicPage()
 @Component({
@@ -17,19 +18,21 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
+  account: { 
+    email: string, password: string } = {
     email: 'test@example.com',
     password: 'test'
   };
 
   // Our translated text strings
-  private loginErrorString: string;
+  public loginErrorString: string;
 
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService,
-    public api:PatientServiceProvider) {
+    public api:PatientServiceProvider,
+    public session:SessionStorageService) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -38,21 +41,30 @@ export class LoginPage {
   public loginobj:any={};
 
   navhomescreen(param){
-    this.navCtrl.push('TabsPage');
-    // this.api.loginUser(param)
-    // .subscribe((resp:any) =>{
-    //   this.login_resp = resp.MessageCode;
-    //   if(this.login_resp == "RIS"){
-    //     this.navCtrl.push('TabsPage');
-    //   }
-    //   else if(this.login_resp == "RIUS"){
-    //     this.updateprofile(param);
-    //   }
-    // })
+    // this.navCtrl.push('TabsPage');
+    this.api.loginUser(param)
+    .subscribe((resp:any) =>{
+      this.login_resp = resp.Message_Code;
+      alert(this.login_resp);
+      if(this.login_resp == "RIS"){
+        this.session.store("user_mobile",param.mobile);
+        this.session.store("user_name",param.name);
+        this.navCtrl.push('TabsPage');
+      }
+      else if(this.login_resp == "RIUS"){
+        this.updateprofile(param);
+        this.session.store("user_mobile",param.mobile);
+        this.session.store("user_name",param.name);
+      }
+      else{
+        alert("please enter your mobile and name");
+      }
+    })
   }
   public login_resp:any;
   login() {
     // this.navCtrl.push('LoginPage');
+
    
   }
 
@@ -60,9 +72,10 @@ export class LoginPage {
   updateprofile(param){
     this.api.updateLogin(param)
     .subscribe((resp:any) =>{
-      this.update_resp = resp.MessageCode;
+      this.update_resp = resp.Message_Code;
       if(this.update_resp == "RUS"){
         this.navCtrl.push('TabsPage');
+        alert(this.update_resp);
       }
     });
   }

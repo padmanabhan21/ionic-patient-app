@@ -66,6 +66,8 @@ import { Facebook } from '@ionic-native/facebook';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
+import { Ng2Webstorage } from "ngx-webstorage";
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -125,6 +127,7 @@ export function provideSettings(storage: Storage) {
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    Ng2Webstorage,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
