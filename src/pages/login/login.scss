@@ -29,18 +29,17 @@ page-login {
       select-text{
           min-width: 95% !important;
       }
-      .placeholder{
-          color:white;
-      }
-
-    //   ion-type{
-    //     input::placeholder {
-    //       color:red!important;
-    //     }
+    
+    //   .text-input::-webkit-input-placeholder { /* Chrome */
+    //     color: white;
     //   }
-      ::-webkit-input-placeholder { /* Chrome */
-        color: red;
-      }
+
+    ion-input{
+        ::placeholder{
+            color:white !important;
+        }
+    }
+    // $text-input-placeholder-color:(#fff);
+
+
 }
-
-

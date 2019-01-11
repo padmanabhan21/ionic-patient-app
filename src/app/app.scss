@@ -305,3 +305,8 @@ border-radius:50% !important;
 .row-height-100{
     height: 100% !important;
 }
+ion-input{
+    ::placeholder{
+        color:white !important;
+    }
+}
