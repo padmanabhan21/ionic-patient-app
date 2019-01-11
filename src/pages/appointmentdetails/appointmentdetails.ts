@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
-import{ListMasterPage}from '../list-master/list-master';
+
 import {LivefeedPage}from'../livefeed/livefeed';
 
 /**

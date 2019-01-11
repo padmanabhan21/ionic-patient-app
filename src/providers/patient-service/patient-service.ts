@@ -140,7 +140,7 @@ export class PatientServiceProvider {
       "doctor_id": "nare83",
       "business_id": 68,
       "mobile": "8220772736",
-      "business_date": "2019-01-10",
+      "business_date": "2019-01-11",
       "token_status": "Booked"
     }
 
@@ -149,6 +149,25 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
+  //livefeed 
+  livefeed(): Observable<object[]> {
+
+    // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers });
+
+    let body =
+    {
+      "business_id": 68,
+    "doctor_id": "nare83",
+    "business_date":"2019-01-11"
+    }
+
+    return this.http.post('https://doctorappnew.herokuapp.com/livefeed', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
   private extractData(res: Response) {
     let body = res.json();
