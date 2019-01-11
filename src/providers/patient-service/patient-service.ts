@@ -140,11 +140,31 @@ tokengeneration(param):Observable<object[]>{
     "doctor_id":"nare83",
     "business_id":68,
     "mobile":"8220772736",
-    "business_date":"2019-01-10",
+    "business_date":"2019-01-11",
     "token_status":"Booked"
 }
 
   return this.http.post('https://doctorappnew.herokuapp.com/InsertAppoinment',body,options)
+  .map(this.extractData)
+  .catch(this.handleError);
+}
+
+//live-feed
+livefeed():Observable<object[]>{
+
+  // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
+  const headers = new Headers();
+  headers.append('Content-Type','application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+  "business_id": 68,
+  "doctor_id": "nare83",
+  "business_date":"2019-01-11"
+}
+
+  return this.http.post('https://doctorappnew.herokuapp.com/livefeed',body,options)
   .map(this.extractData)
   .catch(this.handleError);
 }
