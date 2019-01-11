@@ -58,6 +58,7 @@ export class ListofdoctorsPage {
   }
 
   navdoctorsdetails(param){
+    console.log("ListofDoctors --> Doctor --> Doctor_Details",JSON.stringify(param));
     let doctorsdetails = this.modalCtrl.create(DoctorsdetailsPage,{"doctordetails":param});
     doctorsdetails.present();
   }

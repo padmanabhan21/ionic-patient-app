@@ -36,9 +36,9 @@
 
     </ion-col>
     <ion-col col-7 class="image-bottem">
-      <b class="text-white font-10">{{doctor_name}}</b>
-      <p class="text-white font-10">{{doctor_qualification}}</p>
-      <p class="text-white font-10">{{doctor_specialist}}</p>
+      <b class="text-white font-13">{{doctor_name}}</b>
+      <p class="text-white font-13">{{doctor_qualification}}</p>
+      <p class="text-white font-13">{{doctor_specialist}}</p>
     </ion-col>
   </ion-row>
   <ion-item>
@@ -93,7 +93,7 @@
       <ion-col col-6>
         <p class="small-case">Visits Tommorrow</p>
         <p>10:00 AM - 02:00 PM</p>
-        &nbsp;&nbsp;
+        
       <button ion-button clear class="small-case margin-auto padding-0"(click)="navdoctortimings()" >ALL TIMINGS</button>
       </ion-col>
     </ion-row>
@@ -104,14 +104,18 @@
         <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
         <ion-icon name="medkit" class="font-26"></ion-icon>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-2>
         <b>Services</b>
-
-        <p *ngFor="let service of doctor_service">{{service.service}}</p>
-
-        <button ion-button clear class="small-case margin-auto padding-0" (click)="navdoctorservice()"> All Services</button>
       </ion-col>
     </ion-row>
+      <ion-row>
+        <p *ngFor="let service of doctor_service">{{service.service}}</p>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <button ion-button clear class="small-case margin-0 padding-0" (click)="navdoctorservice()"> All Services</button>
+      </ion-row>
+      
 
 
   </ion-item>
