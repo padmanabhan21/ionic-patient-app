@@ -15,6 +15,7 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class LivefeedPage {
 
+  public livefeedarr:any = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api:PatientServiceProvider) {
@@ -23,9 +24,11 @@ export class LivefeedPage {
   ionViewDidLoad() {
     this.api.livefeed()
     .subscribe((resp:any) => {
-      if(resp.MessageCode == "LS"){
-        console.log("live-feed retrieved successfully");
-      }
+      this.livefeedarr = resp.output;
+      // if(resp.MessageCode == "LS"){
+
+      //   console.log("live-feed retrieved successfully");
+      // }
     });
     console.log('ionViewDidLoad LivefeedPage');
   }
