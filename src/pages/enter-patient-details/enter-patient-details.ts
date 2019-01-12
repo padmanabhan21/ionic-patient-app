@@ -64,11 +64,11 @@ export class EnterPatientDetailsPage {
         this.datatoappointmentdet.hospital_address = this.hospital_address;
         this.datatoappointmentdet.business_id = this.business_id;
         this.datatoappointmentdet.doctor_id = this.doctor_id;
-        alert(JSON.stringify(this.datatoappointmentdet));
+        // alert(JSON.stringify(this.datatoappointmentdet));
         this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet});
       }
       else{
-        alert(resp.Message);
+        // alert(resp.Message);
       }
     });
   }
