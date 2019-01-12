@@ -15,11 +15,13 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class LivefeedPage {
 
-  // public livefeedarr:any = [];
+  public livefeedarr:any = [];
+  public tolivefeedser:any = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api:PatientServiceProvider) {
-      // this.livefeedarr = this.navParams.get("token_status");
+      this.tolivefeedser = this.navParams.get("token_status");
+      console.log("livefeed page",JSON.stringify(this.tolivefeedser));
   }
 
   public 
@@ -27,11 +29,7 @@ export class LivefeedPage {
 
     this.api.livefeed()
     .subscribe((resp:any) => {
-      // this.livefeedarr = resp.output;
-      // if(resp.MessageCode == "LS"){
-
-      //   console.log("live-feed retrieved successfully");
-      // }
+      this.livefeedarr = resp.output;
     });
     console.log('ionViewDidLoad LivefeedPage');
   }

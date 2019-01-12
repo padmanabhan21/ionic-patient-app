@@ -5,7 +5,7 @@ import { IonicPage, NavController, NavParams, ActionSheetController, ModalContro
 import { FeedbackPage } from '../feedback/feedback';
 import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
 import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
-import{EnterPatientDetailsPage}from'../enter-patient-details/enter-patient-details';
+import { EnterPatientDetailsPage } from '../enter-patient-details/enter-patient-details'
 import{DocterservicesPage}from'../docterservices/docterservices';
 
 @IonicPage()
@@ -62,29 +62,30 @@ export class DoctorsdetailsPage {
     console.log('specializationnnnn',this.doctor_specialist);
     }
     
-    //Doctor Timing Page
-    navdoctortimings(){
-      console.log("clicked bro")
-      let doctortimings =this.modalCtrl.create(DoctortimigsPage,{"doctor_timings":this.doctors_timings,"doctor_name":this.doctor_name});
-      doctortimings.present();
-    }
-    //Doctor Clinic Page
-    selectdifferentclinic(){
-      let differentclinic = this.modalCtrl.create(SelectdifferentclinicPage,{"doctor_clinic":this.doctor_clinic,"doctor_name":this.doctor_name});
-      differentclinic.present();
-    }
+  //Doctor Timing Page
+  navdoctortimings(){
+    console.log("clicked bro")
+    let doctortimings =this.modalCtrl.create(DoctortimigsPage,{"doctor_timings":this.doctors_timings,"doctor_name":this.doctor_name});
+    doctortimings.present();
+  }
+  //Doctor Clinic Page
+  selectdifferentclinic(){
+    let differentclinic = this.modalCtrl.create(SelectdifferentclinicPage,{"doctor_clinic":this.doctor_clinic,"doctor_name":this.doctor_name});
+    differentclinic.present();
+  }
 
-    //Enter patient details page
-     enterpatientdatiels(){
-      let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor});
-      enterpatient.present();
-     }
+  //Enter patient details page
+  enterpatientdatiels(){
+    this.chooseClinicForAppointment();
+  //   let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor,"clinic_id":business_id});
+  // enterpatient.present();
+  }
 
-     //Doctor Service page
-     navdoctorservice(){
-       this.navCtrl.push(DocterservicesPage,{"doctor_name":this.doctor_name,"doctor_service":this.doctor_service})
-     }
-  
+  //Doctor Service page
+  navdoctorservice(){
+    this.navCtrl.push(DocterservicesPage,{"doctor_name":this.doctor_name,"doctor_service":this.doctor_service})
+  }
+
   //Doctor Feedback for specific clinics
   navtofeedback() {
     if (this.totalclinic > 1) {
@@ -128,4 +129,41 @@ export class DoctorsdetailsPage {
     });
     actionSheet.present();
   }
+
+  // Book for different clinic
+  chooseClinicForAppointment() {
+    let actionSheet = this.actionsheetCtrl.create({
+      title: 'choose clinic to book appointment ?',
+      cssClass: 'action-sheets-basic-page, small-case, font-14',
+      buttons: this.createButtons()
+    });
+    actionSheet.present();
+  }
+public doctor_clinic_book:any=[
+  {
+    "clinic_id":"",
+    "clinic_location":"",
+    "clinic_name":""
+  }
+];
+  public createButtons(){
+    let buttons = [];
+    for (let clinic in this.doctor_clinic) {
+      let button = {
+        text: this.doctor_clinic[clinic].business_name,
+        handler: () => {
+
+          this.doctor_clinic_book.clinic_id = this.doctor_clinic[clinic].business_id;
+          this.doctor_clinic_book.clinic_location = this.doctor_clinic[clinic].area;
+          this.doctor_clinic_book.clinic_name = this.doctor_clinic[clinic].business_name;
+
+          let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor,"clinic_details":this.doctor_clinic_book});
+          enterpatient.present();
+        }
+      }
+      buttons.push(button);
+    }
+    return buttons;
+  }
+
 }

@@ -39,33 +39,29 @@ export class LoginPage {
     })
   }
   public loginobj:any={};
+  public login_resp:any;
 
   navhomescreen(param){
     // this.navCtrl.push('TabsPage');
     this.api.loginUser(param)
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;
-      // alert(this.login_resp);
       if(this.login_resp == "RIS"){
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
         this.navCtrl.push('TabsPage');
+        alert("user created successfully");
       }
       else if(this.login_resp == "RIUS"){
         this.updateprofile(param);
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
+        alert("user updated successfully");
       }
       else{
         alert("please enter your mobile and name");
       }
     })
-  }
-  public login_resp:any;
-  login() {
-    // this.navCtrl.push('LoginPage');
-
-   
   }
 
   public update_resp:any;
@@ -75,7 +71,6 @@ export class LoginPage {
       this.update_resp = resp.Message_Code;
       if(this.update_resp == "RUS"){
         this.navCtrl.push('TabsPage');
-        alert(this.update_resp);
       }
     });
   }
