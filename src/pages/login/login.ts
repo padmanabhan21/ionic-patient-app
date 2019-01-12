@@ -45,7 +45,7 @@ export class LoginPage {
     this.api.loginUser(param)
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;
-      alert(this.login_resp);
+      // alert(this.login_resp);
       if(this.login_resp == "RIS"){
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
