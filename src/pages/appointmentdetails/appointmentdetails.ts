@@ -17,7 +17,7 @@ import {LivefeedPage}from'../livefeed/livefeed';
 })
 export class AppointmentdetailsPage {
   public token_status:any=[];
-  
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public modalCtrl:ModalController,
@@ -25,6 +25,7 @@ export class AppointmentdetailsPage {
               public appCtrl:App) {
                 
     this.token_status = this.navParams.get("token_status");
+    
     console.log("token Status*******",JSON.stringify(this.token_status));
 
   }
@@ -45,7 +46,7 @@ export class AppointmentdetailsPage {
     this.navCtrl.pop();
   }
   navlivefeed(){
-   this.navCtrl.push(LivefeedPage);
+   this.navCtrl.push(LivefeedPage,{"token_status":this.token_status});
   }
 
 }

@@ -2,7 +2,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
-
+import { SessionStorageService} from 'ngx-webstorage';
 /*
   Generated class for the PatientServiceProvider provider.
 
@@ -12,7 +12,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PatientServiceProvider {
 
-  constructor(public http: Http) {
+  constructor(public http: Http,
+              public session:SessionStorageService) {
     console.log('Hello PatientServiceProvider Provider');
   }
 
@@ -139,8 +140,8 @@ export class PatientServiceProvider {
     {
       "doctor_id": param1,
       "business_id": param2,
-      "mobile": "8220772736",
-      "business_date": "2019-01-11",
+      "mobile": this.session.retrieve("user_mobile"),
+      "business_date": "2019-01-12",
       "token_status": "Booked"
     }
 

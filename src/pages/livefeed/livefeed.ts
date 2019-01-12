@@ -19,6 +19,7 @@ export class LivefeedPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api:PatientServiceProvider) {
+      
   }
 
   ionViewDidLoad() {

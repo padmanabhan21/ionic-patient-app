@@ -44,7 +44,9 @@ export class EnterPatientDetailsPage {
       "token_number":"",
       "waiting_time":"",
       "hospital_name":"",
-      "hospital_address":""
+      "hospital_address":"",
+      "business_id":"",
+      "doctor_id":""
     }
   
   tokenconfirmation(){
@@ -60,6 +62,8 @@ export class EnterPatientDetailsPage {
         this.datatoappointmentdet.waiting_time = resp.waiting_time;
         this.datatoappointmentdet.hospital_name = this.hospital_name;
         this.datatoappointmentdet.hospital_address = this.hospital_address;
+        this.datatoappointmentdet.business_id = this.business_id;
+        this.datatoappointmentdet.doctor_id = this.doctor_id;
         alert(JSON.stringify(this.datatoappointmentdet));
         this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet});
       }
