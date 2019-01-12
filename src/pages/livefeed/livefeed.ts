@@ -15,17 +15,19 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class LivefeedPage {
 
-  public livefeedarr:any = [];
+  // public livefeedarr:any = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public api:PatientServiceProvider) {
-      
+      // this.livefeedarr = this.navParams.get("token_status");
   }
 
+  public 
   ionViewDidLoad() {
+
     this.api.livefeed()
     .subscribe((resp:any) => {
-      this.livefeedarr = resp.output;
+      // this.livefeedarr = resp.output;
       // if(resp.MessageCode == "LS"){
 
       //   console.log("live-feed retrieved successfully");
