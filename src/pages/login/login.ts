@@ -46,21 +46,24 @@ export class LoginPage {
     this.api.loginUser(param)
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;
-      if(this.login_resp == "RIS"){
-        this.session.store("user_mobile",param.mobile);
-        this.session.store("user_name",param.name);
-        this.navCtrl.push('TabsPage');
-        alert("user created successfully");
-      }
-      else if(this.login_resp == "RIUS"){
-        this.updateprofile(param);
-        this.session.store("user_mobile",param.mobile);
-        this.session.store("user_name",param.name);
-        alert("user updated successfully");
-      }
-      else{
-        alert("please enter your mobile and name");
-      }
+      //uncomment this please later for testing purpose commented 
+      this.navCtrl.push('TabsPage');
+
+      // if(this.login_resp == "RIS"){
+      //   this.session.store("user_mobile",param.mobile);
+      //   this.session.store("user_name",param.name);
+      //   this.navCtrl.push('TabsPage');
+      //   alert("user created successfully");
+      // }
+      // else if(this.login_resp == "RIUS"){
+      //   this.updateprofile(param);
+      //   this.session.store("user_mobile",param.mobile);
+      //   this.session.store("user_name",param.name);
+      //   alert("user updated successfully");
+      // }
+      // else{
+      //   alert("please enter your mobile and name");
+      // }
     })
   }
 
