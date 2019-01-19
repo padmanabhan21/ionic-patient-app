@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
+import { templateJitUrl } from '@angular/compiler';
+// import{} '../../providers/d '
 /**
  * Generated class for the SearchdoctorPage page.
  *
@@ -16,18 +18,53 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class SearchdoctorPage {
 
-  public specialist:any=[]
-  
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              public modalctrl: ModalController,
-              public api: PatientServiceProvider) {
+  public specialist: any = []
+  searchdoctor: any = 0;
+  public temp;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalctrl: ModalController,
+    public api: PatientServiceProvider,
+    public loadingCtrl: LoadingController) {
+
+    // var temp = this;
+    // setTimeout(function(){
+    //   temp.api.loadAll().then(result =>{
+    //     temp.searchdoctor = result;
+
+    //   });
+    // }, 5000);
+
+
+    
+    // Create the popup
+    let loadingPopup = this.loadingCtrl.create({
+      content: 'Loading data...'
+    });
   }
+
+
+
+
+
+  // presentLoadingDefault() {
+  //   let loading = this.loadingCtrl.create({
+  //     content: 'Please wait...'
+  //   });
+
+  //   loading.present();
+
+  //   setTimeout(() => {
+  //     loading.dismiss();
+  //   }, 1000);
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchdoctorPage');
     this.getdoctorsandclinic();
   }
+
+
   navspecialist(param) {
     console.log("clicked")
     let navtodoc = this.modalctrl.create(ListofdoctorsPage, { "listofdoctors": param }, { cssClass: "modal-fullscreen" });
@@ -37,15 +74,29 @@ export class SearchdoctorPage {
     this.navCtrl.pop();
   }
 
-  getdoctorsandclinic(){
+  getdoctorsandclinic() {
     this.api.specialist('summa')
-    .subscribe((resp:any) =>{
-      this.specialist = resp.specialist;
-      console.log("Venkat Loves Girlssssssssss",JSON.stringify(this.specialist))
-    })
+      .subscribe((resp: any) => {
+        this.specialist = resp.specialist;
+        console.log("Venkat Loves Girlssssssssss", JSON.stringify(this.specialist))
+      })
+  }
+
+  presentLoadingCustom() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      // content: ,
+      duration: 5000
+    });
+
+    loading.onDidDismiss(() => {
+      console.log('Dismissed loading');
+    });
+
+    loading.present();
   }
   //specialist array
-  
+
   // public specialist =
   //   [
   //     {
