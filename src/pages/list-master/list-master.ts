@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
+import {LoadingController} from 'ionic-angular';
 // import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
 
 @IonicPage()
@@ -11,7 +12,7 @@ import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
 export class ListMasterPage {
   currentItems:any;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController,public loadingCtrl:LoadingController) {
   }
 
   /**
@@ -26,7 +27,19 @@ export class ListMasterPage {
     ]    
   }
   navigatesearch(item){
+
     if(item.id == "1"){
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+    
+      loading.present();
+    
+      setTimeout(() => {
+        loading.dismiss();
+      }, 5000);
+      // alert("loading"JSON.stringify(th))
+
       let searchdoctor = this.modalCtrl.create(SearchdoctorPage);
       searchdoctor.present();
       // alert("moving to search screen");
@@ -34,4 +47,6 @@ export class ListMasterPage {
     }
 
   }
+
+
 }
