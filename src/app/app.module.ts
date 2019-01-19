@@ -68,6 +68,10 @@ import { Facebook } from '@ionic-native/facebook';
 // in Ionic's static asset pipeline.
 import { Ng2Webstorage } from "ngx-webstorage";
 
+//Google Plus Login
+import { GooglePlus } from '@ionic-native/google-plus';
+
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -185,6 +189,7 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Facebook,
+    GooglePlus,
     PatientServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development

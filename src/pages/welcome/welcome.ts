@@ -3,6 +3,9 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { HttpClient } from '@angular/common/http';
+
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -17,11 +20,14 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class WelcomePage {
   user:any={};  
+  
   constructor(public navCtrl: NavController,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
     public fb:Facebook,
-    public api:PatientServiceProvider) { }
+    public api:PatientServiceProvider,
+    private googlePlus: GooglePlus,
+    private http: HttpClient) { }
 
   loginFb(){
     this.fb.login(['public_profile', 'user_friends', 'email'])
@@ -37,6 +43,24 @@ export class WelcomePage {
 
   }
   
+  loginGP(){
+    this.googlePlus.login({})
+  .then(res =>{
+    this.user = res;
+    this.getGPData()
+    console.log("GOOGLE LOGIN DETAILS",res)
+  })
+  .catch(err => console.error(err));
+  }
+
+  getGPData(){
+    this.http.get('https://www.googleapis.com/plus/v1/people/me?access_token='+this.user.accessToken)
+    .subscribe((data:any) =>{
+      this.user.name = data.displayName;
+      this.user.image = data.image.url;
+    })
+  }
+
   public login_resp:any;
   login() {
     this.navCtrl.push('LoginPage');

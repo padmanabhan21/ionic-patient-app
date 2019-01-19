@@ -5,7 +5,7 @@
   <div class="login_action" padding>
     <!-- <button ion-button outline (click)="signup()">{{ 'SIGNUP' | translate }}</button>
     <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
-    <button class="full-width" ion-button color="light" (click)="loginFb()" block>Sign In with Facebook</button>
+    <button class="full-width" ion-button color="light" (click)="loginGP()" block>Sign In with Facebook</button>
     <p class="position-center text-white">Or</p>
     <button class="full-width" ion-button color="light" (click)="login()" outline>Enter Mobile Number</button>
     <img [src]="user.img" alt="">
@@ -13,4 +13,7 @@
   <div class="login_trouble" padding>
     <p (click)="troublesignin()">Trouble Signing In?</p>
 </div>
+<p>Name : {{user.name}}</p>
+<p>Email : {{user.email}}</p>
+<img [src]="user.image" alt="">
 </ion-content>
