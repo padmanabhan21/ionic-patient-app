@@ -38,9 +38,9 @@ export class SearchdoctorPage {
 
     
     // Create the popup
-    let loadingPopup = this.loadingCtrl.create({
-      content: 'Loading data...'
-    });
+    // let loadingPopup = this.loadingCtrl.create({
+    //   content: 'Loading data...'
+    // });
   }
 
 
@@ -82,19 +82,19 @@ export class SearchdoctorPage {
       })
   }
 
-  presentLoadingCustom() {
-    let loading = this.loadingCtrl.create({
-      spinner: 'hide',
-      // content: ,
-      duration: 5000
-    });
+  // presentLoadingCustom() {
+  //   let loading = this.loadingCtrl.create({
+  //     spinner: 'hide',
+  //     // content: ,
+  //     duration: 5000
+  //   });
 
-    loading.onDidDismiss(() => {
-      console.log('Dismissed loading');
-    });
+  //   loading.onDidDismiss(() => {
+  //     console.log('Dismissed loading');
+  //   });
 
-    loading.present();
-  }
+  //   loading.present();
+  // }
   //specialist array
 
   // public specialist =
