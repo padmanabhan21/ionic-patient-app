@@ -67,6 +67,7 @@ export class EnterPatientDetailsPage {
         this.datatoappointmentdet.token_number = resp.Token_No;
         this.datatoappointmentdet.waiting_time = resp.waiting_time;
         this.datatoappointmentdet.hospital_name = this.hospital_name;
+        this.datatoappointmentdet.appointment_id = resp.appointment_id;
         this.datatoappointmentdet.hospital_address = this.hospital_address;
         this.datatoappointmentdet.business_id = this.business_id;
         this.datatoappointmentdet.doctor_id = this.doctor_id;

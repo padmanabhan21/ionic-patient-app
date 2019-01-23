@@ -1,75 +1,89 @@
+//basic angular libraries
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Camera } from '@ionic-native/camera';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { Ng2Webstorage } from "ngx-webstorage";
 
+//basic ionic libraries
+import { IonicStorageModule, Storage } from '@ionic/storage';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+
+//unknows imports
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
+
+//Ionic Native libraries
+import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { Camera } from '@ionic-native/camera';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+
+//SplashScreen (Yet to Do)
+
+//Slider
+// import { TutorialPage } from '../pages/tutorial/tutorial'; //its been set in root module
+
+//Login
+import { WelcomePage } from '../pages/welcome/welcome';
+import { SocialLoginInputPage } from '../pages/social-login-input/social-login-input';
+import { LoginPage } from '../pages/login/login';
+
+//Dashboard
+import { TabsPage } from '../pages/tabs/tabs';
+import { ListMasterPage } from '../pages/list-master/list-master';
+import { SearchPage } from '../pages/search/search';//for blog
+import { SettingsPage } from '../pages/settings/settings';//for profile
+
+//(ListMasterPage-->Home-->Navigation) Geo-Location based search page
+import { SearchdoctorPage } from '../pages/searchdoctor/searchdoctor';
+
+//clinics and doctor list (horizontal scroll and vertical scroll)
 import { ListofdoctorsPage } from '../pages/listofdoctors/listofdoctors';
 
-//profile-options
+//clinic details
+import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
+import{AlltimingsPage}from'../pages/alltimings/alltimings';
+import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
+
+
+//Doctors Details Page
+import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
+import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
+import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
+import{DocterservicesPage}from '../pages/docterservices/docterservices';
+//need to create specialization screen
+import { FeedbackPage } from '../pages/feedback/feedback';
+
+//Appointment Confirmation(enter patient detail,confirmation)
+import{EnterPatientDetailsPage}from'../pages/enter-patient-details/enter-patient-details';
+import{TokenconfirmationPage}from'../pages/tokenconfirmation/tokenconfirmation';//removed right now
+import{AppointmentdetailsPage}from'../pages/appointmentdetails/appointmentdetails';
+import{LivefeedPage} from '../pages/livefeed/livefeed';
+//have to create a page for map
+
+//(ListMasterPage-->SettingsPage-->Navigation) (completeslider,myappointments,mydoctor,payment,records)
 import { ProfileMyDoctorsPage } from '../pages/profile-my-doctors/profile-my-doctors';
 import { ProfileAppointmentsPage } from '../pages/profile-appointments/profile-appointments';
-import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation';
 import { ProfileMedicalRecordsPage } from '../pages/profile-medical-records/profile-medical-records';
-import { ProfileOrdersPage } from '../pages/profile-orders/profile-orders';
-import { ProfileRemindersPage } from '../pages/profile-reminders/profile-reminders';
-import { ProfileBookmarkedArticlesPage } from '../pages/profile-bookmarked-articles/profile-bookmarked-articles';
-import { ProfileHealthInterestPage } from '../pages/profile-health-interest/profile-health-interest';
 import { ProfileMyPaymentPage } from '../pages/profile-my-payment/profile-my-payment';
-import { ProfileOffersPage } from '../pages/profile-offers/profile-offers';
-//profile-dashboard
+
+//profile dashboard
 import{ProfileDashboardPage}from'../pages/profile-dashboard/profile-dashboard';
 import{PersonalPage}from '../pages/personal/personal';
 import{MedicalPage}from'../pages/medical/medical';
 import{LifestylePage}from'../pages/lifestyle/lifestyle';
 import{MedicalslidePage}from'../pages/medicalslide/medicalslide';
 import{LifestyleslidePage} from'../pages/lifestyleslide/lifestyleslide';
-//doctorsdetails
-import{DoctorsdetailsPage}from'../pages/doctorsdetails/doctorsdetails';
-import{DoctortimigsPage} from '../pages/doctortimigs/doctortimigs';
-import{ClinicordoctorservicePage}from '../pages/clinicordoctorservice/clinicordoctorservice';
-import{SelectdifferentclinicPage}from '../pages/selectdifferentclinic/selectdifferentclinic';
-//enterpatientddetails
-import{EnterPatientDetailsPage}from'../pages/enter-patient-details/enter-patient-details';
-//doctorservice
-import{DocterservicesPage}from '../pages/docterservices/docterservices';
+import { ProfileCompleteSliderPage} from '../pages/profile-complete-slider/profile-complete-slider';
 
-// import{GeneratetokenPage}from'../pages/generatetoken/generatetoken';
-import{TokenconfirmationPage}from'../pages/tokenconfirmation/tokenconfirmation';
-import{AppointmentdetailsPage}from'../pages/appointmentdetails/appointmentdetails';
 
-import{ClinicdetailsPage}from'../pages/clinicdetails/clinicdetails';
-// import { ProfileOnlineConsultationPage } from '../pages/profile-online-consultation/profile-online-consultation.module';
-import { SearchdoctorPage } from '../pages/searchdoctor/searchdoctor';
-//livefeed
-import{LivefeedPage} from '../pages/livefeed/livefeed';
-import { ProfileCompleteSliderPage } from '../pages/profile-complete-slider/profile-complete-slider';
-// import { SpecialistDetailPage } from '../pages/specialist-detail/specialist-detail';
-
-import { FeedbackPage } from '../pages/feedback/feedback';
-import{AlltimingsPage}from'../pages/alltimings/alltimings';
-//Service
+//API service
 import { PatientServiceProvider } from '../providers/patient-service/patient-service';
-
-//Facebook Integration
-import { Facebook } from '@ionic-native/facebook';
-// import { PatientServiceProvider } from '../providers/patient-service/patient-service';
-
-// The translate loader needs to know where to load i18n files
-// in Ionic's static asset pipeline.
-import { Ng2Webstorage } from "ngx-webstorage";
-
-//Google Plus Login
-import { GooglePlus } from '@ionic-native/google-plus';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -94,38 +108,59 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
-    ListofdoctorsPage,
+    //slider
+    // TutorialPage, //its been set in root module
+
+    //Login
+    WelcomePage,
+    SocialLoginInputPage,
+    LoginPage,
+
+    //Dashboard
+
+    TabsPage,
+    ListMasterPage,
+    SearchPage,
+    SettingsPage,
+
+    //ListMasterPage (Home Tab)
     SearchdoctorPage,
+
+    //clinics and doctor list
+    ListofdoctorsPage,
+
+    //clinic details
+    ClinicdetailsPage,
+    AlltimingsPage,
+    ClinicordoctorservicePage,
+
+    //doctor details page
+    DoctorsdetailsPage,
+    DoctortimigsPage,
+    SelectdifferentclinicPage,
+    DocterservicesPage,
+    FeedbackPage,
+
+    //Appointment Confirmation
+    EnterPatientDetailsPage,
+    TokenconfirmationPage,
+    AppointmentdetailsPage,
+    LivefeedPage,
+
+    //Profile
     ProfileMyDoctorsPage,
     ProfileAppointmentsPage,
-    ProfileOnlineConsultationPage,
     ProfileMedicalRecordsPage,
-    ProfileOrdersPage,
-    ProfileRemindersPage,
-    ProfileBookmarkedArticlesPage,
-    ProfileHealthInterestPage,
     ProfileMyPaymentPage,
-    ProfileOffersPage,
-    ProfileCompleteSliderPage,
+
+    //profile details
     ProfileDashboardPage,
     PersonalPage,
     MedicalPage,
     LifestylePage,
     MedicalslidePage,
     LifestyleslidePage,
-    DoctorsdetailsPage,
-    ClinicdetailsPage,
-    ClinicordoctorservicePage,
-    SelectdifferentclinicPage,
-    AppointmentdetailsPage,
-    EnterPatientDetailsPage,
-    LivefeedPage,
-  // SpecialistDetailPage,
-    FeedbackPage,
-    DoctortimigsPage,
-    DocterservicesPage,
-    TokenconfirmationPage,
-    AlltimingsPage
+    ProfileCompleteSliderPage,
   ],
   imports: [
     BrowserModule,
@@ -147,39 +182,59 @@ export function provideSettings(storage: Storage) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ListofdoctorsPage,
+    //slider
+    // TutorialPage, //its been set in root module
+
+    //Login
+    WelcomePage,
+    SocialLoginInputPage,
+    LoginPage,
+
+    //Dashboard
+
+    TabsPage,
+    ListMasterPage,
+    SearchPage,
+    SettingsPage,
+
+    //ListMasterPage (Home Tab)
     SearchdoctorPage,
+
+    //clinics and doctor list
+    ListofdoctorsPage,
+
+    //clinic details
+    ClinicdetailsPage,
+    AlltimingsPage,
+    ClinicordoctorservicePage,
+
+    //doctor details page
+    DoctorsdetailsPage,
+    DoctortimigsPage,
+    SelectdifferentclinicPage,
+    DocterservicesPage,
+    FeedbackPage,
+
+    //Appointment Confirmation
+    EnterPatientDetailsPage,
+    TokenconfirmationPage,
+    AppointmentdetailsPage,
+    LivefeedPage,
+
+    //Profile
     ProfileMyDoctorsPage,
     ProfileAppointmentsPage,
-    ProfileOnlineConsultationPage,
     ProfileMedicalRecordsPage,
-    ProfileOrdersPage,
-    ProfileRemindersPage,
-    ProfileBookmarkedArticlesPage,
-    ProfileHealthInterestPage,
     ProfileMyPaymentPage,
-    ProfileOffersPage,
-    ProfileCompleteSliderPage,
+
+    //profile details
     ProfileDashboardPage,
     PersonalPage,
     MedicalPage,
     LifestylePage,
     MedicalslidePage,
     LifestyleslidePage,
-    DoctorsdetailsPage,
-    ClinicdetailsPage,
-    FeedbackPage,
-    DoctortimigsPage,
-    AlltimingsPage,
-    ClinicordoctorservicePage,
-    AppointmentdetailsPage,
-    TokenconfirmationPage,
-    EnterPatientDetailsPage,
-    DocterservicesPage,
-    SelectdifferentclinicPage,
-    LivefeedPage
-    
-    // SpecialistDetailPage
+    ProfileCompleteSliderPage,
   ],
   providers: [
     Api,

@@ -8,12 +8,12 @@ import { Settings } from '../../providers';
 //profile-options
 import { ProfileMyDoctorsPage } from '../profile-my-doctors/profile-my-doctors';
 import { ProfileAppointmentsPage } from '../profile-appointments/profile-appointments';
-import { ProfileOnlineConsultationPage } from '../profile-online-consultation/profile-online-consultation';
+import { ProfileOnlineConsultationPage } from '../profile/profile-online-consultation/profile-online-consultation';
 import { ProfileMedicalRecordsPage } from '../profile-medical-records/profile-medical-records';
-import { ProfileOrdersPage } from '../profile-orders/profile-orders';
-import { ProfileRemindersPage } from '../profile-reminders/profile-reminders';
-import { ProfileBookmarkedArticlesPage } from '../profile-bookmarked-articles/profile-bookmarked-articles';
-import { ProfileHealthInterestPage } from '../profile-health-interest/profile-health-interest';
+import { ProfileOrdersPage } from '../profile/profile-orders/profile-orders';
+import { ProfileRemindersPage } from '../profile/profile-reminders/profile-reminders';
+import { ProfileBookmarkedArticlesPage } from '../profile/profile-bookmarked-articles/profile-bookmarked-articles';
+import { ProfileHealthInterestPage } from '../profile/profile-health-interest/profile-health-interest';
 import { ProfileMyPaymentPage } from '../profile-my-payment/profile-my-payment';
 // import { ProfileOffersPage } from '../profile-offers/profile-offers';
 

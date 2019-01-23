@@ -20,7 +20,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WelcomePage {
   user:any={};  
-  
+  loggedIn = false;
+
   constructor(public navCtrl: NavController,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
@@ -43,10 +44,14 @@ export class WelcomePage {
 
   }
   
+
+
+  //google Login
   loginGP(){
     this.googlePlus.login({})
   .then(res =>{
     this.user = res;
+    this.loggedIn = true;
     this.getGPData()
     console.log("GOOGLE LOGIN DETAILS",res)
   })
@@ -58,6 +63,7 @@ export class WelcomePage {
     .subscribe((data:any) =>{
       this.user.name = data.displayName;
       this.user.image = data.image.url;
+      this.navCtrl.push('LoginPage');
     })
   }
 
