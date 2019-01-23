@@ -31,11 +31,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 //Login
 // import { WelcomePage } from '../pages/welcome/welcome';
 import { SocialLoginInputPage } from '../pages/social-login-input/social-login-input';
-import { LoginPage } from '../pages/login/login';
+// import { LoginPage } from '../pages/login/login';
 
 //Dashboard
-import { TabsPage } from '../pages/tabs/tabs';
-import { ListMasterPage } from '../pages/list-master/list-master';
+// import { TabsPage } from '../pages/tabs/tabs';
+// import { ListMasterPage } from '../pages/list-master/list-master';
 import { SearchPage } from '../pages/search/search';//for blog
 import { SettingsPage } from '../pages/settings/settings';//for profile
 
