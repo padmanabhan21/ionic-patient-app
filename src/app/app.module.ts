@@ -29,7 +29,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 // import { TutorialPage } from '../pages/tutorial/tutorial'; //its been set in root module
 
 //Login
-import { WelcomePage } from '../pages/welcome/welcome';
+// import { WelcomePage } from '../pages/welcome/welcome';
 import { SocialLoginInputPage } from '../pages/social-login-input/social-login-input';
 import { LoginPage } from '../pages/login/login';
 
@@ -112,14 +112,14 @@ export function provideSettings(storage: Storage) {
     // TutorialPage, //its been set in root module
 
     //Login
-    WelcomePage,
+    // WelcomePage,
     SocialLoginInputPage,
-    LoginPage,
+    // LoginPage,
 
     //Dashboard
 
-    TabsPage,
-    ListMasterPage,
+    // TabsPage,
+    // ListMasterPage,
     SearchPage,
     SettingsPage,
 
@@ -186,14 +186,14 @@ export function provideSettings(storage: Storage) {
     // TutorialPage, //its been set in root module
 
     //Login
-    WelcomePage,
+    // WelcomePage,
     SocialLoginInputPage,
-    LoginPage,
+    // LoginPage,
 
     //Dashboard
 
-    TabsPage,
-    ListMasterPage,
+    // TabsPage,
+    // ListMasterPage,
     SearchPage,
     SettingsPage,
 
