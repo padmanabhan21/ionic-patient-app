@@ -3,49 +3,35 @@
     <div class="position-center margin-top-100 weight-700 global-font">
       <b class="text-white  font-16 ">Plese Enter your mobile number</b>
     </div>
-    <ion-list inset class="margin-top-150">
+    <ion-list inset class="margin-top-50">
           <ion-item >
-              <!-- <ion-label>country</ion-label> -->
-              <ion-select class="full-width" style="margin:0px !important">
-                <ion-option value="+91" selected="true">India</ion-option>
-                <ion-option value="+65">singapur</ion-option>
-                <ion-option value="xcheese">Extra Cheese</ion-option>
-                <ion-option value="peppers">Green Peppers</ion-option>
+              <ion-label class="text-white margin-left">Select Country</ion-label>
+              <ion-select>
+                <ion-option *ngFor="let country of countryList" value="country.countrycode">{{country.countryname}}</ion-option>
+                <!-- <ion-option value="+91" selected="true">India</ion-option>
+                <ion-option value="+65">singapore</ion-option>
+                <ion-option value="+55">Brazil</ion-option>
+                <ion-option value="+62">Indonesia</ion-option>
                 <ion-option value="mushrooms">Mushrooms</ion-option>
                 <ion-option value="onions">Onions</ion-option>
                 <ion-option value="pepperoni">Pepperoni</ion-option>
                 <ion-option value="pineapple">Pineapple</ion-option>
                 <ion-option value="sausage">Sausage</ion-option>
-                <ion-option value="Spinach">Spinach</ion-option>
+                <ion-option value="Spinach">Spinach</ion-option> -->
               </ion-select>
             </ion-item>
-            <!-- <ion-row> -->
-              <ion-item class="full-width" style=" margin-left: 14px;">
-                  <!-- <ion-label class="text-white">MobileNumber</ion-label> -->
+            <ion-item>
+                <ion-input type="number" placeholder="MobileNumber" [(ngModel)]="loginobj.mobile"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Username" [(ngModel)]="loginobj.name"></ion-input>
+              </ion-item>
+              <!-- <ion-item class="full-width" style=" margin-left: 14px;">
                 <ion-input required type="number" placeholder="MobileNumber"  [(ngModel)]="loginobj.mobile"></ion-input>
               </ion-item>
               <ion-item  class="full-width" style=" margin-left: 14px;">
                 <ion-input type="text" class="text-white text-input" placeholder="Username" [(ngModel)]="loginobj.name"></ion-input>
-              </ion-item>
-            <!-- </ion-row> -->
-      <!-- <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item> -->
-
-      <!--
-      Want to use a Username instead of an Email? Here you go:
-
-      <ion-item>
-        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
-
-      <!-- <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item> -->
+              </ion-item> -->
 
       <div padding>
         <button ion-button class="full-width" color="light" (click)="navhomescreen(loginobj)" outline>Continue</button>

@@ -3,43 +3,53 @@ page-login {
 
     .splash-bg {
         position: relative;
-        //  background: url('../assets/img/signinpage.jpg') no-repeat transparent;
         background-color: #03A9F4;
         background-size: cover;
         height: 100%;
         z-index: 1;
-        // background-repeat: repeat-x;
-        // animation: animatedBackground 40s linear infinite;
       }
-      .list-ios[inset] .item {
-        border-bottom: 1px solid #181819;
-      }
-      .list{
-
-       margin-top: 10px;
-
-      }
-      .item-md{
-          background-color: transparent !important;
-          color:white;
-      }
-      ion-select,select-md{
-        min-width: 100% !important;
-      }
-      select-text{
-          min-width: 95% !important;
-      }
-    
-    //   .text-input::-webkit-input-placeholder { /* Chrome */
-    //     color: white;
+    //   .list-ios[inset] .item {
+    //     border-bottom: 1px solid #181819;
     //   }
+    //   .list{
 
-    ion-input{
-        ::placeholder{
-            color:white !important;
-        }
-    }
+    //    margin-top: 10px;
+
+    //   }
+    //   .item-md{
+    //       background-color: transparent !important;
+    //       color:white;
+    //   }
+    //   ion-select,select-md{
+    //     min-width: 100% !important;
+    //   }
+    //   select-text{
+    //       min-width: 95% !important;
+    //   }
+    
+    // ion-input{
+    //     ::placeholder{
+    //         color:white !important;
+    //     }
+    // }
     // $text-input-placeholder-color:(#fff);
-
-
+    ion-item {
+        border-radius: 3px !important;
+        padding-left: 10px !important;
+        margin-bottom: 15px !important;
+        margin-bottom: 10px;
+        color: #fff !important;
+        background-color: rgba(255, 255, 255, .2) !important;
+        font-size: 0.9em;
+      }
+       ::-webkit-input-placeholder {
+        color: white !important;
+      }
+      .item-inner {
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+      }
+    .margin-left{
+        margin-left: 8px !important;
+    }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { SessionStorageService } from 'ngx-webstorage';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from '../../providers';
 // import { MainPage } from '../';
@@ -24,19 +25,28 @@ export class LoginPage {
     password: 'test'
   };
 
+
   // Our translated text strings
   public loginErrorString: string;
+  public countryList:any = [];
 
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService,
     public api:PatientServiceProvider,
-    public session:SessionStorageService) {
+    public session:SessionStorageService,
+    public http:HttpClient) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
+
+    this.http.get('assets/data/countrylist.json').subscribe((data:any) => {
+      this.countryList = data;
+      console.log("Reading Json from asset file",JSON.stringify(this.countryList));
+
+ });
   }
   public loginobj:any={};
   public login_resp:any;
