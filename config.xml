@@ -17,14 +17,11 @@
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    
     <preference name="SplashScreenDelay" value="0" />
     <preference name="FadeSplashScreenDuration" value="0" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="ShowSplashScreen" value="false" />
     <preference name="FadeSplashScreen" value="true" />
-
-
     <preference name="StatusBarBackgroundColor" value="3000" />
     <preference name="orientation" value="portrait" />
     <platform name="android">
@@ -93,6 +90,9 @@
     <plugin name="cordova-plugin-googleplus" spec="7.0.0">
         <variable name="REVERSED_CLIENT_ID" value="138141368679-irf6kefaa03sqkqpaplsqgiijbpmjlfk.apps.googleusercontent.com" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
+    </plugin>
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.4.4">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
     </plugin>
     <engine name="android" spec="7.1.4" />
 </widget>
