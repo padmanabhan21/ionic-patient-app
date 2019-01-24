@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
 
 import {LivefeedPage}from'../livefeed/livefeed';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+// import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 /**
  * Generated class for the AppointmentdetailsPage page.
@@ -18,12 +18,9 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 })
 export class AppointmentdetailsPage {
   public token_status:any=[];
-  link:string= null;
-   hospitalname:string= null;
-   appointmentid:string=null;
-   address:string=null;
+
   constructor(public navCtrl: NavController,
-              private socialSharing: SocialSharing, 
+              // private socialSharing: SocialSharing, 
               public navParams: NavParams, 
               public modalCtrl:ModalController,
               public viewCtrl:ViewController,
@@ -55,14 +52,13 @@ export class AppointmentdetailsPage {
    this.navCtrl.push(LivefeedPage,{"token_status":this.token_status});
   }
     
-  share(){
-    this.socialSharing.share(this.link,this.hospitalname,this.appointmentid,this.address)
-    .then(() =>{
-
-    }).catch(()=>{
+  // share(){
+  //   this.socialSharing.share("Dr.Venkat from Kamatchi is providing good service in ortho.Kindley reach him",null,null,null)
+  //   .then(() =>{
+  //     alert("share successful");
+  //   }).catch(()=>{
           
        
-    })
-    console.log();
-  }
+  //   })
+  // }
 }
