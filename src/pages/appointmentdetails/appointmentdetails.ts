@@ -18,7 +18,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 })
 export class AppointmentdetailsPage {
   public token_status:any=[];
-   name:string= null;
+  link:string= null;
    hospitalname:string= null;
    appointmentid:string=null;
    address:string=null;
@@ -56,12 +56,13 @@ export class AppointmentdetailsPage {
   }
     
   share(){
-    this.socialSharing.share(this.name,this.hospitalname,this.appointmentid,this.address)
+    this.socialSharing.share(this.link,this.hospitalname,this.appointmentid,this.address)
     .then(() =>{
 
     }).catch(()=>{
           
        
     })
+    console.log();
   }
 }
