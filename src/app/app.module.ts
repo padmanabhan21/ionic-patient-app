@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpModule } from '@angular/http';
 import { Ng2Webstorage } from "ngx-webstorage";
 
+
 //basic ionic libraries
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -22,6 +23,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+// import {SocialSharing } from '@ionic-native/social-sharing/ngx';
+// import{file} from '@ionic-native//ngx';
 
 //SplashScreen (Yet to Do)
 
@@ -71,6 +74,7 @@ import { ProfileMyDoctorsPage } from '../pages/profile-my-doctors/profile-my-doc
 import { ProfileAppointmentsPage } from '../pages/profile-appointments/profile-appointments';
 import { ProfileMedicalRecordsPage } from '../pages/profile-medical-records/profile-medical-records';
 import { ProfileMyPaymentPage } from '../pages/profile-my-payment/profile-my-payment';
+//Socila shere
 
 //profile dashboard
 import{ProfileDashboardPage}from'../pages/profile-dashboard/profile-dashboard';
@@ -104,7 +108,7 @@ export function provideSettings(storage: Storage) {
     option4: 'Hello'
   });
 }
-
+ 
 @NgModule({
   declarations: [
     MyApp,
@@ -114,6 +118,7 @@ export function provideSettings(storage: Storage) {
     //Login
     // WelcomePage,
     SocialLoginInputPage,
+    
     // LoginPage,
 
     //Dashboard
@@ -152,6 +157,8 @@ export function provideSettings(storage: Storage) {
     ProfileAppointmentsPage,
     ProfileMedicalRecordsPage,
     ProfileMyPaymentPage,
+    //social shere
+    
 
     //profile details
     ProfileDashboardPage,
@@ -244,11 +251,16 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Facebook,
+    // SocialSharing,
     GooglePlus,
+   
     PatientServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
-export class AppModule { }
+
+export class AppModule {
+  
+ }

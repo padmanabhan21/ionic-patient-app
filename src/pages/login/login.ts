@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { SessionStorageService } from 'ngx-webstorage';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from '../../providers';
 // import { MainPage } from '../';
@@ -24,19 +25,28 @@ export class LoginPage {
     password: 'test'
   };
 
+
   // Our translated text strings
   public loginErrorString: string;
+  public countryList:any = [];
 
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService,
     public api:PatientServiceProvider,
-    public session:SessionStorageService) {
+    public session:SessionStorageService,
+    public http:HttpClient) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
+
+    this.http.get('assets/data/countrylist.json').subscribe((data:any) => {
+      this.countryList = data;
+      console.log("Reading Json from asset file",JSON.stringify(this.countryList));
+
+ });
   }
   public loginobj:any={};
   public login_resp:any;
@@ -47,23 +57,23 @@ export class LoginPage {
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;
       //uncomment this please later for testing purpose commented 
-      this.navCtrl.push('TabsPage');
+      // this.navCtrl.push('TabsPage');
 
-      // if(this.login_resp == "RIS"){
-      //   this.session.store("user_mobile",param.mobile);
-      //   this.session.store("user_name",param.name);
-      //   this.navCtrl.push('TabsPage');
-      //   alert("user created successfully");
-      // }
-      // else if(this.login_resp == "RIUS"){
-      //   this.updateprofile(param);
-      //   this.session.store("user_mobile",param.mobile);
-      //   this.session.store("user_name",param.name);
-      //   alert("user updated successfully");
-      // }
-      // else{
-      //   alert("please enter your mobile and name");
-      // }
+      if(this.login_resp == "RIS"){
+        this.session.store("user_mobile",param.mobile);
+        this.session.store("user_name",param.name);
+        this.navCtrl.push('TabsPage');
+        alert("user created successfully");
+      }
+      else if(this.login_resp == "RIUS"){
+        this.updateprofile(param);
+        this.session.store("user_mobile",param.mobile);
+        this.session.store("user_name",param.name);
+        alert("user updated successfully");
+      }
+      else{
+        alert("please enter your mobile and name");
+      }
     })
   }
 
