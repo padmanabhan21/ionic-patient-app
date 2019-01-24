@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
 
 import {LivefeedPage}from'../livefeed/livefeed';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 /**
  * Generated class for the AppointmentdetailsPage page.
@@ -17,12 +18,17 @@ import {LivefeedPage}from'../livefeed/livefeed';
 })
 export class AppointmentdetailsPage {
   public token_status:any=[];
-
-  constructor(public navCtrl: NavController, 
+   name:string= null;
+   hospitalname:string= null;
+   appointmentid:string=null;
+   address:string=null;
+  constructor(public navCtrl: NavController,
+              private socialSharing: SocialSharing, 
               public navParams: NavParams, 
               public modalCtrl:ModalController,
               public viewCtrl:ViewController,
-              public appCtrl:App) {
+              public appCtrl:App,
+              ) {
                 
     this.token_status = this.navParams.get("token_status");
     
@@ -48,5 +54,14 @@ export class AppointmentdetailsPage {
   navlivefeed(){
    this.navCtrl.push(LivefeedPage,{"token_status":this.token_status});
   }
+    
+  share(){
+    this.socialSharing.share(this.name,this.hospitalname,this.appointmentid,this.address)
+    .then(() =>{
 
+    }).catch(()=>{
+          
+       
+    })
+  }
 }

@@ -60,8 +60,8 @@
   </ion-item>
   <ion-item>
     <!-- <p>Practice details</p> -->
-    <b>{{token_status.hospital_name}}</b>
-    <p>{{token_status.hospital_address}}</p>
+    <b [(ngModel)]="hospitalname">{{token_status.hospital_name}}</b>
+    <p [(ngModel)]="address">{{token_status.hospital_address}}</p>
     <ion-row>
       <ion-col col-4>
         <button ion-button clear class="padding-0">GET DIRECTIONS</button>
@@ -81,12 +81,12 @@
       </ion-col>
     </ion-row>
   </ion-item>
-  <ion-item>
+  <!-- <ion-item>
     <b class="font-20 text-color-purple">Prime <a>
         <ion-icon class="text-color-purple" name="checkmark-circle-outline"></ion-icon>
       </a> Benifits</b>
-  </ion-item>
-  <ion-item>
+  </ion-item> -->
+  <!-- <ion-item>
     <p>Our promise to you</p>
     <ion-row>
       <ion-col col-1>
@@ -96,10 +96,7 @@
       <ion-col col-6>
         <b class="text-color-purple  ">30 mins or less wait time </b>
       </ion-col>
-      <!-- <b class="text-color-purple "><a>
-          <ion-icon name="time" class="text-color-purple font-30"></ion-icon>
-          &nbsp;&nbsp;
-        </a> 30 mins or less wait time</b> -->
+      
     </ion-row>
     <ion-row>
       <ion-col col-1>
@@ -128,10 +125,10 @@
         <p class="padding-0"> Consultation with Dr.Manu Lakshmi</p>
       </ion-col>
     </ion-row>
-  </ion-item>
-  <ion-item>
+  </ion-item> -->
+  <!-- <ion-item>
     <p>Get a INR 500 voucher if we are unable to fulful our <br> promise .</p>
-  </ion-item>
+  </ion-item> -->
   <ion-item>
     <ion-row>
       <ion-col col-6 class="border">
@@ -140,7 +137,7 @@
       </ion-col>
       <ion-col col-6>
       <h4>Appointment ID</h4>
-      <b>{{token_status.appointment_id}}</b>
+      <b [(ngModel)]="appointmentid">{{token_status.appointment_id}}</b>
       </ion-col>
     </ion-row>
   </ion-item>
@@ -155,5 +152,12 @@
   </ion-item>
 </ion-content>
 <ion-footer>
+  <ion-row>
+  <ion-col col-6>
   <button ion-button block class="screen-bg" (click)="navlistmaster()"> Done</button>
+</ion-col>
+<ion-col col-6>
+<button ion-button block class="screen-bg"(click)="share()" > Social Shere</button>
+</ion-col>
+</ion-row>
 </ion-footer>
