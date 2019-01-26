@@ -23,8 +23,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-// import {SocialSharing } from '@ionic-native/social-sharing/ngx';
-// import{file} from '@ionic-native//ngx';
+import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 //SplashScreen (Yet to Do)
 
@@ -251,13 +251,14 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Facebook,
-    // SocialSharing,
     GooglePlus,
    
     PatientServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    File,
+    SocialSharing,
   ]
 })
 

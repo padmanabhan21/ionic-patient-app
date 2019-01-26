@@ -91,5 +91,9 @@
         <variable name="REVERSED_CLIENT_ID" value="138141368679-irf6kefaa03sqkqpaplsqgiijbpmjlfk.apps.googleusercontent.com" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
     </plugin>
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.4.4">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
+    </plugin>
+    <plugin name="cordova-plugin-file" spec="6.0.1" />
     <engine name="android" spec="7.1.4" />
 </widget>

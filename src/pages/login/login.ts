@@ -3,12 +3,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { SessionStorageService } from 'ngx-webstorage';
 import { HttpClient } from '@angular/common/http';
+import { ActionSheetController } from 'ionic-angular'
 
 import { User } from '../../providers';
-// import { MainPage } from '../';
-// import { ListMasterPage } from '../list-master/list-master';
-// import { TabsPage } from '../tabs/tabs';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -16,9 +15,12 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 
 export class LoginPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
+  
+
+  selectOptions = {
+    title: 'Choose your country',
+  };
+
   account: { 
     email: string, password: string } = {
     email: 'test@example.com',
@@ -36,7 +38,8 @@ export class LoginPage {
     public translateService: TranslateService,
     public api:PatientServiceProvider,
     public session:SessionStorageService,
-    public http:HttpClient) {
+    public http:HttpClient,
+    public actionsheet:ActionSheetController) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;

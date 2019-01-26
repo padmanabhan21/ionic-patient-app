@@ -6,18 +6,8 @@
     <ion-list inset class="margin-top-50">
           <ion-item >
               <ion-label class="text-white margin-left">Select Country</ion-label>
-              <ion-select>
-                <ion-option *ngFor="let country of countryList" value="country.countrycode">{{country.countryname}}</ion-option>
-                <!-- <ion-option value="+91" selected="true">India</ion-option>
-                <ion-option value="+65">singapore</ion-option>
-                <ion-option value="+55">Brazil</ion-option>
-                <ion-option value="+62">Indonesia</ion-option>
-                <ion-option value="mushrooms">Mushrooms</ion-option>
-                <ion-option value="onions">Onions</ion-option>
-                <ion-option value="pepperoni">Pepperoni</ion-option>
-                <ion-option value="pineapple">Pineapple</ion-option>
-                <ion-option value="sausage">Sausage</ion-option>
-                <ion-option value="Spinach">Spinach</ion-option> -->
+              <ion-select interface="action-sheet" [selectOptions]="selectOptions">
+                <ion-option *ngFor="let country of countryList" value="{{country.countrycode}}">{{country.countryname}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
