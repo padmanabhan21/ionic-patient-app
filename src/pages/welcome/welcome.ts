@@ -6,21 +6,16 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 import { GooglePlus } from '@ionic-native/google-plus';
 import { HttpClient } from '@angular/common/http';
 
-
-/**
- * The Welcome Page is a splash page that quickly describes the app,
- * and then directs the user to create an account or log in.
- * If you'd like to immediately put the user onto a login/signup page,
- * we recommend not using the Welcome page.
-*/
 @IonicPage()
 @Component({
   selector: 'page-welcome',
   templateUrl: 'welcome.html'
 })
+
 export class WelcomePage {
   user:any={};  
   loggedIn = false;
+  userData = null;
 
   constructor(public navCtrl: NavController,
     public platform: Platform,
@@ -30,24 +25,29 @@ export class WelcomePage {
     private googlePlus: GooglePlus,
     private http: HttpClient) { }
 
+  //facebook login  
   loginFb(){
-    this.fb.login(['public_profile', 'user_friends', 'email'])
-  .then((res: FacebookLoginResponse) => {
-    if(res.status === 'connected'){
-      this.user.img = 'http://graph.facebook.com/'+res.authResponse.userID+'/picture?type=square';
-    }else{
-      alert('Login Failed');
-    }
-    console.log('Logged into Facebook!', res)
-  })
-  .catch(e => console.log('Error logging into Facebook', e));
-
+    //email,picture,username
+   this.fb.login(['email','public_profile']).then((response:FacebookLoginResponse) => {
+      this.fb.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)',[]).then(profile => {
+        this.userData = {email:profile['email'],first_name:profile['first_name'],picture:profile['picture_large']['data']['url'],username:profile['name']};
+        alert(JSON.stringify(this.userData));
+      })
+    })
   }
-  
 
+  //facebook logout
+  logoutFromFB(){
+    this.fb.logout().then(resp =>{
+      console.log("Logged Out from Facebook");
+    }).catch(e =>{
+      console.log("got error logging out", e);
+    })
+  }
 
   //google Login
   loginGP(){
+    //name,image,email
     this.googlePlus.login({})
   .then(res =>{
     this.user = res;
@@ -58,40 +58,24 @@ export class WelcomePage {
   .catch(err => console.error(err));
   }
 
+  //getting user data using google api with token number
   getGPData(){
     this.http.get('https://www.googleapis.com/plus/v1/people/me?access_token='+this.user.accessToken)
     .subscribe((data:any) =>{
-      this.user.name = data.displayName;
-      this.user.image = data.image.url;
-      this.navCtrl.push('LoginPage');
+      this.userData.username = data.displayName;
+      this.userData.picture = data.image.url;
+      this.userData.email = this.user.email;
+      alert(JSON.stringify(this.userData));
+      // this.navCtrl.push('LoginPage');
     })
   }
 
-  public login_resp:any;
+  //normal login navigate
   login() {
     this.navCtrl.push('LoginPage');
-    // this.api.loginUser()
-    // .subscribe((resp:any) =>{
-    //   this.login_resp = resp.MessageCode;
-    //   if(this.login_resp == "RIS"){
-    //     this.navCtrl.push('LoginPage');
-    //   }
-    //   else if(this.login_resp == "RIUS"){
-    //     this.updateprofile();
-    //   }
-    // })
   }
-  // public update_resp:any;
-  // updateprofile(){
-  //   this.api.updateLogin()
-  //   .subscribe((resp:any) =>{
-  //     this.update_resp = resp.MessageCode;
-  //     if(this.update_resp == "RUS"){
-  //       this.navCtrl.push('LoginPage');
-  //     }
-  //   });
-  // }
 
+  //sign up page not used
   signup() {
     this.navCtrl.push('SignupPage');
   }
@@ -99,20 +83,19 @@ export class WelcomePage {
   troublesignin(){
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Trouble Signing in?',
-      cssClass: 'action-sheets-basic-page',
+      cssClass: 'action-sheets-basic-page, font-size-12',
       buttons: [
         {
           text: 'Login with your email account',
-          role: 'destructive',
           cssClass: 'font-size-12',
-          // icon: !this.platform.is('ios') ? 'trash' : null,
+          icon: 'mail',
           handler: () => {
             console.log('Delete clicked');
           }
         },
         {
           text: 'Contact customer support',
-          // icon: !this.platform.is('ios') ? 'share' : null,
+          icon: 'call',
           handler: () => {
             console.log('Share clicked');
           }
