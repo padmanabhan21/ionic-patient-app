@@ -5,7 +5,9 @@
   <div class="login_action" padding>
     <!-- <button ion-button outline (click)="signup()">{{ 'SIGNUP' | translate }}</button>
     <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
-    <button class="full-width" ion-button color="light" (click)="loginGP()" block *ngIf="!loggedIn">Sign In with Facebook</button>
+    <button class="full-width" ion-button color="light" (click)="loginFb()" block >Sign In with Facebook</button>
+    <p class="position-center text-white">Or</p>
+    <button class="full-width" ion-button color="light" (click)="loginGP()" block >Sign In with Google</button>
     <p class="position-center text-white">Or</p>
     <button class="full-width" ion-button color="light" (click)="login()" outline>Enter Mobile Number</button>
     <img [src]="user.img" alt="">
@@ -13,7 +15,14 @@
   <div class="login_trouble" padding>
     <p (click)="troublesignin()">Trouble Signing In?</p>
 </div>
-<!-- <p>Name : {{user.name}}</p>
-<p>Email : {{user.email}}</p>
-<img [src]="user.image" alt=""> -->
+<!-- <ion-card *ngIf="userData">
+  <ion-card-header>
+    {{userData.username}}
+  </ion-card-header>
+  <img [src]="userData.picture" alt="no image found">
+  <ion-card-content>
+    <p>Email : {{userData.email}}</p>
+    <p>First Name : {{userData.first_name}}</p>
+  </ion-card-content>
+</ion-card> -->
 </ion-content>

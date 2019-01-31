@@ -23,8 +23,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { File } from '@ionic-native/file/ngx';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { File } from '@ionic-native/file';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 //SplashScreen (Yet to Do)
 
@@ -39,8 +39,8 @@ import { SocialLoginInputPage } from '../pages/social-login-input/social-login-i
 //Dashboard
 // import { TabsPage } from '../pages/tabs/tabs';
 // import { ListMasterPage } from '../pages/list-master/list-master';
-import { SearchPage } from '../pages/search/search';//for blog
-import { SettingsPage } from '../pages/settings/settings';//for profile
+// import { SearchPage } from '../pages/search/search';//for blog
+// import { SettingsPage } from '../pages/settings/settings';//for profile
 
 //(ListMasterPage-->Home-->Navigation) Geo-Location based search page
 import { SearchdoctorPage } from '../pages/searchdoctor/searchdoctor';
@@ -125,8 +125,8 @@ export function provideSettings(storage: Storage) {
 
     // TabsPage,
     // ListMasterPage,
-    SearchPage,
-    SettingsPage,
+    // SearchPage,
+    // SettingsPage,
 
     //ListMasterPage (Home Tab)
     SearchdoctorPage,
@@ -201,8 +201,8 @@ export function provideSettings(storage: Storage) {
 
     // TabsPage,
     // ListMasterPage,
-    SearchPage,
-    SettingsPage,
+    // SearchPage,
+    // SettingsPage,
 
     //ListMasterPage (Home Tab)
     SearchdoctorPage,

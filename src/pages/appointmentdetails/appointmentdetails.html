@@ -157,18 +157,23 @@
       <ion-input [(ngModel)]="link" placeholder="Enter Input"></ion-input>
     </ion-item>
   </ion-item>
+  <ion-fab right bottom>
+    <button ion-fab><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook" (click)="shareFacebook()"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter" (click)="shareTwitter()"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-whatsapp" (click)="shareWhatsApp()"></ion-icon></button>
+      <button ion-fab><ion-icon name="mail" (click)="shareEmail()"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
 <ion-footer>
   <ion-row>
-  <ion-col col-6>
-  <button ion-button block class="screen-bg" (click)="navlistmaster()"> Done</button>
-</ion-col>
-<ion-col col-6>
-<button ion-button block class="screen-bg" (click)="twitterShare()"  > Social Shere</button>
-</ion-col>
-</ion-row>
-<button ion-button (click)="shareTwitter()">Share on Twitter</button>
-<button ion-button (click)="shareEmail()">Share by Email</button>
-<button ion-button (click)="shareFacebook()">Share on Facebook</button>
-<button ion-button (click)="shareWhatsApp()">Share with WhatsApp</button>
+    <ion-col col-6>
+      <button ion-button block class="screen-bg" (click)="navlistmaster()"> Done</button>
+    </ion-col>
+    <ion-col col-6>
+
+    </ion-col>
+  </ion-row>
 </ion-footer>

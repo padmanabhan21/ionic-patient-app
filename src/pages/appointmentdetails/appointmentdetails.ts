@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
 
 import {LivefeedPage}from'../livefeed/livefeed';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { File } from '@ionic-native/file';
 
 @IonicPage()
 @Component({
@@ -26,15 +26,12 @@ export class AppointmentdetailsPage {
               private file: File
               ) {
                 
-    this.token_status = this.navParams.get("token_status");
-    
+    this.token_status = this.navParams.get("token_status");    
     console.log("token Status*******",JSON.stringify(this.token_status));
-
   }
 
   ionViewDidLoad() {
     alert(this.token_status.waiting_time);
-    
     console.log('ionViewDidLoad AppointmentdetailsPage');
   }
 
@@ -53,10 +50,10 @@ export class AppointmentdetailsPage {
 
   //social share
   shareTwitter(){
-    this.socialSharing.shareViaTwitter(null, `${this.file.applicationDirectory}www/assets/imgs`).then(() =>{
+    this.socialSharing.shareViaTwitter(null, `${this.file.applicationDirectory}www/assets/imgs`, null).then(() =>{
       alert("twitter share done");
     }).catch(e => {
-
+      alert(e);
     })
   }
 
@@ -72,11 +69,12 @@ export class AppointmentdetailsPage {
   async shareEmail(){
     let file = await this.resolveLocalFile();
     console.log('FILE:', file);
-    this.socialSharing.shareViaEmail("This is my message", 'my subject', ['infocuit.venkateshn@gmail.com'], null, null, file.nativeURL).then(() =>{
+    this.socialSharing.shareViaEmail("This is my message", 
+    'my subject', ['infocuit.venkateshn@gmail.com'], null, null, file.nativeURL).then(() =>{
       this.removeTempFile(file.name);
       alert("email share done");
     }).catch(e => {
-      
+      alert(e);
     })
   }
 
@@ -88,7 +86,7 @@ export class AppointmentdetailsPage {
       this.removeTempFile(file.name);
       alert("fb share done");
     }).catch(e => {
-      
+      alert(e);
     })
   }
 
@@ -96,7 +94,7 @@ export class AppointmentdetailsPage {
     this.socialSharing.shareViaWhatsApp(this.text, null, this.url).then(() =>{
       alert("whatsapp share done");
     }).catch(e => {
-      
+      alert(e);
     })
   }
 }
