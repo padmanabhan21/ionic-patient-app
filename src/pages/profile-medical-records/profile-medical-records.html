@@ -21,5 +21,8 @@
 
 
 <ion-content padding>
-
+  <ion-avatar (click)="getPicture()">
+    <img [src]="chosenPicture || placeholder"/>
+    <button ion-button color="danger">Change image</button>
+  </ion-avatar>
 </ion-content>
