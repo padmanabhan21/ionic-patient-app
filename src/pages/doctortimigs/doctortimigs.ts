@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'doctortimigs.html',
 })
 export class DoctortimigsPage {
-  public doctorstimings:any[ ]
+  public doctorstimings:any[]
   public doctor_name:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.doctorstimings = this.navParams.get("doctor_timings");
@@ -23,7 +23,7 @@ export class DoctortimigsPage {
   
   
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DoctortimigsPage'); 
+    console.log("doctortimings", this.doctorstimings);
     
 
     alert(this.doctor_name);
