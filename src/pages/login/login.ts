@@ -59,7 +59,7 @@ export class LoginPage {
     this.api.loginUser(param)
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;
-      //uncomment this please later for testing purpose commented 
+      // uncomment this please later for testing purpose commented 
       // this.navCtrl.push('TabsPage');
 
       if(this.login_resp == "RIS"){

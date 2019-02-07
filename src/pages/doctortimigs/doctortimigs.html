@@ -4,16 +4,30 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<!-- <ion-header> -->
-<ion-row>
-  <h6 class="text-white" class="margin-left-10 text-white small-case">Clinic Hours</h6>
-</ion-row>
+<ion-header>
+  <ion-navbar color="main">
+    <ion-buttons item-start class="small-case">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b class="text-white">Clinic hours</b><br>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+        &nbsp;
+        <!-- <b class="small-case">Clinic hours</b> -->
 
-<!-- </ion-header> -->
+        <p class="margin-left-10">{{doctor_name}}</p>
+      </button>
+    </ion-buttons>
+    <!-- <ion-title>listofdoctors</ion-title> -->
+  </ion-navbar>
+  <!-- <ion-row>
+  <h6 class="text-white" class="margin-left-10 text-white small-case">Clinic Hours</h6>
+</ion-row> -->
+
+</ion-header>
 
 
 <ion-content>
-  <ion-row class="height-56 screen-bg text-white">
+  <!-- <ion-row class="height-56 screen-bg text-white">
     <ion-col col-1 class="text-center margin-top-5">
       <ion-icon name="close" (click)="closeModal()"></ion-icon>
     </ion-col>
@@ -26,8 +40,9 @@
         <p class="font-14 small-case margin-auto padding-0">{{doctor_name}}</p>
       </ion-row>
     </ion-col>
-  </ion-row>
-    <ion-row padding class="height "  *ngFor="let timing of doctorstimings">
+  </ion-row> -->
+  <ion-row *ngFor="let timing of doctorstimings">
+    <ion-col col-1></ion-col>
     <ion-col col-2 class="padding-0">
       <b>{{timing.day}}</b>
     </ion-col>
