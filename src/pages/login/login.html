@@ -16,16 +16,20 @@
               <ion-item>
                 <ion-input type="text" placeholder="Username" [(ngModel)]="loginobj.name"></ion-input>
               </ion-item>
+              <div padding>
+                <button ion-button class="full-width" color="light" (click)="navhomescreen(loginobj)" outline>Continue</button>
+              </div>
+              
               <!-- <ion-item class="full-width" style=" margin-left: 14px;">
                 <ion-input required type="number" placeholder="MobileNumber"  [(ngModel)]="loginobj.mobile"></ion-input>
               </ion-item>
               <ion-item  class="full-width" style=" margin-left: 14px;">
                 <ion-input type="text" class="text-white text-input" placeholder="Username" [(ngModel)]="loginobj.name"></ion-input>
               </ion-item> -->
-
-      <div padding>
+              
+      <!-- <div padding>
         <button ion-button class="full-width" color="light" (click)="navhomescreen(loginobj)" outline>Continue</button>
-      </div>
+      </div> -->
 
     </ion-list>
   <!-- </form> -->
