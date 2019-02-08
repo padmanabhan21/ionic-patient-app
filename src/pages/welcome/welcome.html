@@ -17,19 +17,9 @@
     </div>
 
     <button ion-button block clear (click)="loginFb()" color="light" class="login-button"><ion-icon name="logo-facebook">&nbsp;</ion-icon>Facebook Login</button>
-              <button ion-button block clear (click)="loginGP()" color="light" class="login-button"><ion-icon name="logo-googleplus"> &nbsp;</ion-icon>Google Login</button>
+    <button ion-button block clear (click)="loginGP()" color="light" class="login-button"><ion-icon name="logo-googleplus"> &nbsp;</ion-icon>Google Login</button>
   </div>
   <div class="login_trouble" padding>
     <p (click)="troublesignin()">Trouble Signing In?</p>
-</div>
-<!-- <ion-card *ngIf="userData">
-  <ion-card-header>
-    {{userData.username}}
-  </ion-card-header>
-  <img [src]="userData.picture" alt="no image found">
-  <ion-card-content>
-    <p>Email : {{userData.email}}</p>
-    <p>First Name : {{userData.first_name}}</p>
-  </ion-card-content>
-</ion-card> -->
+  </div>
 </ion-content>

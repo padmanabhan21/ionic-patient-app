@@ -1,3 +1,18 @@
 page-social-login-input {
-
+    ion-item {
+        border-radius: 3px !important;
+        padding-left: 10px !important;
+        margin-bottom: 15px !important;
+        margin-bottom: 10px;
+        color: #fff !important;
+        background-color: rgba(255, 255, 255, .2) !important;
+        font-size: 0.9em;
+      }
+       ::-webkit-input-placeholder {
+        color: white !important;
+      }
+      .item-inner {
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+      }
 }

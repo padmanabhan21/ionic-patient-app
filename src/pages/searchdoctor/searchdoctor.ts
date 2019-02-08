@@ -2,14 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
-import { templateJitUrl } from '@angular/compiler';
-// import{} '../../providers/d '
-/**
- * Generated class for the SearchdoctorPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -26,41 +19,20 @@ export class SearchdoctorPage {
     public modalctrl: ModalController,
     public api: PatientServiceProvider,
     public loadingCtrl: LoadingController) {
-
-    // var temp = this;
-    // setTimeout(function(){
-    //   temp.api.loadAll().then(result =>{
-    //     temp.searchdoctor = result;
-
-    //   });
-    // }, 5000);
-
-
-    
-    // Create the popup
-    // let loadingPopup = this.loadingCtrl.create({
-    //   content: 'Loading data...'
-    // });
   }
 
-
-
-
-
-  // presentLoadingDefault() {
-  //   let loading = this.loadingCtrl.create({
-  //     content: 'Please wait...'
-  //   });
-
-  //   loading.present();
-
-  //   setTimeout(() => {
-  //     loading.dismiss();
-  //   }, 1000);
-  // }
-
+  public loading;
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchdoctorPage');
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    this.loading.present();
+  
+    // setTimeout(() => {
+    // }, 10000);
+
     this.getdoctorsandclinic();
   }
 
@@ -70,6 +42,7 @@ export class SearchdoctorPage {
     let navtodoc = this.modalctrl.create(ListofdoctorsPage, { "listofdoctors": param }, { cssClass: "modal-fullscreen" });
     navtodoc.present();
   }
+
   closeModal() {
     this.navCtrl.pop();
   }
@@ -78,6 +51,7 @@ export class SearchdoctorPage {
     this.api.specialist('summa')
       .subscribe((resp: any) => {
         this.specialist = resp.specialist;
+        this.loading.dismiss();
         console.log("Venkat Loves Girlssssssssss", JSON.stringify(this.specialist))
       })
   }

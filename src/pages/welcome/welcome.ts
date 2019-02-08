@@ -5,6 +5,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { HttpClient } from '@angular/common/http';
+import { SocialLoginInputPage } from '../social-login-input/social-login-input';
 
 @IonicPage()
 @Component({
@@ -32,6 +33,9 @@ export class WelcomePage {
       this.fb.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)',[]).then(profile => {
         this.userData = {email:profile['email'],first_name:profile['first_name'],picture:profile['picture_large']['data']['url'],username:profile['name']};
         alert(JSON.stringify(this.userData));
+        this.navCtrl.push(SocialLoginInputPage,{"loginDetails":this.userData});
+      }).catch(e =>{
+        console.log(e);
       })
     })
   }
@@ -49,10 +53,17 @@ export class WelcomePage {
   loginGP(){
     //name,image,email
     this.googlePlus.login({})
-  .then(res =>{
+  .then((res:any) =>{
     this.user = res;
-    this.loggedIn = true;
-    this.getGPData()
+    this.http.get('https://www.googleapis.com/plus/v1/people/me?access_token='+this.user.accessToken)
+    .subscribe((data:any) =>{
+      this.userData.username = data.displayName;
+      this.userData.picture = data.image.url;
+      this.userData.email = this.user.email;
+      this.navCtrl.push(SocialLoginInputPage,{"loginDetails":this.userData});
+    })
+    // this.getGPData();
+    // alert(JSON.stringify(res));
     console.log("GOOGLE LOGIN DETAILS",res)
   })
   .catch(err => console.error(err));
@@ -66,7 +77,8 @@ export class WelcomePage {
       this.userData.picture = data.image.url;
       this.userData.email = this.user.email;
       alert(JSON.stringify(this.userData));
-      // this.navCtrl.push('LoginPage');
+      console.log("*************************************",JSON.stringify(this.userData))
+      this.navCtrl.push(SocialLoginInputPage,{"loginDetails":this.userData});
     })
   }
 

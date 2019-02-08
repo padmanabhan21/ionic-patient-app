@@ -38,12 +38,9 @@ export class ListMasterPage {
       setTimeout(() => {
         loading.dismiss();
       }, 5000);
-      // alert("loading"JSON.stringify(th))
 
       let searchdoctor = this.modalCtrl.create(SearchdoctorPage);
       searchdoctor.present();
-      // alert("moving to search screen");
-      // this.navCtrl.push('SearchdoctorPage');
     }
 
   }
