@@ -20,8 +20,8 @@
 </ion-header>
 
 
-<ion-content>
-  <ion-card style="background-color: cornflowerblue;" *ngFor="let appointments of Appointmentdetails">
+<ion-content style="background-color: darkgray;"> 
+  <ion-card  *ngFor="let appointments of Appointmentdetails" class="border-redius-8">
      <ion-card-content>
       <ion-row>
      <ion-col col-3>
@@ -32,8 +32,8 @@
      <ion-col col-1></ion-col>
      <ion-col col-4>
           <b>{{appointments.doctor_name}}</b>
-          <p>{{appointments.appointmenti_id}}</p>
-          <b>{{appointments.date}}</b>
+          <p> Appointment ID:{{appointments.app_id}}</p>
+          <b>{{appointments.business_date}}</b>
      </ion-col>
     </ion-row>
     <ion-row>

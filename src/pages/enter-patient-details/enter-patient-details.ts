@@ -22,13 +22,16 @@ export class EnterPatientDetailsPage {
   public user_mobile;
   public user_name;
   public clinic_details:any=[];
-
+  public scope;
+  // EnterPatientDetailsPage.scope: any
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public modalCtrl:ModalController,
               public api:PatientServiceProvider,
               public session:SessionStorageService,
-              public actionsheetCtrl:ActionSheetController) {
+              public actionsheetCtrl:ActionSheetController,
+              ) {
+                // today :Date;
       this.appointment_details = this.navParams.get("doctor_details");
       this.clinic_details = this.navParams.get("clinic_details");
   }
@@ -83,4 +86,18 @@ export class EnterPatientDetailsPage {
   closeModal() {
     this.navCtrl.pop();
   }
+  
+  // this.scope.today = function() 
+  // {
+  //   this.scope.dt = new Date();
+  // };
+   // Disable weekend selection
+  //  function disabled(data) {
+  //   var date = data.date,
+  //     mode = data.mode;
+  //   return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+  // }
+ 
+  //  this.today = new Date()
+  //  var priorDate = new Date().setDate(today.getDate()+7)
 }

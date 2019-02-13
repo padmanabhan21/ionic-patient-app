@@ -86,6 +86,7 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
+
   // (4)--> Token Generation
   tokengeneration(param1,param2): Observable<object[]> {
 
@@ -165,7 +166,23 @@ export class PatientServiceProvider {
       .map(this.extractData)
       .catch(this.handleError);
   }
+/// 8.my appointments
+    
 
+myappointments(param): Observable<object[]> {
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    "mobile":param
+  }
+
+  return this.http.post('https://doctorappnew.herokuapp.com/Select_My_Appointments', body, options)
+    .map(this.extractData)
+    .catch(this.handleError);
+}
 
   private extractData(res: Response) {
     let body = res.json();
