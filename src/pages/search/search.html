@@ -1,14 +1,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
+    <ion-title>Blog</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+  <!-- <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
   <ion-list>
     <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
       <ion-avatar item-start>
@@ -18,5 +18,111 @@
       <p>{{item.about}}</p>
       <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
     </button>
-  </ion-list>
+  </ion-list> -->
+
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/blogs/blogdoc-1.jpg">
+      </ion-avatar>
+      <h2>Dr. Manikandan</h2>
+      <p>February 14, 2019</p>
+    </ion-item>
+  
+    <img src="../../assets/blogs/blogcontent-1.jpg">
+  
+    <ion-card-content>
+      <p>Active Professional Health Checkup for younger generations.</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          3h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/blogs/blogdoc-2.jpg">
+      </ion-avatar>
+      <h2>Dr. Jeeva</h2>
+      <p>February 15, 2019</p>
+    </ion-item>
+  
+    <img src="../../assets/blogs/blogcontent-2.jpg">
+  
+    <ion-card-content>
+      <p>Keep your body fit and healthy by full checkup.</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>24 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>16 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          5h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/blogs/blogdoc-3.jpg">
+      </ion-avatar>
+      <h2>Dr. Anuradha</h2>
+      <p>February 13, 2019</p>
+    </ion-item>
+  
+    <img src="../../assets/blogs/blogcontent-3.jpg">
+  
+    <ion-card-content>
+      <p>Special Women's Health Care scheme.</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>20 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>7 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          22h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
