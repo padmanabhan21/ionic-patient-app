@@ -21,7 +21,7 @@
 
 
 <ion-content style="background-color: darkgray;"> 
-  <ion-card  *ngFor="let appointments of Appointmentdetails" class="border-redius-8">
+  <ion-card  *ngFor="let appointments of Appointmentdetails" class="border-redius-8"(click)="myappointmentdetails(appointments)" >
      <ion-card-content>
       <ion-row>
      <ion-col col-3>

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppointmentdetailsPage } from '../appointmentdetails/appointmentdetails';
 import { SessionStorageService } from 'ngx-webstorage';
 import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
+import {MyappointmentdetailsPage} from '../myappointmentdetails/myappointmentdetails';
 /** 
  * Generated class for the ProfileAppointmentsPage page.
  *
@@ -22,6 +23,7 @@ export class ProfileAppointmentsPage {
   public token_status:any[];
   public appointment_details:any[];
   public appointmentdetails;
+  public navmyappointmentdetails;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public session:SessionStorageService,
     public api:PatientServiceProvider) {
@@ -54,5 +56,8 @@ export class ProfileAppointmentsPage {
 
   closeModal(){
     this.navCtrl.pop();
+  }
+  myappointmentdetails(param){
+    this.navCtrl.push(MyappointmentdetailsPage ,{"navmyappointmentdetails":param})
   }
 }
