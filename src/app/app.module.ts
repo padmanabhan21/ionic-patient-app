@@ -84,6 +84,8 @@ import{LifestylePage}from'../pages/lifestyle/lifestyle';
 import{MedicalslidePage}from'../pages/medicalslide/medicalslide';
 import{LifestyleslidePage} from'../pages/lifestyleslide/lifestyleslide';
 import { ProfileCompleteSliderPage} from '../pages/profile-complete-slider/profile-complete-slider';
+//profile myappointments
+import{MyappointmentdetailsPage} from '../pages/myappointmentdetails/myappointmentdetails';
 
 
 //API service
@@ -168,6 +170,7 @@ export function provideSettings(storage: Storage) {
     MedicalslidePage,
     LifestyleslidePage,
     ProfileCompleteSliderPage,
+    MyappointmentdetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -242,6 +245,7 @@ export function provideSettings(storage: Storage) {
     MedicalslidePage,
     LifestyleslidePage,
     ProfileCompleteSliderPage,
+    MyappointmentdetailsPage,
   ],
   providers: [
     Api,
