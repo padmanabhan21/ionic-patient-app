@@ -16,10 +16,13 @@ export class OtpverifyPage {
    "user_otp":"",
    "user_name":""
   };
-
+  public ctrycode;
+  public mobile;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public api: PatientServiceProvider) {
         this.otp_data = this.navParams.get("user_login_data");        
+        this.ctrycode = this.otp_data.countrycode;
+        this.mobile = this.otp_data.mobile;
   }
 
   ionViewDidLoad() {
