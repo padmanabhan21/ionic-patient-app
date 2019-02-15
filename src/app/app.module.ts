@@ -34,6 +34,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 //Login
 // import { WelcomePage } from '../pages/welcome/welcome';
 import { SocialLoginInputPage } from '../pages/social-login-input/social-login-input';
+
+import { OtpverifyPage } from '../pages/otpverify/otpverify';
 // import { LoginPage } from '../pages/login/login';
 
 //Dashboard
@@ -129,6 +131,7 @@ export function provideSettings(storage: Storage) {
     // ListMasterPage,
     // SearchPage,
     // SettingsPage,
+    OtpverifyPage,
 
     //ListMasterPage (Home Tab)
     SearchdoctorPage,
@@ -206,7 +209,7 @@ export function provideSettings(storage: Storage) {
     // ListMasterPage,
     // SearchPage,
     // SettingsPage,
-
+    OtpverifyPage,
     //ListMasterPage (Home Tab)
     SearchdoctorPage,
 

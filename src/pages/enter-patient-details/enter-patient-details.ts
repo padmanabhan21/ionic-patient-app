@@ -23,7 +23,9 @@ export class EnterPatientDetailsPage {
   public user_name;
   public clinic_details:any=[];
   public scope;
-  // EnterPatientDetailsPage.scope: any
+  public minDate;
+  public maxDate;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public modalCtrl:ModalController,
@@ -31,7 +33,6 @@ export class EnterPatientDetailsPage {
               public session:SessionStorageService,
               public actionsheetCtrl:ActionSheetController,
               ) {
-                // today :Date;
       this.appointment_details = this.navParams.get("doctor_details");
       this.clinic_details = this.navParams.get("clinic_details");
   }
@@ -42,9 +43,16 @@ export class EnterPatientDetailsPage {
     this.business_id = this.clinic_details.clinic_id;
     this.hospital_name = this.clinic_details.clinic_name;
     this.hospital_location = this.clinic_details.clinic_location;
-
+    this.minDate = new Date().toISOString();
+    this.maxDate = this.addDays(new Date(),6).toISOString();
+    
     console.log('Appointment Confirmation Screen',JSON.stringify(this.appointment_details));
   }
+  
+  addDays(dateObj, numDays) {
+    dateObj.setDate(dateObj.getDate() + numDays);
+    return dateObj;
+ }
 
   public datatoappointmentdet:any=
     {

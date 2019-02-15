@@ -16,17 +16,16 @@
 </ion-header>
 <ion-content>
   <ion-row>
-    <ion-col col-6 *ngFor="let item of specialist">
-      <ion-card (click)="navspecialist(item)">
+    <ion-col col-6 *ngFor="let item of specialist" style="height:33.33%;">
+      <ion-card (click)="navspecialist(item)" style="border-radius:8px;">
         <ion-card-header class="padding-0">
-          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-          <ion-card-title class="padding-0">
-            <img src="../assets/img/women's-health.png" alt="" style="height: 100px;">
+          <ion-card-title class="padding-0" style="border-bottom: 1px solid #d6d6d6;">
+            <img src="../assets/img/specialist.png" alt="" style="height: 100px;padding: 20px;">
           </ion-card-title>
         </ion-card-header>
 
-        <ion-card-content style="text-align: center">
-          {{item.name}}
+        <ion-card-content style="text-align: center;white-space: nowrap;">
+          <b>{{item.name}}</b>
         </ion-card-content>
       </ion-card>
     </ion-col>

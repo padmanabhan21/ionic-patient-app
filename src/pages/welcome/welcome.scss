@@ -1,4 +1,15 @@
 page-welcome {
+  // .scroll-content{
+  //   align-content: center;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   text-align: center;
+  // }
+    .icon{
+      padding-right: 10px;
+    }
+
   $transparent-white: rgba(255, 255, 255, .6);
   .splash-bg {
     position: relative;
@@ -39,6 +50,10 @@ page-welcome {
     font-size: 12px;
     color: white;
   }
+  // .bottom{
+  //   position: absolute;
+  //   bottom: 0;
+  // }
   .mobile_btn{
    width: 100%;
   }
