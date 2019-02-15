@@ -184,6 +184,43 @@ myappointments(param): Observable<object[]> {
     .catch(this.handleError);
 }
 
+//OTP-Verify Screen
+// 1.Send OTP
+sendotp(param){
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    "country_code": param.countrycode,
+	  "mobile_number":param.mobile
+  }
+
+  return this.http.post('https://twiliosoftware.herokuapp.com/send_OTP',body,options)
+  .map(this.extractData)
+  .catch(this.handleError)  
+}
+
+
+
+//2.Verify OTP
+verifyotp(param){
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    "otp_num":param.user_otp,
+    "country_code": param.countrycode,
+    "mobile_number": param.mobile
+  }
+
+  return this.http.post('https://twiliosoftware.herokuapp.com/SMS_verify_OTP',body,options)
+  .map(this.extractData)
+  .catch(this.handleError)
+}
   private extractData(res: Response) {
     let body = res.json();
     console.log(JSON.stringify(body));

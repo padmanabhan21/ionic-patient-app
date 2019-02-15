@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { SessionStorageService } from 'ngx-webstorage';
 import { HttpClient } from '@angular/common/http';
 import { ActionSheetController } from 'ionic-angular'
+import { OtpverifyPage } from '../otpverify/otpverify';
 
 import { User } from '../../providers';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
@@ -65,13 +66,15 @@ export class LoginPage {
       if(this.login_resp == "RIS"){
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
-        this.navCtrl.push('TabsPage');
+        this.session.store("user_country",param.countrycode);
+        this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
         alert("user created successfully");
       }
       else if(this.login_resp == "RIUS"){
         this.updateprofile(param);
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
+        this.session.store("user_country",param.countrycode);
         alert("user updated successfully");
       }
       else{
@@ -86,7 +89,8 @@ export class LoginPage {
     .subscribe((resp:any) =>{
       this.update_resp = resp.Message_Code;
       if(this.update_resp == "RUS"){
-        this.navCtrl.push('TabsPage');
+        this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
+        // this.navCtrl.push('TabsPage');
       }
     });
   }

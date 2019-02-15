@@ -5,7 +5,7 @@
     <ion-list inset class="margin-top-50">
           <ion-item >
               <ion-label class="text-white margin-left">Select Country</ion-label>
-              <ion-select interface="action-sheet" [selectOptions]="selectOptions">
+              <ion-select interface="action-sheet" [selectOptions]="selectOptions" [(ngModel)]="loginobj.countrycode">
                 <ion-option *ngFor="let country of countryList" value="{{country.countrycode}}">{{country.countryname}}</ion-option>
               </ion-select>
             </ion-item>

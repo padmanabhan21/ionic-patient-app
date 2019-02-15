@@ -44,7 +44,7 @@
   </ion-item>
   <ion-item>
     <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" >
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM" [min]="minDate" [max]="maxDate">
     </ion-datetime>
   </ion-item>
   <ion-item>
