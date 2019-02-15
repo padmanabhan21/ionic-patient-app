@@ -13,6 +13,60 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+  <ion-item class="background-color-cornsilk">
+    <p class="text-center">Appointment has been {{token_status}}</p>
+  </ion-item>
+  <ion-item>
+    <ion-row>
+      <ion-col col-3>
+          <ion-avatar item-left>
+              <img src="../assets/img/bala.jpg">
+            </ion-avatar>
+      </ion-col>
+      <br>
+      <br>
+      <ion-col col-6>
+     <b style="vertical-align: -webkit-baseline-middle;">{{doc_name}}</b>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item >
+    <p>Date and Time </p>
+   
+    <b>{{token_time}}</b>
+    
+    <!-- <p>1 month ago</p> -->
+  </ion-item>
+  <ion-item>
+    
+    <p>practice details</p>
+    <b>{{clinic_name}}</b>
+    <p>{{address}}</p>
+    
+  </ion-item>
+  <ion-item>
+      <img src="../assets/img/logo.png">
+  </ion-item>
+  
+  <ion-item>
+    <ion-row>
+      <ion-col col-6 class="border">
+        <p>Token No</p>
+        <b>{{token_no}}</b>
+      </ion-col>
+      <ion-col col-6>
+        <p>Appointment ID</p>
+        <b>{{app_id}}</b>
+        </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
+      <ion-col col-6>
+      <button ion-button clear style="color: red;">Cancel</button>
+      </ion-col>
+    
+      
+    </ion-item>
 
 </ion-content>

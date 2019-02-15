@@ -18,6 +18,7 @@ export class AppointmentdetailsPage {
   public token_status:any=[];
   public appointment_details:any[];
   public doctor_name;
+  public user_name;
 
 
   constructor(public navCtrl: NavController,
@@ -42,8 +43,10 @@ export class AppointmentdetailsPage {
 
   ionViewDidLoad() {
     alert(this.token_status.waiting_time);
-     
-    console.log('ionViewDidLoad AppointmentdetailsPage');
+    this.user_name = this.session.retrieve("user_name");
+    
+    
+    console.log('ionViewDidLoad AppointmentdetailsPage',this.user_name);
   }
 
   navlistmaster(){
@@ -53,7 +56,7 @@ export class AppointmentdetailsPage {
   this.session.store("token_status",this.token_status);
    this.session.store("appointment_details",this.appointment_details);
    console.log("testtttttt",this.session.retrieve("appointment_details"))
-
+     
   }
 
   closeModal() {
