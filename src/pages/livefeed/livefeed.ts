@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
+import { Observable } from '../../../node_modules/rxjs';
 /**
  * Generated class for the LivefeedPage page.
  *
@@ -15,21 +16,38 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class LivefeedPage {
 
-  public livefeedarr:any = [];
-  public tolivefeedser:any = [];
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public api:PatientServiceProvider) {
-      this.tolivefeedser = this.navParams.get("token_status");
-      console.log("livefeed page",JSON.stringify(this.tolivefeedser));
+  public livefeedarr: any = [];
+  public tolivefeedser: any = [];
+  public subscription;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public api: PatientServiceProvider) {
+    this.tolivefeedser = this.navParams.get("token_status");
+    console.log("livefeed page", JSON.stringify(this.tolivefeedser));
   }
 
   ionViewDidLoad() {
-    this.api.livefeed(this.tolivefeedser)
-    .subscribe((resp:any) => {
-      this.livefeedarr = resp.output;
+    this.liveFeed();
+    this.liveFeedLoop();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  liveFeedLoop() {
+    this.subscription = Observable.interval(5000).subscribe(x => {
+      // console.log("testinggggggggggg")
+      this.liveFeed();
     });
-    console.log('ionViewDidLoad LivefeedPage');
+  }
+
+  liveFeed() {
+    this.api.livefeed(this.tolivefeedser)
+      .subscribe((resp: any) => {
+        this.livefeedarr = resp.output;
+      });
+    // console.log('ionViewDidLoad LivefeedPage');
   }
 
 }
