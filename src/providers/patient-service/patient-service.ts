@@ -221,6 +221,22 @@ verifyotp(param){
   .map(this.extractData)
   .catch(this.handleError)
 }
+
+tokencancel(param): Observable<object[]> {
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  const options = new RequestOptions({ headers: headers });
+
+  let body =
+  {
+    "token_status":"Cancel",
+    "appointment_id":param
+  }
+
+  return this.http.post('https://doctorappnew.herokuapp.com/UpdateAppoinment', body, options)
+    .map(this.extractData)
+    .catch(this.handleError);
+}
   private extractData(res: Response) {
     let body = res.json();
     console.log(JSON.stringify(body));

@@ -76,9 +76,9 @@ export class EnterPatientDetailsPage {
     .subscribe((resp:any) =>{
       if(resp.Message_Code == "TGS"){
         this.datatoappointmentdet.token_number = resp.Token_No;
-        this.datatoappointmentdet.waiting_time = resp.waiting_time;
+        this.datatoappointmentdet.waiting_time = resp.Waiting_Time;
         this.datatoappointmentdet.hospital_name = this.hospital_name;
-        this.datatoappointmentdet.appointment_id = resp.appointment_id;
+        this.datatoappointmentdet.appointment_id = resp.Appointment_id;
         this.datatoappointmentdet.hospital_address = this.hospital_address;
         this.datatoappointmentdet.business_id = this.business_id;
         this.datatoappointmentdet.doctor_id = this.doctor_id;
@@ -88,6 +88,7 @@ export class EnterPatientDetailsPage {
       else{
         // alert(resp.Message);
       }
+      
     });
   }
   
