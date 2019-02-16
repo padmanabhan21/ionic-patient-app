@@ -5,6 +5,9 @@ import {LivefeedPage}from'../livefeed/livefeed';
 import {TabsPage} from '../tabs/tabs';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { File } from '@ionic-native/file';
+import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
+// import { SocialSharing } from '@ionic-native/social-sharing';
+// import { File } from '@ionic-native/file';
 
 @IonicPage()
 @Component({
@@ -28,10 +31,14 @@ export class AppointmentdetailsPage {
               public appCtrl:App,
               public session:SessionStorageService,
               public socialSharing: SocialSharing,
-              public file:File
+              public file:File,
+              public api:PatientServiceProvider,
+              // private socialSharing:SocialSharing,
+              // private file: File
               ) {
     this.token_status = this.navParams.get("token_status");
     this.appointment_details =this.navParams.get("appointmentdetails");
+    console.log("appointmentid",this.token_status.appointment_id);
     console.log("token Status*******",JSON.stringify(this.token_status));
     console.log("appointmentdetails Status*******",JSON.stringify(this.appointment_details));
   }
@@ -42,6 +49,8 @@ export class AppointmentdetailsPage {
     
     
     console.log('ionViewDidLoad AppointmentdetailsPage',this.user_name);
+  
+
   }
 
   navlistmaster(){
@@ -56,6 +65,19 @@ export class AppointmentdetailsPage {
   }
   navlivefeed(){
    this.navCtrl.push(LivefeedPage,{"token_status":this.token_status});
+  }
+
+  //token cancel
+  // public cancel_appointment:any;
+  cancelappointment(){
+    this.api.tokencancel(this.token_status.appointment_id)
+    
+    .subscribe((resp:any) =>{
+       if(resp.Message_Code == "RUS"){
+           alert("token cancel successfully")
+           console.log("appoint",this.token_status.appointment_id)
+       }
+    });
   }
 
   //social share
