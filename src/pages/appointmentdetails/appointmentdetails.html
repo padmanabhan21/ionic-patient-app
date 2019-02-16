@@ -18,7 +18,7 @@
       </ion-col>
       <ion-col col-8>
         <ion-row>
-          <b text-center>{{appointment_details.doctor_name}}</b><br>
+          <p text-center>{{appointment_details.doctor_name}}</p>
           <p  text-center>{{token_status.hospital_name }}</p>
           <p text-center>{{token_status.hospital_address }}</p>
         </ion-row>
@@ -26,8 +26,20 @@
     </ion-row>
   </ion-item>
   <ion-item>
+    <ion-row>
+      <ion-col col-6 class="border">
+      <h4>Token Number</h4>
+      <b>{{token_status.token_number}}</b>
+      </ion-col>
+      <ion-col col-6>
+      <h4>Appointment ID</h4>
+      <b >{{token_status.appointment_id}}</b>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
     <p>Date and time</p>
-    <b>Today,</b>
+    <b>{{token_status.appointment_date}}</b>
     <p>in {{token_status.waiting_time | date: 'hh:mm'}} mins</p>
     <ion-row>
       <ion-col col-4>
@@ -39,7 +51,6 @@
     </ion-row>
   </ion-item>
   <ion-item>
-    <!-- <p>Practice details</p> -->
     <b >{{token_status.hospital_name}}</b>
     <p >{{token_status.hospital_address}}</p>
     <ion-row>
@@ -47,10 +58,6 @@
         <button ion-button clear class="padding-0">GET DIRECTIONS</button>
       </ion-col>
     </ion-row>
-  </ion-item>
-  <ion-item>
-    <p>Procedure</p>
-    <b>Consultation</b>
   </ion-item>
   <ion-item>
     <p>Token status</p>
@@ -61,65 +68,9 @@
       </ion-col>
     </ion-row>
   </ion-item>
-  <!-- <ion-item>
-    <b class="font-20 text-color-purple">Prime <a>
-        <ion-icon class="text-color-purple" name="checkmark-circle-outline"></ion-icon>
-      </a> Benifits</b>
-  </ion-item> -->
-  <!-- <ion-item>
-    <p>Our promise to you</p>
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon class="text-color-purple font-30 padding-0 margin--5" name="timer"></ion-icon>
-      </ion-col>
-      &nbsp;&nbsp; &nbsp;
-      <ion-col col-6>
-        <b class="text-color-purple  ">30 mins or less wait time </b>
-      </ion-col>
-      
-    </ion-row>
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon name="checkmark-circle" class="text-color-purple font-30 margin--5"></ion-icon>
-      </ion-col>
-      &nbsp;&nbsp; &nbsp;
-      <ion-col col-3>
-        <p class="padding-0"> Fixed consultation fees of INR 500.0</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon name="checkmark-circle" class="text-color-purple font-30"></ion-icon>
-      </ion-col>
-      &nbsp;&nbsp; &nbsp;
-      <ion-col col-3>
-        <p class="padding-0"> Acurate practice location</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon name="checkmark-circle" class="text-color-purple font-30"></ion-icon>
-      </ion-col>
-      &nbsp;&nbsp; &nbsp;
-      <ion-col col-3>
-        <p class="padding-0"> Consultation with Dr.Manu Lakshmi</p>
-      </ion-col>
-    </ion-row>
-  </ion-item> -->
-  <!-- <ion-item>
-    <p>Get a INR 500 voucher if we are unable to fulful our <br> promise .</p>
-  </ion-item> -->
   <ion-item>
-    <ion-row>
-      <ion-col col-6 class="border">
-      <h4>Booked for</h4>
-      <b>{{user_name}}</b>
-      </ion-col>
-      <ion-col col-6>
-      <h4>Appointment ID</h4>
-      <b >{{token_status.appointment_id}}</b>
-      </ion-col>
-    </ion-row>
+    <p>Procedure</p>
+    <b>Consultation</b>
   </ion-item>
   <ion-item>
     <ion-row>
@@ -127,25 +78,8 @@
     </ion-row>
     <ion-row>
     <button ion-button clear class="small-case padding-0"> My Appointment ></button>
-      
     </ion-row>
   </ion-item>
-
-  <ion-item >
-    <ion-item>
-      <!-- <ion-label ></ion-label> -->
-      <ion-input [(ngModel)]="link" placeholder="Enter Input"></ion-input>
-    </ion-item>
-  </ion-item>
-  <ion-fab right bottom>
-    <button ion-fab><ion-icon name="arrow-dropleft"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook" (click)="shareFacebook()"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter" (click)="shareTwitter()"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-whatsapp" (click)="shareWhatsApp()"></ion-icon></button>
-      <button ion-fab><ion-icon name="mail" (click)="shareEmail()"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
 </ion-content>
 <ion-footer>
   <ion-row>
@@ -153,7 +87,15 @@
       <button ion-button block class="screen-bg" (click)="navlistmaster()"> Done</button>
     </ion-col>
     <ion-col col-6>
-
+      <ion-fab right bottom mini>
+        <button ion-fab><ion-icon name="arrow-dropleft"></ion-icon></button>
+        <ion-fab-list side="left">
+          <button ion-fab><ion-icon name="logo-facebook" (click)="shareFacebook()"></ion-icon></button>
+          <button ion-fab><ion-icon name="logo-twitter" (click)="shareTwitter()"></ion-icon></button>
+          <button ion-fab><ion-icon name="logo-whatsapp" (click)="shareWhatsApp()"></ion-icon></button>
+          <button ion-fab><ion-icon name="mail" (click)="shareEmail()"></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
     </ion-col>
   </ion-row>
 </ion-footer>

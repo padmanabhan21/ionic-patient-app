@@ -88,9 +88,8 @@ export class PatientServiceProvider {
 
 
   // (4)--> Token Generation
-  tokengeneration(param1,param2): Observable<object[]> {
+  tokengeneration(param1,param2,param3): Observable<object[]> {
 
-    // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
@@ -100,9 +99,11 @@ export class PatientServiceProvider {
       "doctor_id": param1,
       "business_id": param2,
       "mobile": this.session.retrieve("user_mobile"),
-      "business_date": moment().format("YYYY-MM-DD"),
+      "business_date": param3,
       "token_status": "Booked"
     }
+
+    console.log("Token Generation input", JSON.stringify(body));
 
     return this.http.post('https://doctorappnew.herokuapp.com/InsertAppoinment', body, options)
       .map(this.extractData)
@@ -110,18 +111,17 @@ export class PatientServiceProvider {
   }
 
   // (5)--> livefeed 
-  livefeed(): Observable<object[]> {
+  livefeed(param): Observable<object[]> {
 
-    // console.log("LOG FROM SERVICE FILE",JSON.stringify(param));
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
 
     let body =
     {
-      "business_id": 68,
-      "doctor_id": "nare83",
-      "business_date":moment().format("YYYY-MM-DD")
+      "business_id": param.business_id,
+      "doctor_id": param.doctor_id,
+      "business_date":param.appointment_date
     }
 
     return this.http.post('https://doctorappnew.herokuapp.com/livefeed', body, options)
@@ -166,9 +166,9 @@ export class PatientServiceProvider {
       .map(this.extractData)
       .catch(this.handleError);
   }
-/// 8.my appointments
-    
 
+  // 8.my appointments
+  
 myappointments(param): Observable<object[]> {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');

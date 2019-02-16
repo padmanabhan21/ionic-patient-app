@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { concatMapTo } from 'rxjs/operators';
+import {LivefeedPage}from'../livefeed/livefeed';
 
-/**
- * Generated class for the MyappointmentdetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,6 +10,7 @@ import { concatMapTo } from 'rxjs/operators';
 })
 export class MyappointmentdetailsPage {
   public myappointmentdetails:any=[];
+  public livefeedarr:any=[];
   public doc_name;
   public token_date;
   public clinic_name;
@@ -31,7 +26,8 @@ export class MyappointmentdetailsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyappointmentdetailsPage');
     this.myappointmentdetails = this.navParams.get("navmyappointmentdetails");
-    console.log("myappointmentdetails",JSON.stringify(this.myappointmentdetails))
+    console.log("myappointmentdetails",JSON.stringify(this.myappointmentdetails));
+    this.livefeedarr = this.myappointmentdetails;
     this.app_id = this.myappointmentdetails.app_id;
     this.token_no = this.myappointmentdetails.token_no;
     this.doc_name = this.myappointmentdetails.doctor_name;
@@ -42,9 +38,9 @@ export class MyappointmentdetailsPage {
     this.token_time = this.myappointmentdetails.token_time;
 
     console.log("token_nooooo",this.token_no);
-
-    
   }
   
-
+  livefeed(){
+   this.navCtrl.push(LivefeedPage,{"token_status":this.livefeedarr});
+  }
 }

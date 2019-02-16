@@ -57,6 +57,7 @@ export class ProfileAppointmentsPage {
   closeModal(){
     this.navCtrl.pop();
   }
+  
   myappointmentdetails(param){
     this.navCtrl.push(MyappointmentdetailsPage ,{"navmyappointmentdetails":param})
   }

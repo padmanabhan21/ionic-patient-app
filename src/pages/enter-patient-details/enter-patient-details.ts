@@ -64,7 +64,8 @@ export class EnterPatientDetailsPage {
       "doctor_id":""
     }
   
-  tokenconfirmation(){
+  tokenconfirmation(param){
+    // alert("Appointment Date: "+param);
     this.doctor_id = this.appointment_details.doctor_profile_id;
     this.doctor_clinic_list = this.appointment_details.doctor_clinic;
 
@@ -72,40 +73,31 @@ export class EnterPatientDetailsPage {
     this.hospital_address = this.appointment_details.doctor_details[0].doctor_clinic[0].address
     this.hospital_name = this.appointment_details.doctor_details[0].doctor_clinic[0].business_name
 
-    this.api.tokengeneration(this.doctor_id,this.business_id)
-    .subscribe((resp:any) =>{
-      if(resp.Message_Code == "TGS"){
-        this.datatoappointmentdet.token_number = resp.Token_No;
-        this.datatoappointmentdet.waiting_time = resp.waiting_time;
-        this.datatoappointmentdet.hospital_name = this.hospital_name;
-        this.datatoappointmentdet.appointment_id = resp.appointment_id;
-        this.datatoappointmentdet.hospital_address = this.hospital_address;
-        this.datatoappointmentdet.business_id = this.business_id;
-        this.datatoappointmentdet.doctor_id = this.doctor_id;
-        this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
-        console.log("doctordetailsssssssss",this.datatoappointmentdet)
-      }
-      else{
-        // alert(resp.Message);
-      }
-    });
+    if(param === undefined){
+      alert("please choose your appointment date")
+    }
+    else{
+      this.api.tokengeneration(this.doctor_id,this.business_id,param)
+      .subscribe((resp:any) =>{
+        if(resp.Message_Code == "TGUS" || resp.Message_Code == "TGTW"){
+          alert(resp.Message);
+        }
+        else{
+          this.datatoappointmentdet.token_number = resp.Token_No;
+          this.datatoappointmentdet.waiting_time = resp.Waiting_Time;
+          this.datatoappointmentdet.hospital_name = this.hospital_name;
+          this.datatoappointmentdet.appointment_id = resp.Appointment_id;
+          this.datatoappointmentdet.hospital_address = this.hospital_address;
+          this.datatoappointmentdet.business_id = this.business_id;
+          this.datatoappointmentdet.doctor_id = this.doctor_id;
+          this.datatoappointmentdet.appointment_date = param;
+          this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
+        }
+      });
+    }
   }
   
   closeModal() {
     this.navCtrl.pop();
   }
-  
-  // this.scope.today = function() 
-  // {
-  //   this.scope.dt = new Date();
-  // };
-   // Disable weekend selection
-  //  function disabled(data) {
-  //   var date = data.date,
-  //     mode = data.mode;
-  //   return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-  // }
- 
-  //  this.today = new Date()
-  //  var priorDate = new Date().setDate(today.getDate()+7)
 }

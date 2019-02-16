@@ -24,10 +24,8 @@ export class LivefeedPage {
       console.log("livefeed page",JSON.stringify(this.tolivefeedser));
   }
 
-  public 
   ionViewDidLoad() {
-
-    this.api.livefeed()
+    this.api.livefeed(this.tolivefeedser)
     .subscribe((resp:any) => {
       this.livefeedarr = resp.output;
     });
