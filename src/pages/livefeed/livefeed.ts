@@ -42,15 +42,6 @@ export class LivefeedPage {
     });
   }
 
-<<<<<<< HEAD
-
-   
-//   let self = this;
-// this.task = setInterval(function () {
-//   self.refreshData();
-// }, 300);
-}
-=======
   liveFeed() {
     this.api.livefeed(this.tolivefeedser)
       .subscribe((resp: any) => {
@@ -60,4 +51,3 @@ export class LivefeedPage {
   }
 
 }
->>>>>>> 42dbd552db88ca2a076663dce90c3f3e87c58285
