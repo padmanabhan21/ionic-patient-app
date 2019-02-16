@@ -32,4 +32,10 @@ export class LivefeedPage {
     console.log('ionViewDidLoad LivefeedPage');
   }
 
+
+   
+//   let self = this;
+// this.task = setInterval(function () {
+//   self.refreshData();
+// }, 300);
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LivefeedPage}from'../livefeed/livefeed';
+import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
 
 
 @IonicPage()
@@ -20,7 +21,7 @@ export class MyappointmentdetailsPage {
   public token_no;
   public token_time;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api:PatientServiceProvider) {
   }
   
   ionViewDidLoad() {
@@ -42,5 +43,14 @@ export class MyappointmentdetailsPage {
   
   livefeed(){
    this.navCtrl.push(LivefeedPage,{"token_status":this.livefeedarr});
+  }
+
+  cancelappointment(){
+    this.api.tokencancel(this.app_id)
+    .subscribe((resp:any) =>{
+     if(resp.Message_Code == "RUS"){
+          alert("token cancel successfully")
+     }
+    });
   }
 }
