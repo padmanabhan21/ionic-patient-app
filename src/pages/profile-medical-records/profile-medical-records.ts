@@ -1,18 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, 
-         NavController, 
-         NavParams, 
-         Platform, 
-         ActionSheetController, 
-         LoadingController } from 'ionic-angular';
-import { CameraProvider } from '../../providers/util/camera.provider';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ProfileMedicalRecordsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -21,14 +11,9 @@ import { CameraProvider } from '../../providers/util/camera.provider';
 })
 export class ProfileMedicalRecordsPage {
   
-  placeholder = 'assets/img/avatar/girl-avatar.png';
-  chosenPicture: any;
-
+  base64Image:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public actionsheetCtrl: ActionSheetController,
-              public cameraProvider: CameraProvider,
-              public platform: Platform,
-              public loadingCtrl: LoadingController) {
+              public camera: Camera) {
   }
 
   ionViewDidLoad() {
@@ -39,69 +24,21 @@ export class ProfileMedicalRecordsPage {
     this.navCtrl.pop();
   }
 
-  changePicture() {
-
-    const actionsheet = this.actionsheetCtrl.create({
-      title: 'upload picture',
-      buttons: [
-        {
-          text: 'camera',
-          icon: !this.platform.is('ios') ? 'camera' : null,
-          handler: () => {
-            this.takePicture();
-          }
-        },
-        {
-          text: !this.platform.is('ios') ? 'gallery' : 'camera roll',
-          icon: !this.platform.is('ios') ? 'image' : null,
-          handler: () => {
-            this.getPicture();
-          }
-        },
-        {
-          text: 'cancel',
-          icon: !this.platform.is('ios') ? 'close' : null,
-          role: 'destructive',
-          handler: () => {
-            console.log('the user has cancelled the interaction.');
-          }
-        }
-      ]
-    });
-    return actionsheet.present();
-  }
-
   takePicture() {
-    const loading = this.loadingCtrl.create();
-
-    loading.present();
-    return this.cameraProvider.getPictureFromCamera().then(picture => {
-      if (picture) {
-        this.chosenPicture = picture;
-      }
-      loading.dismiss();
-    }, error => {
-      alert(error);
+  
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+      // Do something with the new photo
+      this.base64Image = 'data:image/jpeg;base64,'+ imageData;
+      // alert(imageData);
+    }, (err) => {
+     // Handle error
+     console.log("Camera issue: " + err);
     });
-  }
-
-  getPicture() {
-
-    this.platform.ready().then(()=>{
-      if(this.platform.is('cordova')){
-        const loading = this.loadingCtrl.create();
-        loading.present();
-        return this.cameraProvider.getPictureFromPhotoLibrary().then(picture => {
-          if (picture) {
-            this.chosenPicture = picture;
-          }
-          loading.dismiss();
-        }, error => {
-          alert(error);
-        }).catch(e =>{
-          alert(e);
-        })
-      }
-   });
   }
 }

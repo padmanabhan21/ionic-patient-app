@@ -20,11 +20,13 @@ import { MyApp } from './app.component';
 //Ionic Native libraries
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { Camera } from '@ionic-native/camera';
+// import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { File } from '@ionic-native/file';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 //SplashScreen (Yet to Do)
 
@@ -266,6 +268,7 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     File,
     SocialSharing,
+    BarcodeScanner
   ]
 })
 
