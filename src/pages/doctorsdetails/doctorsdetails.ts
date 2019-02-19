@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+// import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { FeedbackPage } from '../feedback/feedback';
@@ -7,6 +7,7 @@ import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
 import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
 import { EnterPatientDetailsPage } from '../enter-patient-details/enter-patient-details'
 import{DocterservicesPage}from'../docterservices/docterservices';
+declare var google:any;
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ import{DocterservicesPage}from'../docterservices/docterservices';
 
 })
 export class DoctorsdetailsPage {
+
   public totalclinic=2;
   public slides=[];
   public doctor:any=[];
@@ -57,10 +59,32 @@ export class DoctorsdetailsPage {
       this.totalclinic = this.doctor_clinic.length;
   }
   @ViewChild('mySlider') slider: Slides;
+  @ViewChild('map') mapRef: ElementRef;
 
   ionViewDidLoad() {
     console.log('specializationnnnn',this.doctor_specialist);
+    console.log('element reference ', this.mapRef);
+    this.DisplayMap();
     }
+
+    
+  DisplayMap(){
+    const location = new google.maps.LatLng('17.38','78.48');
+    const options = {
+      center:location,
+      zoom:15
+    };
+
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.addMarker(location,map);
+  }
+
+  addMarker(position,map){
+    return new google.maps.Marker({
+      position,
+      map
+    })
+  }
     
   //Doctor Timing Page
   navdoctortimings(){
