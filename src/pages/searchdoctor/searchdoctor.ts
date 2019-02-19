@@ -52,7 +52,7 @@ export class SearchdoctorPage {
       .subscribe((resp: any) => {
         this.specialist = resp.specialist;
         this.loading.dismiss();
-        console.log("Venkat Loves Girlssssssssss", JSON.stringify(this.specialist))
+        // console.log("Venkat Loves Girlssssssssss", JSON.stringify(this.specialist))
       })
   }
 

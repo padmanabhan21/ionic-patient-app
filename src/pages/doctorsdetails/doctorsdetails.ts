@@ -41,7 +41,6 @@ export class DoctorsdetailsPage {
     public modalCtrl: ModalController) {
       this.doctor = this.navParams.get("doctordetails");
       this.doctor_details = this.doctor.doctor_details;
-      console.log("DOCTOR DETAILS$$$$$$$$$$$$$$$$$",JSON.stringify(this.doctor_details));
       this.doctors_timings = this.doctor_details[0].doctorstimings;
       this.doctor_name = this.doctor_details[0].doctor_name;
       this.doctor_img = this.doctor_details[0].doc_img;
@@ -62,8 +61,12 @@ export class DoctorsdetailsPage {
   @ViewChild('map') mapRef: ElementRef;
 
   ionViewDidLoad() {
-    console.log('specializationnnnn',this.doctor_specialist);
-    console.log('element reference ', this.mapRef);
+    console.log("ionViewDidLoad DoctorDetailsPage");
+    console.log("Doctor*********",JSON.stringify(this.doctor));
+    console.log("Doctor Details***********",JSON.stringify(this.doctor_details));
+    console.log('Doctor Specialist*********',JSON.stringify(this.doctor_specialist));
+    console.log('Doctor Services*********',JSON.stringify(this.doctor_service));
+    console.log('Doctor Timings*********',JSON.stringify(this.doctors_timings));
     this.DisplayMap();
     }
 
@@ -88,7 +91,6 @@ export class DoctorsdetailsPage {
     
   //Doctor Timing Page
   navdoctortimings(){
-    console.log("clicked bro")
     let doctortimings =this.modalCtrl.create(DoctortimigsPage,{"doctor_timings":this.doctors_timings,"doctor_name":this.doctor_name});
     doctortimings.present();
   }
@@ -101,8 +103,6 @@ export class DoctorsdetailsPage {
   //Enter patient details page
   enterpatientdatiels(){
     this.chooseClinicForAppointment();
-  //   let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor,"clinic_id":business_id});
-  // enterpatient.present();
   }
 
   //Doctor Service page
@@ -163,6 +163,7 @@ export class DoctorsdetailsPage {
     });
     actionSheet.present();
   }
+  
 public doctor_clinic_book:any=[
   {
     "clinic_id":"",

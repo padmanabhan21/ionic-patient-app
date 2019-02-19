@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LivefeedPage}from'../livefeed/livefeed';
 import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
+declare var google:any;
 
 
 @IonicPage()
@@ -23,6 +24,7 @@ export class MyappointmentdetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:PatientServiceProvider) {
   }
+  @ViewChild('map') mapRef: ElementRef;
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyappointmentdetailsPage');
@@ -37,8 +39,8 @@ export class MyappointmentdetailsPage {
     this.address = this.myappointmentdetails.address;
     this.token_status = this.myappointmentdetails.token_status;
     this.token_time = this.myappointmentdetails.token_time;
-
     console.log("token_nooooo",this.token_no);
+    this.DisplayMap();
   }
   
   livefeed(){
@@ -53,4 +55,23 @@ export class MyappointmentdetailsPage {
      }
     });
   }
+
+  DisplayMap(){
+    const location = new google.maps.LatLng(this.myappointmentdetails.location_lat,this.myappointmentdetails.location_long);
+    const options = {
+      center:location,
+      zoom:15
+    };
+
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.addMarker(location,map);
+  }
+
+  addMarker(position,map){
+    return new google.maps.Marker({
+      position,
+      map
+    })
+  }
+
 }
