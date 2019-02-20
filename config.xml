@@ -105,11 +105,11 @@
         <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
-    <engine name="android" spec="7.1.4" />
     <plugin name="cordova-plugin-googlemaps" spec="2.5.1">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDwxNavus4JPQ5iGBV0xqSHKiqNrAaes-I" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyDwxNavus4JPQ5iGBV0xqSHKiqNrAaes-I" />
         <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
+    <engine name="android" spec="7.1.4" />
 </widget>

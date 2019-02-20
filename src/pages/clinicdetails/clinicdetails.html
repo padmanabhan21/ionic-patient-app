@@ -12,8 +12,8 @@
 <ion-content>
   <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
     <ion-slide *ngFor="let images of clinic_images">
-      <!-- <img [src]="images.img"> -->
-      <img src="../assets/img/bala.jpg" />
+      <img [src]="images.img" style="width: 100% !important;min-height:210px;">
+      <!-- <img src="../assets/img/bala.jpg" /> -->
     </ion-slide>
   </ion-slides>
   <ion-row>
@@ -51,9 +51,8 @@
         </ion-col>
         <ion-col col-2>
           <ion-avatar item-left>
-            <!-- <img [src]="doctor.doc_img"> -->
-            <img src="../assets/img/bala.jpg" />
-
+            <img [src]="doctor.doc_img">
+            <!-- <img src="../assets/img/bala.jpg" /> -->
           </ion-avatar>
         </ion-col>
         <ion-col col-5>
