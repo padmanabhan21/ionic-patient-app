@@ -6,6 +6,7 @@ import {TabsPage} from '../tabs/tabs';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { File } from '@ionic-native/file';
 import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
+import{MyappointmentdetailsPage} from '../myappointmentdetails/myappointmentdetails';
 // import { SocialSharing } from '@ionic-native/social-sharing';
 // import { File } from '@ionic-native/file';
 declare var google:any;
@@ -142,4 +143,7 @@ export class AppointmentdetailsPage {
       alert(e);
     })
   }
+  // navmyappointmentdetails(){
+  //   this.navCtrl.push(MyappointmentdetailsPage,{"appointment_details":this.token_status.appointment_id});
+  // }
 }

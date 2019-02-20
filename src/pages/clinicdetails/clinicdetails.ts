@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { Component, ViewChild,ElementRef } from '@angular/core';
+// import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { AlltimingsPage } from '../alltimings/alltimings';
 import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
 import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
 
+<<<<<<< HEAD
+/**
+ * Generated class for the ClinicdetailsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+declare var google:any;
+=======
 
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
 @IonicPage()
 @Component({
   selector: 'page-clinicdetails',
@@ -31,9 +41,10 @@ export class ClinicdetailsPage {
     public modalCtrl: ModalController) {
       this.clinic = this.navParams.get("clinicdetails");
       this.clinic_details = this.clinic.clinic_details;
-
+          console.log("clinic detailsssssssssssssss",JSON.stringify(this.clinic_details))
   }
   @ViewChild('mySlider') slider: Slides;
+  @ViewChild('map') mapRef: ElementRef;
 
   ionViewDidLoad() {
     this.clinic_services =this.clinic_details[0].clinic_services;
@@ -49,12 +60,28 @@ export class ClinicdetailsPage {
     console.log('Clinic Images*******',JSON.stringify(this.clinic_images));
     console.log('Clinic Doctor List*******',JSON.stringify(this.clinic_details));
    
+<<<<<<< HEAD
+      
+      this.clinic_services =this.clinic_details[0].clinic_services;
+      this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
+      this.clinic_lat = this.clinic_details[0].location_lat;
+      this.clinic_lng = this.clinic_details[0].location_long;
+      this.clinic_address = this.clinic_details[0].address;
+      this.clinic_open = this.clinic_details[0].clinic_open;
+=======
     this.clinic_lat = this.clinic_details[0].clinic_lat;
     this.clinic_lng = this.clinic_details[0].clinic_long;
     this.clinic_address = this.clinic_details[0].address;
     this.clinic_open = this.clinic_details[0].clinic_open;
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
     this.clinic_name = this.clinic_details[0].business_name;
     
+<<<<<<< HEAD
+    console.log("doctor detailsssssssssssss", this.clinic_lat)
+    console.log("doctor detailssssssssssssss", this.clinic_lng)
+
+=======
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
     }
 
   alltimings() {
@@ -67,6 +94,28 @@ export class ClinicdetailsPage {
     clinicservices.present();
 
   }
+<<<<<<< HEAD
+  //google maps
+  DisplayMap(){
+    const location = new google.maps.LatLng(this.clinic_lat,this.clinic_lng);
+    const options = {
+      center:location,
+      zoom:15
+    };
+
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.addMarker(location,map);
+  }
+
+  addMarker(position,map){
+    return new google.maps.Marker({
+      position,
+      map
+    })
+  }
+ 
+=======
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
   
   getRandomIndex(): number {
     return Math.floor(Math.random() * this.slides.length)

@@ -24,12 +24,10 @@
       <ion-badge class="font-10">{{clinic_open}}</ion-badge>
       <p class="margin-auto">9:00 AM - 09:00 PM</p>
       <button ion-button clear class="small-case margin-auto padding-0" (click)="alltimings()">All Timings</button>
-      <!-- <button >ALL TIMINGS</button> -->
       <ion-item-divider class="minheight-0 "></ion-item-divider>
     </ion-col>
-
-
   </ion-row>
+
   <!-- timing ends -->
   <ion-row>
     <ion-col col-2 class="text-center">
@@ -42,14 +40,12 @@
       </ion-item>
     </ion-col>
   </ion-row>
+
   <!-- Doctor List Starts -->
   <ion-row>
-    <!-- 1st Doctor -->
     <ion-item class="padding-left-0" *ngFor="let doctor of clinic_doctor_list">
       <ion-row>
         <ion-col col-2 class="text-center">
-          <!-- <ion-icon ios="ios-pin-outline" md="md-pin"></ion-icon> -->
-          <!-- <i class="fal fa-stethoscope"></i> -->
           <img src="../assets/img/doctorsteth.png" class="height-25">
         </ion-col>
         <ion-col col-2>
@@ -87,33 +83,20 @@
     </ion-item>
   </ion-row>
   <!-- Doctor List Ends -->
-  <!-- Services start -->
 
+  <!-- Services start -->
   <ion-item>
     <ion-row>
       <ion-col col-2>
-        <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
         <ion-icon name="medkit" class="font-26"></ion-icon>
       </ion-col>
       <ion-col col-4>
         <b>Services</b>
-
         <p *ngFor="let service of clinic_services">{{service.service}} </p>
-
-        <!-- <p>High-Risk Pregnancy Care </p>
-  
-            <p>Diseases in Pregnancy </p> -->
-
         <button ion-button clear class="small-case margin-auto padding-0" (click)="clinicservices()"> All Services</button>
       </ion-col>
     </ion-row>
-
-
   </ion-item>
-  <!-- service-end -->
-  <!-- </ion-col> -->
-
-
 </ion-content>
 <ion-footer>
   <ion-toolbar>
