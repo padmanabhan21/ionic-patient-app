@@ -6,7 +6,6 @@ import { AlltimingsPage } from '../alltimings/alltimings';
 import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
 import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
 
-<<<<<<< HEAD
 /**
  * Generated class for the ClinicdetailsPage page.
  *
@@ -14,9 +13,7 @@ import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
  * Ionic pages and navigation.
  */
 declare var google:any;
-=======
 
->>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
 @IonicPage()
 @Component({
   selector: 'page-clinicdetails',
@@ -60,7 +57,6 @@ export class ClinicdetailsPage {
     console.log('Clinic Images*******',JSON.stringify(this.clinic_images));
     console.log('Clinic Doctor List*******',JSON.stringify(this.clinic_details));
    
-<<<<<<< HEAD
       
       this.clinic_services =this.clinic_details[0].clinic_services;
       this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
@@ -68,20 +64,8 @@ export class ClinicdetailsPage {
       this.clinic_lng = this.clinic_details[0].location_long;
       this.clinic_address = this.clinic_details[0].address;
       this.clinic_open = this.clinic_details[0].clinic_open;
-=======
-    this.clinic_lat = this.clinic_details[0].clinic_lat;
-    this.clinic_lng = this.clinic_details[0].clinic_long;
-    this.clinic_address = this.clinic_details[0].address;
-    this.clinic_open = this.clinic_details[0].clinic_open;
->>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
     this.clinic_name = this.clinic_details[0].business_name;
     
-<<<<<<< HEAD
-    console.log("doctor detailsssssssssssss", this.clinic_lat)
-    console.log("doctor detailssssssssssssss", this.clinic_lng)
-
-=======
->>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
     }
 
   alltimings() {
@@ -94,7 +78,6 @@ export class ClinicdetailsPage {
     clinicservices.present();
 
   }
-<<<<<<< HEAD
   //google maps
   DisplayMap(){
     const location = new google.maps.LatLng(this.clinic_lat,this.clinic_lng);
@@ -114,8 +97,6 @@ export class ClinicdetailsPage {
     })
   }
  
-=======
->>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
   
   getRandomIndex(): number {
     return Math.floor(Math.random() * this.slides.length)
