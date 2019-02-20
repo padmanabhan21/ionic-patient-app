@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the DocterservicesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-docterservices',
@@ -23,7 +16,9 @@ export class DocterservicesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DocterservicesPage');
+    console.log('Doctor Services*********',JSON.stringify(this.doctor_services));
   }
+  
   closeModal() {
     this.navCtrl.pop();
   }

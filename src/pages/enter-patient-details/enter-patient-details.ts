@@ -38,6 +38,9 @@ export class EnterPatientDetailsPage {
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad EnterPatientDetailsPage');
+    console.log("Doctor Detials********",JSON.stringify(this.appointment_details));
+    console.log("Clinic Details********",JSON.stringify(this.clinic_details));
     this.user_mobile = this.session.retrieve("user_mobile");
     this.user_name = this.session.retrieve("user_name");
     this.business_id = this.clinic_details.clinic_id;
@@ -45,8 +48,6 @@ export class EnterPatientDetailsPage {
     this.hospital_location = this.clinic_details.clinic_location;
     this.minDate = new Date().toISOString();
     this.maxDate = this.addDays(new Date(),6).toISOString();
-    
-    console.log('Appointment Confirmation Screen',JSON.stringify(this.appointment_details));
   }
   
   addDays(dateObj, numDays) {
@@ -61,15 +62,15 @@ export class EnterPatientDetailsPage {
       "hospital_name":"",
       "hospital_address":"",
       "business_id":"",
-      "doctor_id":""
+      "doctor_id":"",
+      "clinic_lat":"",
+      "clinic_long":""
     }
   
   tokenconfirmation(param){
-    // alert("Appointment Date: "+param);
     this.doctor_id = this.appointment_details.doctor_profile_id;
     this.doctor_clinic_list = this.appointment_details.doctor_clinic;
 
-    // this.business_id = this.appointment_details.doctor_details[0].doctor_clinic[0].business_id;
     this.hospital_address = this.appointment_details.doctor_details[0].doctor_clinic[0].address
     this.hospital_name = this.appointment_details.doctor_details[0].doctor_clinic[0].business_name
 

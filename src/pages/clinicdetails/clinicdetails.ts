@@ -6,6 +6,7 @@ import { AlltimingsPage } from '../alltimings/alltimings';
 import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
 import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
 
+<<<<<<< HEAD
 /**
  * Generated class for the ClinicdetailsPage page.
  *
@@ -13,13 +14,15 @@ import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
  * Ionic pages and navigation.
  */
 declare var google:any;
+=======
+
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
 @IonicPage()
 @Component({
   selector: 'page-clinicdetails',
   templateUrl: 'clinicdetails.html',
 })
 export class ClinicdetailsPage {
-  // public totalclinic = 2;
   public clinic:any=[];
   public clinic_details: any[];
   public clinic_images:any[];
@@ -36,7 +39,6 @@ export class ClinicdetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
     public modalCtrl: ModalController) {
-    // events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
       this.clinic = this.navParams.get("clinicdetails");
       this.clinic_details = this.clinic.clinic_details;
           console.log("clinic detailsssssssssssssss",JSON.stringify(this.clinic_details))
@@ -45,8 +47,20 @@ export class ClinicdetailsPage {
   @ViewChild('map') mapRef: ElementRef;
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DoctorsdetailsPage');
+    this.clinic_services =this.clinic_details[0].clinic_services;
+    this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
+    this.clinic_timings = this.clinic_details[0].clinic_timings;
+    this.clinic_images = this.clinic_details[0].clinic_images;
+
+    console.log('ionViewDidLoad ClinicDetailsPage');
+    console.log('Clinic*********',JSON.stringify(this.clinic));
+    console.log('Clinic Details*******',JSON.stringify(this.clinic_details));
+    console.log('Clinic Services*******',JSON.stringify(this.clinic_details));
+    console.log('Clinic Timings*******',JSON.stringify(this.clinic_details));
+    console.log('Clinic Images*******',JSON.stringify(this.clinic_images));
+    console.log('Clinic Doctor List*******',JSON.stringify(this.clinic_details));
    
+<<<<<<< HEAD
       
       this.clinic_services =this.clinic_details[0].clinic_services;
       this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
@@ -54,13 +68,20 @@ export class ClinicdetailsPage {
       this.clinic_lng = this.clinic_details[0].location_long;
       this.clinic_address = this.clinic_details[0].address;
       this.clinic_open = this.clinic_details[0].clinic_open;
+=======
+    this.clinic_lat = this.clinic_details[0].clinic_lat;
+    this.clinic_lng = this.clinic_details[0].clinic_long;
+    this.clinic_address = this.clinic_details[0].address;
+    this.clinic_open = this.clinic_details[0].clinic_open;
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
     this.clinic_name = this.clinic_details[0].business_name;
-    this.clinic_images = this.clinic_details[0].clinic_images;
-    this.clinic_timings = this.clinic_details[0].clinic_timings;
     
+<<<<<<< HEAD
     console.log("doctor detailsssssssssssss", this.clinic_lat)
     console.log("doctor detailssssssssssssss", this.clinic_lng)
 
+=======
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
     }
 
   alltimings() {
@@ -73,6 +94,7 @@ export class ClinicdetailsPage {
     clinicservices.present();
 
   }
+<<<<<<< HEAD
   //google maps
   DisplayMap(){
     const location = new google.maps.LatLng(this.clinic_lat,this.clinic_lng);
@@ -92,6 +114,8 @@ export class ClinicdetailsPage {
     })
   }
  
+=======
+>>>>>>> 941d2b21e26ec256f8928df8c76ff1f18ade2bd5
   
   getRandomIndex(): number {
     return Math.floor(Math.random() * this.slides.length)
@@ -106,10 +130,7 @@ export class ClinicdetailsPage {
   }
 
   bookdoctor(param){
-    // this.clinic_doctordetails = param.doctor_details;
-    console.log("Clinic --> Doctor-->Book",JSON.stringify(param));
     this.navCtrl.push(DoctorsdetailsPage,{"doctordetails":param});
-    
   }
 
   feedbackforclinic() {
@@ -127,7 +148,7 @@ export class ClinicdetailsPage {
           role: 'destructive',
           cssClass: 'small-case',
           handler: () => {
-            console.log('Share clicked');
+            // console.log('Share clicked');
           }
         }
       ]
