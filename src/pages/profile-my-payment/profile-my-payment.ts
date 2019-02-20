@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+// import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 /**
@@ -18,7 +18,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class ProfileMyPaymentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private barcodeScanner: BarcodeScanner) {
+              // private barcodeScanner: BarcodeScanner
+            ) {
   }
 
   ionViewDidLoad() {
@@ -28,13 +29,13 @@ export class ProfileMyPaymentPage {
     this.navCtrl.pop();
   }
 
-  scanbarcode(){
-    this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
-      alert(barcodeData);
-     }).catch(err => {
-         console.log('Error', err);
-     });
-  }
+  // scanbarcode(){
+  //   this.barcodeScanner.scan().then(barcodeData => {
+  //     console.log('Barcode data', barcodeData);
+  //     alert(barcodeData);
+  //    }).catch(err => {
+  //        console.log('Error', err);
+  //    });
+  // }
 
 }

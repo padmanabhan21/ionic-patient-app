@@ -12,7 +12,6 @@
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
-    <!-- <ion-title>listofdoctors</ion-title> -->
   </ion-navbar>
 
 </ion-header>
@@ -22,12 +21,12 @@
     <ion-row>
       <ion-col>
         <!-- <ion-card (click)="navdoctorsdetails()"> -->
-        <ion-card *ngFor="let clinic of clinics" (click)="clinicdetails(clinic)">
+        <ion-card *ngFor="let clinic of clinics" (click)="clinicdetails(clinic)" style="margin-right: 5px !important;">
           <ion-row>
             <ion-col col-3>
               <ion-avatar height="30" weight="30">
                 <!-- <img [src]="clinic.cli_img" /> -->
-                <img src="../assets/img/bala.jpg"/>
+                <img src="../assets/img/bala.jpg" />
               </ion-avatar>
               <button ion-button small full color="secondary">
                 <ion-icon name="thumbs-up"></ion-icon>
@@ -52,22 +51,15 @@
               </ion-row>
               <ion-row>
                 <ion-col>
-                  <!-- <img class="img-50hw" [src]="clinic.cli_subimages1" /> -->
                   <img class="img-50hw" src="../assets/img/bala.jpg" />
-
                 </ion-col>
                 <ion-col>
-                  <!-- <img class="img-50hw" [src]="clinic.cli_subimages2" /> -->
                   <img class="img-50hw" src="../assets/img/bala.jpg" />
-
                 </ion-col>
                 <ion-col>
-                  <!-- <img class="img-50hw" [src]="clinic.cli_subimages3" /> -->
                   <img class="img-50hw" src="../assets/img/bala.jpg" />
-
                 </ion-col>
                 <ion-col col-4>
-
                 </ion-col>
               </ion-row>
               <ion-row class="margin-top-15">
@@ -83,7 +75,6 @@
           </ion-row>
           <ion-row>
             <ion-col col-3>
-
             </ion-col>
             <ion-col col-2>
             </ion-col>
@@ -114,44 +105,44 @@
           <ion-col>
             <!-- 1st row -->
             <ion-row class="doctor-list-row">
-                <ion-col col-3>
-                  <ion-avatar class="margin-top-5" height="30" weight="30">
-                    <!-- <img class="border-50" [src]="doctor.doc_img" /> -->
-                    <img class="border-50" src="../assets/img/bala.jpg" />
+              <ion-col col-3>
+                <ion-avatar class="margin-top-5" height="30" weight="30">
+                  <!-- <img class="border-50" [src]="doctor.doc_img" /> -->
+                  <img class="border-50" src="../assets/img/bala.jpg" />
 
-                  </ion-avatar>
-                  <button ion-button small full color="secondary" class="doctor-card-percen">
-                    <ion-icon name="thumbs-up"></ion-icon>
-                    <p class="text-white">&nbsp;&nbsp;{{doctor.doc_likes}}</p>
-                  </button>
-                  <p text-center class="font-12">{{doctor.doc_votes}} votes</p>
-                </ion-col>
-                <ion-col col-9>
-                  <h2 class="margin-top-5">
-                    <b>{{doctor.doctor_name}}</b>
-                  </h2>
-                  <div class="card-subtitle margin-top-5">{{doctor.qualification}}</div>
-                  <div class="card-subtitle margin-top-5">{{doctor.specialist}}</div>
-                  <div class="card-subtitle margin-top-5">{{doctor.experience}} years of experience</div>
-                  <div class="card-subtitle margin-top-5">{{doctor.doc_feedback}} Feedback</div>
-                  <div class="card-subtitle margin-top-5">&#x20b9; {{doctor.consultationfees}}</div>
-                  <div class="card-subtitle margin-top-5 font-12">Available on {{doctor.doc_available_date}} <b>at {{doctor.doc_available_location}}</b></div>
-                  <div class="card-subtitle margin-top-5"><b>{{doctor.doc_hospital}}</b></div>
-                </ion-col>
-              </ion-row>
+                </ion-avatar>
+                <button ion-button small full color="secondary" class="doctor-card-percen">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <p class="text-white">&nbsp;&nbsp;{{doctor.doc_likes}}</p>
+                </button>
+                <p text-center class="font-12">{{doctor.doc_votes}} votes</p>
+              </ion-col>
+              <ion-col col-9>
+                <h2 class="margin-top-5">
+                  <b>{{doctor.doctor_name}}</b>
+                </h2>
+                <div class="card-subtitle margin-top-5">{{doctor.qualification}}</div>
+                <div class="card-subtitle margin-top-5">{{doctor.specialist}}</div>
+                <div class="card-subtitle margin-top-5">{{doctor.experience}} years of experience</div>
+                <div class="card-subtitle margin-top-5">{{doctor.doc_feedback}} Feedback</div>
+                <div class="card-subtitle margin-top-5">&#x20b9; {{doctor.consultationfees}}</div>
+                <div class="card-subtitle margin-top-5 font-12">Available on {{doctor.doc_available_date}}
+                  <b>at {{doctor.doc_available_location}}</b>
+                </div>
+                <div class="card-subtitle margin-top-5">
+                  <b>{{doctor.doc_hospital}}</b>
+                </div>
+              </ion-col>
+            </ion-row>
             <!-- 2nd row -->
-              <ion-row class="text-center">
-                  <!-- <p class="text-color-purple margin-left-30"> Prime <ion-icon name="ribbon"></ion-icon>&#8226; Max 30 mins wait + verified details</p> -->
-                </ion-row>
-                <!-- 3rd row -->
-                <ion-row>
-                    <ion-col col-6>
-                        <button ion-button outline color="primary" class="small-case full-width">View Profile</button>
-                    </ion-col>
-                    <ion-col col-6>
-                        <button ion-button color="primary" class="small-case full-width">Book Appointment</button>
-                    </ion-col>
-                  </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button outline color="violetlight" class="small-case full-width">View Profile</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="violetlight" class="small-case full-width">Book Appointment</button>
+              </ion-col>
+            </ion-row>
           </ion-col>
         </ion-row>
       </ion-card>
