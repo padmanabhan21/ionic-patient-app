@@ -21,6 +21,7 @@ export class EnterPatientDetailsPage {
   public hospital_location;
   public user_mobile;
   public user_name;
+  public email_id;
   public clinic_details:any=[];
   public scope;
   public minDate;
@@ -43,6 +44,7 @@ export class EnterPatientDetailsPage {
     console.log("Clinic Details********",JSON.stringify(this.clinic_details));
     this.user_mobile = this.session.retrieve("user_mobile");
     this.user_name = this.session.retrieve("user_name");
+    
     this.business_id = this.clinic_details.clinic_id;
     this.hospital_name = this.clinic_details.clinic_name;
     this.hospital_location = this.clinic_details.clinic_location;
@@ -67,18 +69,19 @@ export class EnterPatientDetailsPage {
       "clinic_long":""
     }
   
-  tokenconfirmation(param){
+  tokenconfirmation(param1,param2){
     this.doctor_id = this.appointment_details.doctor_profile_id;
     this.doctor_clinic_list = this.appointment_details.doctor_clinic;
 
     this.hospital_address = this.appointment_details.doctor_details[0].doctor_clinic[0].address
     this.hospital_name = this.appointment_details.doctor_details[0].doctor_clinic[0].business_name
 
-    if(param === undefined){
-      alert("please choose your appointment date")
+    if(param1 === undefined){
+      alert("please choose your appointment date");
+      
     }
     else{
-      this.api.tokengeneration(this.doctor_id,this.business_id,param)
+      this.api.tokengeneration(this.doctor_id,this.business_id,param1)
       .subscribe((resp:any) =>{
         if(resp.Message_Code == "TGUS" || resp.Message_Code == "TGTW"){
           alert(resp.Message);
@@ -91,8 +94,10 @@ export class EnterPatientDetailsPage {
           this.datatoappointmentdet.hospital_address = this.hospital_address;
           this.datatoappointmentdet.business_id = this.business_id;
           this.datatoappointmentdet.doctor_id = this.doctor_id;
-          this.datatoappointmentdet.appointment_date = param;
+          this.datatoappointmentdet.appointment_date = param1;
           this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
+          this.session.store("user_email",param2);
+          console.log("emaillllll",param2); 
         }
       });
     }

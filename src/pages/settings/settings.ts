@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { SessionStorageService } from 'ngx-webstorage';
 
 import { Settings } from '../../providers';
 
@@ -32,7 +33,8 @@ import{ProfileDashboardPage}from'../profile-dashboard/profile-dashboard';
 export class SettingsPage {
   // Our local settings object
   options: any;
-
+    public user_mobile_num;
+    public user_name;
   settingsReady = false;
 
   form: FormGroup;
@@ -64,6 +66,7 @@ export class SettingsPage {
     public formBuilder: FormBuilder,
     public navParams: NavParams,
     public translate: TranslateService,
+    public session:SessionStorageService,
     public modalCtrl: ModalController) {
   }
 
@@ -142,6 +145,11 @@ export class SettingsPage {
   ionViewDidLoad() {
     // Build an empty form for the template to render
     this.form = this.formBuilder.group({});
+    this.user_mobile_num = this.session.retrieve("user_mobile");
+    this.user_name = this.session.retrieve("user_name");
+    console.log("mobileeeee",this.user_mobile_num);
+    console.log("nameeeeee",this.user_name);
+
   }
 
   ionViewWillEnter() {
