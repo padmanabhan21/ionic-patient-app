@@ -35,6 +35,8 @@ export class DoctorsdetailsPage {
   public doctor_service:any=[];
   public doctor_specialization:any=[];
   public doctors_timings:any=[];
+  public location_lat;
+  public location_long;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
@@ -56,7 +58,12 @@ export class DoctorsdetailsPage {
       this.doctor_service = this.doctor_details[0].doctor_services;
       this.doctor_specialization = this.doctor_details[0].doctor_specialization;
       this.doctor_qualification =this.doctor_details[0].qualification;
+      this.location_lat = this.doctor_clinic[0].location_lat;
+      this.location_long = this.doctor_clinic[0].location_long;
       this.totalclinic = this.doctor_clinic.length;
+      console.log("location_lat",this.location_lat);
+      console.log("location_long",this.location_long);
+
   }
   @ViewChild('mySlider') slider: Slides;
   @ViewChild('map') mapRef: ElementRef;
@@ -69,7 +76,7 @@ export class DoctorsdetailsPage {
 
     
   DisplayMap(){
-    const location = new google.maps.LatLng('17.38','78.48');
+    const location = new google.maps.LatLng(this.location_lat,this.location_long);
     const options = {
       center:location,
       zoom:15

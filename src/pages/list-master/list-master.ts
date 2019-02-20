@@ -21,9 +21,9 @@ export class ListMasterPage {
   ionViewDidLoad() {
     this.currentItems = [
       {id:"1",avatar:'../assets/img/searchdoctor.png',title:"Search doctors, book appointments",description:"Find doctors, clinics, hospitals and more"},
-      {id:"2",avatar:'../assets/img/searchdoctor.png',title:"Chat with a top doctor",description:"Get a response in 5 minutes & free 3 day follow up"},
-      {id:"3",avatar:'../assets/img/searchdoctor.png',title:"Order medicines",description:"Medicines delivered to your doorstep"},
-      {id:"4",avatar:'../assets/img/searchdoctor.png',title:"Book tests, checkups and scans",description:"Get health checkups & tests done at home."},
+      {id:"2",avatar:'../assets/img/searchdoctor4.png',title:"Chat with a top doctor",description:"Get a response in 5 minutes & free 3 day follow up"},
+      {id:"3",avatar:'../assets/img/ordermedicine1.png',title:"Order medicines",description:"Medicines delivered to your doorstep"},
+      {id:"4",avatar:'../assets/img/booktest2.png',title:"Book tests, checkups and scans",description:"Get health checkups & tests done at home."},
     ]    
   }
   navigatesearch(item){

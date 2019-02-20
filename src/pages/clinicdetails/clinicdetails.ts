@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { Component, ViewChild,ElementRef } from '@angular/core';
+// import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { AlltimingsPage } from '../alltimings/alltimings';
@@ -12,7 +12,7 @@ import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+declare var google:any;
 @IonicPage()
 @Component({
   selector: 'page-clinicdetails',
@@ -39,9 +39,10 @@ export class ClinicdetailsPage {
     // events.subscribe('star-rating:changed', (starRating) => {console.log(starRating)});
       this.clinic = this.navParams.get("clinicdetails");
       this.clinic_details = this.clinic.clinic_details;
-
+          console.log("clinic detailsssssssssssssss",JSON.stringify(this.clinic_details))
   }
   @ViewChild('mySlider') slider: Slides;
+  @ViewChild('map') mapRef: ElementRef;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DoctorsdetailsPage');
@@ -49,15 +50,17 @@ export class ClinicdetailsPage {
       
       this.clinic_services =this.clinic_details[0].clinic_services;
       this.clinic_doctor_list =this.clinic_details[0].clinic_doctor_list;
-      this.clinic_lat = this.clinic_details[0].clinic_lat;
-      this.clinic_lng = this.clinic_details[0].clinic_long;
+      this.clinic_lat = this.clinic_details[0].location_lat;
+      this.clinic_lng = this.clinic_details[0].location_long;
       this.clinic_address = this.clinic_details[0].address;
       this.clinic_open = this.clinic_details[0].clinic_open;
     this.clinic_name = this.clinic_details[0].business_name;
     this.clinic_images = this.clinic_details[0].clinic_images;
     this.clinic_timings = this.clinic_details[0].clinic_timings;
     
-    // console.log("doctor details", this.clinic_doctor_list)
+    console.log("doctor detailsssssssssssss", this.clinic_lat)
+    console.log("doctor detailssssssssssssss", this.clinic_lng)
+
     }
 
   alltimings() {
@@ -70,7 +73,24 @@ export class ClinicdetailsPage {
     clinicservices.present();
 
   }
-  //get appointment through clinic details
+  //google maps
+  DisplayMap(){
+    const location = new google.maps.LatLng(this.clinic_lat,this.clinic_lng);
+    const options = {
+      center:location,
+      zoom:15
+    };
+
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.addMarker(location,map);
+  }
+
+  addMarker(position,map){
+    return new google.maps.Marker({
+      position,
+      map
+    })
+  }
  
   
   getRandomIndex(): number {
