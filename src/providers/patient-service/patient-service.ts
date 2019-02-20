@@ -67,7 +67,21 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
-  // (3)--> specialist service
+  // (3)--> Select Country
+  selectCountry(): Observable<object[]> {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers });
+
+    let body =
+    {}
+
+    return this.http.post('https://doctorappnew.herokuapp.com/Select_Country', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);  
+    }
+
+  // (4)--> specialist service
   specialist(param): Observable<object[]> {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -75,10 +89,8 @@ export class PatientServiceProvider {
 
     let body =
     {
-
       "country": "India",
       "city": "Chennai"
-
     }
 
     return this.http.post('https://doctorappnew.herokuapp.com/Select_BusinessandDoctors', body, options)
@@ -87,7 +99,7 @@ export class PatientServiceProvider {
   }
 
 
-  // (4)--> Token Generation
+  // (5)--> Token Generation
   tokengeneration(param1,param2,param3): Observable<object[]> {
 
     const headers = new Headers();
@@ -110,7 +122,7 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
-  // (5)--> livefeed 
+  // (6)--> livefeed 
   livefeed(param): Observable<object[]> {
 
     const headers = new Headers();
@@ -143,7 +155,7 @@ export class PatientServiceProvider {
 
 
 
-  // (6)--> Feedback Service
+  // (8)--> Feedback Service
   feedback(param): Observable<object[]> {
 
     const headers = new Headers();
@@ -167,7 +179,7 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
-  // 8.my appointments
+  // (9)My appointments
   
 myappointments(param): Observable<object[]> {
   const headers = new Headers();
@@ -185,7 +197,7 @@ myappointments(param): Observable<object[]> {
 }
 
 //OTP-Verify Screen
-// 1.Send OTP
+// 10.Send OTP
 sendotp(param){
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
@@ -204,7 +216,7 @@ sendotp(param){
 
 
 
-//2.Verify OTP
+//11.Verify OTP
 verifyotp(param){
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
@@ -222,6 +234,7 @@ verifyotp(param){
   .catch(this.handleError)
 }
 
+// (12) Cancel Token
 tokencancel(param): Observable<object[]> {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');

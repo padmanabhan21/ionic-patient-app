@@ -6,8 +6,10 @@
 -->
 <ion-header class="screen-bg">
   <ion-row>
-    <ion-icon name="arrow-back" class="text-white padding-10 font-24" (click)="closeModal()"></ion-icon>
-    <h6 class="text-white" class="margin-left-10 text-white">Find & Book</h6>
+        <ion-icon name="arrow-back" class="text-white padding-10 font-24" (click)="closeModal()"></ion-icon>
+        <h6 class="text-white" class="margin-left-10 text-white">Find & Book</h6>  
+        <p *ngIf="location" class="text-white" style="position: absolute;right: 10%;padding: 2px;">{{country}}</p>
+        <ion-icon class="text-white" name="locate" (click)="showlocation()" style="position: absolute;right:0;padding: 15px;font-size: 20px;"></ion-icon>  
   </ion-row>
   <ion-row>
     <ion-searchbar></ion-searchbar>

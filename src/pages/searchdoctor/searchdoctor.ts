@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
+import {IonicPage,
+        NavController,
+        NavParams,
+        ModalController,
+        LoadingController,
+        ActionSheetController } from 'ionic-angular';
 import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 
@@ -11,6 +16,9 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 })
 export class SearchdoctorPage {
 
+  public location:boolean = false;
+  public country:string;
+
   public specialist: any = []
   searchdoctor: any = 0;
   public temp;
@@ -18,7 +26,8 @@ export class SearchdoctorPage {
     public navParams: NavParams,
     public modalctrl: ModalController,
     public api: PatientServiceProvider,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public actionsheetCtrl: ActionSheetController) {
   }
 
   public loading;
@@ -27,13 +36,39 @@ export class SearchdoctorPage {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-  
     this.loading.present();
-  
-    // setTimeout(() => {
-    // }, 10000);
-
     this.getdoctorsandclinic();
+  }
+
+  public countryList:any;
+  showlocation(){
+    this.api.selectCountry()
+    .subscribe((resp:any) =>{
+      if(resp.Message_Code == "RSS"){
+        this.countryList = resp.output;
+        let actionSheet = this.actionsheetCtrl.create({
+          title: 'choose country',
+          cssClass: 'action-sheets-basic-page, small-case, font-14',
+          buttons: this.createButtons()
+        });
+        actionSheet.present();
+      } 
+    });
+  }
+
+  public createButtons(){
+    let buttons = [];
+    for (let country in this.countryList) {
+      let button = {
+        text: this.countryList[country].country_name,
+        handler: () => {
+          this.country = this.countryList[country].country_name;
+          this.location = true; 
+        }
+      }
+      buttons.push(button);
+    }
+    return buttons;
   }
 
 
@@ -52,7 +87,6 @@ export class SearchdoctorPage {
       .subscribe((resp: any) => {
         this.specialist = resp.specialist;
         this.loading.dismiss();
-        // console.log("Venkat Loves Girlssssssssss", JSON.stringify(this.specialist))
       })
   }
 

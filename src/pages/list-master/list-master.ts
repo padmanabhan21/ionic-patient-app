@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
-import {LoadingController} from 'ionic-angular';
+import {LoadingController, ToastController} from 'ionic-angular';
 // import { SearchdoctorPage } from '../searchdoctor/searchdoctor';
 
 @IonicPage()
@@ -12,7 +12,10 @@ import {LoadingController} from 'ionic-angular';
 export class ListMasterPage {
   currentItems:any;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController,public loadingCtrl:LoadingController) {
+  constructor(public navCtrl: NavController, 
+              public modalCtrl: ModalController,
+              public loadingCtrl:LoadingController,
+              public toastCtrl: ToastController) {
   }
 
   /**
@@ -41,6 +44,14 @@ export class ListMasterPage {
 
       let searchdoctor = this.modalCtrl.create(SearchdoctorPage);
       searchdoctor.present();
+    }
+    else{
+        const toast = this.toastCtrl.create({
+          message: 'This option is coming soon...',
+          position: 'bottom',
+          duration: 3000
+        });
+        toast.present();
     }
 
   }

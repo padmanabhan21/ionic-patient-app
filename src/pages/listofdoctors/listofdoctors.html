@@ -25,8 +25,7 @@
           <ion-row>
             <ion-col col-3>
               <ion-avatar height="30" weight="30">
-                <!-- <img [src]="clinic.cli_img" /> -->
-                <img src="../assets/img/bala.jpg" />
+                <img [src]="clinic.cli_img" style="height: 70px;"/>
               </ion-avatar>
               <button ion-button small full color="secondary">
                 <ion-icon name="thumbs-up"></ion-icon>
@@ -51,13 +50,13 @@
               </ion-row>
               <ion-row>
                 <ion-col>
-                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                  <img class="img-50hw" [src]="clinic.cli_subimages1" />
                 </ion-col>
                 <ion-col>
-                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                  <img class="img-50hw" [src]="clinic.cli_subimages2" />
                 </ion-col>
                 <ion-col>
-                  <img class="img-50hw" src="../assets/img/bala.jpg" />
+                  <img class="img-50hw" [src]="clinic.cli_subimages3" />
                 </ion-col>
                 <ion-col col-4>
                 </ion-col>
@@ -85,16 +84,6 @@
       </ion-col>
     </ion-row>
   </ion-scroll>
-  <!-- Benefits for the Prime User for our App -->
-  <ion-row>
-    <!-- <ion-col col-10>
-      <h6 class="margin-left-20"> Results offering
-        <span class="text-color-purple">Prime</span> benefits</h6>
-    </ion-col> -->
-    <!-- <ion-col col-2 class="custom-icon-align">
-      <ion-icon name="information-circle"></ion-icon>
-    </ion-col> -->
-  </ion-row>
   <br>
   <!-- Vertical Scroll for the list of Doctors -->
   <!-- Doctor 1 -->
@@ -107,9 +96,8 @@
             <ion-row class="doctor-list-row">
               <ion-col col-3>
                 <ion-avatar class="margin-top-5" height="30" weight="30">
-                  <!-- <img class="border-50" [src]="doctor.doc_img" /> -->
-                  <img class="border-50" src="../assets/img/bala.jpg" />
-
+                  <img class="border-50" [src]="doctor.doc_img" style="height: 70px;"/>
+                  <!-- <img class="border-50" src="../assets/img/bala.jpg" /> -->
                 </ion-avatar>
                 <button ion-button small full color="secondary" class="doctor-card-percen">
                   <ion-icon name="thumbs-up"></ion-icon>
