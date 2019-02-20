@@ -71,7 +71,7 @@
     <ion-col col-10>
 
       <ion-item>
-        <ion-input type="text" style="width:100%;"></ion-input>
+        <ion-input type="text" style="width:100%;" [(ngModel)]="emai_id"></ion-input>
       </ion-item>
 
     </ion-col>
@@ -117,5 +117,5 @@
 
 </ion-content>
 <ion-footer>
-  <button ion-button block class="screen-bg small-case" (click)="tokenconfirmation(appointmentDate)">Confirm</button>
+  <button ion-button block class="screen-bg small-case" (click)="tokenconfirmation(appointmentDate,emai_id)">Confirm</button>
 </ion-footer>
