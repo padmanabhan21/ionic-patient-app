@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController, ViewController, App} from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController, ViewController, App, ActionSheetController} from 'ionic-angular';
 import { SessionStorageService } from 'ngx-webstorage';
 import {LivefeedPage}from'../livefeed/livefeed';
 import {TabsPage} from '../tabs/tabs';
@@ -35,6 +35,7 @@ export class AppointmentdetailsPage {
               public socialSharing: SocialSharing,
               public file:File,
               public api:PatientServiceProvider,
+              private actionSheetCtrl: ActionSheetController,
               ) {
     this.token_status = this.navParams.get("token_status");
     this.appointment_details =this.navParams.get("appointmentdetails");
@@ -92,6 +93,50 @@ export class AppointmentdetailsPage {
            console.log("appoint",this.token_status.appointment_id)
        }
     });
+  }
+
+  sharechannel(){
+    const actionSheet = this.actionSheetCtrl.create({
+      title: 'Share With:',
+      buttons: [
+        {
+          text: 'Facebook',
+          role: 'destructive',
+          icon: 'logo-facebook',
+          handler: () => {
+            this.shareFacebook();
+          }
+        },{
+          text: 'Twitter',
+          role: 'destructive',
+          icon: 'logo-twitter',
+          handler: () => {
+            this.shareTwitter();
+          }
+        },{
+          text: 'Whatsapp',
+          role: 'destructive',
+          icon: 'logo-whatsapp',
+          handler: () => {
+            this.shareWhatsApp();
+          }
+        },{
+          text: 'Email',
+          role: 'destructive',
+          icon: 'mail',
+          handler: () => {
+            this.shareEmail();
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
   //social share
