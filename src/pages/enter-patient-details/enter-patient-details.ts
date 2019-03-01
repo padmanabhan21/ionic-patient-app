@@ -104,6 +104,15 @@ export class EnterPatientDetailsPage {
     }
   }
   
+  sendSmsOnAppointmentConfirm(param){
+    this.api.sendconfirmation(param)
+    .subscribe((resp:any) =>{
+      if(resp.Message_Code == "SSS"){
+        console.log("SMS Sent Successfully");
+      }
+    })
+  }
+
   closeModal() {
     this.navCtrl.pop();
   }

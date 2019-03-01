@@ -122,6 +122,22 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
+  sendconfirmation(param){
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers });
+
+   let body=  {
+      "mobile":this.session.retrieve("user_mobile"),
+      "message":param,
+      "code":this.session.retrieve("user_country").subString(1)
+    }
+
+    return this.http.post('https://doctorappnew.herokuapp.com/SendMessge', body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   // (6)--> livefeed 
   livefeed(param): Observable<object[]> {
 
