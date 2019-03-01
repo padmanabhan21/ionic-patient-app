@@ -85,18 +85,10 @@
 <ion-footer>
   <ion-row>
     <ion-col col-6>
-      <button ion-button block class="screen-bg" (click)="navlistmaster()"> Done</button>
+      <button ion-button outline color="violetlight" (click)="navlistmaster()"> Done</button>
     </ion-col>
     <ion-col col-6>
-      <ion-fab right bottom mini>
-        <button ion-fab><ion-icon name="arrow-dropleft"></ion-icon></button>
-        <ion-fab-list side="left">
-          <button ion-fab><ion-icon name="logo-facebook" (click)="shareFacebook()"></ion-icon></button>
-          <button ion-fab><ion-icon name="logo-twitter" (click)="shareTwitter()"></ion-icon></button>
-          <button ion-fab><ion-icon name="logo-whatsapp" (click)="shareWhatsApp()"></ion-icon></button>
-          <button ion-fab><ion-icon name="mail" (click)="shareEmail()"></ion-icon></button>
-        </ion-fab-list>
-      </ion-fab>
+        <button ion-button outline color="violetlight" (click)="sharechannel()"> Share</button>
     </ion-col>
   </ion-row>
 </ion-footer>
