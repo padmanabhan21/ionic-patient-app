@@ -37,7 +37,6 @@ export class LivefeedPage {
 
   liveFeedLoop() {
     this.subscription = Observable.interval(5000).subscribe(x => {
-      // console.log("testinggggggggggg")
       this.liveFeed();
     });
   }

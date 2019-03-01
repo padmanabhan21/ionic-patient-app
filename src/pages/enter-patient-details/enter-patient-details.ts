@@ -97,7 +97,8 @@ export class EnterPatientDetailsPage {
           this.datatoappointmentdet.appointment_date = param1;
           this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
           this.session.store("user_email",param2);
-          console.log("emaillllll",param2); 
+          console.log("Business_ID$$$$$$",this.business_id);
+          console.log("Doctor_ID$$$$$$",this.doctor_id); 
         }
       });
     }

@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { ActionSheetController } from 'ionic-angular'
 import { OtpverifyPage } from '../otpverify/otpverify';
 
+import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
+
 import { User } from '../../providers';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 
@@ -32,6 +34,11 @@ export class LoginPage {
   // Our translated text strings
   public loginErrorString: string;
   public countryList:any = [];
+  //form validation
+  loginform:FormGroup;
+  country:AbstractControl;
+  mobile:AbstractControl;
+  username:AbstractControl;
 
   constructor(public navCtrl: NavController,
     public user: User,
@@ -40,6 +47,7 @@ export class LoginPage {
     public api:PatientServiceProvider,
     public session:SessionStorageService,
     public http:HttpClient,
+    public formbuilder: FormBuilder,
     public actionsheet:ActionSheetController) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
@@ -49,8 +57,18 @@ export class LoginPage {
     this.http.get('assets/data/countrylist.json').subscribe((data:any) => {
       this.countryList = data;
       console.log("Reading Json from asset file",JSON.stringify(this.countryList));
+    });
+    //formgroup 
+    this.loginform = formbuilder.group({
+      country:['',Validators.required],
+      mobile:['',[Validators.required,Validators.minLength(10)]],
+      username:['',Validators.required]
+    });
 
- });
+    this.country = this.loginform.controls['country'];
+    this.mobile = this.loginform.controls['mobile'];
+    this.username = this.loginform.controls['username'];
+ 
   }
   public loginobj:any={};
   public login_resp:any;

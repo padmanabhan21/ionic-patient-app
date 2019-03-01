@@ -1,22 +1,28 @@
 <ion-content class="screen-bg" padding>
-    <div class="position-center margin-top-100 weight-700 global-font">
-      <b class="text-white  font-16 ">Plese Enter your mobile number</b>
-    </div>
+  <div class="position-center margin-top-100 weight-700 global-font">
+    <b class="text-white  font-16 ">Plese Enter your mobile number</b>
+  </div>
+  <form [formGroup]="loginform">
     <ion-list inset class="margin-top-50">
-          <ion-item >
-              <ion-label class="text-white margin-left">Select Country</ion-label>
-              <ion-select interface="action-sheet" [selectOptions]="selectOptions" [(ngModel)]="loginobj.countrycode">
-                <ion-option *ngFor="let country of countryList" value="{{country.countrycode}}">{{country.countryname}}</ion-option>
-              </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-input type="number" placeholder="MobileNumber" [(ngModel)]="loginobj.mobile"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-input type="text" placeholder="Username" [(ngModel)]="loginobj.name"></ion-input>
-              </ion-item>
-              <div padding>
-                <button ion-button class="full-width" color="light" (click)="navhomescreen(loginobj)" outline>Continue</button>
-              </div>
+      <ion-item>
+        <ion-label class="text-white margin-left">Select Country</ion-label>
+        <ion-select interface="action-sheet" formControlName="country" [selectOptions]="selectOptions" [(ngModel)]="loginobj.countrycode">
+          <ion-option *ngFor="let country of countryList" value="{{country.countrycode}}">{{country.countryname}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <p class="text-white" style="font-size: 10px" *ngIf="country.hasError('required') && country.touched">*Please choose country from list</p>
+      <ion-item>
+        <ion-input type="number" placeholder="MobileNumber" formControlName="mobile" [(ngModel)]="loginobj.mobile"></ion-input>
+      </ion-item>
+      <p class="text-white" style="font-size: 10px" *ngIf="mobile.hasError('required') && mobile.touched">*Mobile number is must</p>
+      <p class="text-white" style="font-size: 10px" *ngIf="mobile.hasError('minlength') && mobile.touched">*Enter Valid mobile number</p>
+      <ion-item>
+        <ion-input type="text" placeholder="Username" formControlName="username" [(ngModel)]="loginobj.name"></ion-input>
+      </ion-item>
+      <p class="text-white" style="font-size: 10px" *ngIf="username.hasError('required') && username.touched">*User name is must</p>
+      <div padding>
+        <button ion-button class="full-width" color="light" (click)="navhomescreen(loginobj)" outline>Continue</button>
+      </div>
     </ion-list>
+  </form>
 </ion-content>
