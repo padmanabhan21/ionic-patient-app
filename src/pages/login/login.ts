@@ -74,33 +74,33 @@ export class LoginPage {
   public login_resp:any;
 
   navhomescreen(param){
-    // this.navCtrl.push('TabsPage');
-    this.api.loginUser(param)
-    .subscribe((resp:any) =>{
-      this.login_resp = resp.Message_Code;
+    this.navCtrl.push('TabsPage');
+    // this.api.loginUser(param)
+    // .subscribe((resp:any) =>{
+    //   this.login_resp = resp.Message_Code;
       // uncomment this please later for testing purpose commented 
       // this.navCtrl.push('TabsPage');
 
-      if(this.login_resp == "RIS"){
-        this.session.store("user_mobile",param.mobile);
-        this.session.store("user_name",param.name);
-        this.session.store("user_country",param.countrycode);
+      // if(this.login_resp == "RIS"){
+      //   this.session.store("user_mobile",param.mobile);
+      //   this.session.store("user_name",param.name);
+      //   this.session.store("user_country",param.countrycode);
         // this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
-        this.navCtrl.push('TabsPage');
+    //     this.navCtrl.push('TabsPage');
 
-        alert("user created successfully");
-      }
-      else if(this.login_resp == "RIUS"){
-        this.updateprofile(param);
-        this.session.store("user_mobile",param.mobile);
-        this.session.store("user_name",param.name);
-        this.session.store("user_country",param.countrycode);
-        alert("user updated successfully");
-      }
-      else{
-        alert("please enter your mobile and name");
-      }
-    })
+    //     alert("user created successfully");
+    //   }
+    //   else if(this.login_resp == "RIUS"){
+    //     this.updateprofile(param);
+    //     this.session.store("user_mobile",param.mobile);
+    //     this.session.store("user_name",param.name);
+    //     this.session.store("user_country",param.countrycode);
+    //     alert("user updated successfully");
+    //   }
+    //   else{
+    //     alert("please enter your mobile and name");
+    //   }
+    // })
   }
 
   public update_resp:any;
