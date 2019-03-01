@@ -9,32 +9,27 @@
   <ion-navbar color="main">
     <ion-buttons item-start>
       <button ion-button (click)="closeModal()">
-        <ion-icon name="arrow-back"></ion-icon>
+        <!-- <ion-icon name="arrow-back"></ion-icon> -->
         <p class="margin-left-10">{{doctor_name}}</p>
       </button>
     </ion-buttons>
-    <!-- <ion-title>listofdoctors</ion-title> -->
+
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content class="backgroung-color">
 
-  <!-- <ion-slides class="height-37" #mySlider (ionDidChange)="newSlide()" pager>
 
-    <ion-slide *ngFor="let images of clinic_images">
-      <img [src]="images.img">
-    </ion-slide>
-  </ion-slides> -->
-  <ion-row class="height-225 doctorimage">
+  <!-- <ion-row class="height-225 doctorimage">
     <ion-col col-3>
-      <ion-avatar item-right class="z-index-1 image-bottem">
-        <!-- <img [src]="doctor_img"> -->
-        <img src="../assets/img/bala.jpg"/>
-      </ion-avatar>
+      <ion-avatar item-right class="z-index-1 image-bottem"> -->
+  <!-- <img [src]="doctor_img"> -->
+  <!-- <img src="../assets/img/bala.jpg"/>
+      </ion-avatar> -->
 
-    </ion-col>
+  <!-- </ion-col>
     <ion-col col-7 class="image-bottem">
       <b class="text-white font-13">{{doctor_name}}</b>
       <p class="text-white font-13">{{doctor_qualification}}</p>
@@ -42,23 +37,14 @@
     </ion-col>
   </ion-row>
   <ion-item>
-    <ion-row>
-      <!-- <ion-col col-1>
-        <b class="small-case text-color-purple">Prime </b>
-      </ion-col>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <ion-col col-1>
-        <ion-icon name="checkmark-circle-outline" class="text-color-purple"></ion-icon>
-      </ion-col>
-      <ion-col col-8>
-        <p class="small-case text-color-purple">. Max 60 mins wait + verified details</p>
-      </ion-col> -->
+    <ion-row> -->
 
-    </ion-row>
-  </ion-item>
+
+  <!-- </ion-row>
+  </ion-item> -->
 
   <!-- timing starts -->
-  <ion-item class="padding-0">
+  <!-- <ion-item class="padding-0">
     <ion-row>
       <ion-col col-2 class="text-center">
         <ion-icon name="medkit" class="font-26"></ion-icon>
@@ -67,43 +53,43 @@
         <p class="margin-auto">{{doctor_experience}} experience...</p>
       </ion-col>
     </ion-row>
-  </ion-item>
+  </ion-item> -->
   <!-- timing ends -->
-  <ion-row>
+  <!-- <ion-row>
     <ion-col col-2 class="text-center">
       <ion-icon ios="ios-pin-outline" md="md-pin" class="font-26"></ion-icon>
     </ion-col>
     <ion-col col-10>
       <p class=" margin-auto">{{doctor_clinic_address}}</p>
       <div #map id="my-map"></div>
-      <ion-item class="padding-left-0">
-        <!-- <img src="../assets/img/logo.png"> -->
-        <button ion-button clear class="small-case font-16" float-left (click)="selectdifferentclinic()">Select a different clinic</button>
+      <ion-item class="padding-left-0"> -->
+  <!-- <img src="../assets/img/logo.png"> -->
+  <!-- <button ion-button clear class="small-case font-16" float-left (click)="selectdifferentclinic()">Select a different clinic</button>
       </ion-item>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
   <!-- Doctor List Starts -->
 
   <!-- Doctor List Ends -->
   <!-- Services start -->
-  <ion-item>
+  <!-- <ion-item>
     <ion-row>
       <ion-col col-2>
         <ion-icon name="time" class="font-26"></ion-icon>
       </ion-col>
       <ion-col col-6>
         <p class="small-case">Visits Tommorrow</p>
-        <p>10:00 AM - 02:00 PM</p>
-        
-      <button ion-button clear class="small-case margin-auto padding-0"(click)="navdoctortimings()" >ALL TIMINGS</button>
+        <p>10:00 AM - 02:00 PM</p> -->
+
+  <!-- <button ion-button clear class="small-case margin-auto padding-0"(click)="navdoctortimings()" >ALL TIMINGS</button>
       </ion-col>
     </ion-row>
   </ion-item>
   <ion-item>
     <ion-row>
-      <ion-col col-2>
-        <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
-        <ion-icon name="medkit" class="font-26"></ion-icon>
+      <ion-col col-2> -->
+  <!-- <img src="../assets/img/handslogo.png" class="height-25"> -->
+  <!-- <ion-icon name="medkit" class="font-26"></ion-icon>
       </ion-col>
       <ion-col col-2>
         <b>Services</b>
@@ -115,13 +101,13 @@
       <ion-row>
         <ion-col col-2></ion-col>
         <button ion-button clear class="small-case margin-0 padding-0" (click)="navdoctorservice()"> All Services</button>
-      </ion-row>
-      
+      </ion-row> -->
 
 
-  </ion-item>
+
+  <!-- </ion-item> -->
   <!-- spescialization -->
-  <ion-item>
+  <!-- <ion-item>
     <ion-row>
       <ion-col col-2>
         <ion-icon name="paper" class="font-26"></ion-icon>
@@ -142,11 +128,96 @@
         <p>- Medical Licence</p>
       </ion-col>
     </ion-row>
-  </ion-item>
-  <!-- service-end -->
-  <!-- </ion-col> -->
+  </ion-item> -->
+  <ion-card>
+    <ion-card-content>
 
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <ion-avatar item-left>
+            <img class="border-radius" src="../assets/img/bala.jpg">
+          </ion-avatar>
+        </ion-col>
 
+      </ion-row>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-7>
+          <b class="font-16">{{doctor_name | titlecase}} <br> {{doctor_qualification}} <br> {{doctor_experience}} experience</b>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+      <ion-item-divider>
+      </ion-item-divider>
+
+      <ion-row>
+        <br>
+        <p> My Medical Council Doctor ID is </p>
+      </ion-row>
+      <ion-row>
+        <p> APMC 12344 </p>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <b>I practice Here</b>
+      </ion-row>
+      
+        <div #map id="my-map"></div>
+     
+      <br>
+      <ion-row>
+        <p>{{doctor_clinic_address}}</p>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-row>
+      &nbsp;&nbsp;&nbsp;
+      <ion-col col-1>
+        <ion-icon name="book" class="font-26"></ion-icon>
+        <!-- <ion-icon name="time" class="font-26"></ion-icon> -->
+      </ion-col>
+      <ion-col col-6>
+        <b>Services</b>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <p *ngFor="let service of doctor_service">{{service.service}}</p>
+      <!-- <p>{{doctor_qualification}}</p><br> -->
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-row>
+      &nbsp;&nbsp;&nbsp;
+      <ion-col col-1>
+        <ion-icon name="paper" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-10>
+        <b>Specialization</b>
+        <p *ngFor="let specialization of doctor_specialization">{{specialization.specialization_name}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon name="time" class="font-26"></ion-icon>
+      </ion-col>
+      <ion-col col-6>
+        <p class="small-case">Visits Tommorrow</p>
+        <p>10:00 AM - 02:00 PM</p>
+
+        <button ion-button clear class="small-case margin-auto padding-0" (click)="navdoctortimings()">ALL
+          TIMINGS</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+ 
 </ion-content>
 <ion-footer>
   <ion-toolbar>
