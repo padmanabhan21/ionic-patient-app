@@ -26,6 +26,7 @@ export class EnterPatientDetailsPage {
   public scope;
   public minDate;
   public maxDate;
+  public smsmessage;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -97,6 +98,8 @@ export class EnterPatientDetailsPage {
           this.datatoappointmentdet.appointment_date = param1;
           this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
           this.session.store("user_email",param2);
+          this.smsmessage = "You have booked an appointment with Dr"
+          this.sendSmsOnAppointmentConfirm(this.smsmessage);
           console.log("Business_ID$$$$$$",this.business_id);
           console.log("Doctor_ID$$$$$$",this.doctor_id); 
         }
@@ -105,7 +108,7 @@ export class EnterPatientDetailsPage {
   }
   
   sendSmsOnAppointmentConfirm(param){
-    this.api.sendconfirmation(param)
+    this.api.sendsms(param)
     .subscribe((resp:any) =>{
       if(resp.Message_Code == "SSS"){
         console.log("SMS Sent Successfully");

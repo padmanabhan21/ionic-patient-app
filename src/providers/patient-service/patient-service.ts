@@ -122,7 +122,7 @@ export class PatientServiceProvider {
       .catch(this.handleError);
   }
 
-  sendconfirmation(param){
+  sendsms(param){
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
