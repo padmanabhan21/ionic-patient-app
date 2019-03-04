@@ -10,7 +10,7 @@
     <ion-buttons item-start>
       <button ion-button (click)="closeModal()">
         <!-- <ion-icon name="arrow-back"></ion-icon> -->
-        <p class="margin-left-10">{{doctor_name}}</p>
+        <p class="margin-left-10">{{doctor_name | titlecase}}</p>
       </button>
     </ion-buttons>
 
@@ -162,16 +162,7 @@
   </ion-card>
   <ion-card>
     <ion-card-content>
-      <ion-row>
-        <b>I practice Here</b>
-      </ion-row>
-      
         <div #map id="my-map"></div>
-     
-      <br>
-      <ion-row>
-        <p>{{doctor_clinic_address}}</p>
-      </ion-row>
     </ion-card-content>
   </ion-card>
   <ion-card>

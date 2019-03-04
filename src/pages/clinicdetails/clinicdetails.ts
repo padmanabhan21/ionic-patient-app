@@ -65,12 +65,15 @@ export class ClinicdetailsPage {
       this.clinic_address = this.clinic_details[0].address;
       this.clinic_open = this.clinic_details[0].clinic_open;
     this.clinic_name = this.clinic_details[0].business_name;
+    // alert(this.clinic_details[0].business_name);
+    console.log("clinic_nameeeeeeeeeeeeeee",this.clinic_name);
     
     }
 
   alltimings() {
-    let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_details[0].clinic_name});
+    let timelines = this.modalCtrl.create(AlltimingsPage,{"Timings":this.clinic_timings,"name":this.clinic_name});
     timelines.present();
+
   }
   
   clinicservices(){
