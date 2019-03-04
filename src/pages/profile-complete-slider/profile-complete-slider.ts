@@ -22,6 +22,7 @@ export class ProfileCompleteSliderPage {
   public totalQuestion = 11;
   public personaldetails: any = {};
   public personal: any = {
+    "image":"",
     "mobile": "",
     "user_name": "",
     "email": "",
@@ -73,7 +74,6 @@ export class ProfileCompleteSliderPage {
     this.personaldetails.married = param;
   }
 
-
   save(personaldetails) {
     // alert("darling");
     let body = {
@@ -95,7 +95,6 @@ export class ProfileCompleteSliderPage {
         if (resp.messagecode == "RUS") {
         alert("personal data successfully updated")
         }
-
       });
 
 
