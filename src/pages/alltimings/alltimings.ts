@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'alltimings.html',
 })
 export class AlltimingsPage {
-  public clinic_timings:any[];
+  public clinic_timings:any=[];
   public clinic_name:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.clinic_timings = this.navParams.get('Timings');
@@ -18,7 +18,7 @@ export class AlltimingsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlltimingsPage');
     console.log('Clinic Timings*******',this.clinic_timings);
-
+    console.log('clinic name',this.clinic_name);
   }
   closeModal() {
     this.navCtrl.pop();
