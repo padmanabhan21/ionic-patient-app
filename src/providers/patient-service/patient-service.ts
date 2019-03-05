@@ -180,8 +180,8 @@ export class PatientServiceProvider {
 
     let body =
     {
-      "doctor_id": param.doctor_id,
-      "business_id": param.business_id,
+      "doctor_id": this.session.retrieve("doctor_id"),
+      "business_id": this.session.retrieve("business_id"),
       "mobile": param.mobile,
       "recommend_doctor": param.recommend,
       "health_problem": param.healthproblem,

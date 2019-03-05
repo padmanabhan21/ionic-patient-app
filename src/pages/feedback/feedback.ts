@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
+import { SessionStorageService } from 'ngx-webstorage';
+
 /**
  * Generated class for the FeedbackPage page.
  *
@@ -19,7 +21,9 @@ export class FeedbackPage {
   };
   
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public api:PatientServiceProvider) {
+              public api:PatientServiceProvider,
+              public session: SessionStorageService,
+              public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -56,27 +60,32 @@ export class FeedbackPage {
     }
 
 
-  this.feedback_service.doctor_id ="padm36";
-  this.feedback_service.business_id = 24;
-  this.feedback_service.mobile = "8678942410";
+  this.feedback_service.doctor_id =this.session.retrieve("doctor_id");
+  this.feedback_service.business_id = this.session.retrieve("business_id");
+  this.feedback_service.mobile = this.session.retrieve("user_mobile");
   this.feedback_service.waittime = param.waittime;
   this.feedback_service.comments = param.experience;
   this.feedback_service.anonymous = param.anonymous;
   this.feedback_service.recommend = param.recommend;
   this.feedback_service.healthproblem = param.treatment;
 
-  
-
-
   console.log("rfeedback value*******",JSON.stringify(this.feedback_resp));
     this.api.feedback(this.feedback_service)
     .subscribe((resp:any) =>{
       this.feedback_resp = resp.MessageCode;
       if(this.feedback_resp == "RIS"){
-        console.log("feedback submitted successfully");
+        const toast = this.toastCtrl.create({
+          message: 'Feedback submitted successfully',
+          duration: 3000
+        });
+        toast.present();
       }
       else{
-        console.log("there is problem in submitting feedback");
+        const toast = this.toastCtrl.create({
+          message: 'There is problem in submitting feedback',
+          duration: 3000
+        });
+        toast.present();
       }
     });
   }

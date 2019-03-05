@@ -86,7 +86,7 @@ export class EnterPatientDetailsPage {
     else{
       this.api.tokengeneration(this.doctor_id,this.business_id,param1)
       .subscribe((resp:any) =>{
-        if(resp.Message_Code == "TGUS" || resp.Message_Code == "TGTW"){
+        if(resp.Message_Code == "TGUS" || resp.Message_Code == "TGTW" || resp.Message_Code == "BTC"){
           alert(resp.Message);
         }
         else{
