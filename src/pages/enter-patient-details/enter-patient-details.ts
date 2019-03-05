@@ -26,6 +26,8 @@ export class EnterPatientDetailsPage {
   public scope;
   public minDate;
   public maxDate;
+  public message:string;
+  public mobile;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -72,6 +74,7 @@ export class EnterPatientDetailsPage {
   tokenconfirmation(param1,param2){
     this.doctor_id = this.appointment_details.doctor_profile_id;
     this.doctor_clinic_list = this.appointment_details.doctor_clinic;
+    
 
     this.hospital_address = this.appointment_details.doctor_details[0].doctor_clinic[0].address
     this.hospital_name = this.appointment_details.doctor_details[0].doctor_clinic[0].business_name
@@ -97,6 +100,15 @@ export class EnterPatientDetailsPage {
           this.datatoappointmentdet.appointment_date = param1;
           this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
           this.session.store("user_email",param2);
+          this.message ="Your Appointment was booked with "+this.appointment_details.doctor_name +
+                        " On "+param1 +
+                        " at "+this.datatoappointmentdet.hospital_name+
+                        " Your token number is "+ this.datatoappointmentdet.token_number+
+                        " and your average waiting time is "+ this.datatoappointmentdet.waiting_time+
+                        " mins, Contact - "+this.appointment_details.mobile +
+                        " , Address -"+this.datatoappointmentdet.hospital_address;
+                    console.log("all details",JSON.stringify(this.message));
+          this.sendSmsOnAppointmentConfirm(this.message);
           console.log("Business_ID$$$$$$",this.business_id);
           console.log("Doctor_ID$$$$$$",this.doctor_id); 
         }
@@ -105,10 +117,14 @@ export class EnterPatientDetailsPage {
   }
   
   sendSmsOnAppointmentConfirm(param){
-    this.api.sendconfirmation(param)
+    let country = this.session.retrieve("user_country");
+    console.log("COUNTRY CODEEEEEE",country);
+    this.api.sendconfirmation(param,country)
     .subscribe((resp:any) =>{
       if(resp.Message_Code == "SSS"){
-        console.log("SMS Sent Successfully");
+        // this.message = resp.output;
+        alert("Message sent successful");
+        // console.log("SMS Sent Successfully",this.message);
       }
     })
   }
