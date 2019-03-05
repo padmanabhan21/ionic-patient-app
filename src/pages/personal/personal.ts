@@ -28,7 +28,7 @@ export class PersonalPage {
     this.mobile = this.session.retrieve("user_mobile");
     this.email = this.session.retrieve("user_email")
     this.personalprofile=[
-      {info:"personal",name:"",img:"../assets/img/bala.jpg",contact_number:"",
+      {info:"personal",name:"",img:"../assets/img/docimg.jpg",contact_number:"",
       Email_id:"",Gender:"Male",Date_of_birth:"1994-01-23",Blood_group:"B+",Martialstatus:"married",
       Height:"5.8",Weight:"70",Emergency_contact:"9700082942",Location:"chenni",
   
