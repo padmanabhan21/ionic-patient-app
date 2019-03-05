@@ -34,7 +34,7 @@ export class OtpverifyPage {
     this.api.sendotp(this.otp_data)
     .subscribe((resp:any) =>{
       if(resp[0].type == "success"){
-        alert("OTP has been sent to your mobile");
+        // alert("OTP has been sent to your mobile");
       }
     });
   }
@@ -44,7 +44,7 @@ export class OtpverifyPage {
     this.api.verifyotp(this.otp_data)
     .subscribe((resp:any) =>{
       if(resp[0].type == "success"){
-        alert("your mobile number has been verified");
+        // alert("your mobile number has been verified");
         this.navCtrl.push('TabsPage')
         // navigate to tabs page
       }
