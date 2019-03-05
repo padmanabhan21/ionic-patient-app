@@ -133,7 +133,7 @@ export class PatientServiceProvider {
       "code":this.session.retrieve("user_country")
     }
 
-    return this.http.post('https://doctorappnew.herokuapp.com/SendMessage', body, options)
+    return this.http.post('https://doctorappnew.herokuapp.com/SendMessge', body, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
