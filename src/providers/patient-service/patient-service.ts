@@ -133,7 +133,7 @@ export class PatientServiceProvider {
       "code":this.session.retrieve("user_country")
     }
 
-    return this.http.post('https://doctorappnew.herokuapp.com/SendMessge', body, options)
+    return this.http.post('https://doctorappnew.herokuapp.com/SendMessage', body, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -182,7 +182,7 @@ export class PatientServiceProvider {
     {
       "doctor_id": this.session.retrieve("doctor_id"),
       "business_id": this.session.retrieve("business_id"),
-      "mobile": param.mobile,
+      "mobile": this.session.retrieve("user_mobile"),
       "recommend_doctor": param.recommend,
       "health_problem": param.healthproblem,
       "wait_time": param.waittime,

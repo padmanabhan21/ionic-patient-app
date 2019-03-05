@@ -88,14 +88,14 @@ export class LoginPage {
         // this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
         this.navCtrl.push('TabsPage');
 
-        alert("user created successfully");
+        // alert("user created successfully");
       }
       else if(this.login_resp == "RIUS"){
         this.updateprofile(param);
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
         this.session.store("user_country",param.countrycode);
-        alert("user updated successfully");
+        // alert("user updated successfully");
       }
       else{
         alert("please enter your mobile and name");
