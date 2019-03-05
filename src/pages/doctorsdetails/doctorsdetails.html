@@ -136,21 +136,21 @@
         <ion-col col-4></ion-col>
         <ion-col col-4>
           <ion-avatar item-left>
-            <img class="border-radius"[src]="doctor_img" style="height: 100px;">
+            <img class="border-radius"[src]="doctor_img" style="height:90px;">
           </ion-avatar>
         </ion-col>
 
       </ion-row>
       <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col col-8 style="text-align: center;">
+        <ion-col col-3></ion-col>
+        <ion-col col-6 style="text-align:center;">
           <b class="font-16">{{doctor_name | titlecase}} <br> {{doctor_qualification}} <br> {{doctor_experience}} experience</b>
         </ion-col>
-        <ion-col col-2></ion-col>
+        <ion-col col-3></ion-col>
       </ion-row>
       <!-- <ion-item-divider>
-      </ion-item-divider> -->
-<!-- 
+      </ion-item-divider>
+
       <ion-row>
         <br>
         <p> My Medical Council Doctor ID is </p>
@@ -214,10 +214,10 @@
   <ion-toolbar>
     <ion-row>
       <ion-col col-6>
-        <button ion-button outline class="small-case" (click)="navtofeedback()">Give Feedback</button>
+        <button ion-button outline class="small-case" class="width" (click)="navtofeedback()">Give Feedback</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button block class="small-case" (click)="enterpatientdatiels()">Book</button>
+        <button ion-button block class="small-case" class="width" (click)="enterpatientdatiels()">Book</button>
       </ion-col>
     </ion-row>
   </ion-toolbar>
