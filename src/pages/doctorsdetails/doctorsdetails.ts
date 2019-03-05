@@ -7,6 +7,8 @@ import {DoctortimigsPage}from '../doctortimigs/doctortimigs';
 import{SelectdifferentclinicPage}from'../selectdifferentclinic/selectdifferentclinic';
 import { EnterPatientDetailsPage } from '../enter-patient-details/enter-patient-details'
 import{DocterservicesPage}from'../docterservices/docterservices';
+import { SessionStorageService } from 'ngx-webstorage';
+
 declare var google:any;
 
 @IonicPage()
@@ -17,7 +19,7 @@ declare var google:any;
 })
 export class DoctorsdetailsPage {
 
-  public totalclinic=2;
+  public totalclinic;
   public slides=[];
   public doctor:any=[];
   public doctor_details: any[];
@@ -40,7 +42,8 @@ export class DoctorsdetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public session: SessionStorageService) {
       this.doctor = this.navParams.get("doctordetails");
       this.doctor_details = this.doctor.doctor_details;
       this.doctors_timings = this.doctor_details[0].doctorstimings;
@@ -52,6 +55,7 @@ export class DoctorsdetailsPage {
       this.doctor_votes = this.doctor_details[0].doc_votes;
       this.doctor_fees = this.doctor_details[0].consultationfees;
       this.doctor_clinic = this.doctor_details[0].doctor_clinic;
+      this.totalclinic = this.doctor_clinic.length;
       this.doctor_clinic_latlng = this.doctor_details[0].doctor_clinic[0].clinic_latlng;
       this.doctor_clinic_address = this.doctor_details[0].doctor_clinic[0].clinic_address;
       this.doctor_service = this.doctor_details[0].doctor_services;
@@ -123,7 +127,9 @@ export class DoctorsdetailsPage {
       this.feedbackforclinic();
     }
     else{
-      let feedback = this.modalCtrl.create(FeedbackPage);
+      this.session.store("business_id",this.doctor_clinic[0].business_id);
+      this.session.store("doctor_id",this.doctor.doctor_profile_id);
+      let feedback = this.modalCtrl.create(FeedbackPage,{"doctor_name":this.doctor_name});
       feedback.present();
     }
   }
@@ -136,27 +142,9 @@ export class DoctorsdetailsPage {
   //Action Sheet for Giving Feedback -->Choose clinic
   feedbackforclinic() {
     let actionSheet = this.actionsheetCtrl.create({
-      title: 'Which clinic did you visit?',
-      cssClass: 'action-sheets-basic-page, small-case',
-      buttons: [
-        {
-          text: 'Jayam Hospital & GFC Fertility',
-          role: 'destructive',
-          cssClass: 'font-size-12, small-case',
-          handler: () => {
-            let feedback = this.modalCtrl.create(FeedbackPage);
-            feedback.present();
-          }
-        },
-        {
-          text: 'Centrepoint Clinic',
-          role: 'destructive',
-          cssClass: 'small-case',
-          handler: () => {
-            console.log('Share clicked');
-          }
-        }
-      ]
+      title: 'choose clinic to give feedback ?',
+      cssClass: 'action-sheets-basic-page, small-case, font-14',
+      buttons: this.createButtonsForFeedback()
     });
     actionSheet.present();
   }
@@ -189,6 +177,9 @@ public doctor_clinic_book:any=[
           this.doctor_clinic_book.clinic_location = this.doctor_clinic[clinic].area;
           this.doctor_clinic_book.clinic_name = this.doctor_clinic[clinic].business_name;
 
+          this.session.store("business_id",this.doctor_clinic_book.clinic_id);
+          this.session.store("doctor_id",this.doctor.doctor_id);
+
           let enterpatient = this.modalCtrl.create(EnterPatientDetailsPage,{"doctor_details":this.doctor,"clinic_details":this.doctor_clinic_book});
           enterpatient.present();
         }
@@ -198,4 +189,27 @@ public doctor_clinic_book:any=[
     return buttons;
   }
 
+
+  public createButtonsForFeedback(){
+    let buttons = [];
+    for (let clinic in this.doctor_clinic) {
+      let button = {
+        text: this.doctor_clinic[clinic].business_name,
+        handler: () => {
+
+          this.doctor_clinic_book.clinic_id = this.doctor_clinic[clinic].business_id;
+          this.doctor_clinic_book.clinic_location = this.doctor_clinic[clinic].area;
+          this.doctor_clinic_book.clinic_name = this.doctor_clinic[clinic].business_name;
+
+          this.session.store("business_id",this.doctor_clinic_book.clinic_id);
+          this.session.store("doctor_id",this.doctor.doctor_id);
+
+          let feedback = this.modalCtrl.create(FeedbackPage);
+          feedback.present();
+        }
+      }
+      buttons.push(button);
+    }
+    return buttons;
+  }
 }
