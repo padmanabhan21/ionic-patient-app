@@ -202,7 +202,7 @@ public doctor_clinic_book:any=[
           this.doctor_clinic_book.clinic_name = this.doctor_clinic[clinic].business_name;
 
           this.session.store("business_id",this.doctor_clinic_book.clinic_id);
-          this.session.store("doctor_id",this.doctor.doctor_id);
+          this.session.store("doctor_id",this.doctor.doctor_profile_id);
 
           let feedback = this.modalCtrl.create(FeedbackPage);
           feedback.present();

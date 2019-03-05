@@ -182,7 +182,7 @@ export class PatientServiceProvider {
     {
       "doctor_id": this.session.retrieve("doctor_id"),
       "business_id": this.session.retrieve("business_id"),
-      "mobile": param.mobile,
+      "mobile": this.session.retrieve("user_mobile"),
       "recommend_doctor": param.recommend,
       "health_problem": param.healthproblem,
       "wait_time": param.waittime,

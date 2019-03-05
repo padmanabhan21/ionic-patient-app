@@ -60,9 +60,9 @@ export class FeedbackPage {
     }
 
 
-  this.feedback_service.doctor_id =this.session.retrieve("doctor_id");
-  this.feedback_service.business_id = this.session.retrieve("business_id");
-  this.feedback_service.mobile = this.session.retrieve("user_mobile");
+  // this.feedback_service.doctor_id =this.session.retrieve("doctor_id");
+  // this.feedback_service.business_id = this.session.retrieve("business_id");
+  // this.feedback_service.mobile = this.session.retrieve("user_mobile");
   this.feedback_service.waittime = param.waittime;
   this.feedback_service.comments = param.experience;
   this.feedback_service.anonymous = param.anonymous;
@@ -72,7 +72,7 @@ export class FeedbackPage {
   console.log("rfeedback value*******",JSON.stringify(this.feedback_resp));
     this.api.feedback(this.feedback_service)
     .subscribe((resp:any) =>{
-      this.feedback_resp = resp.MessageCode;
+      this.feedback_resp = resp.Message_Code;
       if(this.feedback_resp == "RIS"){
         const toast = this.toastCtrl.create({
           message: 'Feedback submitted successfully',
