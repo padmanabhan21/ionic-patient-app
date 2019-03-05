@@ -25,7 +25,6 @@ export class SocialLoginInputPage {
     public api:PatientServiceProvider,
     public session:SessionStorageService,
     ) {  
-
     this.loginDetails = this.navParams.get("loginDetails");
     this.http.get('assets/data/countrylist.json').subscribe((data:any) => {
       this.countryList = data;
@@ -50,6 +49,7 @@ export class SocialLoginInputPage {
       if(this.login_resp == "RIS"){
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
+        this.session.store("user_country",param.countrycode);
         this.navCtrl.push('TabsPage');
         alert("user created successfully");
       }

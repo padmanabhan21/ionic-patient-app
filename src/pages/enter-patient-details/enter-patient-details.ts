@@ -117,9 +117,7 @@ export class EnterPatientDetailsPage {
   }
   
   sendSmsOnAppointmentConfirm(param){
-    let country = this.session.retrieve("user_country");
-    console.log("COUNTRY CODEEEEEE",country);
-    this.api.sendconfirmation(param,country)
+    this.api.sendconfirmation(param)
     .subscribe((resp:any) =>{
       if(resp.Message_Code == "SSS"){
         // this.message = resp.output;

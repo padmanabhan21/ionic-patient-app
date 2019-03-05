@@ -74,7 +74,7 @@ export class LoginPage {
   public login_resp:any;
 
   navhomescreen(param){
-    this.navCtrl.push('TabsPage');
+    // this.navCtrl.push('TabsPage');
     this.api.loginUser(param)
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;

@@ -130,7 +130,7 @@ export class PatientServiceProvider {
    let body=  {
       "mobile":this.session.retrieve("user_mobile"),
       "message":param,
-      "code":this.session.retrieve("user_country").subString(1)
+      "code":this.session.retrieve("user_country")
     }
 
     return this.http.post('https://doctorappnew.herokuapp.com/SendMessge', body, options)
