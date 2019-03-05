@@ -42,9 +42,9 @@
     <b>{{token_status.appointment_date}}</b>
     <p>in {{token_status.waiting_time | date: 'hh:mm'}} mins</p>
     <ion-row>
-      <ion-col col-4>
+      <!-- <ion-col col-4>
         <button ion-button clear class="margin-0 padding-0">RESCHEDULE</button>
-      </ion-col>
+      </ion-col> -->
       <ion-col col-4>
         <button ion-button clear class="margin-0 padding-0 text-color-red" (click)="cancelappointment()">Cancel</button>
       </ion-col>
@@ -69,26 +69,26 @@
       </ion-col>
     </ion-row>
   </ion-item>
-  <ion-item>
+  <!-- <ion-item>
     <p>Procedure</p>
     <b>Consultation</b>
-  </ion-item>
-  <ion-item>
+  </ion-item> -->
+  <!-- <ion-item>
     <ion-row>
     <h4>Manage your appointment better by visiting </h4>
     </ion-row>
     <ion-row>
     <button ion-button clear class="small-case padding-0" (click)="navmyappointmentdetails()"> My Appointment ></button>
     </ion-row>
-  </ion-item>
+  </ion-item> -->
 </ion-content>
 <ion-footer>
   <ion-row>
     <ion-col col-6>
-      <button ion-button outline color="violetlight" (click)="navlistmaster()"> Done</button>
+      <button ion-button outline color="violetlight" class="width" (click)="navlistmaster()"> Done</button>
     </ion-col>
     <ion-col col-6>
-        <button ion-button outline color="violetlight" (click)="sharechannel()"> Share</button>
+        <button ion-button outline color="violetlight" class="width" (click)="sharechannel()"> Share</button>
     </ion-col>
   </ion-row>
 </ion-footer>
