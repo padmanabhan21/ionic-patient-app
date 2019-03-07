@@ -27,6 +27,7 @@ import { File } from '@ionic-native/file';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { CallNumber } from '@ionic-native/call-number';
 
 //SplashScreen (Yet to Do)
 
@@ -261,14 +262,14 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     Facebook,
     GooglePlus,
-   
     PatientServiceProvider,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     File,
     SocialSharing,
-    BarcodeScanner
+    BarcodeScanner,
+    CallNumber,
   ]
 })
 

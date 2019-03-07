@@ -21,6 +21,7 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/barcode-scanner": "^4.20.0",
+    "@ionic-native/call-number": "^4.17.0",
     "@ionic-native/camera": "^4.20.0",
     "@ionic-native/core": "~4.17.0",
     "@ionic-native/facebook": "^4.18.0",
@@ -34,6 +35,7 @@
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "8.0.0",
     "@ngx-translate/http-loader": "^2.0.0",
+    "call-number": "1.0.1",
     "cordova-android": "7.1.4",
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-device": "^2.0.2",
@@ -98,7 +100,8 @@
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "android"
