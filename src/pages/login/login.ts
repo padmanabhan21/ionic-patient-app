@@ -94,7 +94,7 @@ export class LoginPage {
         this.session.store("user_name",param.name);
         this.session.store("user_country",param.countrycode);
         // this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
-        // this.navCtrl.push('TabsPage');
+        this.navCtrl.push('TabsPage');
 
         // alert("user created successfully");
       }
