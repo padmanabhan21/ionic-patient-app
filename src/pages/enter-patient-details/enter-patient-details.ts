@@ -28,6 +28,8 @@ export class EnterPatientDetailsPage {
   public maxDate;
   public message:string;
   public mobile;
+  public qualification;
+  public experience;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -38,6 +40,9 @@ export class EnterPatientDetailsPage {
               ) {
       this.appointment_details = this.navParams.get("doctor_details");
       this.clinic_details = this.navParams.get("clinic_details");
+      this.qualification = this.appointment_details.qualification;
+      this.experience =this.appointment_details.experience;
+      console.log("qualification"+this.qualification,"experience"+this.experience)
   }
 
   ionViewDidLoad() {
@@ -47,6 +52,9 @@ export class EnterPatientDetailsPage {
     this.user_mobile = this.session.retrieve("user_mobile");
     this.user_name = this.session.retrieve("user_name");
     
+    this.qualification = this.appointment_details.qualification;
+      this.experience =this.appointment_details.experience;
+      console.log("qualification"+this.qualification,"experience"+this.experience)
     this.business_id = this.clinic_details.clinic_id;
     this.hospital_name = this.clinic_details.clinic_name;
     this.hospital_location = this.clinic_details.clinic_location;

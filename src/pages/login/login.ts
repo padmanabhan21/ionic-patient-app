@@ -75,12 +75,12 @@ export class LoginPage {
   public loginobj:any={};
   public login_resp:any;
 
-  callnumber(){
-    this.callNumber.callNumber("9700820429", true)
-    .then(res => console.log('Launched dialer!', res))
-    .catch(err => console.log('Error launching dialer', err));
+  // callnumber(){
+  //   this.callNumber.callNumber("9700820429", true)
+  //   .then(res => console.log('Launched dialer!', res))
+  //   .catch(err => console.log('Error launching dialer', err));
 
-  }
+  // }
   navhomescreen(param){
     // this.navCtrl.push('TabsPage');
     this.api.loginUser(param)
@@ -93,7 +93,7 @@ export class LoginPage {
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
         this.session.store("user_country",param.countrycode);
-        this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
+        // this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
         // this.navCtrl.push('TabsPage');
 
         // alert("user created successfully");
@@ -117,8 +117,8 @@ export class LoginPage {
     .subscribe((resp:any) =>{
       this.update_resp = resp.Message_Code;
       if(this.update_resp == "RUS"){
-        this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
-        // this.navCtrl.push('TabsPage');
+        // this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
+        this.navCtrl.push('TabsPage');
       }
     });
   }
