@@ -19,7 +19,7 @@
           </ion-col>
           <ion-col col-3>
             <button *ngIf="!showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
-            <button *ngIf="showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="save()">Save</button>
+            <button *ngIf="showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="save(personaldetails)">Save</button>
            
           </ion-col>
         </ion-row>
@@ -31,7 +31,6 @@
       <ion-slides #slides (ionSlideDidChange)="slideChanged()">
         <ion-slide >
           <h3 class="text-white">What is your name?</h3>
-
 
           <ion-item class="background-transparent">
             <!-- <ion-label floating class="text-white">Username</ion-label> -->

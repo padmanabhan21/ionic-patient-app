@@ -19,13 +19,30 @@ import { Settings } from '../providers';
     </ion-header>
 
     <ion-content>
+      <div #header>
+        <ion-row style="align-items:center;">
+          <ion-col col-3>
+            <img src="assets/icon/icon-email.svg" />
+            <span class="icon-badge">4</span>
+          </ion-col>
+          <ion-col col-6>
+            <img class="user-avatar round" [src]="chosenPicture || placeholder" onerror="this.src='assets/imgs/bala.jpg'"
+            />
+          </ion-col>
+          <ion-col col-3>
+            <img src="assets/icon/icon-calendar.svg" />
+          </ion-col>
+        </ion-row>
+        <ion-row style="justify-content: center;">
+          <h3>Paula Bolliger</h3>
+        </ion-row>
+      </div>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
       </ion-list>
     </ion-content>
-
   </ion-menu>
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })

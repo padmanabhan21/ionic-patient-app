@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
-
+import { File } from '@ionic-native/file';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the ProfileCompleteSliderPage page.
  *
@@ -36,7 +37,19 @@ export class ProfileCompleteSliderPage {
     "login_status": "",
     "emergency_contact_mobile": "",
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: PatientServiceProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public api: PatientServiceProvider,
+              public file: File,
+              public storage: Storage) {
+   
+  }
+
+  ionViewDidLoad(){
+   this.storage.get('personal-profile').then((val:any) =>{
+    this.personaldetails = JSON.parse(val);
+    // alert()
+    })
   }
 
   closeModal() {
@@ -55,15 +68,6 @@ export class ProfileCompleteSliderPage {
     console.log('Total Question is', this.totalQuestion);
   }
 
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad ProfileCompleteSliderPage');
-  // }
-  // onIonDrag(event){
-  //   console.log("u r dragging me");
-  //   this.swiper =event;
-  //   this.swiper.lockSwipes();
-  // }
-
   gender(param) {
     this.personaldetails.gender = param;
   }
@@ -75,27 +79,30 @@ export class ProfileCompleteSliderPage {
   }
 
   save(personaldetails) {
-    // alert("darling");
     let body = {
       "mobile": "9597189023",
-      "user_name": this.personaldetails.name,
-      "email": this.personaldetails.emailid,
-      "gender": this.personaldetails.gender,
-      "birthday": this.personaldetails.birthday,
-      "blood_group": this.personaldetails.blood,
-      "height": this.personaldetails.feet + this.personaldetails.inches,
-      "weight":this.personaldetails.weight,
-      "emergency_contact_name": this.personaldetails.contact,
-      "married_status": this.personaldetails.married,
+      "user_name": personaldetails.name,
+      "email": personaldetails.emailid,
+      "gender": personaldetails.gender,
+      "birthday": personaldetails.birthday,
+      "blood_group": personaldetails.blood,
+      "height": personaldetails.feet + personaldetails.inches,
+      "weight": personaldetails.weight,
+      "emergency_contact_name": personaldetails.contact,
+      "married_status": personaldetails.married,
       // "login_status": "login",
-      "emergency_contact_mobile": this.personaldetails.emergencycontact,
+      "emergency_contact_mobile": personaldetails.emergencycontact,
     }
     this.api.updateProfile(body)
       .subscribe((resp: any) => {
         if (resp.messagecode == "RUS") {
-        alert("personal data successfully updated")
         }
       });
+
+      // this.file.writeFile('src/assets/data/','personal-profile.json',JSON.stringify(body),{replace:true});
+      // alert("personal profile has been stored in local storage");
+
+      this.storage.set('personal-profile',JSON.stringify(personaldetails));
 
 
 
