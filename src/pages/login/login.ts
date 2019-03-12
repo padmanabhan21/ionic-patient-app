@@ -75,12 +75,12 @@ export class LoginPage {
   public loginobj:any={};
   public login_resp:any;
 
-  callnumber(){
-    this.callNumber.callNumber("9700820429", true)
-    .then(res => console.log('Launched dialer!', res))
-    .catch(err => console.log('Error launching dialer', err));
+  // callnumber(){
+  //   this.callNumber.callNumber("9700820429", true)
+  //   .then(res => console.log('Launched dialer!', res))
+  //   .catch(err => console.log('Error launching dialer', err));
 
-  }
+  // }
   navhomescreen(param){
     // this.navCtrl.push('TabsPage');
     this.api.loginUser(param)
