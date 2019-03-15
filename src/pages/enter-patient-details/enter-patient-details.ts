@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component ,ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ActionSheetController} from 'ionic-angular';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 import { AppointmentdetailsPage } from '../appointmentdetails/appointmentdetails';
 import { SessionStorageService } from 'ngx-webstorage';
 
-
+declare var google:any;
 @IonicPage()
 @Component({
   selector: 'page-enter-patient-details',
@@ -30,6 +30,9 @@ export class EnterPatientDetailsPage {
   public mobile;
   public qualification;
   public experience;
+  public location_lat;
+  public location_long;
+  public sheremsg:any={};
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -44,6 +47,7 @@ export class EnterPatientDetailsPage {
       this.experience =this.appointment_details.experience;
       console.log("qualification"+this.qualification,"experience"+this.experience)
   }
+  @ViewChild('map') mapRef: ElementRef;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EnterPatientDetailsPage');
@@ -106,16 +110,21 @@ export class EnterPatientDetailsPage {
           this.datatoappointmentdet.business_id = this.business_id;
           this.datatoappointmentdet.doctor_id = this.doctor_id;
           this.datatoappointmentdet.appointment_date = param1;
-          this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details});
+          this.sheremsg  =this.message;
+          this.navCtrl.push(AppointmentdetailsPage,{"token_status":this.datatoappointmentdet,"appointmentdetails":this.appointment_details,"sheremsg":this.message});
           this.session.store("user_email",param2);
           this.message ="Your Appointment was booked with "+this.appointment_details.doctor_name +
                         " On "+param1 +
                         " at "+this.datatoappointmentdet.hospital_name+
                         " Your token number is "+ this.datatoappointmentdet.token_number+
                         " and your average waiting time is "+ this.datatoappointmentdet.waiting_time+
-                        " mins, Contact - "+this.appointment_details.mobile +
-                        " , Address -"+this.datatoappointmentdet.hospital_address;
+                        " mins, contact - "+this.appointment_details.mobile +
+                        " , address -"+this.datatoappointmentdet.hospital_address;
                     console.log("all details",JSON.stringify(this.message));
+                    this.session.store("appointmentdetailsmsg",this.message);
+                   
+  
+          console.log("messageee",JSON.stringify(this.sheremsg));
           this.sendSmsOnAppointmentConfirm(this.message);
           console.log("Business_ID$$$$$$",this.business_id);
           console.log("Doctor_ID$$$$$$",this.doctor_id); 
@@ -135,6 +144,23 @@ export class EnterPatientDetailsPage {
     })
   }
 
+  DisplayMap(){
+    const location = new google.maps.LatLng(this.location_lat,this.location_long);
+    const options = {
+      center:location,
+      zoom:15
+    };
+
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.addMarker(location,map);
+  }
+
+  addMarker(position,map){
+    return new google.maps.Marker({
+      position,
+      map
+    })
+  }
   closeModal() {
     this.navCtrl.pop();
   }

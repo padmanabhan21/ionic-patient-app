@@ -259,6 +259,7 @@ tokencancel(param): Observable<object[]> {
   let body =
   {
     "token_status":"Cancel",
+    "reason":"i have some work not avalable that day",
     "appointment_id":param
   }
 

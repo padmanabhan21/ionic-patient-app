@@ -18,12 +18,16 @@ declare var google:any;
 })
 export class AppointmentdetailsPage {
   userData = null;
-  text = 'Hey i am padmanabhan';
+  // mobile = 'Hey i am padmanabhan';
   url = 'http://infocuittechnologies.com';
   public token_status:any=[];
-  public appointment_details:any[];
+  public appointment_details:any=[];
   public doctor_name;
   public user_name;
+  public shereappointmentdetails:any=[];
+  public appointmentdetailsmsg:any=[];
+  public sheredetails;
+  public mobile;
 
 
   constructor(public navCtrl: NavController,
@@ -39,6 +43,10 @@ export class AppointmentdetailsPage {
               ) {
     this.token_status = this.navParams.get("token_status");
     this.appointment_details =this.navParams.get("appointmentdetails");
+    this.doctor_name = this.appointment_details;
+    console.log("doc_namee",this.doctor_name);
+    this.shereappointmentdetails = this.navParams.get("sheremsg");
+    console.log("appointmentdetailssssssss",JSON.stringify(this.shereappointmentdetails));
     console.log("appointmentid",this.token_status.appointment_id);
    
   }
@@ -51,6 +59,14 @@ export class AppointmentdetailsPage {
     console.log("Token Details********",JSON.stringify(this.token_status));
     console.log("Appointment Details********",JSON.stringify(this.appointment_details));
     this.DisplayMap();
+    // this.appointmentdetailsmsg=this.session.retrieve("appointmentdetailsmsg");
+    this.mobile = this.session.retrieve("user_mobile")
+    // // this.sheremsg 
+    console.log("appointmentdetailsmsgggg",this.appointmentdetailsmsg);
+    this.sheredetails = this.appointment_details.doctor_name+"Form"+this.appointment_details.specialist+" is providing good service in Kindly reach him/her contact no:"+ this.mobile+this.token_status.hospital_address;
+    console.log("sheredetailssss",this.sheredetails);
+    
+    
   }
 
   DisplayMap(){
@@ -97,6 +113,7 @@ export class AppointmentdetailsPage {
 
   sharechannel(){
     const actionSheet = this.actionSheetCtrl.create({
+      
       title: 'Share With:',
       buttons: [
         {
@@ -182,7 +199,7 @@ export class AppointmentdetailsPage {
   }
 
   shareWhatsApp(){
-    this.socialSharing.shareViaWhatsApp(this.text, null, this.url).then(() =>{
+    this.socialSharing.shareViaWhatsApp(this.mobile, null, this.url).then(() =>{
       alert("whatsapp share done");
     }).catch(e => {
       alert(e);

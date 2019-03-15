@@ -138,10 +138,16 @@
         <ion-col col-4></ion-col>
         <ion-col col-4 class="padding-0">
           <button ion-button clear class="margin-0">View Map</button>
+         
+                  
+              
         </ion-col>
         <ion-col col-1>
           <ion-icon class="icon-colors" name="arrow-dropright-circle"></ion-icon>
         </ion-col>
+      </ion-row>
+      <ion-row>
+          <div #map id="my-map"></div> 
       </ion-row>
       <ion-row>
         <p>{{hospital_name}},{{hospital_location}}</p>
@@ -158,32 +164,34 @@
         <ion-input type="text" [(ngModel)]="user_mobile"></ion-input>
       </ion-item>
     </ion-list>
-    <ion-row>
+    <!-- <ion-row>
       <p class="marginleft-15">Gender*</p>
-    </ion-row>
-    <ion-row>
+    </ion-row> -->
+    
+     <!-- <ion-list class="radio">
       <ion-col col-1></ion-col>
       <ion-col col-3>
         <ion-label class="margintop-8">
-          <ion-radio value="male" ></ion-radio>
+          <ion-radio name="male" value="male" ></ion-radio>
           Male
         </ion-label>
       </ion-col>
       <ion-col col-1></ion-col>
       <ion-col col-3>
         <ion-label class="margintop-8">
-          <ion-radio value="female" ></ion-radio>
+          <ion-radio name="female" value="female" ></ion-radio>
           Female
         </ion-label>
       </ion-col>
       <ion-col col-1></ion-col>
       <ion-col col-3>
         <ion-label class="margintop-8">
-          <ion-radio value="others" ></ion-radio>
+          <ion-radio name="others" value="others" ></ion-radio>
           Others
         </ion-label>
       </ion-col>
-    </ion-row>
+    </ion-list> -->
+    
     <ion-row>
       <p class="margin-14">Email</p>
       <ion-item>
