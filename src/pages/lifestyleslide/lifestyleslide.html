@@ -1,19 +1,10 @@
-<!--
-  Generated template for the LifestyleslidePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-content class="screen-bg">
   <ion-row class="row-height-10">
     <ion-col>
       <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
         <ion-row>
           <ion-col col-1>
-            <!-- <ion-icon class="text-white" name="close"></ion-icon> -->
-            <!-- <button ion-button name="ios-close-outline" (click)="closeModal()" > -->
             <ion-icon class="text-white" item-right name="ios-close-outline" (click)="closeModal()"></ion-icon>
-            <!-- </button> -->
           </ion-col>
           <ion-col col-5>
             <h5 class="text-white">Life style</h5>
@@ -21,94 +12,67 @@
           </ion-col>
           <ion-col col-3>
             <button type="submit" float-left ion-button clear class="btnPrev text-white" (click)="prev()">Prev</button>
-
           </ion-col>
           <ion-col col-3>
-            <button *ngIf="!showsave"type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
+            <button *ngIf="!showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
             <button *ngIf="showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="save()">Save</button>
-
           </ion-col>
         </ion-row>
       </ion-item>
     </ion-col>
   </ion-row>
+
   <ion-row class="row-height-80">
     <ion-col>
-      <ion-slides #slides  #slides (ionSlideDidChange)="slideChanged()">
+      <ion-slides #slides #slides (ionSlideDidChange)="slideChanged()">
+
         <ion-slide>
-          <!-- <h3 class="text-white">How many cigarettes do you smmoke per day?</h3>
-          <ion-list radio-group class="margin-bottom-0">
-            <ion-item no-lines class="padding-left-0">
-              <ion-radio item-left value="I don't smoke"></ion-radio>
-              <ion-label>I don't smoke</ion-label>
-            </ion-item>
-            <ion-item no-lines class="padding-left-0">
-              <ion-radio item-left value="I used to,but i've quit"></ion-radio>
-              <ion-label>I used to,but i've quit</ion-label>
-            </ion-item>
-            <ion-item no-lines class="padding-left-0">
-              <ion-radio item-left value="1-2/day"></ion-radio>
-              <ion-label>1-2/day</ion-label>
-            </ion-item>
-            <ion-item class="padding-left-0">
-              <ion-radio item-left value="3-5/day"></ion-radio>
-              <ion-label>3-5/day</ion-label>
-            </ion-item>
-            <ion-item class="padding-left-0">
-              <ion-radio item-left value="5-10/day"></ion-radio>
-              <ion-label>5-10/day</ion-label>
-            </ion-item>
-          </ion-list> -->
-          <b></b>
           <ion-row>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="smoking('I do not smoke')">I don't smoke</button>
+              <button ion-button [color]="smokingbtn.one" (click)="smoking('I do not smoke',1)">I don't smoke</button>
             </ion-col>
             <ion-col col-8>
-              <button class="text-white" ion-button outline (click)="smoking('I used to,but i have quit')">I used to,but i've quit</button>
+              <button ion-button [color]="smokingbtn.two" (click)="smoking('I used to,but i have quit',2)">I used to,but i've quit</button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="smoking('1-2/day')">1-2/day</button>
+              <button ion-button [color]="smokingbtn.three" (click)="smoking('1-2/day',3)">1-2/day</button>
             </ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="smoking(3-5/day)">3-5/day</button>
+              <button ion-button [color]="smokingbtn.four" (click)="smoking('3-5/day',4)">3-5/day</button>
             </ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="smoking('5-10/day')">5-10/day</button>
+              <button ion-button [color]="smokingbtn.five" (click)="smoking('5-10/day',5)">5-10/day</button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-4></ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="smoking('10/day')">10/day</button>
-            </ion-col> 
+              <button ion-button [color]="smokingbtn.six" (click)="smoking('10/day')">10/day</button>
+            </ion-col>
           </ion-row>
         </ion-slide>
 
         <ion-slide>
           <h3 class="text-white">How frequently do you consume alcohol?</h3>
           <ion-row>
-            
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="alcohol('Non-drinker')">Non-drinker</button>
+              <button [color]="alcoholbtn.one" ion-button (click)="alcohol('Non-drinker',1)">Non-drinker</button>
             </ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="alcohol('rare')">Rare</button>
+              <button [color]="alcoholbtn.two" ion-button (click)="alcohol('rare',2)">Rare</button>
             </ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="alcohol('social')">Social</button>
+              <button [color]="alcoholbtn.three" ion-button (click)="alcohol('social',3)">Social</button>
             </ion-col>
           </ion-row>
           <ion-col col-4>
-            <button class="text-white" ion-button outline (click)="alcohol('Regular')">Regular </button>
+            <button [color]="alcoholbtn.four" ion-button (click)="alcohol('Regular',4)">Regular </button>
           </ion-col>
           <ion-col col-4>
-            <button class="text-white" ion-button outline (click)="alcohol('Heavy')">Heavy </button>
+            <button [color]="alcoholbtn.five" ion-button (click)="alcohol('Heavy',5)">Heavy </button>
           </ion-col>
-
-
         </ion-slide>
 
         <ion-slide>
@@ -116,26 +80,24 @@
           <ion-row>
             <ion-col col-3></ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="lifestyle('Sedentary(low)')">Sedentary(low)</button>
+              <button ion-button [color]="lifestylebtn.one" (click)="lifeStyle('Sedentary(low)',1)">Sedentary(low)</button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-6>
-              <button class="text-white" ion-button outline (click)="lifestyle('Moderately active(normal)')">Moderately active(normal)</button>
+              <button ion-button [color]="lifestylebtn.two" (click)="lifeStyle('Moderately active(normal)',2)">Moderately active(normal)</button>
             </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col col-4>
-                  <button class="text-white" ion-button outline (click)="lifestyle('Active(high)')">Active(high)</button>
-                </ion-col>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-              <ion-col col-6>
-                  <button class="text-white" ion-button outline (click)="lifestyle('Athletic (very high)')">Athletic (very high)</button>
-                </ion-col>
+            <ion-col col-4>
+              <button ion-button [color]="lifestylebtn.three" (click)="lifeStyle('Active(high)',3)">Active(high)</button>
+            </ion-col>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <ion-col col-6>
+              <button ion-button [color]="lifestylebtn.four" (click)="lifeStyle('Athletic (very high)',4)">Athletic (very high)</button>
+            </ion-col>
           </ion-row>
-
-
         </ion-slide>
 
         <ion-slide>
@@ -143,20 +105,20 @@
           <ion-row>
             <ion-col col-1></ion-col>
             <ion-col col-4>
-              <button class="text-white" ion-button outline (click)="consist('vegitarion')">vegitarion</button>
+              <button ion-button [color]="dietbtn.one" (click)="consist('vegitarion',1)">vegitarion</button>
             </ion-col>
             <ion-col col-6>
-              <button class="text-white" ion-button outline (click)="consist('Non-vegitarion')">Non-vegitarion</button>
+              <button ion-button [color]="dietbtn.two" (click)="consist('Non-vegitarion',2)">Non-vegitarion</button>
             </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col col-1></ion-col>
-              <ion-col col-4>
-                  <button class="text-white" ion-button outline (click)="consist('Eggetarien')">Eggetarien</button>
-                </ion-col>
-                <ion-col col-4>
-                  <button class="text-white" ion-button outline (click) ="consist('vegan')">vegan</button>
-                </ion-col>
+            <ion-col col-1></ion-col>
+            <ion-col col-4>
+              <button ion-button [color]="dietbtn.three" (click)="consist('Eggetarien',3)">Eggetarien</button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button [color]="dietbtn.four" (click)="consist('vegan',4)">vegan</button>
+            </ion-col>
           </ion-row>
         </ion-slide>
 
@@ -164,44 +126,37 @@
           <h3 class="text-white margin-top">What is your profission?</h3>
           <ion-row>
             <ion-col col-5>
-              <button class="text-white" ion-button outline (click)="profission('IT Professional')">IT Professional</button>
+              <button ion-button [color]="professionbtn.one" (click)="profission('IT Professional',1)">IT Professional</button>
             </ion-col>
-           
             <ion-col col-7>
-              <button class="text-white" ion-button outline (click)="profission('Medical Professional')">Medical Professional</button>
+              <button ion-button [color]="professionbtn.two" (click)="profission('Medical Professional',2)">Medical Professional</button>
             </ion-col>
           </ion-row>
           <ion-row>
-            
-              <ion-col col-6>
-                <button class="text-white" ion-button outline (click)="profission('Banking Professional')">Banking Professional</button>
-              </ion-col>
-              <ion-col col-6>
-                <button class="text-white" ion-button outline (click)="profission('Education')">Education</button>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-            
-                <ion-col col-4>
-                  <button class="text-white" ion-button outline (click)="profission('Student')">Student</button>
-                </ion-col>
-                <ion-col col-4>
-                  <button class="text-white" ion-button outline (click)="profission('Home-maker')">Home-maker</button>
-                </ion-col>
-                <ion-col col-4>
-                    <button class="text-white" ion-button outline (click)="profission('Other')">Other</button>
-                  </ion-col>
-              </ion-row>
+            <ion-col col-6>
+              <button ion-button [color]="professionbtn.three" (click)="profission('Banking Professional',3)">Banking Professional</button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button [color]="professionbtn.four" (click)="profission('Education',4)">Education</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <button ion-button [color]="professionbtn.five" (click)="profission('Student',5)">Student</button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button [color]="professionbtn.six" (click)="profission('Home-maker',6)">Home-maker</button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button [color]="professionbtn.seven" (click)="profission('Other',7)">Other</button>
+            </ion-col>
+          </ion-row>
         </ion-slide>
-       
-
-
-
-
 
       </ion-slides>
     </ion-col>
   </ion-row>
+
   <ion-row class="row-height-10">
   </ion-row>
 </ion-content>

@@ -4,76 +4,66 @@
       <ion-item class="background-transparent height-56 margin-auto screen-bg" no-lines>
         <ion-row>
           <ion-col col-1>
-            <!-- <ion-icon class="text-white" name="close"></ion-icon> -->
-            <!-- <button ion-button name="ios-close-outline" (click)="closeModal()" > -->
-                <ion-icon class="text-white" item-right name="ios-close-outline"(click)="closeModal()" ></ion-icon>
-            <!-- </button> -->
+            <ion-icon class="text-white" item-right name="ios-close-outline" (click)="closeModal()"></ion-icon>
           </ion-col>
           <ion-col col-5>
             <h5 class="text-white">Personal</h5>
-            <!-- <p class="text-white">{{totalQuestion}} questions left</p> -->
           </ion-col>
           <ion-col col-3>
             <button type="submit" float-left ion-button clear class="btnPrev text-white" (click)="prev()">Prev</button>
-
           </ion-col>
           <ion-col col-3>
             <button *ngIf="!showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="next()">Next</button>
-            <button *ngIf="showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="save()">Save</button>
-           
+            <button *ngIf="showsave" type="submit" float-right ion-button clear class="btnNext text-white" (click)="save(personaldetails)">Save</button>
           </ion-col>
         </ion-row>
       </ion-item>
     </ion-col>
   </ion-row>
-  <ion-row  class="row-height-80">
+  <ion-row class="row-height-80">
     <ion-col>
       <ion-slides #slides (ionSlideDidChange)="slideChanged()">
-        <ion-slide >
-          <h3 class="text-white">What is your name?</h3>
-
-
-          <ion-item class="background-transparent">
-            <!-- <ion-label floating class="text-white">Username</ion-label> -->
-            <ion-input class="text-white" placeholder="Username" type="text" [(ngModel)]="personaldetails.name"></ion-input>
-          </ion-item>
-        </ion-slide>
-        <ion-slide >
-            <h3 class="text-white">What is your Mobilenumber?</h3>
-  
-  
-            <ion-item class="background-transparent">
-                <ion-label class="text-white">MobileNumber</ion-label>
-                <ion-input required type="number" [(ngModel)]="personaldetails.MobileNumber" ></ion-input>
-            </ion-item>
-          </ion-slide>
-
-          <ion-slide >
-              <h3 class="text-white">Which genger do you identity with?</h3>
-              <ion-row >
-                  <ion-col col-4 >
-                      <button class="text-white" ion-button outline (click)="gender('male')">Male</button>
-                  </ion-col>
-                  <ion-col col-4>
-                    <button class="text-white" ion-button outline (click)="gender('female')">Female </button>
-                </ion-col>
-                <ion-col col-4>
-                    <button class="text-white" ion-button outline (click)="gender('others')">Others</button>
-                </ion-col>
-                </ion-row>
-    
-              
-            </ion-slide>
 
         <ion-slide>
-          <ion-slide>
-            <h3 class="text-white margin-top">What is your email id?</h3>
-            <ion-item class="background-transparent">
-              <!-- <ion-label floating class="text-white">Username</ion-label> -->
-              <ion-input class="text-white" placeholder="Ente Email id" type="text" [(ngModel)]="personaldetails.emailid"></ion-input>
-            </ion-item>
-          </ion-slide>
+          <h3 class="text-white">What is your name?</h3>
+          <ion-item class="background-transparent">
+            <ion-input class="text-white" placeholder="Username" type="text" [(ngModel)]="personaldetails.user_name"></ion-input>
+          </ion-item>
+        </ion-slide>
 
+        <ion-slide>
+          <h3 class="text-white">What is your Mobilenumber?</h3>
+          <ion-item class="background-transparent">
+            <ion-label class="text-white">MobileNumber</ion-label>
+            <ion-input required type="number" [(ngModel)]="personaldetails.mobile"></ion-input>
+          </ion-item>
+        </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white">Which genger do you identity with?</h3>
+          <ion-row>
+            <ion-col col-4>
+              <button [color]="genderstatus.male" ion-button block (click)="gender('male')">Male</button>
+            </ion-col>
+            <ion-col col-4>
+              <button [color]="genderstatus.female" ion-button block (click)="gender('female')">Female </button>
+            </ion-col>
+            <ion-col col-4>
+              <button [color]="genderstatus.others" ion-button block (click)="gender('others')">Others</button>
+            </ion-col>
+          </ion-row>
+        </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white margin-top">What is your email id?</h3>
+          <form [formGroup]="personalform">
+            <ion-item class="background-transparent">
+              <ion-input class="text-white" formControlName="email" placeholder="Enter Email id" type="text" [(ngModel)]="personaldetails.email"
+                required>
+              </ion-input>
+            </ion-item>
+            <p class="text-white" style="font-size: 10px" *ngIf="email.hasError('required') && email.touched && email.hasError('pattern')">*Enter Valid Email</p>
+          </form>
         </ion-slide>
 
         <ion-slide>
@@ -84,45 +74,39 @@
           </ion-item>
         </ion-slide>
 
-
         <ion-slide>
           <h3 class="text-white margin-top">What is your blood group?</h3>
           <ion-col>
             <ion-row>
               <ion-col col-1></ion-col>
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('A+')">A+</button>
+                <button class="btn" ion-button [color]="selectedA1" (click)="blood('A+')">A+</button>
               </ion-col>
-
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('A-')">A-</button>
+                <button class="btn" ion-button [color]="selectedA2" (click)="blood('A-')">A-</button>
               </ion-col>
-
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('B+')">B+</button>
+                <button class="btn" ion-button [color]="selectedB1" (click)="blood('B+')">B+</button>
               </ion-col>
-
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('B-')">B-</button>
+                <button class="btn" ion-button [color]="selectedB2" (click)="blood('B-')">B-</button>
               </ion-col>
-
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('O+')">O+</button>
+                <button class="btn" ion-button [color]="selectedO1" (click)="blood('O+')">O+</button>
               </ion-col>
+              <ion-col col-1></ion-col>
             </ion-row>
             <ion-row>
               <ion-col col-3></ion-col>
-
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('O-')">O-</button>
+                <button class="btn" ion-button [color]="selectedO2" (click)="blood('O-')">O-</button>
               </ion-col>
-
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('A+')">A+</button>
+                <button class="btn" ion-button [color]="selectedAB1" (click)="blood('AB+')">AB+</button>
               </ion-col>
               &nbsp;&nbsp;
               <ion-col col-2>
-                <button class="btn" ion-button color="light" (click)="blood('A-')">A-</button>
+                <button class="btn" ion-button [color]="selectedAB2" (click)="blood('AB-')">AB-</button>
               </ion-col>
               <ion-col col-2></ion-col>
             </ion-row>
@@ -131,73 +115,61 @@
 
         <ion-slide>
           <h3 class="text-white margin-top">Are you married?</h3>
-        <ion-col>
-          <ion-row>
-          <ion-col col-6>
-              <button ion-button color="light" (click)="married('single')">Single</button>
+          <ion-col>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button [color]="martialstatus.single" (click)="married('single')">Single</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button [color]="martialstatus.married" (click)="married('married')">Married </button>
+              </ion-col>
+            </ion-row>
           </ion-col>
-          <ion-col col-6>
-            <button ion-button color="light" (click)="married('married')">Married </button>
-        </ion-col>
-        </ion-row>
-      </ion-col>
-          
         </ion-slide>
+
         <ion-slide>
           <h3 class="text-white margin-top">What is your height?</h3>
-         <ion-row>
-          <ion-item class="background-transparent">
-              <!-- <ion-label floating class="text-white">Username</ion-label> -->
+          <ion-row>
+            <ion-item class="background-transparent">
               <ion-input class="text-white" placeholder="feet" type="number" [(ngModel)]="personaldetails.feet"></ion-input>
             </ion-item>
           </ion-row>
           <ion-row>
-              <ion-item class="background-transparent">
-                  <!-- <ion-label floating class="text-white">Username</ion-label> -->
-                  <ion-input class="text-white" placeholder="inches" type="number" [(ngModel)]="personaldetails.inches" ></ion-input>
-                </ion-item>
-              </ion-row>
-        </ion-slide>
-         <ion-slide>
-            <h3 class="text-white margin-top">how much do you weight?</h3>
-            <h3 float-center class="text-white">(in Kgs)</h3>
             <ion-item class="background-transparent">
-              <!-- <ion-label floating class="text-white">Username</ion-label> -->
-              <ion-input class="text-white" placeholder="Kg" type="number" [(ngModel)]="personaldetails.weight"></ion-input>
+              <ion-input class="text-white" placeholder="inches" type="number" [(ngModel)]="personaldetails.inches"></ion-input>
             </ion-item>
-          </ion-slide>
-          <ion-slide>
-              <h3 class="text-white margin-top ">Who is your emergency contact?</h3>
-              
-              <ion-list inset class="margin-top-150 background-transparent text-white">
-                  <ion-item class="background-transparent">
-                      <!-- <ion-label>country</ion-label> -->
-                      <ion-select class="full-width" style="margin:0px !important" [(ngModel)]="personaldetails.contact">
-                        <ion-option value="+91" selected="true">India</ion-option>
-                        <ion-option value="+65">singapur</ion-option>
-                        <ion-option value="xcheese">Extra Cheese</ion-option>
-                        <ion-option value="peppers">Green Peppers</ion-option>
-                        <ion-option value="mushrooms">Mushrooms</ion-option>
-                        <ion-option value="onions">Onions</ion-option>
-                        <ion-option value="pepperoni">Pepperoni</ion-option>
-                        <ion-option value="pineapple">Pineapple</ion-option>
-                        <ion-option value="sausage">Sausage</ion-option>
-                        <ion-option value="Spinach">Spinach</ion-option>
-                      </ion-select>
-                    </ion-item>
-                    <!-- <ion-row> -->
-                      <ion-item class="full-width background-transparent" style=" margin-left: 14px;">
-                          <ion-label class="text-white">MobileNumber</ion-label>
-                        <ion-input required type="number" [(ngModel)]="personaldetails.emergencycontact" ></ion-input>
-                      </ion-item>
-            </ion-list>
-           </ion-slide>
+          </ion-row>
+        </ion-slide>
 
+        <ion-slide>
+          <h3 class="text-white margin-top">how much do you weight?</h3>
+          <h3 float-center class="text-white">(in Kgs)</h3>
+          <ion-item class="background-transparent">
+            <ion-input class="text-white" placeholder="Kg" type="number" [(ngModel)]="personaldetails.weight"></ion-input>
+          </ion-item>
+        </ion-slide>
+
+        <ion-slide>
+          <h3 class="text-white margin-top ">Who is your emergency contact?</h3>
+          <ion-list inset class="margin-top-150 background-transparent text-white">
+            <ion-item class="background-transparent">
+              <ion-label class="text-white margin-left">Select Country</ion-label>
+              <ion-select interface="action-sheet" [selectOptions]="selectOptions" [(ngModel)]="personaldetails.country">
+                <ion-option *ngFor="let country of countryList" value="{{country.countryname}}">{{country.countryname}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item class="full-width background-transparent" style=" margin-left: 14px;">
+              <ion-input required type="number" class="text-white border-bottom" placeholder="Mobile Number" [(ngModel)]="personaldetails.emergency_contact_mobile"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-slide>
 
       </ion-slides>
+
     </ion-col>
   </ion-row>
   <ion-row class="row-height-10">
-    
+
   </ion-row>
 </ion-content>

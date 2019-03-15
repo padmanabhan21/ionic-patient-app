@@ -1,21 +1,6 @@
-<!--
-  Generated template for the PersonalPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>personal</ion-title>
-  </ion-navbar>
-
-</ion-header> -->
-
-
 <ion-content (click)="navprofilecomplete()">
-  <ion-list *ngFor="let personal of personalprofile">
-    <!-- //name -->
+  <ion-list>
+    <!-- name -->
     <ion-item>
       <ion-row>
         <ion-col col-9>
@@ -23,42 +8,47 @@
             Name
           </ion-row>
           <ion-row>
-            {{name}}
+            <p>
+              {{personalprofile.user_name}}
+            </p>
           </ion-row>
         </ion-col>
         <ion-col col-3>
           <ion-avatar item-right>
-            <img  class="width-69" [src]="personal.img">
+            <img class="width-69" src="../assets/img/user_profile.png">
           </ion-avatar>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- mobile Numbe  -->
     <ion-item>
       <ion-row>
         <ion-col col-8>
           <!-- <ion-row> -->
-         Mobile Number
+          Mobile Number
           <!-- </ion-row> -->
         </ion-col>
         <ion-col col-4>
-          <p placeholder=" enter your number">{{mobile}}</p>
+          <p placeholder=" enter your number">{{personalprofile.mobile}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- Email-id -->
     <ion-item>
       <ion-row>
         <ion-col col-8>
           <ion-row>
-            Email_id
+            Email id
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="Emter your gmail id">{{email}}</p>
+          <p placeholder="Enter your email id">{{personalprofile.email}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- Gender -->
     <ion-item>
       <ion-row>
@@ -68,23 +58,25 @@
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="add gender">{{personal.Gender}}</p>
+          <p placeholder="add gender">{{personalprofile.gender}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- dateofbirth -->
     <ion-item>
       <ion-row>
         <ion-col col-8>
           <ion-row>
-           Date of birth
+            Date of birth
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="Emter your date_of_birth">{{personal.Date_of_birth}}</p>
+          <p placeholder="Emter your date_of_birth">{{personalprofile.birthday}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- bloodgroup -->
     <ion-item>
       <ion-row>
@@ -94,10 +86,11 @@
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="Emter your date_of_birth">{{personal.Blood_group}}+</p>
+          <p placeholder="Emter your date_of_birth">{{personalprofile.blood_group}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- marital status -->
     <ion-item>
       <ion-row>
@@ -107,10 +100,11 @@
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="add marital status">{{personal.Martialstatus}}</p>
+          <p placeholder="add marital status">{{personalprofile.married_status}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- Height -->
     <ion-item>
       <ion-row>
@@ -120,10 +114,11 @@
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="add Height">{{personal.Height}} inches</p>
+          <p placeholder="add Height">{{personalprofile.height}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- Weight -->
     <ion-item>
       <ion-row>
@@ -133,10 +128,11 @@
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="add Weight">{{personal.Weight}} (kg)</p>
+          <p placeholder="add Weight">{{personalprofile.weight}} (kg)</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- Emergency Contact -->
     <ion-item>
       <ion-row>
@@ -146,23 +142,25 @@
           </ion-row>
         </ion-col>
         <ion-col col-4>
-          <p placeholder="add emergency details">{{personal.Emergency_contact}}</p>
+          <p placeholder="add emergency details">{{personalprofile.emergency_contact_mobile}}</p>
         </ion-col>
       </ion-row>
     </ion-item>
+
     <!-- Location -->
     <ion-item>
-        <ion-row>
-          <ion-col col-8>
-            <ion-row>
-           Location
-            </ion-row>
-          </ion-col>
-          <ion-col col-4>
-            <p placeholder="add Location">{{personal.Location}}</p>
-          </ion-col>
-        </ion-row>
-      </ion-item>
+      <ion-row>
+        <ion-col col-8>
+          <ion-row>
+            Location
+          </ion-row>
+        </ion-col>
+        <ion-col col-4>
+          <p placeholder="add Location">{{personalprofile.country}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
   </ion-list>
 </ion-content>
 <ion-footer>

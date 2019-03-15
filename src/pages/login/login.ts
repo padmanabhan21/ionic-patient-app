@@ -58,7 +58,7 @@ export class LoginPage {
 
     this.http.get('assets/data/countrylist.json').subscribe((data:any) => {
       this.countryList = data;
-      console.log("Reading Json from asset file",JSON.stringify(this.countryList));
+      // console.log("Reading Json from asset file",JSON.stringify(this.countryList));
     });
     //formgroup 
     this.loginform = formbuilder.group({
@@ -100,9 +100,7 @@ export class LoginPage {
       }
       else if(this.login_resp == "RIUS"){
         this.updateprofile(param);
-        this.session.store("user_mobile",param.mobile);
-        this.session.store("user_name",param.name);
-        this.session.store("user_country",param.countrycode);
+        
         // alert("user updated successfully");
       }
       else{
@@ -117,6 +115,9 @@ export class LoginPage {
     .subscribe((resp:any) =>{
       this.update_resp = resp.Message_Code;
       if(this.update_resp == "RUS"){
+        this.session.store("user_mobile",param.mobile);
+        this.session.store("user_name",param.name);
+        this.session.store("user_country",param.countrycode);
         // this.navCtrl.push(OtpverifyPage,{"user_login_data":param});
         this.navCtrl.push('TabsPage');
       }
