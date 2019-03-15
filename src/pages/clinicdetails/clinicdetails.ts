@@ -5,6 +5,7 @@ import { IonicPage, NavController, NavParams, ActionSheetController, ModalContro
 import { AlltimingsPage } from '../alltimings/alltimings';
 import{ClinicordoctorservicePage} from'../clinicordoctorservice/clinicordoctorservice';
 import { DoctorsdetailsPage } from '../doctorsdetails/doctorsdetails';
+import { CallNumber } from '@ionic-native/call-number';
 
 /**
  * Generated class for the ClinicdetailsPage page.
@@ -35,7 +36,7 @@ export class ClinicdetailsPage {
   public clinic_services:any[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public actionsheetCtrl: ActionSheetController,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,private callNumber: CallNumber) {
       this.clinic = this.navParams.get("clinicdetails");
       this.clinic_details = this.clinic.clinic_details;
           console.log("clinic detailsssssssssssssss",JSON.stringify(this.clinic_details))
@@ -79,6 +80,13 @@ export class ClinicdetailsPage {
   clinicservices(){
     let clinicservices = this.modalCtrl.create(ClinicordoctorservicePage,{"clinicservices":this.clinic_services,"clinic_name":this.clinic_name});
     clinicservices.present();
+
+  }
+  // call number
+  callnumber(){
+    this.callNumber.callNumber("9700820429", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
 
   }
   //google maps
