@@ -1,20 +1,26 @@
 page-profile-complete-slider {
-    // .margin-top{
-    //     margin-top: 197px !important;
-    // }
-
-
-        
-            .btn {
-                display:block;
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
-                border: 1px ;
-              }
-
-       
-
+    .btn {
+        display:block;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 1px ;
+        }
+        .text-input-md{
+            color:white;
+        }
+        .margin-left{
+            margin-left: 8px !important;
+        }
+        .border-bottom{
+            border-bottom: solid 1px;
+        }
+        ::-webkit-input-placeholder {
+            color: white !important;
+        }
+        ion-item{
+            color: #fff !important;
+        }
 }
 
 ion-slides {

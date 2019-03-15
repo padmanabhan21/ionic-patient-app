@@ -4,20 +4,13 @@ import { ProfileCompleteSliderPage } from '../profile-complete-slider/profile-co
 import {SessionStorageService} from 'ngx-webstorage';
 import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the PersonalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-personal',
   templateUrl: 'personal.html',
 })
 export class PersonalPage {
-  public personalprofile:any=[]
+  public personalprofile:any={}
   public personalprofiletemp:any={}
 
   public name;
@@ -28,36 +21,36 @@ export class PersonalPage {
               public modalCtrl: ModalController,
               public session:SessionStorageService,
               public storage: Storage ) {
+      
+      this.personalprofile=
+        {
+          "info":"personal",
+          "user_name":"Enter your name",
+          "img":"../assets/img/bala.jpg",
+          "mobile":"Enter your number",
+          "email":"Enter your email id",
+          "gender":"Choose gender",
+          "birthday":"Enter your DOB",
+          "blood_group":"Choose your blood group",
+          "married_status":"Select Martial Status",
+          "height":"in feet and inches",
+          "weight":"in kg",
+          "emergency_contact_mobile":"Enter emergency contact",
+          "country":"Choose location",
+        }     
   }
 
   ionViewDidLoad() {
     this.storage.get('personal-profile').then((val:any) =>{
-      this.personalprofiletemp = JSON.parse(val);
-      this.personalprofile.push(this.personalprofiletemp);
+      if(val){
+        this.personalprofile = JSON.parse(val);
+        console.log("We found your profile-records in storage**********",this.personalprofile);
+      }
+      else{
+        console.log("We couldn't find your profile-records in storage**********");
+      }
     })
     console.log('ionViewDidLoad PersonalPage');
-    // this.name = this.session.retrieve("user_name");
-    // this.mobile = this.session.retrieve("user_mobile");
-    // this.email = this.session.retrieve("user_email")
-    this.personalprofile=[
-      {
-        info:"personal",
-        name:"Enter your name",
-        img:"../assets/img/bala.jpg",
-        contact_number:"Enter your number",
-        Email_id:"Enter your email id",
-        Gender:"Choose gender",
-        Date_of_birth:"Enter your DOB",
-        Blood_group:"Choose your blood group",
-        Martialstatus:"Select Martial Status",
-        Height:"in feet and inches",
-        Weight:"in kg",
-        Emergency_contact:"Enter emergency contact",
-        Location:"Choose location",
-      } 
-    ]
-    // console.log("completeprofile keys",this.personalprofile)
-    // console.log("emial_id",this.email);
   }
 
   navprofilecomplete(){

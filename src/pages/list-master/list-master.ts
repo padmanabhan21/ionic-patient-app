@@ -53,8 +53,5 @@ export class ListMasterPage {
         });
         toast.present();
     }
-
   }
-
-
 }
