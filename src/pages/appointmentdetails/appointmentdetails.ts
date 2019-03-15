@@ -199,7 +199,7 @@ export class AppointmentdetailsPage {
   }
 
   shareWhatsApp(){
-    this.socialSharing.shareViaWhatsApp(this.mobile, null, this.url).then(() =>{
+    this.socialSharing.shareViaWhatsApp(this.sheredetails, null, this.url).then(() =>{
       alert("whatsapp share done");
     }).catch(e => {
       alert(e);
