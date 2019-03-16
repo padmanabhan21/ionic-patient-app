@@ -178,7 +178,7 @@ export class AppointmentdetailsPage {
     let file = await this.resolveLocalFile();
     console.log('FILE:', file);
     this.socialSharing.shareViaEmail("This is my message", 
-    'my subject', ['infocuit.venkateshn@gmail.com'], null, null, file.nativeURL).then(() =>{
+    'my subject', ['infocuit.venkateshn@gmail.com'], this.sheredetails, null, file.nativeURL).then(() =>{
       this.removeTempFile(file.name);
       alert("email share done");
     }).catch(e => {
@@ -190,7 +190,7 @@ export class AppointmentdetailsPage {
     let file = await this.resolveLocalFile();
     console.log('FILE:', file);
 
-    this.socialSharing.shareViaFacebook(null, file.nativeURL, this.url).then(() =>{
+    this.socialSharing.shareViaFacebook(this.sheredetails, file.nativeURL, this.url).then(() =>{
       this.removeTempFile(file.name);
       alert("fb share done");
     }).catch(e => {
