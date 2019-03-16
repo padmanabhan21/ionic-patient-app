@@ -4,6 +4,8 @@ import { PatientServiceProvider } from '../../providers/patient-service/patient-
 import { AppointmentdetailsPage } from '../appointmentdetails/appointmentdetails';
 import { SessionStorageService } from 'ngx-webstorage';
 
+import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
+
 declare var google:any;
 @IonicPage()
 @Component({
@@ -33,12 +35,18 @@ export class EnterPatientDetailsPage {
   public location_lat;
   public location_long;
   public sheremsg:any={};
+   //form validation
+   loginform:FormGroup;
+  //  country:AbstractControl;
+  //  mobile:AbstractControl;
+   email:AbstractControl;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public modalCtrl:ModalController,
               public api:PatientServiceProvider,
               public session:SessionStorageService,
+              public formbuilder: FormBuilder,
               public actionsheetCtrl:ActionSheetController,
               ) {
       this.appointment_details = this.navParams.get("doctor_details");
@@ -46,6 +54,15 @@ export class EnterPatientDetailsPage {
       this.qualification = this.appointment_details.qualification;
       this.experience =this.appointment_details.experience;
       console.log("qualification"+this.qualification,"experience"+this.experience)
+
+      //formgroup 
+  this.loginform = formbuilder.group({
+    // country:['',Validators.required],
+    // mobile:['',[Validators.required,Validators.minLength(10)]],
+    email:['',Validators.required]
+    
+  });
+  this.email = this.loginform.controls['email'];
   }
   @ViewChild('map') mapRef: ElementRef;
 
@@ -132,6 +149,7 @@ export class EnterPatientDetailsPage {
       });
     }
   }
+   
   
   sendSmsOnAppointmentConfirm(param){
     this.api.sendconfirmation(param)
@@ -143,6 +161,8 @@ export class EnterPatientDetailsPage {
       }
     })
   }
+
+  
 
   DisplayMap(){
     const location = new google.maps.LatLng(this.location_lat,this.location_long);

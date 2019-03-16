@@ -192,13 +192,18 @@
       </ion-col>
     </ion-list> -->
     
-    <ion-row>
+    
+      <form [formGroup]="loginform">
+        <ion-col col-12>
       <p class="margin-14">Email</p>
       <ion-item>
-        <!-- <ion-label stacked><b>Full name*</b></ion-label> -->
-        <ion-input type="text" [(ngModel)]="emai_id"></ion-input>
+        <ion-input type="email" formControlName="email" [(ngModel)]="emai_id"></ion-input>
       </ion-item>
-    </ion-row>
+      <p class="text-white" style="font-size: 10px" *ngIf="email.hasError('required') && email.touched">*Email id is must</p>
+      <p class="text-white" style="font-size: 10px" *ngIf="email.hasError('minlength') && email.touched">*Enter Valid email </p>
+    </ion-col>
+    </form>
+    
     <ion-item>
       <ion-row>
         <p class="margin-note">Note:All charges are Payable at Hospital/Clinic</p>
