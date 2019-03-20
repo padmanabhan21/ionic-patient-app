@@ -1,48 +1,87 @@
-<!--
-  Generated template for the SearchdoctorPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header class="screen-bg">
   <ion-row>
-        <ion-icon name="arrow-back" class="text-white padding-10 font-24" (click)="closeModal()"></ion-icon>
-        <h6 class="text-white" class="margin-left-10 text-white">Find & Book</h6>  
-        <p *ngIf="location" class="text-white" style="position: absolute;right: 10%;padding: 2px;">{{country}}</p>
-        <ion-icon class="text-white" name="locate" (click)="showlocation()" style="position: absolute;right:0;padding: 15px;font-size: 20px;"></ion-icon>  
+    <ion-icon name="arrow-back" class="text-white padding-10 font-24" (click)="closeModal()"></ion-icon>
+    <h6 class="text-white" class="margin-left-10 text-white">Find & Book</h6>
+    <p *ngIf="location" class="text-white" style="position: absolute;right: 10%;padding: 2px;">{{country}}</p>
+    <ion-icon class="text-white" name="locate" (click)="showlocation()"
+      style="position: absolute;right:0;padding: 15px;font-size: 20px;"></ion-icon>
   </ion-row>
   <ion-row>
-    <ion-searchbar showCancelButton="true"
-                   (ionChange)="search()" [(ngModel)]="searchTerm"></ion-searchbar>
+    <ion-searchbar showCancelButton="true" (ionChange)="search(searchTerm)" [(ngModel)]="searchTerm"></ion-searchbar>
   </ion-row>
-
 </ion-header>
 <ion-content>
-  <ion-row *ngIf="showclincanddoctors">
-    <h4 style="background-color: #d6d6d6">
-        Clinic List
-    </h4>
-    <ion-list >
-      <ion-item *ngFor="let hospital of hospitals">
-        {{hospital.business_name}}
-      </ion-item>
-    </ion-list>
-  </ion-row>
-  <ion-row *ngIf="showclincanddoctors">
-      <h4 style="background-color: #d6d6d6">
-          Doctor List
-      </h4>
-      <ion-list>
-        <ion-item *ngFor="let doctor of doctors">
-          {{doctor.doctor_name}}
-        </ion-item>
-      </ion-list>
+  <ion-scroll [ngStyle]="{'display': showclinicanddoctors}" scrollX="true" style="white-space:nowrap;height:210px;">
+    <ion-row>
+      <ion-col>
+        <ion-card class="clinicscroll" *ngFor="let clinic of filterclinic" style="margin-right: 5px !important;">
+          <ion-row>
+            <ion-col col-3>
+              <ion-avatar height="30" weight="30">
+                <img [src]="clinic.cli_img" style="height: 70px;" />
+              </ion-avatar>
+              <button ion-button small full color="secondary">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <p class="text-white">&nbsp;&nbsp;{{clinic.cli_like}}</p>
+              </button>
+              <p text-center class="font-12">{{clinic.cli_votes}} votes</p>
+              <p class="margin-top-15">{{clinic.area}}</p>
+              <p class="text-color-gold">{{clinic.cli_sponser}}</p>
+            </ion-col>
+            <ion-col col-9>
+              <h2>
+                <b>{{clinic.business_name}}</b>
+              </h2>
+              <div class="card-subtitle">{{clinic.cli_doc_count}} Doctor</div>
+              <ion-row>
+                <ion-col>
+                  <div class="card-subtitle">&#x20b9; {{clinic.fees}} onwards</div>
+                </ion-col>
+                <ion-col>
+                  <div class="card-subtitle">{{clinic.cli_feedback}} Feedback</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <img class="img-50hw" [src]="clinic.cli_subimages1" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" [src]="clinic.cli_subimages2" />
+                </ion-col>
+                <ion-col>
+                  <img class="img-50hw" [src]="clinic.cli_subimages3" />
+                </ion-col>
+                <ion-col col-4>
+                </ion-col>
+              </ion-row>
+              <ion-row class="margin-top-15">
+                <ion-col col-2>
+                </ion-col>
+                <ion-col col-8>
+                  <button ion-button class="small-case global-font" color="violetlight">Book Appointment</button>
+                </ion-col>
+                <ion-col col-2>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+            <ion-col col-7>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
     </ion-row>
-  <ion-row *ngIf="showspecialist">
+  </ion-scroll>
+  <ion-row [ngStyle]="{'display': showspecialist}">
     <ion-col col-6 *ngFor="let item of specialist" style="height:33.33%;">
-      <ion-card (click)="navspecialist(item)" style="border-radius:8px;text-align: center;white-space: nowrap;">
+      <ion-card (click)="navspecialist(item)" class="specialistcard">
         <ion-card-header class="padding-0">
-          <ion-card-title class="padding-0" style="border-bottom: 1px solid #d6d6d6;">
+          <ion-card-title class="padding-0" class="specialistcardtitle">
             <ion-row>
               <ion-col col-3>
               </ion-col>
@@ -55,10 +94,11 @@
           </ion-card-title>
         </ion-card-header>
 
-        <ion-card-content style="text-align: center;white-space: nowrap;">
+        <ion-card-content class="specialistcardcontent">
           <b>{{item.name | titlecase}}</b>
         </ion-card-content>
       </ion-card>
     </ion-col>
   </ion-row>
+
 </ion-content>

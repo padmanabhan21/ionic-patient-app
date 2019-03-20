@@ -138,11 +138,10 @@ export class EnterPatientDetailsPage {
                         " mins, contact - "+this.appointment_details.mobile +
                         " , address -"+this.datatoappointmentdet.hospital_address;
                     console.log("all details",JSON.stringify(this.message));
-                    this.session.store("appointmentdetailsmsg",this.message);
                    
   
           console.log("messageee",JSON.stringify(this.sheremsg));
-          this.sendSmsOnAppointmentConfirm(this.message);
+          this.sendSmsOnAppointmentConfirm(this.message.toLowerCase());
           console.log("Business_ID$$$$$$",this.business_id);
           console.log("Doctor_ID$$$$$$",this.doctor_id); 
         }
