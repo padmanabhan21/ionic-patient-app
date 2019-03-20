@@ -230,8 +230,6 @@ sendotp(param){
   .catch(this.handleError)  
 }
 
-
-
 //11.Verify OTP
 verifyotp(param){
   const headers = new Headers();
@@ -259,7 +257,7 @@ tokencancel(param): Observable<object[]> {
   let body =
   {
     "token_status":"Cancel",
-    "reason":"i have some work not avalable that day",
+    "reason":"Patient Cancelled the Appointment",
     "appointment_id":param
   }
 
@@ -267,9 +265,23 @@ tokencancel(param): Observable<object[]> {
     .map(this.extractData)
     .catch(this.handleError);
 }
+
+// 13. Insert Medical Prescription 
+insertMedicalDocs(uploadimage):Observable<object[]> {
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  const options = new RequestOptions({ headers: headers,withCredentials: true });
+
+  console.log(JSON.stringify(uploadimage));
+  alert(JSON.stringify(uploadimage));
+  return this.http.post('https://qczw3kbbdk.execute-api.us-east-1.amazonaws.com/uplodad_imagebase64',uploadimage,options)
+    .map(this.extractData)
+    .catch(this.handleError);
+}
+
   private extractData(res: Response) {
     let body = res.json();
-    console.log(JSON.stringify(body));
+    console.log("SUCCESS************",JSON.stringify(body));
     return body;
   }
 
@@ -281,7 +293,7 @@ tokencancel(param): Observable<object[]> {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
+    console.error("ERROR***********",errMsg);
     return Observable.throw(errMsg);
   }
 

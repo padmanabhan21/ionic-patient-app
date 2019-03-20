@@ -26,17 +26,29 @@ export class WelcomePage {
     private googlePlus: GooglePlus,
     private http: HttpClient) { }
 
+    ionViewDidLoad(){
+        this.logoutFromFB();
+    }
   //facebook login  
   loginFb(){
     //email,picture,username
-   this.fb.login(['email','public_profile']).then((response:FacebookLoginResponse) => {
-      this.fb.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)',[]).then(profile => {
+   this.fb.login(['email','public_profile','user_photos']).then((response:FacebookLoginResponse) => {
+     console.log("fblogin *******************",response);
+
+    //  if(response.status ==="connected"){
+    // var fb_id = response.authResponse.userID;
+    // var fb
+    //  }
+
+      this.fb.api('/me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)',[]).then(profile => {
         this.userData = {email:profile['email'],first_name:profile['first_name'],picture:profile['picture_large']['data']['url'],username:profile['name']};
         alert(JSON.stringify(this.userData));
         this.navCtrl.push(SocialLoginInputPage,{"loginDetails":this.userData});
       }).catch(e =>{
         console.log(e);
       })
+        // this.navCtrl.push(SocialLoginInputPage,{"loginDetails":response});
+
     })
   }
 

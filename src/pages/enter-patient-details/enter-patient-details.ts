@@ -165,7 +165,7 @@ export class EnterPatientDetailsPage {
   
 
   DisplayMap(){
-    const location = new google.maps.LatLng(this.location_lat,this.location_long);
+    const location = new google.maps.LatLng('17.38','78.48');
     const options = {
       center:location,
       zoom:15

@@ -190,7 +190,7 @@ export class AppointmentdetailsPage {
     let file = await this.resolveLocalFile();
     console.log('FILE:', file);
 
-    this.socialSharing.shareViaFacebook(this.sheredetails, file.nativeURL, this.url).then(() =>{
+    this.socialSharing.shareViaFacebook(null, this.sheredetails, this.url).then(() =>{
       this.removeTempFile(file.name);
       alert("fb share done");
     }).catch(e => {

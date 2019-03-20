@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-
+import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
+import { SessionStorageService} from 'ngx-webstorage';
 
 @IonicPage()
 @Component({
@@ -13,7 +13,9 @@ export class ProfileMedicalRecordsPage {
   
   base64Image:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public camera: Camera) {
+              public camera: Camera,
+              public api: PatientServiceProvider,
+              public session: SessionStorageService) {
   }
 
   ionViewDidLoad() {
@@ -33,9 +35,16 @@ export class ProfileMedicalRecordsPage {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options).then((imageData) => {
-      // Do something with the new photo
       this.base64Image = 'data:image/jpeg;base64,'+ imageData;
-      // alert(imageData);
+      console.info(this.base64Image);
+      let uploadimage = {
+        "mobile":this.session.retrieve("user_mobile"),
+        "base64":this.base64Image
+      }
+      this.api.insertMedicalDocs(uploadimage)
+      .subscribe((resp:any) =>{
+        alert(resp);
+      })
     }, (err) => {
      // Handle error
      console.log("Camera issue: " + err);

@@ -6,21 +6,30 @@
 -->
 <ion-header>
 
-    <ion-navbar color="main">
-        <ion-buttons item-start>
-          <button ion-button (click)="closeModal()">
-            <ion-icon name="arrow-back"></ion-icon>
-            <p class="margin-left-10">Medical records</p>
-    
-          </button>
-        </ion-buttons>
-    
-      </ion-navbar>
+  <ion-navbar color="main">
+    <ion-buttons item-start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+        <p class="margin-left-10">Medical records</p>
+
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <button ion-button outline (click)="takePicture()" color="violetlight">Take Picture From Camera</button>
-    <img [src]="base64Image" alt=""/>
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider color="light">Prescriptions</ion-item-divider>
+    <ion-col col-2>
+      <img src="../../assets/img/bjork-live.jpg" alt="" style="height:100px;width:100px;padding:10px;" />
+    </ion-col>
+  </ion-item-group>
+  <!-- <img [src]="base64Image" alt=""/> -->
 </ion-content>
+
+<ion-footer>
+  <button ion-button class="full-width" (click)="takePicture()" color="violetlight">Take Picture From Camera</button>
+</ion-footer>
