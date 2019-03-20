@@ -10,6 +10,8 @@ import {
 import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
 import { NgForOf } from '../../../node_modules/@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { AnonymousSubscription } from 'rxjs/Subscription';
 
 
 @IonicPage()
@@ -21,17 +23,17 @@ export class SearchdoctorPage {
 
   public location: boolean = false;
   public country: string;
-  public showspecialist: boolean = true;
-  public showclinicanddoctors: boolean = true;
+  public showspecialist:any = 'flex';
+  public showclinicanddoctors:any='none';
 
   public specialist: any = []
   searchdoctor: any = 0;
   public temp;
-  public hospitals:any=[];
-  public hospitalstemp:any=[];
-  public doctors:any=[];
-  public doctorstemp:any=[];
-  searchTerm : any="";
+  public hospitals: any = [];
+  public hospitalstemp: any = [];
+  public doctors: any = [];
+  public doctorstemp: any = [];
+  searchTerm: any = "";
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -49,23 +51,27 @@ export class SearchdoctorPage {
     });
     this.loading.present();
     this.getdoctorsandclinic();
-
   }
-  public filterclinic:any;
-  public filterdoctor:any;
-  search() {
-    this.showspecialist  = false;
-    this.showclinicanddoctors = false;
-    if(this.searchTerm === undefined){
-      return [];
+
+  public filterclinic: any =[];
+  public filterdoctor: any;
+  search(searchTerm) {
+    console.log("testtttt",searchTerm.length)
+    if (searchTerm == "" || searchTerm === undefined || searchTerm.length == 0) {
+      this.showspecialist = 'flex';
+      this.filterclinic=[];
+      this.showclinicanddoctors = 'none';
     }
-    else{
-      this.filterclinic = this.hospitals.filter((hospital)=>{
-        if(hospital.doctor_name.indexOf(this))
-        return hospital.doctor_name.indexOf(this.searchTerm.toLowerCase()) > -1;
+    else {
+      this.showclinicanddoctors= 'block';
+      this.showspecialist = 'none';
+      this.filterclinic = this.hospitals.filter((hospital) => {
+        return hospital.business_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
       })
-      console.log("filter Query************", this.filterclinic);
     }
+    console.log("filter Query************", this.filterclinic);
+    // }
+    // console.log("filter Query************", this.hospitals);
   }
 
   cancelsearch() {
@@ -118,17 +124,19 @@ export class SearchdoctorPage {
     this.api.specialist('summa')
       .subscribe((resp: any) => {
         this.specialist = resp.specialist;
-        for(var i=0;i<this.specialist.length;i++){
+        for (var i = 0; i < this.specialist.length; i++) {
           this.hospitalstemp.push(this.specialist[i].Listofdoctors[0].clinics);
-          this.doctorstemp.push(this.specialist[i].Listofdoctors[0].Doctors);      
+          this.doctorstemp.push(this.specialist[i].Listofdoctors[0].Doctors);
         }
-        for(var j=0;j<this.hospitalstemp.length;j++){
-          for(var i=0;i<this.hospitalstemp[j].length;i++){
+        for (var j = 0; j < this.hospitalstemp.length; j++) {
+          for (var i = 0; i < this.hospitalstemp[j].length; i++) {
             this.hospitals.push(this.hospitalstemp[j][i])
             this.doctors.push(this.doctorstemp[j][i])
           }
         }
         this.loading.dismiss();
+        console.log("HOSPITAL LIST****", this.hospitals.length);
+
       })
   }
 

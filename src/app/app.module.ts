@@ -96,7 +96,6 @@ import{MyappointmentdetailsPage} from '../pages/myappointmentdetails/myappointme
 //API service
 import { PatientServiceProvider } from '../providers/patient-service/patient-service';
 
-
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

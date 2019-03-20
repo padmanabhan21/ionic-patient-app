@@ -16,5 +16,46 @@ page-searchdoctor {
 .item-md.item-block .item-inner {
     padding: 0px !important;
 }
+.slide-size{
+    height: 226px !important;
+}
+.specialistcard{
+    border-radius:8px;
+    text-align: center;
+    white-space: nowrap;
+}
+.specialistcardtitle{
+    border-bottom: 1px solid #d6d6d6;
+}
+.specialistcardcontent{
+    text-align: center;white-space: nowrap;
+}
+.clinicscroll{
+    margin:0px !important;
+    display: -webkit-inline-box;
+    height: 200px;
+  }
+  .img-50hw{
+    height: 50px;
+    width: 50px;
+  }
+  .custom-icon-align{
+    font-size: 20px;
+    text-align: center;
+    top: 12px;
+  }
+  .doctor-list-padding{
+      padding: 0px !important;
+  }
+  .doctor-list-card{
+    height: 250px;
+      width: 100% !important;
+  }
+  .doctor-card-percen{
+      margin-top:-10px !important;
+  }
+  .doctor-list-row{
+    height: 170px;
+  }
 
 }
