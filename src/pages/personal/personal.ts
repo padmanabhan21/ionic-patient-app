@@ -41,6 +41,10 @@ export class PersonalPage {
   }
 
   ionViewDidLoad() {
+    
+    console.log('ionViewDidLoad PersonalPage');
+  }
+  ionViewWillEnter(){
     this.storage.get('personal-profile').then((val:any) =>{
       if(val){
         this.personalprofile = JSON.parse(val);
@@ -50,7 +54,6 @@ export class PersonalPage {
         console.log("We couldn't find your profile-records in storage**********");
       }
     })
-    console.log('ionViewDidLoad PersonalPage');
   }
 
   navprofilecomplete(){

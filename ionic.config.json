@@ -4,5 +4,9 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "id": "00beec4d"
+  "id": "00beec4d",
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "https://vjovhpgjpj.execute-api.us-east-1.amazonaws.com/presc"
+  }]
 }

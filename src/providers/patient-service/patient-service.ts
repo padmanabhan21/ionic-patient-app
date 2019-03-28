@@ -127,13 +127,19 @@ export class PatientServiceProvider {
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
 
-   let body=  {
-      "mobile":this.session.retrieve("user_mobile"),
-      "message":param,
-      "code":this.session.retrieve("user_country")
-    }
+  //  let body=  {
+  //     "mobile":this.session.retrieve("user_mobile"),
+  //     "message":param,
+  //     "code":this.session.retrieve("user_country")
+  //   }
 
-    return this.http.post('https://doctorappnew.herokuapp.com/SendMessge', body, options)
+  let body= {
+    "mobile": this.session.retrieve("user_mobile"),
+    "message":param,
+    "code":this.session.retrieve("user_country")
+  }
+    // return this.http.post('https://doctorappnew.herokuapp.com/SendMessge', body, options)
+    return this.http.post('https://iyy8syck06.execute-api.us-east-1.amazonaws.com/sendsms', body, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -268,13 +274,25 @@ tokencancel(param): Observable<object[]> {
 
 // 13. Insert Medical Prescription 
 insertMedicalDocs(uploadimage):Observable<object[]> {
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  const options = new RequestOptions({ headers: headers,withCredentials: true });
+  const headers = new Headers({'Content-Type':'application/json'});
+  let options = new RequestOptions({ headers: headers })
 
   console.log(JSON.stringify(uploadimage));
   alert(JSON.stringify(uploadimage));
+  // return this.http.post('https://qczw3kbbdk.execute-api.us-east-1.amazonaws.com/uplodad_imagebase64',uploadimage,options)
   return this.http.post('https://qczw3kbbdk.execute-api.us-east-1.amazonaws.com/uplodad_imagebase64',uploadimage,options)
+    .map(this.extractData)
+    .catch(this.handleError);
+}
+
+selectMedicalDocs():Observable<object[]>{
+  const headers = new Headers({'Content-Type':'application/json'});
+  let options = new RequestOptions({ headers: headers })
+
+  let body={
+    "dir_name":this.session.retrieve("user_mobile")
+  }
+  return this.http.post('https://fdnw67pfy2.execute-api.us-east-1.amazonaws.com/Get_Prescription',body,options)
     .map(this.extractData)
     .catch(this.handleError);
 }
