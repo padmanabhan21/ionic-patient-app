@@ -3,7 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
 import { SessionStorageService} from 'ngx-webstorage';
-import { PhotoViewer } from '@ionic-native/photo-viewer';
+// import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 @IonicPage()
 @Component({
@@ -15,7 +15,7 @@ export class ProfileMedicalRecordsPage {
   base64Image:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public camera: Camera,
-              private photoViewer: PhotoViewer,
+              // private photoViewer: PhotoViewer,
               public actionsheetCtrl: ActionSheetController,
               public api: PatientServiceProvider,
               public session: SessionStorageService) {
@@ -26,9 +26,9 @@ export class ProfileMedicalRecordsPage {
     this.selectMedicalRecords();
   }
 
-  showImage(param){
-    this.photoViewer.show(param);
-  }
+  // showImage(param){
+  //   this.photoViewer.show(param);
+  // }
   
   closeModal(){
     this.navCtrl.pop();
