@@ -19,6 +19,7 @@ export class LivefeedPage {
   public livefeedarr: any = [];
   public tolivefeedser: any = [];
   public subscription;
+  
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public api: PatientServiceProvider) {
