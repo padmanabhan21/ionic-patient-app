@@ -9,9 +9,6 @@ import {
 } from 'ionic-angular';
 import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
-import { NgForOf } from '../../../node_modules/@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { AnonymousSubscription } from 'rxjs/Subscription';
 
 
 @IonicPage()
@@ -70,8 +67,6 @@ export class SearchdoctorPage {
       })
     }
     console.log("filter Query************", this.filterclinic);
-    // }
-    // console.log("filter Query************", this.hospitals);
   }
 
   cancelsearch() {
@@ -139,22 +134,4 @@ export class SearchdoctorPage {
 
       })
   }
-
-  // presentLoadingCustom() {
-  //   let loading = this.loadingCtrl.create({
-  //     spinner: 'hide',
-  //     // content: ,
-  //     duration: 5000
-  //   });
-
-  //   loading.onDidDismiss(() => {
-  //     console.log('Dismissed loading');
-  //   });
-
-  //   loading.present();
-  // }
-  //specialist array
-
-
-
 }
