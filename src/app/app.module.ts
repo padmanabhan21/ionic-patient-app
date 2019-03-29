@@ -28,7 +28,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CallNumber } from '@ionic-native/call-number';
-import { PhotoViewer } from '@ionic-native/photo-viewer';
+// import { PhotoViewer } from '@ionic-native/photo-viewer';
 //SplashScreen (Yet to Do)
 
 //Slider
@@ -269,7 +269,7 @@ export function provideSettings(storage: Storage) {
     SocialSharing,
     BarcodeScanner,
     CallNumber,
-    PhotoViewer
+    // PhotoViewer
   ]
 })
 
