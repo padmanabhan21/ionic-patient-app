@@ -41,7 +41,7 @@ export class SocialLoginInputPage {
 
   navhomescreen(param){
     param.name = this.loginDetails.username;
-    alert(JSON.stringify(param));
+    // alert(JSON.stringify(param));
     this.api.loginUser(param)
     .subscribe((resp:any) =>{
       this.login_resp = resp.Message_Code;
@@ -51,13 +51,13 @@ export class SocialLoginInputPage {
         this.session.store("user_name",param.name);
         this.session.store("user_country",param.countrycode);
         this.navCtrl.push('TabsPage');
-        alert("user created successfully");
+        // alert("user created successfully");
       }
       else if(this.login_resp == "RIUS"){
         this.updateprofile(param);
         this.session.store("user_mobile",param.mobile);
         this.session.store("user_name",param.name);
-        alert("user updated successfully");
+        // alert("user updated successfully");
       }
       else{
         alert("please enter your mobile number");

@@ -11,7 +11,6 @@
       <button ion-button (click)="closeModal()">
         <ion-icon name="arrow-back"></ion-icon>
         <p class="margin-left-10">Medical records</p>
-
       </button>
     </ion-buttons>
 
@@ -23,13 +22,10 @@
 <ion-content>
   <ion-item-group>
     <ion-item-divider color="light">Prescriptions</ion-item-divider>
-    <ion-col col-2>
-      <img src="../../assets/img/bjork-live.jpg" alt="" style="height:100px;width:100px;padding:10px;" />
-    </ion-col>
+      <img *ngFor="let image of medicalprescription" [src]="image.img" alt="" style="height: 90px;width: 90px;padding: 1px;"  (click)="showImage(image.img)"/>
   </ion-item-group>
-  <!-- <img [src]="base64Image" alt=""/> -->
 </ion-content>
 
 <ion-footer>
-  <button ion-button class="full-width" (click)="takePicture()" color="violetlight">Take Picture From Camera</button>
+  <button ion-button class="full-width" (click)="imageupload()" color="violetlight">Upload Prescription</button>
 </ion-footer>
