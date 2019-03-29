@@ -11,10 +11,11 @@
   </ion-row>
 </ion-header>
 <ion-content>
+  <!-- show clinic -->
   <ion-scroll [ngStyle]="{'display': showclinicanddoctors}" scrollX="true" style="white-space:nowrap;height:210px;">
     <ion-row>
       <ion-col>
-        <ion-card class="clinicscroll" *ngFor="let clinic of filterclinic" style="margin-right: 5px !important;">
+        <ion-card class="clinicscroll" *ngFor="let clinic of filterclinic" style="margin-right: 5px !important;" (click)="clinicdetails(clinic)">
           <ion-row>
             <ion-col col-3>
               <ion-avatar height="30" weight="30">
@@ -77,6 +78,101 @@
       </ion-col>
     </ion-row>
   </ion-scroll>
+  <!-- show doctor -->
+  <ion-row [ngStyle]="{'display': showclinicanddoctors}">
+    <ion-col class="doctor-list-padding">
+      <ion-card class="doctor-list-card" *ngFor="let doctor of filterdoctor" (click)="navdoctorsdetails(doctor)">
+        <ion-row>
+          <ion-col>
+            <ion-row class="doctor-list-row">
+              <ion-col col-3>
+                <ion-avatar class="margin-top-5" height="30" weight="30">
+                  <img class="border-50" [src]="doctor.doc_img" style="height: 70px;" />
+                </ion-avatar>
+                <button ion-button small full color="secondary" class="doctor-card-percen">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <p class="text-white">&nbsp;&nbsp;{{doctor.doc_likes}}</p>
+                </button>
+                <p text-center class="font-12">{{doctor.doc_votes}} votes</p>
+              </ion-col>
+              <ion-col col-9>
+                <h2 class="margin-top-5">
+                  <b>{{doctor.doctor_name}}</b>
+                </h2>
+                <div class="card-subtitle margin-top-5">{{doctor.qualification}}</div>
+                <div class="card-subtitle margin-top-5">{{doctor.specialist}}</div>
+                <div class="card-subtitle margin-top-5">{{doctor.experience}} years of experience</div>
+                <div class="card-subtitle margin-top-5">{{doctor.doc_feedback}} Feedback</div>
+                <div class="card-subtitle margin-top-5">&#x20b9; {{doctor.consultationfees}}</div>
+                <div class="card-subtitle margin-top-5 font-12">Available on {{doctor.doc_available_date}}
+                  <b>at {{doctor.doc_available_location}}</b>
+                </div>
+                <div class="card-subtitle margin-top-5">
+                  <b>{{doctor.doc_hospital}}</b>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button outline color="violetlight" class="small-case full-width">View Profile</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="violetlight" class="small-case full-width">Book Appointment</button>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-row [ngStyle]="{'display': showclinicanddoctors}">
+      <ion-col class="doctor-list-padding">
+        <ion-card class="doctor-list-card" (click)="navdoctorsdetails(doctor)">
+          <ion-row>
+            <ion-col>
+              <ion-row class="doctor-list-row">
+                <ion-col col-3>
+                  <ion-avatar class="margin-top-5" height="30" weight="30">
+                    <img class="border-50" src="../../assets/imgs/logo.png" style="height: 70px;" />
+                  </ion-avatar>
+                  <button ion-button small full color="secondary" class="doctor-card-percen">
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <p class="text-white">&nbsp;&nbsp;10</p>
+                  </button>
+                  <p text-center class="font-12">20 votes</p>
+                </ion-col>
+                <ion-col col-9>
+                  <h2 class="margin-top-5">
+                    <b>siva</b>
+                  </h2>
+                  <div class="card-subtitle margin-top-5">mbbs</div>
+                  <div class="card-subtitle margin-top-5">aurvedha</div>
+                  <div class="card-subtitle margin-top-5">10 years of experience</div>
+                  <div class="card-subtitle margin-top-5">200 Feedback</div>
+                  <div class="card-subtitle margin-top-5">&#x20b9; 400</div>
+                  <div class="card-subtitle margin-top-5 font-12">Available on today
+                    <b>at chromepet</b>
+                  </div>
+                  <div class="card-subtitle margin-top-5">
+                    <b>summa hospital</b>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  <button ion-button outline color="violetlight" class="small-case full-width">View Profile</button>
+                </ion-col>
+                <ion-col col-6>
+                  <button ion-button color="violetlight" class="small-case full-width">Book Appointment</button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+  <!-- show specialist -->
   <ion-row [ngStyle]="{'display': showspecialist}">
     <ion-col col-6 *ngFor="let item of specialist" style="height:33.33%;">
       <ion-card (click)="navspecialist(item)" class="specialistcard">
