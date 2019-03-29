@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SessionStorageService } from 'ngx-webstorage';
+import {PatientServiceProvider} from '../../providers/patient-service/patient-service';
 
 import { Settings } from '../../providers';
 
@@ -20,6 +21,7 @@ import { ProfileMyPaymentPage } from '../profile-my-payment/profile-my-payment';
 
 import { ProfileCompleteSliderPage } from '../profile-complete-slider/profile-complete-slider';
 import{ProfileDashboardPage}from'../profile-dashboard/profile-dashboard';
+import { Camera,CameraOptions} from '@ionic-native/camera';
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
@@ -33,9 +35,11 @@ import{ProfileDashboardPage}from'../profile-dashboard/profile-dashboard';
 export class SettingsPage {
   // Our local settings object
   options: any;
+    public profilepic:any;
     public user_mobile_num;
     public user_name;
   settingsReady = false;
+    public base64:any;
 
   form: FormGroup;
   public profileOptions:any=[
@@ -64,8 +68,10 @@ export class SettingsPage {
   constructor(public navCtrl: NavController,
     public settings: Settings,
     public formBuilder: FormBuilder,
+    private camera:Camera,
     public navParams: NavParams,
     public translate: TranslateService,
+    public api: PatientServiceProvider,
     public session:SessionStorageService,
     public modalCtrl: ModalController) {
   }
@@ -111,6 +117,37 @@ export class SettingsPage {
     //   let offers = this.modalCtrl.create(ProfileOffersPage);
     //   offers.present();
     // }
+  }
+  takephoto(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      sourceType : this.camera.PictureSourceType.CAMERA,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth: 512,
+      targetHeight: 512,
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+    this.base64 =  imageData;
+     console.log("photo showing successfully",this.base64)
+    //  alert(myphoto);
+    let uploadimage = {
+      "mobile":this.session.retrieve("user_mobile"),
+      "base64":this.base64
+    }
+    this.api.insertMedicalDocs(uploadimage)
+    .subscribe((resp:any) =>{
+      this.profilepic = resp.body.url;
+      this.session.store("user_pic",this.profilepic);
+    })
+    }, (err) => {
+     // Handle error
+    });
+    
   }
 
   navprofilecomplete(){

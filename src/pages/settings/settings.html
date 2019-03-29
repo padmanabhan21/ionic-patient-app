@@ -6,10 +6,11 @@
         <ion-col width-33>
         </ion-col>
         <ion-col width-33>
-          <img class="border-round" src="../assets/img/bala.jpg" />
-
+          <!-- <img  class="border-round" src="../assets/img/bala.jpg" /> -->
+         <img align="center" class="border-round" [src]="profilepic" style="height:100px;width:100px" alt="no img">
         </ion-col>
         <ion-col width-33>
+          <button ion-button clear (click)="takephoto()" > take photo</button>
         </ion-col>
       </ion-row>
     </ion-grid>

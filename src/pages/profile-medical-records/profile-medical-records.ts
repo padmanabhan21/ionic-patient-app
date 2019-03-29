@@ -88,7 +88,6 @@ export class ProfileMedicalRecordsPage {
       }
       this.api.insertMedicalDocs(uploadimage)
       .subscribe((resp:any) =>{
-        alert(resp);
       })
     }, (err) => {
      //Handle error
@@ -103,4 +102,4 @@ export class ProfileMedicalRecordsPage {
       this.medicalprescription = resp.body.all_images;
     })
   }
-}
+} 

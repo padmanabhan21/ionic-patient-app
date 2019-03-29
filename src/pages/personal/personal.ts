@@ -42,6 +42,7 @@ export class PersonalPage {
   }
 
   ionViewDidLoad() {
+    this.personalprofile.img = this.session.retrieve("user_pic");
     console.log('ionViewDidLoad PersonalPage');
   }
 
