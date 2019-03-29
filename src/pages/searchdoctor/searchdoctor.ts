@@ -9,6 +9,8 @@ import {
 } from 'ionic-angular';
 import { ListofdoctorsPage } from '../listofdoctors/listofdoctors';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
+import{DoctorsdetailsPage}from'../doctorsdetails/doctorsdetails';
+import{ClinicdetailsPage}from'../clinicdetails/clinicdetails';
 
 
 @IonicPage()
@@ -64,9 +66,12 @@ export class SearchdoctorPage {
       this.showspecialist = 'none';
       this.filterclinic = this.hospitals.filter((hospital) => {
         return hospital.business_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-      })
+      });
+      this.filterdoctor = this.doctors.filter((doctor)=>{
+        return doctor.doctor_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      });
     }
-    console.log("filter Query************", this.filterclinic);
+    console.log("filter Query************", this.filterdoctor);
   }
 
   cancelsearch() {
@@ -111,6 +116,16 @@ export class SearchdoctorPage {
     navtodoc.present();
   }
 
+  navdoctorsdetails(param){
+    let doctorsdetails = this.modalctrl.create(DoctorsdetailsPage,{"doctordetails":param});
+    doctorsdetails.present();
+  }
+
+  clinicdetails(param){
+    let clinicdetails = this.modalctrl.create(ClinicdetailsPage,{"clinicdetails":param});
+    clinicdetails.present();
+  }
+
   closeModal() {
     this.navCtrl.pop();
   }
@@ -119,6 +134,7 @@ export class SearchdoctorPage {
     this.api.specialist('summa')
       .subscribe((resp: any) => {
         this.specialist = resp.specialist;
+        console.log("FULL LIST******",this.specialist);
         for (var i = 0; i < this.specialist.length; i++) {
           this.hospitalstemp.push(this.specialist[i].Listofdoctors[0].clinics);
           this.doctorstemp.push(this.specialist[i].Listofdoctors[0].Doctors);
@@ -126,11 +142,20 @@ export class SearchdoctorPage {
         for (var j = 0; j < this.hospitalstemp.length; j++) {
           for (var i = 0; i < this.hospitalstemp[j].length; i++) {
             this.hospitals.push(this.hospitalstemp[j][i])
-            this.doctors.push(this.doctorstemp[j][i])
-          }
+         }
+        }
+        for (var j = 0; j < this.doctorstemp.length; j++) {
+          for (var i = 0; i < this.doctorstemp[j].length; i++) {
+            if(this.doctorstemp[j].length == 0){
+
+            }else{
+              this.doctors.push(this.doctorstemp[j][i])
+            }
+         }
         }
         this.loading.dismiss();
         console.log("HOSPITAL LIST****", this.hospitals.length);
+        console.log("DOCTOR LIST****", this.doctors);
 
       })
   }
