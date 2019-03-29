@@ -40,6 +40,17 @@ export class MedicalPage {
 
   navmedicalslide(){
     let medicalslide = this.modalCtrl.create(MedicalslidePage);
+    medicalslide.onDidDismiss((data) => {
+      if (data === "success") {
+        this.storage.get('medical-profile').then((val: any) => {
+          if (val) {
+            this.medical = JSON.parse(val);
+          }
+          else {
+          }
+        })
+      }
+    })
     medicalslide.present();
   } 
 }

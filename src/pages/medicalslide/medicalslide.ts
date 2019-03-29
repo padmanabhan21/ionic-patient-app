@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
@@ -56,6 +56,7 @@ export class MedicalslidePage {
               public navParams: NavParams,
               public api: PatientServiceProvider,
               public storage: Storage,
+              public viewCtrl: ViewController,
               public session: SessionStorageService,
               public toastCtrl: ToastController) {
   }
@@ -73,7 +74,7 @@ export class MedicalslidePage {
   }
 
   closeModal(){
-    this.navCtrl.pop();
+    this.viewCtrl.dismiss("success");
   }
 
   illness(param){

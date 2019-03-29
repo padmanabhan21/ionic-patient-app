@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App, ViewController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { PatientServiceProvider } from '../../providers/patient-service/patient-service';
@@ -7,13 +7,6 @@ import { File } from '@ionic-native/file';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
-
-/**
- * Generated class for the ProfileCompleteSliderPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -38,6 +31,7 @@ export class ProfileCompleteSliderPage {
     "female": 'light',
     "others": 'light'
   }
+
   selectOptions = {
     title: 'Choose your country',
   };
@@ -68,11 +62,14 @@ export class ProfileCompleteSliderPage {
     "login_status": "",
     "emergency_contact_mobile": "",
   }
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public api: PatientServiceProvider,
     public http:HttpClient,
     public file: File,
+    public app:App,
+    public viewCtrl: ViewController,
     public formbuilder: FormBuilder,
     public toastCtrl: ToastController,
     public storage: Storage) {
@@ -85,7 +82,6 @@ export class ProfileCompleteSliderPage {
 
     this.email = this.personalform.controls['email'];
   
-
     this.http.get('assets/data/countrylist.json').subscribe((data: any) => {
       this.countryList = data;
     });
@@ -103,7 +99,7 @@ export class ProfileCompleteSliderPage {
   }
 
   closeModal() {
-    this.navCtrl.pop();
+    this.viewCtrl.dismiss('success');
   }
   public showsave: boolean = false;
   slideChanged() {
@@ -188,7 +184,7 @@ export class ProfileCompleteSliderPage {
       this.selectedAB2 = 'light';
     }
 
-    this.personaldetails.blood = param;
+    this.personaldetails.blood_group = param;
   }
 
 
@@ -205,7 +201,7 @@ export class ProfileCompleteSliderPage {
     else {
       this.martialstatus.married = 'light';
     }
-    this.personaldetails.married = param;
+    this.personaldetails.married_status = param;
   }
 
   save(personaldetails) {
@@ -229,6 +225,7 @@ export class ProfileCompleteSliderPage {
           this.storage.set('personal-profile', JSON.stringify(body));
           // console.log("personal details", JSON.stringify(this.personaldetails));
           this.showtoast('your profile has been updated');
+          // this.app.getRootNav().getActiveChildNav().select(0);
           this.closeModal();
         }
       });

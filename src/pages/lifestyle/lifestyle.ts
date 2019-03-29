@@ -36,6 +36,17 @@ export class LifestylePage {
 
   navlifestyleslide(){
     let lifestyleslide = this.modalCtrl.create(LifestyleslidePage);
+    lifestyleslide.onDidDismiss((data) => {
+      if (data === "success") {
+        this.storage.get('lifestyle-profile').then((val: any) => {
+          if (val) {
+            this.lifestyleprofile = JSON.parse(val);
+          }
+          else {
+          }
+        })
+      }
+    })
     lifestyleslide.present();
   }
 
