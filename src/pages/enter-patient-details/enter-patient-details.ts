@@ -141,7 +141,7 @@ export class EnterPatientDetailsPage {
                    
   
           console.log("messageee",JSON.stringify(this.sheremsg));
-          this.sendSmsOnAppointmentConfirm(this.message.toLowerCase());
+          // this.sendSmsOnAppointmentConfirm(this.message.toLowerCase());
           console.log("Business_ID$$$$$$",this.business_id);
           console.log("Doctor_ID$$$$$$",this.doctor_id); 
         }
@@ -150,16 +150,16 @@ export class EnterPatientDetailsPage {
   }
    
   
-  sendSmsOnAppointmentConfirm(param){
-    this.api.sendconfirmation(param)
-    .subscribe((resp:any) =>{
-      if(resp.Message_Code == "SSS"){
-        // this.message = resp.output;
-        alert("Message sent successful");
-        // console.log("SMS Sent Successfully",this.message);
-      }
-    })
-  }
+  // sendSmsOnAppointmentConfirm(param){
+  //   this.api.sendconfirmation(param)
+  //   .subscribe((resp:any) =>{
+  //     if(resp.Message_Code == "SSS"){
+  //       // this.message = resp.output;
+  //       alert("Message sent successful");
+  //       // console.log("SMS Sent Successfully",this.message);
+  //     }
+  //   })
+  // }
 
   
 

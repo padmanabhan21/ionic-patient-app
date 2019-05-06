@@ -19,6 +19,9 @@ import{LifestylePage}from'../lifestyle/lifestyle';
 export class ProfileDashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.navParams = navParams;
+      console.log(this.navParams);
   }
 
  
